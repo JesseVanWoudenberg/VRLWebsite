@@ -6,6 +6,6 @@
 
 @section('content')
 
-    gi
+    
 
 @endsection
