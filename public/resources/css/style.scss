@@ -1,0 +1,126 @@
+* {
+    font-family: 'Poppins', Calibri, serif;
+    margin: 0;
+    padding: 0;
+}
+
+.private-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f1eded;
+}
+
+.main-container {
+    flex: 1 0 auto;
+    margin-left: 55px;
+}
+
+// Nav
+@import 'scss/public/public-nav';
+@import 'scss/private/private-nav';
+@import 'scss/general/pagination-navigation';
+
+// Login
+@import 'scss/auth/login';
+
+// Register
+@import 'scss/auth/register';
+
+// Footer
+@import 'scss/general/footer';
+
+// Article pages
+@import 'scss/private/article/article-index';
+@import 'scss/private/article/article-create-edit-delete';
+@import 'scss/private/article/article-show';
+
+// Power unit pages
+@import 'scss/private/powerunit/powerunit-index';
+@import 'scss/private/powerunit/powerunit-create-edit-delete';
+@import 'scss/private/powerunit/powerunit-show';
+
+// Team pages
+@import 'scss/private/team/team-index';
+@import 'scss/private/team/team-create-edit-delete';
+@import 'scss/private/team/team-show';
+
+// Tier pages
+@import 'scss/private/tier/tier-index';
+@import 'scss/private/tier/tier-create-delete';
+
+// Track pages
+@import 'scss/private/track/track-index';
+@import 'scss/private/track/track-create-edit-delete';
+@import 'scss/private/track/track-show';
+
+// Driver pages
+@import 'scss/private/driver/driver-index';
+@import 'scss/private/driver/driver-show';
+@import 'scss/private/driver/driver-create-edit-delete';
+
+// Driver championship pages
+@import 'scss/private/driverchampionship/driverchampionship-index';
+@import 'scss/private/driverchampionship/driverchampionship-show';
+@import 'scss/private/driverchampionship/driverchampionship-create-edit-delete';
+
+// Driver championship pages
+@import 'scss/private/constructorchampionship/constructorchampionship-index';
+@import 'scss/private/constructorchampionship/constructorchampionship-show';
+@import 'scss/private/constructorchampionship/constructorchampionship-create-edit-delete';
+
+// Season pages
+@import 'scss/private/season/season-index';
+@import 'scss/private/season/season-create-edit-delete';
+@import 'scss/private/season/season-show';
+
+// Race pages
+@import 'scss/private/race/race-index';
+@import 'scss/private/race/race-create-edit-delete';
+@import 'scss/private/race/race-show';
+
+// User pages (admin)
+@import 'scss/auth/user/user-index';
+
+// Profile
+@import 'scss/auth/profile-show';
+@import 'scss/auth/profile-edit';
+
+// Public pages
+
+// Home page
+@import 'scss/public/homepage';
+
+// Lineup pages
+@import 'scss/public/lineup';
+
+// Standings pages
+@import 'scss/public/standings';
+
+// Calendar pages
+@import 'scss/public/calendar';
+
+// Leaderboard pages
+@import 'scss/public/leaderboard';
+
+// Driver profile (show)
+@import 'scss/public/open-driver-show';
+
+// Team profile (show)
+@import 'scss/public/open-team-show';
+
+// Racer results (show)
+@import 'scss/public/open-race-show';
+
+// Open Track page (show)
+@import 'scss/public/open-track';
+
+// News page
+@import 'scss/public/news';
+
+// The Team page
+@import 'scss/public/the-team';
+
+// Errors
+// 403 error
+@import 'scss/errors/403-error';

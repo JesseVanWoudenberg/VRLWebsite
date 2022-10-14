@@ -1,0 +1,107 @@
+@import '../resources/colors';
+@import '../resources/font-sizes';
+
+.profile-edit {
+
+    background-color: $background-color;
+
+    .profile-edit-container {
+
+        margin: 50px auto 0 auto;
+        width: 540px;
+        height: fit-content;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+
+        form {
+
+            background-color: #525050;
+            height: fit-content;
+            padding: 20px;
+
+            p {
+
+                font-size: font-$big-text;
+                font-weight: bold;
+                color: white;
+                text-align: center;
+
+            }
+
+            label, input[type=text], input[type=password] {
+                width: calc(100% - 4px);
+            }
+
+            label {
+
+                display: block;
+                margin-top: 35px;
+                font-weight: bold;
+                font-size: font-$big-text;
+                color: white;
+
+            }
+
+            input[type=text], input[type=password] {
+                background-color: #525050;
+                color: white;
+                font-size: font-$text;
+                border: none;
+                border-bottom: 3px solid white;
+                font-weight: bold;
+                padding: 5px 0;
+            }
+
+            input[type=password], input[type=text] {
+                padding-bottom: 5px;
+                transition: ease 0.3s;
+            }
+
+            input[type=password]:focus, input[type=text]:focus {
+                outline: none;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                font-size: font-$big-text;
+                transition: ease 0.3s;
+            }
+
+            input[type=submit] {
+                font-size: font-$big-text;
+                background-color: white;
+                color: #525050;
+                font-weight: bold;
+                margin-top: 40px;
+                width: 500px;
+                border: none;
+            }
+
+            input[type=submit] {
+                padding: 10px 0;
+                transition: ease .3s;
+            }
+
+            input[type=submit]:hover {
+                padding: 15px 0;
+                transition: ease .3s;
+            }
+
+            input:-webkit-autofill,
+            input:-webkit-autofill:hover,
+            input:-webkit-autofill:focus,
+            textarea:-webkit-autofill,
+            textarea:-webkit-autofill:hover,
+            textarea:-webkit-autofill:focus,
+            select:-webkit-autofill,
+            select:-webkit-autofill:hover,
+            select:-webkit-autofill:focus {
+                border: none;
+                border-bottom: 3px solid $primary-color;
+                -webkit-text-fill-color: white;
+                -webkit-box-shadow: 0 0 0 1000px #525050 inset;
+            }
+        }
+    }
+}

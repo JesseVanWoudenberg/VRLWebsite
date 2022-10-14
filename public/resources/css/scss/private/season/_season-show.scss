@@ -1,0 +1,44 @@
+.season-show {
+
+    .show-container {
+
+        width: 600px;
+        margin: 75px auto 0 auto;
+
+        table {
+
+            width: 600px;
+            border-collapse: separate;
+
+            tbody {
+
+                width: 400px;
+
+                tr {
+
+                    width: 600px;
+
+                    th {
+                        width: 400px;
+                    }
+
+                    td {
+                        width: 200px;
+                        font-size: 16px;
+                        text-align: center;
+
+                        a {
+                            font-weight: bold;
+                            color: #5e5d5d;
+                            text-decoration: none;
+                        }
+
+                        a:hover {
+                            color: #343433;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

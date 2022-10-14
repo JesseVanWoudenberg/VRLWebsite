@@ -1,0 +1,78 @@
+@import '../resources/colors';
+@import '../resources/font-sizes';
+
+.profile-show {
+
+    background-color: $background-color;
+
+    .show-profile-container {
+
+        width: fit-content;
+        height: fit-content;
+        position: absolute;
+        padding: 35px;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        background-color: #525050;
+        border: 1px solid #525050;
+
+        h1, h2 {
+            text-align: center;
+            color: white;
+        }
+
+        table {
+
+            margin-top: 25px;
+            width: fit-content;
+            max-width: 500px;
+
+            tr {
+
+                color: white;
+
+                th {
+
+                    text-align: left;
+
+                }
+
+                td {
+
+                    padding-left: 25px;
+                    text-align: right;
+
+                }
+            }
+        }
+
+        .edit-profile-link {
+
+            width: fit-content;
+            margin-top: 25px;
+            background-color: white;
+
+            a {
+                text-align: center;
+                padding: 5px 15px;
+                text-decoration: none;
+                background-color: white;
+                border: 1px solid $primary-color;
+                color: #525050;
+                font-weight: bold;
+            }
+
+            a {
+                padding: 5px 15px;
+                transition: ease .3s;
+            }
+
+            a:hover {
+                padding: 10px 15px;
+                transition: ease .3s;
+            }
+        }
+    }
+}

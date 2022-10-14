@@ -1,0 +1,329 @@
+@import '../resources/colors';
+@import '../resources/font-sizes';
+
+.open-race-show {
+
+    min-height: 100vh;
+    background-color: $background-color;
+    padding-bottom: 100px;
+
+    .buttons-container {
+
+        margin-top: 25px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+
+        button {
+            color: #ffffff;
+            padding: 10px 25px;
+            border: none;
+            background-color: #5e5d5d;
+            width: 1/3;
+        }
+
+        button:hover {
+            background-color: #4b4b4b;
+        }
+    }
+
+    .open-race-info-container, .open-fastest-lap-container, .race-results-container, .short-qualifying-results-container, .full-qualifying-results-container {
+
+        margin: 25px auto 0 auto;
+        width: fit-content;
+        padding: 25px;
+        background-color: #525050;
+        color: $primary-color;
+
+        h1 {
+
+            font-size: 24px;
+            text-align: center;
+
+        }
+
+        table {
+
+            margin-top: 20px;
+
+            thead {
+
+                tr {
+
+                    th {
+
+                    }
+                }
+            }
+
+            tbody {
+
+                tr {
+
+                    @import '../resources/team-colors';
+
+                    td {
+
+                        a {
+
+                            color: $primary-color;
+                            text-decoration: none;
+                            font-weight: bold;
+
+                        }
+
+                        a:hover {
+                            color: #adadad
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .open-race-info-container {
+        tr {
+            th:nth-child(1), td:nth-child(1) {
+                text-align: center;
+                width: 50px;
+            }
+            th:nth-child(2), td:nth-child(2)  {
+                text-align: center;
+                width: 250px;
+            }
+            th:nth-child(3), td:nth-child(3), th:nth-child(4), td:nth-child(4) {
+                width: 50px;
+                text-align: center;
+            }
+            th:nth-child(5), td:nth-child(5)  {
+                text-align: center;
+                width: 100px;
+            }
+        }
+    }
+
+    .open-race-results-container {
+        tr {
+            th:nth-child(1), td:nth-child(1) {
+                text-align: center;
+                width: 75px;
+            }
+            th:nth-child(2), td:nth-child(2)  {
+                text-align: center;
+                width: 200px;
+            }
+            th:nth-child(3), td:nth-child(3) {
+                width: 150px;
+                text-align: center;
+            }
+            th:nth-child(4), td:nth-child(4)  {
+                text-align: center;
+                width: 75px;
+            }
+        }
+    }
+
+    .open-qualifying-results-container {
+        tr {
+            th:nth-child(1), td:nth-child(1) {
+                text-align: center;
+                width: 75px;
+            }
+            th:nth-child(2), td:nth-child(2)  {
+                text-align: center;
+                width: 200px;
+            }
+            th:nth-child(3), td:nth-child(3) {
+                width: 150px;
+                text-align: center;
+            }
+            th:nth-child(4), td:nth-child(4), th:nth-child(6), td:nth-child(6), th:nth-child(8), td:nth-child(8)  {
+                text-align: center;
+                width: 50px;
+            }
+            th:nth-child(5), td:nth-child(5), th:nth-child(7), td:nth-child(7), th:nth-child(9), td:nth-child(9) {
+                text-align: center;
+                width: 75px;
+            }
+        }
+    }
+
+    .open-fastest-lap-container {
+        tr {
+            th:nth-child(1), td:nth-child(1) {
+                text-align: center;
+                width: 200px;
+            }
+            th:nth-child(2), td:nth-child(2)  {
+                text-align: center;
+                width: 150px;
+            }
+            th:nth-child(3), td:nth-child(3) {
+                width: 100px;
+                text-align: center;
+            }
+        }
+    }
+
+    .race-results-container {
+
+        text-align: center;
+
+        table {
+
+            thead {
+
+                tr {
+
+                   th:nth-child(1) {
+                       width: 100px;
+                   }
+                   th:nth-child(2) {
+                       width: 200px;
+                   }
+                   th:nth-child(3) {
+                       width: 150px;
+                   }
+                   th:nth-child(4) {
+                       width: 100px;
+                   }
+                }
+            }
+
+            tbody {
+
+                tr {
+
+                    td:nth-child(1) {
+                        width: 100px;
+                    }
+                    td:nth-child(2) {
+                        width: 200px;
+                    }
+                    td:nth-child(3) {
+                        width: 150px;
+                    }
+                    td:nth-child(4) {
+                        width: 100px;
+                    }
+                }
+            }
+        }
+    }
+
+    .short-qualifying-results-container {
+
+        text-align: center;
+
+        table {
+
+            thead {
+
+                tr {
+
+                   th:nth-child(1) {
+                       width: 100px;
+                   }
+                   th:nth-child(2) {
+                       width: 200px;
+                   }
+                   th:nth-child(3) {
+                       width: 150px;
+                   }
+                   th:nth-child(4) {
+                       width: 100px;
+                   }
+                   th:nth-child(5) {
+                       width: 100px;
+                   }
+                }
+            }
+
+            tbody {
+
+                tr {
+
+                    td:nth-child(1) {
+                        width: 100px;
+                    }
+                    td:nth-child(2) {
+                        width: 200px;
+                    }
+                    td:nth-child(3) {
+                        width: 150px;
+                    }
+                    td:nth-child(4) {
+                        width: 100px;
+                    }
+                    td:nth-child(5) {
+                        width: 100px;
+
+                        img {
+                            height: 40px;
+                            width: 40px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .full-qualifying-results-container {
+
+        text-align: center;
+
+        table {
+
+            thead {
+
+                tr {
+
+                   th:nth-child(1) {
+                       width: 200px;
+                   }
+                   th:nth-child(2) {
+                       width: 150px;
+                   }
+                   th:nth-child(3), th:nth-child(6), th:nth-child(9) {
+                       width: 50px;
+                   }
+                   th:nth-child(4), th:nth-child(7), th:nth-child(10) {
+                       width: 100px;
+                   }
+                   th:nth-child(5), th:nth-child(8), th:nth-child(11)   {
+                       width: 100px;
+                   }
+                }
+            }
+
+            tbody {
+
+                tr {
+
+                    td:nth-child(1) {
+                        width: 200px;
+                    }
+
+                    td:nth-child(2) {
+                        width: 150px;
+                    }
+                    td:nth-child(3), td:nth-child(6), td:nth-child(9) {
+                        width: 50px;
+                    }
+                    td:nth-child(4), td:nth-child(7), td:nth-child(10) {
+                        width: 100px;
+                    }
+                    td:nth-child(5), td:nth-child(8), td:nth-child(11)   {
+                        width: 100px;
+
+                        img {
+                            height: 40px;
+                            width: 40px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

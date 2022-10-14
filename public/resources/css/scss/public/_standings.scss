@@ -1,0 +1,260 @@
+@import '../resources/colors';
+@import '../resources/font-sizes';
+
+.standings {
+
+    min-height: 100vh;
+    background-color: $background-color;
+
+    main {
+
+        margin: 125px auto;
+        width: fit-content;
+
+        .title-container {
+
+            h1 {
+
+                color: $primary-color;
+                margin-top: 50px;
+                text-align: center;
+
+            }
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .standings-driver-table-container {
+
+            display: flex;
+            width: fit-content;
+            background-color: #525050;
+            margin: 0 auto;
+            padding: 25px;
+
+            h1 {
+                padding: 15px 0;
+                margin-bottom: 50px;
+                color: $primary-color;
+                text-align: center;
+                background-color: #424141;
+                font-size: $big-text;
+            }
+
+            table {
+
+                min-width: 400px;
+                margin: 0 auto;
+                width: fit-content;
+                border-collapse: collapse;
+                border-spacing: 0;
+
+                thead {
+
+                    tr {
+
+                        th {
+
+                            color: #ffffff;
+                            padding-bottom: 25px;
+
+                        }
+                    }
+                }
+
+                tbody {
+
+                    background-color: #525050;
+
+                    tr {
+
+                        @import '../resources/team-colors';
+
+                        width: fit-content;
+
+                        tr:nth-child(1) {
+                            display: block;
+                            margin-bottom: 25px;
+                        }
+
+                        th, td {
+                            text-align: center;
+                            color: $primary-color;
+                        }
+
+                        th {
+                            padding-bottom: 25px;
+                        }
+
+                        td {
+
+                            font-weight: bold;
+                            padding: 15px 0;
+
+                            a {
+                                color: $primary-color;
+                                text-decoration: none;
+                                font-weight: bold;
+                            }
+
+                            a:hover {
+                                color: #a6a2a2;
+                            }
+                        }
+
+                        th:nth-child(1), td:nth-child(1) {
+
+                            width: 120px;
+
+                        }
+
+                        th:nth-child(2), td:nth-child(2) {
+
+                            width: 250px;
+
+                        }
+
+                        th:nth-child(3), td:nth-child(3) {
+
+                            width: 250px;
+
+                        }
+
+                        th:nth-child(4), td:nth-child(4) {
+
+                            width: 100px;
+
+                        }
+                    }
+
+                    tr:nth-child(odd) {
+                        background-color: #424141;
+                    }
+                }
+            }
+        }
+
+        .standings-teams-table-container {
+
+            display: flex;
+            width: fit-content;
+            background-color: #525050;
+            margin: 0 auto;
+            padding: 25px;
+
+            h1 {
+                padding: 15px 0;
+                margin-bottom: 50px;
+                color: $primary-color;
+                text-align: center;
+                background-color: #424141;
+                font-size: $big-text;
+            }
+
+            table {
+
+                min-width: 400px;
+                margin: 0 auto;
+                width: fit-content;
+                border-collapse: collapse;
+                border-spacing: 0;
+
+                thead {
+
+                    tr {
+
+                        th {
+
+                            color: #ffffff;
+                            padding-bottom: 25px;
+
+                        }
+                    }
+                }
+
+                tbody {
+
+                    background-color: #525050;
+
+                    tr {
+
+                        @import '../resources/team-colors';
+
+                        width: fit-content;
+
+                        tr:nth-child(1) {
+                            display: block;
+                            margin-bottom: 25px;
+                        }
+
+                        th, td {
+                            text-align: center;
+                            color: $primary-color;
+                        }
+
+                        th {
+                            padding-bottom: 25px;
+                        }
+
+                        td {
+
+                            font-weight: bold;
+                            padding: 15px 0;
+
+                            a {
+                                color: $primary-color;
+                                text-decoration: none;
+                                font-weight: bold;
+                            }
+
+                            a:hover {
+                                color: #a6a2a2;
+                            }
+                        }
+
+                        th:nth-child(1), td:nth-child(1) {
+
+                            width: 205px;
+
+                        }
+
+                        th:nth-child(2), td:nth-child(2) {
+
+                            width: 330px;
+
+                        }
+
+                        th:nth-child(3), td:nth-child(3) {
+
+                            width: 185px;
+
+                        }
+
+                    }
+
+                    tr:nth-child(odd) {
+                        background-color: #424141;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.button {
+    width: 50%;
+    height: 50px;
+    color: $primary-color;
+    font-weight: bold;
+    font-size: $text;
+    background-color: #525050;
+    border: none;
+}
+
+.button:hover {
+    background-color: #363535;
+}
+

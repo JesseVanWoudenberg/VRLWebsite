@@ -1,0 +1,106 @@
+@import '../resources/colors';
+@import '../resources/font-sizes';
+
+.login {
+
+    height: 100vh;
+    background-color: $background-color;
+
+    main {
+
+        .login-form-container {
+
+            width: 400px;
+            height: fit-content;
+            border: 1px solid #525050;
+            padding: 20px;
+            background-color: #525050;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+
+            form {
+
+                .password-container {
+
+                    margin-top: 25px;
+
+                }
+
+                i {
+                    font-size: font-$titles;
+                    width: 40px;
+                    color: $primary-color;
+                }
+
+                label {
+                    font-weight: bold;
+                    font-size: $big-text;
+                    width: 360px;
+                    color: $primary-color;
+                }
+
+                input[type=password], input[type=text] {
+                    background-color: #525050;
+                    color: $primary-color;
+                    font-size: $text;
+                    border: none;
+                    border-bottom: 3px solid $primary-color;
+                    font-weight: bold;
+                    padding: 10px 5px;
+                    width: 390px;
+                }
+
+                input[type=password], input[type=text] {
+                    padding-bottom: 10px;
+                    transition: ease 0.3s;
+                }
+
+                input[type=password]:focus, input[type=text]:focus {
+                    outline: none;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                    font-size: font-$big-text;
+                    transition: ease 0.3s;
+                }
+
+                input[type=submit] {
+                    font-size: $big-text;
+                    background-color: $primary-color;
+                    color: #525050;
+                    font-weight: bold;
+                    margin-top: 40px;
+                    width: 400px;
+                    border: none;
+                }
+
+                input[type=submit] {
+                    padding: 10px 0;
+                    transition: ease .3s;
+                }
+
+                input[type=submit]:hover {
+                    padding: 15px 0;
+                    transition: ease .3s;
+                }
+
+                input:-webkit-autofill,
+                input:-webkit-autofill:hover,
+                input:-webkit-autofill:focus,
+                textarea:-webkit-autofill,
+                textarea:-webkit-autofill:hover,
+                textarea:-webkit-autofill:focus,
+                select:-webkit-autofill,
+                select:-webkit-autofill:hover,
+                select:-webkit-autofill:focus {
+                    border: none;
+                    border-bottom: 3px solid $primary-color;
+                    -webkit-text-fill-color: white;
+                    -webkit-box-shadow: 0 0 0 1000px #525050 inset;
+                }
+            }
+        }
+    }
+}

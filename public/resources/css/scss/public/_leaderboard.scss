@@ -1,0 +1,86 @@
+.tier-1-leaderboard {
+
+    background-color: #424141;
+
+    main {
+
+        margin: 25px auto 0 auto;
+        width: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .leaderboard-controls {
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 600px;
+
+        .button {
+
+            width: 200px;
+
+        }
+
+    }
+
+    .leaderboard-container {
+
+        background-color: #525050;
+        width: 340px;
+        margin: 50px auto 0 auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        h1 {
+
+            color: #ffffff;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            width: 100%;
+
+        }
+
+        table {
+
+            margin: 20px auto 0 auto;
+            background-color: #525050;
+            width: 300px;
+
+            tbody {
+
+                tr {
+
+                    display: block;
+
+                    td {
+                        color: #ffffff;
+                        text-align: center;
+                        padding: 10px 0;
+
+                    }
+
+                    td:nth-child(1) {
+                        width: 50px;
+                    }
+
+                    td:nth-child(2) {
+                        width: 200px;
+                    }
+
+                    td:nth-child(3) {
+                        width: 50px;
+                    }
+                }
+
+                tr:nth-child(odd) {
+                    background-color: #424141;
+                }
+            }
+        }
+    }
+}
+

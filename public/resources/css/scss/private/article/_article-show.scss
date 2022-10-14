@@ -1,0 +1,62 @@
+.article-show {
+
+    .show-container {
+
+        width: 600px;
+        margin: 75px auto 0 auto;
+
+        table {
+
+            width: 600px;
+            border-collapse: separate;
+
+            thead {
+
+                width: 600px;
+
+                tr {
+
+                    width: 600px;
+
+                    th {
+                        font-size: 20px;
+                        text-align: center;
+                    }
+                }
+            }
+
+            tbody {
+
+                width: 600px;
+
+                tr {
+
+                    width: 600px;
+
+                    td {
+                        font-size: 16px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        .article-text-container {
+
+            margin-top: 50px;
+            width: 600px;
+
+            h1 {
+                display: block;
+                width: 600px;
+                font-size: 20px;
+                text-align: center;
+            }
+
+            p {
+                font-size: 15px;
+                text-align: justify;
+            }
+        }
+    }
+}

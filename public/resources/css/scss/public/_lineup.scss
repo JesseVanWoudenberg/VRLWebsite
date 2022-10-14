@@ -1,0 +1,68 @@
+.lineup {
+
+    min-height: 100vh;
+    background-color: #424141;
+
+    main {
+
+        .title-container {
+
+            h1 {
+
+                color: #efeded;
+                margin-top: 50px;
+                text-align: center;
+
+            }
+        }
+
+        .lineup-table-container {
+
+            margin-top: 25px;
+            margin-bottom: 100px;
+
+            table {
+
+                margin: 0 auto;
+                width: 450px;
+                border-collapse: collapse;
+                border-spacing: 0;
+
+                tbody {
+
+                    width: 500px;
+
+                    tr {
+
+                        border-top: 15px solid transparent;
+
+                        @import '../resources/team-colors';
+
+                        th {
+                            padding: 25px 0 0 0;
+                            font-size: 24px;
+                        }
+
+                        td {
+
+                            text-align: left;
+
+                            a {
+                                color: #efeded;
+                                text-decoration: none;
+                            }
+
+                            a:hover {
+                                color: #c5c4c4;
+                            }
+                        }
+
+                        td {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

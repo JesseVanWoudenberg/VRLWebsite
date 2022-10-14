@@ -1,0 +1,161 @@
+.pagination-navigation-links {
+
+    margin: 75px auto 0 auto;
+    width: 500px;
+    height: 100px;
+
+    .page-nav-links {
+
+        display: flex;
+        justify-content: space-around;
+
+        .previous-link, .next-link {
+            a {
+                text-decoration: none;
+                color: #1048ab;
+            }
+
+            padding: 1px;
+        }
+
+        .previous-link:hover, .next-link:hover {
+
+            border: 1px solid #1048ab;
+            border-radius: 25px;
+            padding: 0;
+
+        }
+
+        .previous-link {
+
+            display: inline-block;
+            height: 50px;
+            width: 180px;
+
+            a {
+                display: flex;
+                height: 50px;
+
+                svg {
+                    height: 50px;
+                    width: 50px;
+                }
+
+                div {
+                    width: 120px;
+                    height: 50px;
+                    line-height: 50px;
+                }
+            }
+        }
+
+        .next-link {
+
+            display: inline-block;
+            height: 50px;
+            width: 150px;
+
+            a {
+
+                display: flex;
+                height: 50px;
+
+                svg {
+                    height: 50px;
+                    width: 50px;
+                }
+
+                div {
+                    margin-left: 10px;
+                    width: 90px;
+                    height: 50px;
+                    line-height: 50px;
+                }
+            }
+        }
+
+        .available {
+
+            svg {
+                fill: #1048ab;
+            }
+        }
+    }
+
+    .page-numbered-links {
+
+        margin-top: 25px;
+        display: flex;
+        justify-content: space-evenly;
+        text-align: center;
+
+        a {
+
+            padding: 6px;
+            width: 25px;
+            color: #1048ab;
+            text-decoration: none;
+            font-size: 16px;
+
+        }
+
+        a:hover {
+
+            padding: 5px;
+            color: #0a327c;
+            border: 1px solid #0a327c;
+            border-radius: 25px;
+
+        }
+
+        span {
+            padding: 6px;
+            font-size: 16px;
+        }
+    }
+
+    .result-count-container {
+
+        margin-top: 25px;
+        text-align: center;
+
+    }
+}
+
+.news {
+
+    .pagination-navigation-links {
+        .page-nav-links {
+            .previous-link, .next-link {
+                a {
+                    color: #ffffff;
+                }
+            }
+
+            .previous-link:hover, .next-link:hover {
+                border: 1px solid #ffffff;
+            }
+
+            .available {
+
+                svg {
+                    fill: #ffffff;
+                }
+            }
+        }
+        .page-numbered-links {
+            a {
+                color: #ffffff;
+            }
+
+            a:hover {
+
+                padding: 5px;
+                color: #a9a9a9;
+                border: 1px solid #a9a9a9;
+                border-radius: 25px;
+
+            }
+        }
+    }
+}

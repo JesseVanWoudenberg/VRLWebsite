@@ -1,0 +1,53 @@
+.error-403 {
+
+    min-height: 100vh;
+    background-color: #424141;
+
+    main {
+
+        .message-container-403 {
+
+            width: 400px;
+            height: fit-content;
+            border: 1px solid #525050;
+            padding: 20px;
+            background-color: #525050;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+
+            h1, p {
+                text-align: center;
+                width: 100%;
+                color: white;
+            }
+
+            h1 {
+                font-size: 24pt;
+            }
+
+            p {
+
+                margin: 25px auto 0 auto;
+                height: fit-content;
+                width: fit-content;
+                font-size: 16pt;
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                    padding: 10px 15px;
+                    border-radius: 25px;
+                }
+
+                a:hover {
+                    background-color: white;
+                    color: #525050;
+                    transition: 0.3s ease;
+                }
+            }
+        }
+    }
+}

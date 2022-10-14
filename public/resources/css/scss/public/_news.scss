@@ -1,0 +1,40 @@
+@import '../resources/colors';
+@import '../resources/font-sizes';
+
+.news {
+
+    min-height: 100vh;
+    background-color: $background-color;
+
+    .news-container {
+
+        margin: 0 auto;
+
+        .article {
+
+            margin: 25px auto 0 auto;
+            width: 500px;
+            padding: 25px;
+            color: $primary-color;
+            background-color: #525050;
+
+            p:nth-child(1) {
+                text-align: left;
+                font-size: $big-text;
+            }
+
+            p:nth-child(2) {
+                text-align: justify;
+                margin-top: 10px;
+                font-size: $text;
+            }
+
+            p:nth-child(3) {
+                text-align: right;
+                margin-top: 20px;
+                font-size: $text;
+            }
+
+        }
+    }
+}

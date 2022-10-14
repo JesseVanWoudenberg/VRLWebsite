@@ -1,0 +1,98 @@
+.race-show {
+
+    .show-container {
+
+        width: 1000px;
+        margin: 75px auto 0 auto;
+
+        .race-container, .fastest-lap-container, .drivers-container {
+            margin: 50px auto 0 auto;
+        }
+
+        .race-container {
+
+            width: 900px;
+
+            th:nth-child(1), th:nth-child(2), th:nth-child(3), th:nth-child(4), td:nth-child(1), td:nth-child(2), td:nth-child(3), td:nth-child(4)  {
+                width: 120px;
+                text-align: center;
+            }
+
+            th:nth-child(5), td:nth-child(5) {
+                width: 420px;
+                text-align: center;
+            }
+
+        }
+
+        .fastest-lap-container {
+
+            width: 400px;
+
+            th, td {
+                width: 200px;
+                text-align: center;
+            }
+
+        }
+
+        .drivers-container {
+
+            table {
+
+                width: 1000px;
+                border-collapse: separate;
+
+                tbody {
+
+                    width: 1000px;
+
+                    tr {
+
+                        width: 1000px;
+
+                        th:nth-child(1), td:nth-child(1) {
+                            width: 100px;
+                        }
+
+                        th:nth-child(2), td:nth-child(2), th:nth-child(4), td:nth-child(4), th:nth-child(6), td:nth-child(6) {
+                            width: 70px;
+                        }
+
+                        th:nth-child(3), td:nth-child(3), th:nth-child(5), td:nth-child(5), th:nth-child(7), td:nth-child(7) {
+                            width: 120px;
+                        }
+
+                        th:nth-child(8), td:nth-child(8) {
+                            width: 60px;
+                        }
+
+                        th:nth-child(9), td:nth-child(9) {
+                            width: 120px;
+                        }
+
+                        th:nth-child(10), td:nth-child(10) {
+                            width: 200px;
+                        }
+
+
+                        td {
+                            font-size: 16px;
+                            text-align: center;
+
+                            a {
+                                font-weight: bold;
+                                color: #5e5d5d;
+                                text-decoration: none;
+                            }
+
+                            a:hover {
+                                color: #343433;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+@import '../resources/colors';
+@import '../resources/font-sizes';
+
+.open-team-show {
+
+    min-height: 100vh;
+    background-color: $background-color;
+
+    .team-info-container {
+
+        margin: 100px auto 0 auto;
+        width: 300px;
+        padding: 25px;
+        background-color: #525050;
+
+        @import '../resources/team-colors';
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+
+            margin-top: 25px;
+            width: 300px;
+
+            tbody {
+
+                tr {
+
+                    th, td {
+
+                        font-size: $text;
+                        color: $primary-color;
+
+                    }
+
+                    th {
+                        text-align: left;
+                    }
+
+                    td {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+
+    }
+}

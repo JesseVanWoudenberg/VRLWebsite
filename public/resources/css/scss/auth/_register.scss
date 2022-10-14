@@ -1,0 +1,113 @@
+@import '../resources/font-sizes';
+
+.register {
+
+    height: 100vh;
+    background-color: #424141;
+
+    main {
+
+        .register-container {
+
+            width: 400px;
+            height: fit-content;
+            border: 1px solid #525050;
+            padding: 20px;
+            background-color: #525050;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+
+            form {
+
+                .email-container, .password-container {
+                    label {
+                        margin-top: 25px;
+                    }
+                }
+
+                .username-container, .email-container, .password-container {
+                    height: fit-content;
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: 100%;
+
+                    label {
+                        width: 100%;
+                        font-size: $big-text;
+                        font-weight: bold;
+                        color: white;
+                    }
+
+                    input {
+                        width: 100%;
+                        font-size: $text;
+                        border: none;
+                        color: white;
+                        background-color: #525050;
+                        border-bottom: 3px solid $primary-color;
+                        font-weight: bold;
+                        padding: 10px 5px;
+                    }
+
+                    input[type=password], input[type=text] {
+                        padding-bottom: 10px;
+                        transition: ease 0.3s;
+                    }
+
+                    input[type=password]:focus, input[type=text]:focus {
+                        outline: none;
+                        padding-top: 15px;
+                        padding-bottom: 15px;
+                        font-size: font-$big-text;
+                        transition: ease 0.3s;
+                    }
+                }
+
+                .button-container {
+
+                    button {
+                        font-size: $big-text;
+                        background-color: $primary-color;
+                        color: #525050;
+                        font-weight: bold;
+                        margin-top: 40px;
+                        width: 400px;
+                        border: none;
+                    }
+
+                    button {
+                        padding: 10px 0;
+                        transition: ease .3s;
+                    }
+
+                    button:hover {
+                        background-color: $primary-color;
+                    }
+
+                    button:hover {
+                        padding: 15px 0;
+                        transition: ease .3s;
+                    }
+                }
+
+                input:-webkit-autofill,
+                input:-webkit-autofill:hover,
+                input:-webkit-autofill:focus,
+                textarea:-webkit-autofill,
+                textarea:-webkit-autofill:hover,
+                textarea:-webkit-autofill:focus,
+                select:-webkit-autofill,
+                select:-webkit-autofill:hover,
+                select:-webkit-autofill:focus {
+                    border: none;
+                    border-bottom: 3px solid $primary-color;
+                    -webkit-text-fill-color: white;
+                    -webkit-box-shadow: 0 0 0 1000px #525050 inset;
+                }
+            }
+        }
+    }
+}

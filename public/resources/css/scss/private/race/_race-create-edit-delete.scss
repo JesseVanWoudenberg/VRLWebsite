@@ -1,0 +1,354 @@
+.race-create-edit-delete {
+
+    main {
+
+        .race-create-container {
+
+            margin: 100px auto 0 auto;
+            width: 1000px;
+            background-color: #5e5d5d;
+
+            form {
+
+                .race-info-container {
+
+                    margin: 0 auto;
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    width: 800px;
+                    padding: 25px 100px;
+
+                    label, input[type=number], .select-container {
+                        text-align: center;
+                    }
+
+                    label {
+                        font-size: 20px;
+                        font-weight: bold;
+                        color: #ffffff;
+                        width: 175px;
+                        padding-bottom: 10px;
+                    }
+
+                    input[type=number] {
+                        width: 171px;
+                        font-size: 24px;
+                        height: 35px;
+                        border: none;
+                    }
+
+                    .select-container {
+
+                        height: 35px;
+                        width: 175px;
+
+                        select {
+
+                            text-align: center;
+                            height: 35px;
+                            width: 175px;
+
+                            option {
+
+                                text-align: center;
+                                height: 35px;
+                                width: 175px;
+
+                            }
+                        }
+                    }
+                }
+
+                .race-results-container {
+
+                    margin: 25px auto 0 auto;
+                    width: 600px;
+
+                    .result-row {
+
+                        width: 600px;
+                        display: flex;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+
+                        p {
+
+                            color: #ffffff;
+                            font-size: 20px;
+                            font-weight: bold;
+                            line-height: 35px;
+                            text-align: center;
+                            width: 50px;
+
+                        }
+
+                        .select-container {
+
+                            height: 35px;
+                            width: 250px;
+
+                            select {
+
+                                text-align: center;
+                                height: 35px;
+                                width: 250px;
+
+                                option {
+
+                                    text-align: center;
+                                    height: 35px;
+                                    width: 250px;
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .fastest-lap-container {
+
+                    margin: 50px auto 0 auto;
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: 400px;
+
+                    p {
+                        width: 400px;
+                        text-align: center;
+                        color: #ffffff;
+                    }
+
+                    table {
+
+                        margin-top: 25px;
+                        width: 400px;
+
+                        thead {
+
+                            tr {
+
+                                th {
+                                    color: #ffffff;
+                                    text-align: center;
+                                }
+                            }
+                        }
+
+                        tbody {
+
+                            tr {
+
+                                td {
+
+                                    .select-container {
+
+                                        width: 150px;
+
+                                        select {
+
+                                            text-align: center;
+                                            width: 150px;
+
+                                            option {
+
+                                                text-align: center;
+                                                width: 150px;
+
+                                            }
+                                        }
+                                    }
+
+                                    input[type=number] {
+                                        width: 100px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .race-buttons-container {
+
+                    margin-top: 50px;
+                    width: 1000px;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    p {
+                        padding: 10px 0;
+                        background-color: #4f4e4e;
+                        color: #ffffff;
+                        width: 500px;
+                        text-align: center;
+                    }
+
+                    p:hover {
+                        background-color: #3f3f3f;
+                    }
+                }
+
+                .full-qualifying-results-container {
+
+                    width: 950px;
+                    color: #ffffff;
+                    text-align: center;
+                    margin: 25px auto 0 auto;
+
+                    .full-qualifying-title {
+                        color: #ffffff;
+                        width: 950px;
+                        text-align: center;
+                        margin-bottom: 50px;
+                    }
+
+                    table {
+
+                        width: 950px;
+
+                        thead {
+
+                            tr {
+
+                                th {
+
+                                    color: #ffffff;
+                                    text-align: center;
+
+                                }
+
+                                th:nth-child(1), th:nth-child(2) {
+                                    width: 150px;
+                                }
+
+                                th:nth-child(3), th:nth-child(6), th:nth-child(9) {
+                                    width: 50px;
+                                }
+
+                                th:nth-child(4), th:nth-child(7), th:nth-child(10) {
+                                    width: 75px;
+                                }
+                                th:nth-child(6), th:nth-child(8), th:nth-child(11) {
+                                    width: 75px;
+                                }
+                            }
+                        }
+
+                        tbody {
+
+                            tr {
+
+                                td {
+
+                                    color: #ffffff;
+                                    text-align: center;
+
+                                    .select-container {
+
+                                        width: 150px;
+
+                                        select {
+
+                                            text-align: center;
+                                            width: 150px;
+
+                                            option {
+
+                                                text-align: center;
+                                                width: 150px;
+
+                                            }
+                                        }
+                                    }
+
+                                    .qualifying-select-container {
+
+                                        width: 50px;
+
+                                        select {
+
+                                            text-align: center;
+                                            width: 50px;
+
+                                            option {
+
+                                                text-align: center;
+                                                width: 50px;
+
+                                            }
+                                        }
+                                    }
+
+
+                                    input[type=number] {
+                                        width: 75px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+                .short-qualifying-results-container {
+
+                    margin: 25px auto 0 auto;
+                    width: 750px;
+
+                    .short-qualifying-title {
+                        color: #ffffff;
+                        width: 750px;
+                        text-align: center;
+                        margin-bottom: 50px;
+                    }
+
+                    table {
+
+                        thead {
+
+                            tr {
+
+                                th {
+
+                                    color: #ffffff;
+                                    text-align: center;
+
+                                }
+                            }
+                        }
+
+                        tbody {
+
+                            tr {
+
+                                td {
+
+                                    color: #ffffff;
+                                    text-align: center;
+
+                                    .select-container {
+
+                                        width: 150px;
+
+                                        select {
+
+                                            text-align: center;
+                                            width: 150px;
+
+                                            option {
+
+                                                text-align: center;
+                                                width: 150px;
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

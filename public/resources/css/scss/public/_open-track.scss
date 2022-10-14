@@ -1,0 +1,76 @@
+.track-open {
+
+    background-color: #424141;
+
+    .open-track-container {
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 50px auto 0 auto;
+        width: 70%;
+
+        .track-map-container {
+
+            img {
+
+                height: 350px;
+                width: 600px;
+
+            }
+
+        }
+
+        .track-info-container {
+
+            width: 400px;
+
+            h1 {
+                text-align: center;
+                margin: 0 auto;
+                width: 300px;
+                color: #ffffff;
+            }
+
+            table {
+
+                margin: 25px auto 0 auto;
+                width: 330px;
+                color: #ffffff;
+
+                tr {
+
+                    th {
+                        width: 150px;
+                        font-weight: bold;
+                        text-align: left;
+                    }
+
+                    td {
+                        width: 180px;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+
+        .fastest-lap-container {
+
+            margin-top: 50px;
+            width: 100%;
+
+            h1, p {
+                text-align: center;
+                color: #ffffff;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+            p {
+                font-size: 24px;
+            }
+        }
+    }
+}
