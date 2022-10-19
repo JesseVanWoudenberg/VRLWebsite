@@ -47,48 +47,27 @@ class UserController extends Controller
 
     public function permissions(User $user)
     {
-
         $roles = Role::all();
-
-        $userRoles = DB::select
-        (
-            'SELECT *
-                   FROM model_has_roles
-                   WHERE model_id = ' . $user->id
-        );
-
-        foreach ($roles as $role)
-        {
-            foreach ($userRoles as $userRole)
-            {
-                if ($role->id == $userRole->role_id)
-                {
-                    $roles->pull($roles->search($role));
-                }
-            }
-        }
+        $userRoles = Role::query()
+            ->select('*')
+            ->whereIn('roles.id',(function ($query) use ($user) {
+                $query->from('model_has_roles')
+                    ->select('model_id')
+                    ->where('model_id','=', $user->id);
+            }))
+            ->get();
 
         $permissions = Permission::all();
+        $userPermissions = Permission::query()
+            ->select('*')
+            ->whereIn('permissions.id', (function ($query) use ($user) {
+                $query->from('model_has_permissions')
+                    ->select('model_id')
+                    ->where('model_id', '=', $user->id);
+            }))
+            ->get();
 
-        $userPermissions = DB::select
-        (
-            'SELECT *
-                   FROM model_has_permissions
-                   WHERE model_id = ' . $user->id
-        );
-
-        foreach ($permissions as $permission)
-        {
-            foreach ($userPermissions as $userPermission)
-            {
-                if ($permission->id == $userPermission->permission_id)
-                {
-                    $permissions->pull($permissions->search($permission));
-                }
-            }
-        }
-
-        return \view('private.users.permissions', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
+        return view('private.users.permissions', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
 
     }
 

@@ -322,7 +322,7 @@
   margin-top: 25px;
 }
 .login main .login-form-container form i {
-  font-size: font- 24pt;
+  font-size: 24pt;
   width: 40px;
   color: #ffffff;
 }
@@ -347,10 +347,10 @@
   transition: ease 0.3s;
 }
 .login main .login-form-container form input[type=password]:focus, .login main .login-form-container form input[type=text]:focus {
+  font-size: 16pt;
   outline: none;
   padding-top: 15px;
   padding-bottom: 15px;
-  font-size: font- 16pt;
   transition: ease 0.3s;
 }
 .login main .login-form-container form input[type=submit] {
@@ -2191,7 +2191,7 @@
 
 .user-index {
   min-height: 100vh;
-  background-color: #424141FF;
+  background-color: #424141;
   color: white;
 }
 .user-index main .user-table-container {
@@ -2209,7 +2209,7 @@
   padding: 20px 10px;
 }
 .user-index main .user-table-container table tbody tr td a {
-  color: #424141FF;
+  color: #424141;
   font-weight: bold;
   text-decoration: none;
   padding: 7.5px 15px;
@@ -2226,6 +2226,16 @@
   transition: 0.2s ease;
 }
 
+.user-permission main .permissions-container {
+  margin: 25px auto 0 auto;
+  width: 400px;
+  display: flex;
+}
+.user-permission main .roles-container {
+  margin: 25px auto 0 auto;
+  width: 400px;
+  display: flex;
+}
 .profile-show {
   background-color: #424141;
 }
@@ -2994,7 +3004,7 @@
   padding: 0 7.5px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #424141FF;
+  color: #424141;
   border-radius: 20px;
   font-stretch: expanded;
 }
@@ -3053,7 +3063,7 @@
   text-decoration: none;
   padding: 5px;
   border-radius: 25px;
-  color: #424141FF;
+  color: #424141;
   width: 100px;
   text-align: center;
 }
@@ -3839,7 +3849,7 @@
 }
 
 .the-team {
-  background-color: #424141FF;
+  background-color: #424141;
 }
 .the-team main .the-team-container {
   margin: 50px auto 0 auto;

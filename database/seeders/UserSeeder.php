@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('guest')
         ]);
         $guest->assignRole('registered');
+        $guest->givePermissionTo('article index');
 
         $admin = User::factory()->create([
             'name' => 'admin',

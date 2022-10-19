@@ -16,10 +16,17 @@
     margin-left: 55px;
 }
 
-// Nav
+      ////////////
+     /// Navs ///
+    ////////////
+
 @import 'scss/public/public-nav';
 @import 'scss/private/private-nav';
 @import 'scss/general/pagination-navigation';
+
+      /////////////////////
+     /// Private Pages ///
+    /////////////////////
 
 // Login
 @import 'scss/auth/login';
@@ -80,13 +87,16 @@
 @import 'scss/private/race/race-show';
 
 // User pages (admin)
-@import 'scss/auth/user/user-index';
+@import 'scss/private/user/user-index';
+@import 'scss/private/user/user-permissions';
 
 // Profile
 @import 'scss/auth/profile-show';
 @import 'scss/auth/profile-edit';
 
-// Public pages
+      ////////////////////
+     /// Public Pages ///
+    ////////////////////
 
 // Home page
 @import 'scss/public/homepage';
@@ -121,6 +131,9 @@
 // The Team page
 @import 'scss/public/the-team';
 
-// Errors
+      ///////////////////
+     /// Error Pages ///
+    ///////////////////
+
 // 403 error
 @import 'scss/errors/403-error';

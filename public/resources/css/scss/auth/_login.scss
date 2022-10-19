@@ -30,7 +30,7 @@
                 }
 
                 i {
-                    font-size: font-$titles;
+                    font-size: $titles;
                     width: 40px;
                     color: $primary-color;
                 }
@@ -59,6 +59,7 @@
                 }
 
                 input[type=password]:focus, input[type=text]:focus {
+                    font-size: $big-text;
                     outline: none;
                     padding-top: 15px;
                     padding-bottom: 15px;
