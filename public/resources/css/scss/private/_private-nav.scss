@@ -75,16 +75,18 @@
 }
 
 .main-container {
-    margin-left: 55px;
+    margin-left: 50px;
     transition: 0.5s ease;
 }
 
 .main-nav-active, .private-navigation:hover ~ .main-container {
-    margin-left: 305px;
+    margin-left: 300px;
     transition: 0.5s ease;
 }
 
-.page-opened {
+.top-bar {
+
+    height: 50px;
+    background-color: #1048ab;
 
 }
-

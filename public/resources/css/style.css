@@ -185,13 +185,18 @@
 }
 
 .main-container {
-  margin-left: 55px;
+  margin-left: 50px;
   transition: 0.5s ease;
 }
 
 .main-nav-active, .private-navigation:hover ~ .main-container {
-  margin-left: 305px;
+  margin-left: 300px;
   transition: 0.5s ease;
+}
+
+.top-bar {
+  height: 50px;
+  background-color: #1048ab;
 }
 
 .pagination-navigation-links {
@@ -2191,7 +2196,7 @@
 
 .user-index {
   min-height: 100vh;
-  background-color: #424141;
+  background-color: #424141FF;
   color: white;
 }
 .user-index main .user-table-container {
@@ -2209,7 +2214,7 @@
   padding: 20px 10px;
 }
 .user-index main .user-table-container table tbody tr td a {
-  color: #424141;
+  color: #424141FF;
   font-weight: bold;
   text-decoration: none;
   padding: 7.5px 15px;
@@ -3004,7 +3009,7 @@
   padding: 0 7.5px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #424141;
+  color: #424141FF;
   border-radius: 20px;
   font-stretch: expanded;
 }
@@ -3063,7 +3068,7 @@
   text-decoration: none;
   padding: 5px;
   border-radius: 25px;
-  color: #424141;
+  color: #424141FF;
   width: 100px;
   text-align: center;
 }
@@ -3849,7 +3854,7 @@
 }
 
 .the-team {
-  background-color: #424141;
+  background-color: #424141FF;
 }
 .the-team main .the-team-container {
   margin: 50px auto 0 auto;

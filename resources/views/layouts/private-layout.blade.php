@@ -99,6 +99,10 @@
 
         <main class="main-container">
 
+            <div class="top-bar">
+
+            </div>
+
             @yield('content')
 
         </main>
