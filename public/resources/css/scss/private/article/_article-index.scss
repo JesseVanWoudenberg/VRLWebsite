@@ -1,112 +1,237 @@
 .article-index {
 
-    .message {
-        width: 400px;
-        margin: 25px auto 0;
-        text-align: center;
-    }
+    main {
 
-    .created {
-        color: #1fb40f;
-    }
+        min-height: 100vh;
+        background-color: #d9d9d9;
 
-    .deleted {
-        color: #da1616;
-    }
+        .article-list-container {
 
-    .article-list-container {
+            border-radius: 15px;
+            margin: 0 auto;
+            width: 90%;
+            max-width: 1000px;
+            background-color: white;
+            box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
 
-        margin: 50px auto 0 auto;
-        width: 800px;
+            .table-header {
 
-        h1 {
+                position:relative;
+                white-space: nowrap;
+                overflow: hidden;
+                border-radius: 15px 15px 0 0;
+                padding: 10px;
+                background-color: #111111;
+                height: 50px;
+                display: flex;
 
-            width: 100%;
-            height: 40px;
-            text-align: center;
-            font-size: 24px;
+                h1 {
 
-            a {
+                    margin-left: 15px;
+                    line-height: 50px;
+                    color: white;
+                    font-size: 18pt;
+                    height: 50px;
 
-                color: #939191;
-                text-decoration: none;
-                text-align: center;
 
-            }
+                }
 
-            a:hover {
-                color: #5e5d5d;
-            }
-        }
+                .created {
+                    color: #21d24b;
+                }
+                .deleted {
+                    color: #b00d0d;
+                }
 
-        table {
+                .article-buttons-container {
 
-            margin-top: 25px;
-            border-collapse: separate;
-            border-spacing: 0 20px;
-            width: 800px;
+                    top: 17.5px;
+                    right: 15px;
+                    bottom: 0;
+                    position:absolute;
 
-            thead {
+                    a {
 
-                tr {
+                        padding: 5px 20px;
+                        line-height: 25px;
+                        color: white;
+                        background-color: #21d24b;
+                        border-radius: 5px;
+                        display: flex;
+                        flex-wrap: nowrap;
+                        text-align: center;
+                        font-size: 12pt;
+                        text-decoration: none;
 
-                    th {
-                        color: #939191;
-                        text-align: left;
-                        width: 290px;
+                        img {
+
+                            color: white;
+                            position: relative;
+                            margin: auto;
+                            top: 0;
+                            left: -7.5px;
+                            right: 0;
+                            bottom: 0;
+
+                        }
+                    }
+
+                    a:hover {
+
+                        background-color: #0c790c;
+                        transition: ease 0.2s;
+
                     }
                 }
             }
 
-            tbody {
+            table {
 
-                tr {
+                border-collapse: separate;
+                border-spacing: 0;
+                width: 100%;
+                padding: 25px;
 
-                    padding: 15px;
+                thead {
 
-                    td {
-                        text-align: center;
+                    tr {
 
-                        a {
+                        th {
+                            height: 50px;
+                            text-align: left;
+                        }
 
-                            text-decoration: none;
+                        th:nth-child(1) {
+                            text-align: center;
+                            width: 50px;
+                        }
+                    }
+                }
+
+                tbody {
+
+                    tr {
+
+                        position: relative;
+
+                        td {
+
+                            padding: 15px 0;
+                            text-align: left;
+
+                            a {
+
+
+
+                            }
+                        }
+
+                        td:nth-child(1) {
+                            width: 50px;
+                            text-align: center;
+                        }
+
+                        .edit-button, .delete-button, .info-button {
+
+                            border-right: 10px solid transparent;
+                            width: 50px;
+                            padding: 5px 0;
+                            text-align: left;
+
+                            a {
+
+                                white-space: nowrap;
+                                text-decoration: none;
+                                padding: 5px 20px;
+                                color: white;
+                                border-radius: 5px;
+                                display: flex;
+                                flex-wrap: nowrap;
+                                text-align: center;
+
+                                img {
+
+                                    color: white;
+                                    position: relative;
+                                    margin: auto;
+                                    top: 0;
+                                    left: -7.5px;
+                                    right: 0;
+                                    bottom: 0;
+                                }
+                            }
+                        }
+
+                        .edit-button {
+
+                            a {
+
+                                background-color: #d9a748;
+
+                            }
+
+                            a:hover {
+
+                                background-color: #b2842b;
+                                transition: ease 0.2s;
+
+                            }
+                        }
+
+                        .delete-button {
+
+                            a {
+
+                                background-color: #b00d0d;
+
+                            }
+
+                            a:hover {
+
+                                background-color: #790909;
+                                transition: ease 0.2s;
+
+                            }
+                        }
+
+                        .info-button {
+
+                            a {
+
+                                background-color: #21d24b;
+
+                            }
+
+                            a:hover {
+
+                                background-color: #139331;
+                                transition: ease 0.2s;
+
+                            }
                         }
                     }
 
-                    td:nth-child(1), td:nth-child(2) {
-                        width: 290px;
-                        text-align: left;
-                    };
+                    tr:nth-child(even) {
 
-                    th:nth-child(3) {
-                        width: 100px;
+                        background-color: white;
+
                     }
 
-                    td:nth-child(4) {
-                        width: 50px;
+                    tr:nth-child(odd) {
+
+                        background-color: #dedcdc;
+
                     }
 
-                    td:nth-child(5) {
-                        width: 70px;
-                    }
+                    tr:last-child {
 
-                    td:nth-child(3), td:nth-child(4), td:nth-child(5) {
-                        text-align: right;
-                        font-weight: bold;
-
-                        a {
-                            color: #6c6c6a;
+                        td:first-child {
+                            border-radius: 0 0 0 7.5px;
                         }
-                    }
 
-                    td:nth-child(3):hover, td:nth-child(4):hover {
-                        a {
-                            color: #343433;
+                        td:last-child {
+                            border-radius: 0 0 7.5px 0;
                         }
-                    }
-
-                    td:nth-child(5) a:hover  {
-                        color: #e81111
                     }
                 }
             }

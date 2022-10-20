@@ -7,6 +7,13 @@
 @section('content')
 
     <div class="show-container">
+
+        <div class="table-header">
+
+            <h1>Show Article</h1>
+
+        </div>
+
         <table>
             <thead>
                 <tr>

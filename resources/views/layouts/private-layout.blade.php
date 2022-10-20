@@ -107,8 +107,6 @@
 
         </main>
 
-        <footer class="footer">
-            <script src="{{ asset('resources/javascript/app.js') }}"></script>
-        </footer>
+        <script src="{{ asset('resources/javascript/app.js') }}"></script>
     </body>
 </html>
