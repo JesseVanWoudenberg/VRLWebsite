@@ -42,6 +42,9 @@
                 .deleted {
                     color: #b00d0d;
                 }
+                .edited {
+                    color: #d9a748;
+                }
 
                 .article-buttons-container {
 
@@ -198,13 +201,13 @@
 
                             a {
 
-                                background-color: #21d24b;
+                                background-color: #5792d5;
 
                             }
 
                             a:hover {
 
-                                background-color: #139331;
+                                background-color: #3c72b2;
                                 transition: ease 0.2s;
 
                             }
