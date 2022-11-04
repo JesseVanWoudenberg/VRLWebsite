@@ -349,6 +349,17 @@ class TieroneController extends Controller
         $pointsdrivers = collect();
 
         // WDC's
+
+        DB::table('driverchampionships')
+            ->select('*')
+            ->whereIn('tier_id',(function ($query) {
+                $query->from('tiers')
+                    ->select('id')
+                    ->where('tiers.tiernumber','=',1);
+            }))
+            ->where("",'>',0)
+            ->get();
+
         foreach (Driver::all() as $driver)
         {
             $driver['amount'] = Driverchampionship::all()->where('tier_id', 1)->where('driver_id', $driver->id)->count();
@@ -363,15 +374,16 @@ class TieroneController extends Controller
         // Wins
         foreach (Driver::all() as $driver)
         {
-            $racedrivers = Racedriver::all()->where('driver_id', $driver->id)->where('position', 1);
-
-            foreach ($racedrivers as $racedriver)
-            {
-                if ($racedriver->race->tier_id != 1)
-                {
-                    $racedrivers->pull($racedrivers->search($racedriver));
-                }
-            }
+            $racedrivers = Racedriver::query()
+                ->select('*')
+                ->where('position','=',1)
+                ->where('driver_id','=', $driver->id)
+                ->whereIn('tier_id',(function ($query) {
+                    $query->from('tiers')
+                        ->select('id')
+                        ->where('tiernumber','=',1);
+                }))
+                ->get();
 
             $driver['amount'] = $racedrivers->count();
 
@@ -385,15 +397,16 @@ class TieroneController extends Controller
         // Podiums
         foreach (Driver::all() as $driver)
         {
-            $racedrivers = Racedriver::all()->where('driver_id', $driver->id)->where('position', "<", 4);
-
-            foreach ($racedrivers as $racedriver)
-            {
-                if ($racedriver->race->tier_id != 1)
-                {
-                    $racedrivers->pull($racedrivers->search($racedriver));
-                }
-            }
+            $racedrivers = Racedriver::query()
+                ->select('*')
+                ->where('position','<',4)
+                ->where('driver_id','=', $driver->id)
+                ->whereIn('tier_id',(function ($query) {
+                    $query->from('tiers')
+                        ->select('id')
+                        ->where('tiernumber','=',1);
+                }))
+                ->get();
 
             $driver['amount'] = $racedrivers->count();
 
@@ -407,25 +420,27 @@ class TieroneController extends Controller
         // Poles
         foreach (Driver::all() as $driver)
         {
-            $qualifyingdrivers = Qualifyingdriver::all()->where('driver_id', $driver->id)->where('q3', 1);
+            $qualifyingdrivers = Qualifyingdriver::query()
+                ->select('*')
+                ->where('q3','=',1)
+                ->where('driver_id','=', $driver->id)
+                ->whereIn('tier_id',(function ($query) {
+                    $query->from('tiers')
+                        ->select('id')
+                        ->where('tiernumber','=',1);
+                }))
+                ->get();
 
-            foreach ($qualifyingdrivers as $qualifyingdriver)
-            {
-                if ($qualifyingdrivers->race->tier_id != 1)
-                {
-                    $qualifyingdrivers->pull($qualifyingdrivers->search($qualifyingdriver));
-                }
-            }
-
-            $shortqualifyingdrivers = Shortqualifyingdriver::all()->where('driver_id', $driver->id)->where('position', 1);
-
-            foreach ($qualifyingdrivers as $qualifyingdriver)
-            {
-                if ($qualifyingdrivers->race->tier_id != 1)
-                {
-                    $qualifyingdrivers->pull($qualifyingdrivers->search($qualifyingdriver));
-                }
-            }
+            $shortqualifyingdrivers = Shortqualifyingdriver::query()
+                ->select('*')
+                ->where('position','=',1)
+                ->where('driver_id','=', $driver->id)
+                ->whereIn('tier_id',(function ($query) {
+                    $query->from('tiers')
+                        ->select('id')
+                        ->where('tiernumber','=',1);
+                }))
+                ->get();
 
             $driver['amount'] = $qualifyingdrivers->count() + $shortqualifyingdrivers->count();
 
