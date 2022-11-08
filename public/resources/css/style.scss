@@ -28,6 +28,10 @@
      /// Private Pages ///
     /////////////////////
 
+@import 'scss/private/crud/private-index';
+@import 'scss/private/crud/private-create-edit-delete';
+@import 'scss/private/crud/private-show';
+
 // Login
 @import 'scss/auth/login';
 

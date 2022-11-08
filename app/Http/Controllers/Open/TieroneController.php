@@ -454,17 +454,15 @@ class TieroneController extends Controller
         // Fastest laps
         foreach (Driver::all() as $driver)
         {
-            $fastestlaps = Fastestlap::all()->where('driver_id', $driver->id);
-
-            foreach ($fastestlaps as $fastestlap)
-            {
-                if ($fastestlap->race->tier_id != 1)
-                {
-                    $fastestlap->pull($fastestlaps->search($fastestlap));
-                }
-            }
-
-            $driver['amount'] = $fastestlaps->count();
+            $driver['amount'] = Fastestlap::query()
+                ->select("*")
+                ->where("driver_id", $driver->id)
+                ->whereIn('tier_id',(function ($query) {
+                    $query->from('tiers')
+                        ->select('id')
+                        ->where('tiernumber','=',1);
+                }))
+                ->get()->count();
 
             if ($driver->amount > 0)
             {
@@ -476,17 +474,15 @@ class TieroneController extends Controller
         // Race starts
         foreach (Driver::all() as $driver)
         {
-            $racedrivers = Racedriver::all()->where('driver_id', $driver->id);
-
-            foreach ($racedrivers as $racedriver)
-            {
-                if ($racedriver->race->tier_id != 1)
-                {
-                    $racedrivers->pull($racedrivers->search($racedriver));
-                }
-            }
-
-            $driver['amount'] = $racedrivers->count();
+            $driver['amount'] = Racedriver::query()
+                ->select("*")
+                ->where("driver_id", $driver->id)
+                ->whereIn('tier_id',(function ($query) {
+                    $query->from('tiers')
+                        ->select('id')
+                        ->where('tiernumber','=',1);
+                }))
+                ->get()->count();
 
             if ($driver->amount > 0)
             {

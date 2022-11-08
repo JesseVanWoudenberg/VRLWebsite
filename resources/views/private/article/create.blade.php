@@ -2,7 +2,7 @@
 
 @section('page-title') Article - Create @endsection
 
-@section('page') article-create-edit-delete @endsection
+@section('page') private-create-edit-delete @endsection
 
 @section('content')
 
@@ -35,6 +35,5 @@
             <input type="submit" value="Create Article">
         </form>
     </div>
-
 
 @endsection

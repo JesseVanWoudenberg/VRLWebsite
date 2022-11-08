@@ -2,7 +2,7 @@
 
 @section('page-title') Article - Index @endsection
 
-@section('page') article-index @endsection
+@section('page') article-index private-index @endsection
 
 @section('content')
 
@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <div class="article-list-container">
+    <div class="index-list-container">
 
         <div class="table-header">
 
@@ -28,8 +28,7 @@
                 <h1>Manage Articles</h1>
             @endif
 
-            <div class="article-buttons-container">
-
+            <div class="index-buttons-container">
                 <a href="{{ route('article.create') }}">
                     <img src="{{ asset('resources/media/svgs/plus-circle-fill.svg') }}" alt="X">
                     Add new article
@@ -40,7 +39,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>ID</th>
                     <th>Article Name</th>
                     <th>Author</th>
                 </tr>
