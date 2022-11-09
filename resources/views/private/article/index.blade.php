@@ -2,17 +2,9 @@
 
 @section('page-title') Article - Index @endsection
 
-@section('page') article-index private-index @endsection
+@section('page') private-index @endsection
 
 @section('content')
-
-    @if ($errors->any())
-        <div>
-            @foreach($errors->all() as $error)
-                {{ $error }}
-            @endforeach
-        </div>
-    @endif
 
     <div class="index-list-container">
 
@@ -24,6 +16,10 @@
                     @if(Illuminate\Support\Str::contains(\Illuminate\Support\Facades\Session::get('status'), 'updated')) class="edited" @endif>
                     {{ \Illuminate\Support\Facades\Session::get('status') }}
                 </h1>
+            @elseif($errors->any())
+                @foreach($errors->all() as $error)
+                    <h1>{{ $error }}</h1>
+                @endforeach
             @else
                 <h1>Manage Articles</h1>
             @endif

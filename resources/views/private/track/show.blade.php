@@ -2,32 +2,32 @@
 
 @section('page-title') Track - Show @endsection
 
-@section('page') track-show @endsection
+@section('page') private-show @endsection
 
 @section('content')
 
     <div class="show-container">
-        <table>
-            <tr>
-                <th>Track name</th>
-                <td>{{ $track->name }}</td>
-            </tr>
 
-            <tr>
-                <th>Country</th>
-                <td>{{ $track->country }}</td>
-            </tr>
+        <div class="table-header">
 
-            <tr>
-                <th>Length</th>
-                <td>{{ $track->length }}</td>
-            </tr>
+            <h1>Show Track</h1>
+        </div>
 
-            <tr>
-                <th>Turns</th>
-                <td>{{ $track->turns }}</td>
-            </tr>
-        </table>
+        <div class="show-content">
+
+            <h1>Track name</h1>
+            <p>{{ $track->name }}</p>
+
+            <h1>Country</h1>
+            <p>{{ $track->country }}</p>
+
+            <h1>Length</h1>
+            <p>{{ $track->length }}</p>
+
+            <h1>Turns</h1>
+            <p>{{ $track->turns }}</p>
+
+        </div>
     </div>
 
 @endsection

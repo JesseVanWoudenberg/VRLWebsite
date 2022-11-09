@@ -386,7 +386,7 @@
   text-align: left;
 }
 .private-index main .index-list-container table thead tr th:nth-child(1) {
-  padding: 0 0 0 10px;
+  padding: 0 0 0 15px;
 }
 .private-index main .index-list-container table tbody tr {
   position: relative;
@@ -405,15 +405,15 @@
   color: #464646;
 }
 .private-index main .index-list-container table tbody tr td:nth-child(1) {
-  padding: 15px 0 15px 10px;
+  padding: 15px 0 15px 20px;
 }
-.private-index main .index-list-container table tbody tr .edit-button, .private-index main .index-list-container table tbody tr .delete-button, .private-index main .index-list-container table tbody tr .info-button {
+.private-index main .index-list-container table tbody tr .edit-button, .private-index main .index-list-container table tbody tr .delete-button, .private-index main .index-list-container table tbody tr .info-button, .private-index main .index-list-container table tbody tr .permissions-button {
   border-right: 10px solid transparent;
   width: 50px;
   padding: 5px 0;
   text-align: left;
 }
-.private-index main .index-list-container table tbody tr .edit-button a, .private-index main .index-list-container table tbody tr .delete-button a, .private-index main .index-list-container table tbody tr .info-button a {
+.private-index main .index-list-container table tbody tr .edit-button a, .private-index main .index-list-container table tbody tr .delete-button a, .private-index main .index-list-container table tbody tr .info-button a, .private-index main .index-list-container table tbody tr .permissions-button a {
   font-weight: normal;
   white-space: nowrap;
   text-decoration: none;
@@ -424,7 +424,7 @@
   flex-wrap: nowrap;
   text-align: center;
 }
-.private-index main .index-list-container table tbody tr .edit-button a img, .private-index main .index-list-container table tbody tr .delete-button a img, .private-index main .index-list-container table tbody tr .info-button a img {
+.private-index main .index-list-container table tbody tr .edit-button a img, .private-index main .index-list-container table tbody tr .delete-button a img, .private-index main .index-list-container table tbody tr .info-button a img, .private-index main .index-list-container table tbody tr .permissions-button a img {
   color: white;
   position: relative;
   margin: auto;
@@ -452,6 +452,13 @@
 }
 .private-index main .index-list-container table tbody tr .info-button a:hover {
   background-color: #3c72b2;
+  transition: ease 0.2s;
+}
+.private-index main .index-list-container table tbody tr .permissions-button a {
+  background-color: #3f09c2;
+}
+.private-index main .index-list-container table tbody tr .permissions-button a:hover {
+  background-color: #27037a;
   transition: ease 0.2s;
 }
 .private-index main .index-list-container table tbody tr:nth-child(even) {
@@ -545,11 +552,73 @@
   background-color: #4f4f4f;
   transition: ease 0.2s;
 }
+.private-create-edit-delete main .form-container form input[type=number] {
+  font-size: 12pt;
+  margin-top: 10px;
+  margin-left: 25px;
+  display: block;
+  width: calc(100% - 50px);
+  border: none;
+  border-bottom: 2px solid #111111;
+}
 .private-create-edit-delete main .form-container form input:focus,
 .private-create-edit-delete main .form-container form select:focus,
 .private-create-edit-delete main .form-container form textarea:focus,
 .private-create-edit-delete main .form-container form button:focus {
   outline: none;
+}
+
+.private-show main {
+  min-height: 100vh;
+  background-color: #d9d9d9;
+}
+.private-show main .show-container {
+  border-radius: 15px;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 750px;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+}
+.private-show main .show-container .table-header {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+  padding: 10px;
+  background-color: #111111;
+  height: 50px;
+  display: flex;
+}
+.private-show main .show-container .table-header h1 {
+  margin-left: 15px;
+  line-height: 50px;
+  color: white;
+  font-size: 18pt;
+  height: 50px;
+}
+.private-show main .show-container .show-content {
+  padding: 0 25px 25px 25px;
+  width: calc(100% - 50px);
+}
+.private-show main .show-container .show-content h1, .private-show main .show-container .show-content p {
+  width: 100%;
+  text-align: center;
+}
+.private-show main .show-container .show-content h1 {
+  margin-top: 25px;
+  font-size: 24pt;
+}
+.private-show main .show-container .show-content p {
+  font-size: 16pt;
+}
+.private-show main .show-container .show-content p a {
+  text-decoration: none;
+  color: #111111;
+  font-weight: bold;
+}
+.private-show main .show-container .show-content p a:hover {
+  color: #464646;
 }
 
 .login {
@@ -733,198 +802,6 @@
   height: 50px;
   text-align: center;
   line-height: 50px;
-}
-
-.article-show main {
-  min-height: 100vh;
-  background-color: #d9d9d9;
-}
-.article-show main .show-container {
-  border-radius: 15px;
-  margin: 0 auto;
-  width: 90%;
-  max-width: 800px;
-  background-color: white;
-  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
-}
-.article-show main .show-container .table-header {
-  position: relative;
-  white-space: nowrap;
-  overflow: hidden;
-  border-radius: 15px 15px 0 0;
-  padding: 10px;
-  background-color: #111111;
-  height: 50px;
-  display: flex;
-}
-.article-show main .show-container .table-header h1 {
-  margin-left: 15px;
-  line-height: 50px;
-  color: white;
-  font-size: 18pt;
-  height: 50px;
-}
-.article-show main .show-container table {
-  width: 800px;
-  border-collapse: separate;
-}
-.article-show main .show-container table thead {
-  width: 800px;
-}
-.article-show main .show-container table thead tr {
-  width: 800px;
-}
-.article-show main .show-container table thead tr th {
-  font-size: 20px;
-  text-align: center;
-}
-.article-show main .show-container table tbody {
-  width: 800px;
-}
-.article-show main .show-container table tbody tr {
-  width: 800px;
-}
-.article-show main .show-container table tbody tr td {
-  font-size: 16px;
-  text-align: center;
-}
-.article-show main .show-container .article-text-container {
-  margin-top: 50px;
-  width: 800px;
-}
-.article-show main .show-container .article-text-container h1 {
-  display: block;
-  width: 800px;
-  font-size: 20px;
-  text-align: center;
-}
-.article-show main .show-container .article-text-container p {
-  padding: 20px;
-  font-size: 15px;
-  text-align: justify;
-}
-
-.powerunit-index .message {
-  width: 400px;
-  margin: 25px auto 0;
-  text-align: center;
-}
-.powerunit-index .created {
-  color: #1fb40f;
-}
-.powerunit-index .deleted {
-  color: #da1616;
-}
-.powerunit-index .powerunit-list-container {
-  margin: 50px auto 0 auto;
-  width: 500px;
-}
-.powerunit-index .powerunit-list-container h1 {
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  font-size: 24px;
-}
-.powerunit-index .powerunit-list-container h1 a {
-  color: #939191;
-  text-decoration: none;
-  text-align: center;
-}
-.powerunit-index .powerunit-list-container h1 a:hover {
-  color: #5e5d5d;
-}
-.powerunit-index .powerunit-list-container table {
-  margin-top: 25px;
-  border-collapse: separate;
-  border-spacing: 0 20px;
-  width: 500px;
-}
-.powerunit-index .powerunit-list-container table thead tr th {
-  color: #939191;
-  text-align: left;
-  width: 280px;
-}
-.powerunit-index .powerunit-list-container table tbody tr {
-  padding: 15px;
-}
-.powerunit-index .powerunit-list-container table tbody tr td {
-  text-align: center;
-}
-.powerunit-index .powerunit-list-container table tbody tr td a {
-  text-decoration: none;
-}
-.powerunit-index .powerunit-list-container table tbody tr td:nth-child(1) {
-  width: 130px;
-  text-align: left;
-}
-.powerunit-index .powerunit-list-container table tbody tr th:nth-child(2) {
-  width: 100px;
-}
-.powerunit-index .powerunit-list-container table tbody tr td:nth-child(3) {
-  width: 50px;
-}
-.powerunit-index .powerunit-list-container table tbody tr td:nth-child(4) {
-  width: 70px;
-}
-.powerunit-index .powerunit-list-container table tbody tr td:nth-child(2), .powerunit-index .powerunit-list-container table tbody tr td:nth-child(3), .powerunit-index .powerunit-list-container table tbody tr td:nth-child(4) {
-  text-align: right;
-  font-weight: bold;
-}
-.powerunit-index .powerunit-list-container table tbody tr td:nth-child(2) a, .powerunit-index .powerunit-list-container table tbody tr td:nth-child(3) a, .powerunit-index .powerunit-list-container table tbody tr td:nth-child(4) a {
-  color: #6c6c6a;
-}
-.powerunit-index .powerunit-list-container table tbody tr td:nth-child(2):hover a, .powerunit-index .powerunit-list-container table tbody tr td:nth-child(3):hover a {
-  color: #343433;
-}
-.powerunit-index .powerunit-list-container table tbody tr td:nth-child(4) a:hover {
-  color: #e81111;
-}
-
-.powerunit-create-edit-delete main .form-container {
-  padding: 0 15px 15px 15px;
-  width: 515px;
-  margin: 75px auto 0 auto;
-}
-.powerunit-create-edit-delete main .form-container form label {
-  font-weight: bold;
-  color: #6c6c6a;
-  display: block;
-  margin-top: 25px;
-  margin-left: 25px;
-  width: 496px;
-}
-.powerunit-create-edit-delete main .form-container form input[type=text] {
-  padding: 7.5px;
-  width: 498px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-}
-.powerunit-create-edit-delete main .form-container form input[type=submit] {
-  margin-top: 25px;
-  padding: 7.5px;
-  width: 515px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-  background-color: #ffffff;
-  font-weight: bold;
-  color: #6c6c6a;
-}
-.powerunit-create-edit-delete main .form-container form input[type=submit]:hover {
-  background-color: #c5c2c2;
-  color: #6c6c6a;
-}
-
-.powerunit-show .show-container {
-  width: 600px;
-  margin: 75px auto 0 auto;
-}
-.powerunit-show .show-container h1 {
-  text-align: center;
-  font-size: 24px;
-}
-.powerunit-show .show-container p {
-  text-align: center;
-  font-size: 16px;
 }
 
 .team-index .message {
@@ -1315,181 +1192,6 @@
 }
 .track-show .show-container table tr td {
   width: 300px;
-}
-
-.driver-index .message {
-  width: 400px;
-  margin: 25px auto 0;
-  text-align: center;
-}
-.driver-index .created {
-  color: #1fb40f;
-}
-.driver-index .deleted {
-  color: #da1616;
-}
-.driver-index .driver-list-container {
-  margin: 50px auto 0 auto;
-  width: 800px;
-}
-.driver-index .driver-list-container h1 {
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  font-size: 24px;
-}
-.driver-index .driver-list-container h1 a {
-  color: #939191;
-  text-decoration: none;
-  text-align: center;
-}
-.driver-index .driver-list-container h1 a:hover {
-  color: #5e5d5d;
-}
-.driver-index .driver-list-container table {
-  margin-top: 25px;
-  border-collapse: separate;
-  border-spacing: 0 20px;
-  width: 800px;
-}
-.driver-index .driver-list-container table thead tr th:nth-child(1), .driver-index .driver-list-container table thead tr th:nth-child(2), .driver-index .driver-list-container table thead tr th:nth-child(3) {
-  color: #939191;
-  text-align: left;
-}
-.driver-index .driver-list-container table thead tr th:nth-child(1), .driver-index .driver-list-container table thead tr th:nth-child(2) {
-  width: 200px;
-}
-.driver-index .driver-list-container table thead tr th:nth-child(3) {
-  width: 100px;
-  text-align: center;
-}
-.driver-index .driver-list-container table tbody tr {
-  padding: 15px;
-}
-.driver-index .driver-list-container table tbody tr td {
-  text-align: center;
-}
-.driver-index .driver-list-container table tbody tr td a {
-  text-decoration: none;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(1), .driver-index .driver-list-container table tbody tr td:nth-child(2) {
-  width: 200px;
-  text-align: left;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(2) a {
-  font-weight: bold;
-  color: #5e5d5d;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(2) a:hover {
-  color: #343433;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(3) {
-  width: 100px;
-}
-.driver-index .driver-list-container table tbody tr th:nth-child(4) {
-  width: 100px;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(5) {
-  width: 50px;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(6) {
-  width: 70px;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(4), .driver-index .driver-list-container table tbody tr td:nth-child(5), .driver-index .driver-list-container table tbody tr td:nth-child(6) {
-  text-align: right;
-  font-weight: bold;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(4) a, .driver-index .driver-list-container table tbody tr td:nth-child(5) a, .driver-index .driver-list-container table tbody tr td:nth-child(6) a {
-  color: #6c6c6a;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(4):hover a, .driver-index .driver-list-container table tbody tr td:nth-child(5):hover a {
-  color: #343433;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(6) a:hover {
-  color: #e81111;
-}
-
-.driver-show .show-container {
-  width: 400px;
-  margin: 75px auto 0 auto;
-}
-.driver-show .show-container table {
-  width: 400px;
-  border-collapse: separate;
-}
-.driver-show .show-container table tbody {
-  width: 400px;
-}
-.driver-show .show-container table tbody tr {
-  width: 400px;
-}
-.driver-show .show-container table tbody tr th {
-  text-align: left;
-  width: 200px;
-}
-.driver-show .show-container table tbody tr td {
-  text-align: right;
-  width: 200px;
-  font-size: 16px;
-}
-.driver-show .show-container table tbody tr td a {
-  font-weight: bold;
-  color: #5e5d5d;
-  text-decoration: none;
-}
-.driver-show .show-container table tbody tr td a:hover {
-  color: #343433;
-}
-
-.driver-create-edit-delete main .form-container {
-  padding: 0 15px 15px 15px;
-  width: 515px;
-  margin: 75px auto 0 auto;
-}
-.driver-create-edit-delete main .form-container form label {
-  font-weight: bold;
-  color: #6c6c6a;
-  display: block;
-  margin-top: 25px;
-  margin-left: 25px;
-  width: 496px;
-}
-.driver-create-edit-delete main .form-container form .select-container {
-  height: 40px;
-  width: 515px;
-}
-.driver-create-edit-delete main .form-container form .select-container select {
-  width: 515px;
-  padding: 7.5px;
-  border-radius: 25px;
-}
-.driver-create-edit-delete main .form-container form input[type=text] {
-  padding: 7.5px;
-  width: 498px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-}
-.driver-create-edit-delete main .form-container form input[type=number] {
-  font-size: 20px;
-  text-align: center;
-  width: 498px;
-  padding: 7.5px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-}
-.driver-create-edit-delete main .form-container form input[type=submit] {
-  margin-top: 25px;
-  padding: 7.5px;
-  width: 515px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-  background-color: #ffffff;
-  font-weight: bold;
-  color: #6c6c6a;
-}
-.driver-create-edit-delete main .form-container form input[type=submit]:hover {
-  background-color: #c5c2c2;
-  color: #6c6c6a;
 }
 
 .driverchampionship-index .message {

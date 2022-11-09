@@ -2,37 +2,37 @@
 
 @section('page-title') Driver - Show @endsection
 
-@section('page') driver-show @endsection
+@section('page') private-show @endsection
 
 @section('content')
 
     <div class="show-container">
-        <table>
-            <tr>
-                <th>Name</th>
-                <td>{{ $driver->name }}</td>
-            </tr>
 
-            <tr>
-                <th>Nationality</th>
-                <td>{{ $driver->nationality }}</td>
-            </tr>
+        <div class="table-header">
 
-            <tr>
-                <th>Driver number</th>
-                <td>{{ $driver->drivernumber }}</td>
-            </tr>
+            <h1>Show Article</h1>
 
-            <tr>
-                <th>Team</th>
-                <td><a href="{{ route('team.show', ['team' => $driver->team->id]) }}">{{ $driver->team->name }}</a></td>
-            </tr>
+        </div>
 
-            <tr>
-                <th>Tier</th>
-                <td>{{ $driver->tier->tiernumber }}</td>
-            </tr>
-        </table>
+        <div class="show-content">
+
+            <h1>Name</h1>
+            <p>{{ $driver->name }}</p>
+
+
+            <h1>Nationality</h1>
+            <p>{{ $driver->nationality }}</p>
+
+            <h1>Driver number</h1>
+            <p>{{ $driver->drivernumber }}</p>
+
+            <h1>Team</h1>
+            <p><a href="{{ route('team.show', ['team' => $driver->team->id]) }}">{{ $driver->team->name }}</a></p>
+
+            <h1>Tier</h1>
+            <p>{{ $driver->tier->tiernumber }}</p>
+
+        </div>
     </div>
 
 @endsection

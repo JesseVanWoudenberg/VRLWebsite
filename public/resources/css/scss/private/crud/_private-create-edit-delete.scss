@@ -99,6 +99,19 @@
                     transition: ease 0.2s;
                 }
 
+                input[type=number] {
+
+                    font-size: 12pt;
+                    margin-top: 10px;
+                    margin-left: 25px;
+                    display: block;
+                    width: calc(100% - 50px);
+                    border: none;
+                    border-bottom: 2px solid #111111;
+
+                }
+
+
                 input:focus,
                 select:focus,
                 textarea:focus,

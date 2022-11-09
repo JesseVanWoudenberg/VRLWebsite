@@ -2,7 +2,7 @@
 
 @section('page-title') Article - Edit @endsection
 
-@section('page') article-create-edit-delete @endsection
+@section('page') private-create-edit-delete @endsection
 
 @section('content')
 

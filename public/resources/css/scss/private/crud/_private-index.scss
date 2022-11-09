@@ -105,7 +105,7 @@
                         }
 
                         th:nth-child(1) {
-                            padding: 0 0 0 10px;
+                            padding: 0 0 0 15px;
                         }
                     }
                 }
@@ -136,10 +136,10 @@
                         }
 
                         td:nth-child(1) {
-                            padding: 15px 0 15px 10px;
+                            padding: 15px 0 15px 20px;
                         }
 
-                        .edit-button, .delete-button, .info-button {
+                        .edit-button, .delete-button, .info-button, .permissions-button {
 
                             border-right: 10px solid transparent;
                             width: 50px;
@@ -214,6 +214,22 @@
                             a:hover {
 
                                 background-color: #3c72b2;
+                                transition: ease 0.2s;
+
+                            }
+                        }
+
+                        .permissions-button {
+
+                            a {
+
+                                background-color: #3f09c2;
+
+                            }
+
+                            a:hover {
+
+                                background-color: #27037a;
                                 transition: ease 0.2s;
 
                             }

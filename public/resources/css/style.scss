@@ -41,15 +41,6 @@
 // Footer
 @import 'scss/general/footer';
 
-// Article pages
-@import 'scss/private/article/article-index';
-@import 'scss/private/article/article-create-edit-delete';
-@import 'scss/private/article/article-show';
-
-// Power unit pages
-@import 'scss/private/powerunit/powerunit-index';
-@import 'scss/private/powerunit/powerunit-create-edit-delete';
-@import 'scss/private/powerunit/powerunit-show';
 
 // Team pages
 @import 'scss/private/team/team-index';
@@ -64,11 +55,6 @@
 @import 'scss/private/track/track-index';
 @import 'scss/private/track/track-create-edit-delete';
 @import 'scss/private/track/track-show';
-
-// Driver pages
-@import 'scss/private/driver/driver-index';
-@import 'scss/private/driver/driver-show';
-@import 'scss/private/driver/driver-create-edit-delete';
 
 // Driver championship pages
 @import 'scss/private/driverchampionship/driverchampionship-index';
