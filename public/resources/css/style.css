@@ -521,7 +521,7 @@
   padding: 10px;
   font-size: 16px;
 }
-.private-create-edit-delete main .form-container form input[type=text], .private-create-edit-delete main .form-container form textarea {
+.private-create-edit-delete main .form-container form input[type=text], .private-create-edit-delete main .form-container form input[type=email], .private-create-edit-delete main .form-container form input[type=password], .private-create-edit-delete main .form-container form textarea {
   font-size: 12pt;
   margin-top: 10px;
   margin-left: 25px;
