@@ -130,7 +130,7 @@
   left: 0;
   width: 300px;
   height: 100%;
-  background-color: #107dab;
+  background-color: #111111;
   transform: translateX(-250px);
   transition: 0.5s ease;
 }
@@ -142,7 +142,7 @@
 .private-navigation .menu-button div {
   width: 25px;
   height: 3px;
-  background-color: #1a1a18;
+  background-color: #ffffff;
   margin: 5px 0;
   transition: all 0.3s ease;
 }
@@ -185,13 +185,17 @@
 }
 
 .main-container {
-  margin-left: 55px;
+  margin-left: 50px;
   transition: 0.5s ease;
 }
 
 .main-nav-active, .private-navigation:hover ~ .main-container {
-  margin-left: 305px;
+  margin-left: 300px;
   transition: 0.5s ease;
+}
+
+.top-bar {
+  height: 50px;
 }
 
 .pagination-navigation-links {
@@ -302,6 +306,325 @@
   border-radius: 25px;
 }
 
+.private-index main {
+  min-height: 100vh;
+  background-color: #d9d9d9;
+}
+.private-index main .index-list-container {
+  border-radius: 15px;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1000px;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+}
+.private-index main .index-list-container .table-header {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+  padding: 10px;
+  background-color: #111111;
+  height: 50px;
+  display: flex;
+}
+.private-index main .index-list-container .table-header h1 {
+  margin-left: 15px;
+  line-height: 50px;
+  color: white;
+  font-size: 18pt;
+  height: 50px;
+}
+.private-index main .index-list-container .table-header .created {
+  color: #21d24b;
+}
+.private-index main .index-list-container .table-header .deleted {
+  color: #b00d0d;
+}
+.private-index main .index-list-container .table-header .edited {
+  color: #d9a748;
+}
+.private-index main .index-list-container .table-header .index-buttons-container {
+  top: 17.5px;
+  right: 15px;
+  bottom: 0;
+  position: absolute;
+}
+.private-index main .index-list-container .table-header .index-buttons-container a {
+  padding: 5px 20px;
+  line-height: 25px;
+  color: white;
+  background-color: #1ba93f;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: nowrap;
+  text-align: center;
+  font-size: 12pt;
+  text-decoration: none;
+}
+.private-index main .index-list-container .table-header .index-buttons-container a img {
+  color: white;
+  position: relative;
+  margin: auto;
+  top: 0;
+  left: -7.5px;
+  right: 0;
+  bottom: 0;
+}
+.private-index main .index-list-container .table-header .index-buttons-container a:hover {
+  background-color: #15852f;
+  transition: ease 0.2s;
+}
+.private-index main .index-list-container table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  padding: 25px;
+}
+.private-index main .index-list-container table thead tr th {
+  height: 50px;
+  text-align: left;
+}
+.private-index main .index-list-container table thead tr th:nth-child(1) {
+  padding: 0 0 0 15px;
+}
+.private-index main .index-list-container table tbody tr {
+  position: relative;
+}
+.private-index main .index-list-container table tbody tr td {
+  padding: 15px 0;
+  text-align: left;
+  color: #111111;
+}
+.private-index main .index-list-container table tbody tr td a {
+  text-decoration: none;
+  color: #111111;
+  font-weight: bold;
+}
+.private-index main .index-list-container table tbody tr td a:hover {
+  color: #464646;
+}
+.private-index main .index-list-container table tbody tr td:nth-child(1) {
+  padding: 15px 0 15px 20px;
+}
+.private-index main .index-list-container table tbody tr .edit-button, .private-index main .index-list-container table tbody tr .delete-button, .private-index main .index-list-container table tbody tr .info-button, .private-index main .index-list-container table tbody tr .permissions-button {
+  border-right: 10px solid transparent;
+  width: 50px;
+  padding: 5px 0;
+  text-align: left;
+}
+.private-index main .index-list-container table tbody tr .edit-button a, .private-index main .index-list-container table tbody tr .delete-button a, .private-index main .index-list-container table tbody tr .info-button a, .private-index main .index-list-container table tbody tr .permissions-button a {
+  font-weight: normal;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 5px 20px;
+  color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: nowrap;
+  text-align: center;
+}
+.private-index main .index-list-container table tbody tr .edit-button a img, .private-index main .index-list-container table tbody tr .delete-button a img, .private-index main .index-list-container table tbody tr .info-button a img, .private-index main .index-list-container table tbody tr .permissions-button a img {
+  color: white;
+  position: relative;
+  margin: auto;
+  top: 0;
+  left: -7.5px;
+  right: 0;
+  bottom: 0;
+}
+.private-index main .index-list-container table tbody tr .edit-button a {
+  background-color: #d9a748;
+}
+.private-index main .index-list-container table tbody tr .edit-button a:hover {
+  background-color: #b2842b;
+  transition: ease 0.2s;
+}
+.private-index main .index-list-container table tbody tr .delete-button a {
+  background-color: #b00d0d;
+}
+.private-index main .index-list-container table tbody tr .delete-button a:hover {
+  background-color: #790909;
+  transition: ease 0.2s;
+}
+.private-index main .index-list-container table tbody tr .info-button a {
+  background-color: #5792d5;
+}
+.private-index main .index-list-container table tbody tr .info-button a:hover {
+  background-color: #3c72b2;
+  transition: ease 0.2s;
+}
+.private-index main .index-list-container table tbody tr .permissions-button a {
+  background-color: #3f09c2;
+}
+.private-index main .index-list-container table tbody tr .permissions-button a:hover {
+  background-color: #27037a;
+  transition: ease 0.2s;
+}
+.private-index main .index-list-container table tbody tr:nth-child(even) {
+  background-color: white;
+}
+.private-index main .index-list-container table tbody tr:nth-child(odd) {
+  background-color: #dedcdc;
+}
+.private-index main .index-list-container table tbody tr:last-child td:first-child {
+  border-radius: 0 0 0 7.5px;
+}
+.private-index main .index-list-container table tbody tr:last-child td:last-child {
+  border-radius: 0 0 7.5px 0;
+}
+
+.private-create-edit-delete main {
+  min-height: 100vh;
+  background-color: #d9d9d9;
+}
+.private-create-edit-delete main .form-container {
+  border-radius: 15px;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 600px;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+}
+.private-create-edit-delete main .form-container .table-header {
+  position: relative;
+  white-space: nowrap;
+  border-radius: 15px 15px 0 0;
+  padding: 10px;
+  background-color: #111111;
+  height: fit-content;
+  display: block;
+}
+.private-create-edit-delete main .form-container .table-header h1 {
+  margin-left: 15px;
+  line-height: 50px;
+  color: white;
+  font-size: 18pt;
+  height: 50px;
+}
+.private-create-edit-delete main .form-container form {
+  width: 100%;
+}
+.private-create-edit-delete main .form-container form .select-container {
+  width: calc(100% - 50px);
+  height: 40px;
+  margin: 10px auto 0 auto;
+}
+.private-create-edit-delete main .form-container form .select-container select {
+  width: 100%;
+  border: none;
+  border-top: solid 2px #111111;
+  padding: 10px;
+  font-size: 16px;
+}
+.private-create-edit-delete main .form-container form .select-container select option {
+  padding: 10px;
+  font-size: 16px;
+}
+.private-create-edit-delete main .form-container form input[type=text], .private-create-edit-delete main .form-container form textarea {
+  font-size: 12pt;
+  margin-top: 10px;
+  margin-left: 25px;
+  display: block;
+  width: calc(100% - 50px);
+  border: none;
+  border-bottom: 2px solid #111111;
+}
+.private-create-edit-delete main .form-container form label {
+  margin-left: 25px;
+  font-size: 16pt;
+  font-weight: bold;
+  margin-top: 25px;
+  display: block;
+  width: 100%;
+}
+.private-create-edit-delete main .form-container form textarea {
+  resize: none;
+  height: 75px;
+}
+.private-create-edit-delete main .form-container form input[type=submit] {
+  color: white;
+  font-size: 16pt;
+  height: 50px;
+  margin-top: 25px;
+  width: 100%;
+  border: none;
+  border-radius: 0 0 15px 15px;
+  background-color: #111111;
+}
+.private-create-edit-delete main .form-container form input[type=submit]:hover {
+  background-color: #4f4f4f;
+  transition: ease 0.2s;
+}
+.private-create-edit-delete main .form-container form input[type=number] {
+  font-size: 12pt;
+  margin-top: 10px;
+  margin-left: 25px;
+  display: block;
+  width: calc(100% - 50px);
+  border: none;
+  border-bottom: 2px solid #111111;
+}
+.private-create-edit-delete main .form-container form input:focus,
+.private-create-edit-delete main .form-container form select:focus,
+.private-create-edit-delete main .form-container form textarea:focus,
+.private-create-edit-delete main .form-container form button:focus {
+  outline: none;
+}
+
+.private-show main {
+  min-height: 100vh;
+  background-color: #d9d9d9;
+}
+.private-show main .show-container {
+  border-radius: 15px;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 750px;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+}
+.private-show main .show-container .table-header {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+  padding: 10px;
+  background-color: #111111;
+  height: 50px;
+  display: flex;
+}
+.private-show main .show-container .table-header h1 {
+  margin-left: 15px;
+  line-height: 50px;
+  color: white;
+  font-size: 18pt;
+  height: 50px;
+}
+.private-show main .show-container .show-content {
+  padding: 0 25px 25px 25px;
+  width: calc(100% - 50px);
+}
+.private-show main .show-container .show-content h1, .private-show main .show-container .show-content p {
+  width: 100%;
+  text-align: center;
+}
+.private-show main .show-container .show-content h1 {
+  margin-top: 25px;
+  font-size: 24pt;
+}
+.private-show main .show-container .show-content p {
+  font-size: 16pt;
+}
+.private-show main .show-container .show-content p a {
+  text-decoration: none;
+  color: #111111;
+  font-weight: bold;
+}
+.private-show main .show-container .show-content p a:hover {
+  color: #464646;
+}
+
 .login {
   height: 100vh;
   background-color: #424141;
@@ -322,7 +645,7 @@
   margin-top: 25px;
 }
 .login main .login-form-container form i {
-  font-size: font- 24pt;
+  font-size: 24pt;
   width: 40px;
   color: #ffffff;
 }
@@ -347,10 +670,10 @@
   transition: ease 0.3s;
 }
 .login main .login-form-container form input[type=password]:focus, .login main .login-form-container form input[type=text]:focus {
+  font-size: 16pt;
   outline: none;
   padding-top: 15px;
   padding-bottom: 15px;
-  font-size: font- 16pt;
   transition: ease 0.3s;
 }
 .login main .login-form-container form input[type=submit] {
@@ -485,1337 +808,10 @@
   line-height: 50px;
 }
 
-.article-index .message {
-  width: 400px;
-  margin: 25px auto 0;
-  text-align: center;
+.race-index {
+  min-height: 100vh;
+  background-color: #d9d9d9;
 }
-.article-index .created {
-  color: #1fb40f;
-}
-.article-index .deleted {
-  color: #da1616;
-}
-.article-index .article-list-container {
-  margin: 50px auto 0 auto;
-  width: 800px;
-}
-.article-index .article-list-container h1 {
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  font-size: 24px;
-}
-.article-index .article-list-container h1 a {
-  color: #939191;
-  text-decoration: none;
-  text-align: center;
-}
-.article-index .article-list-container h1 a:hover {
-  color: #5e5d5d;
-}
-.article-index .article-list-container table {
-  margin-top: 25px;
-  border-collapse: separate;
-  border-spacing: 0 20px;
-  width: 800px;
-}
-.article-index .article-list-container table thead tr th {
-  color: #939191;
-  text-align: left;
-  width: 290px;
-}
-.article-index .article-list-container table tbody tr {
-  padding: 15px;
-}
-.article-index .article-list-container table tbody tr td {
-  text-align: center;
-}
-.article-index .article-list-container table tbody tr td a {
-  text-decoration: none;
-}
-.article-index .article-list-container table tbody tr td:nth-child(1), .article-index .article-list-container table tbody tr td:nth-child(2) {
-  width: 290px;
-  text-align: left;
-}
-.article-index .article-list-container table tbody tr th:nth-child(3) {
-  width: 100px;
-}
-.article-index .article-list-container table tbody tr td:nth-child(4) {
-  width: 50px;
-}
-.article-index .article-list-container table tbody tr td:nth-child(5) {
-  width: 70px;
-}
-.article-index .article-list-container table tbody tr td:nth-child(3), .article-index .article-list-container table tbody tr td:nth-child(4), .article-index .article-list-container table tbody tr td:nth-child(5) {
-  text-align: right;
-  font-weight: bold;
-}
-.article-index .article-list-container table tbody tr td:nth-child(3) a, .article-index .article-list-container table tbody tr td:nth-child(4) a, .article-index .article-list-container table tbody tr td:nth-child(5) a {
-  color: #6c6c6a;
-}
-.article-index .article-list-container table tbody tr td:nth-child(3):hover a, .article-index .article-list-container table tbody tr td:nth-child(4):hover a {
-  color: #343433;
-}
-.article-index .article-list-container table tbody tr td:nth-child(5) a:hover {
-  color: #e81111;
-}
-
-.article-create-edit-delete main .form-container {
-  padding: 0 15px 15px 15px;
-  width: 515px;
-  margin: 75px auto 0 auto;
-}
-.article-create-edit-delete main .form-container form label {
-  font-weight: bold;
-  color: #6c6c6a;
-  display: block;
-  margin-top: 25px;
-  margin-left: 25px;
-  width: 496px;
-}
-.article-create-edit-delete main .form-container form input[type=text] {
-  padding: 7.5px;
-  width: 498px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-}
-.article-create-edit-delete main .form-container form textarea {
-  padding: 7.5px;
-  width: 498px;
-  height: 160px;
-  resize: none;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-}
-.article-create-edit-delete main .form-container form input[type=submit] {
-  padding: 7.5px;
-  width: 515px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-  background-color: #ffffff;
-  font-weight: bold;
-  color: #6c6c6a;
-}
-.article-create-edit-delete main .form-container form input[type=submit]:hover {
-  background-color: #c5c2c2;
-  color: #6c6c6a;
-}
-
-.article-show .show-container {
-  width: 600px;
-  margin: 75px auto 0 auto;
-}
-.article-show .show-container table {
-  width: 600px;
-  border-collapse: separate;
-}
-.article-show .show-container table thead {
-  width: 600px;
-}
-.article-show .show-container table thead tr {
-  width: 600px;
-}
-.article-show .show-container table thead tr th {
-  font-size: 20px;
-  text-align: center;
-}
-.article-show .show-container table tbody {
-  width: 600px;
-}
-.article-show .show-container table tbody tr {
-  width: 600px;
-}
-.article-show .show-container table tbody tr td {
-  font-size: 16px;
-  text-align: center;
-}
-.article-show .show-container .article-text-container {
-  margin-top: 50px;
-  width: 600px;
-}
-.article-show .show-container .article-text-container h1 {
-  display: block;
-  width: 600px;
-  font-size: 20px;
-  text-align: center;
-}
-.article-show .show-container .article-text-container p {
-  font-size: 15px;
-  text-align: justify;
-}
-
-.powerunit-index .message {
-  width: 400px;
-  margin: 25px auto 0;
-  text-align: center;
-}
-.powerunit-index .created {
-  color: #1fb40f;
-}
-.powerunit-index .deleted {
-  color: #da1616;
-}
-.powerunit-index .powerunit-list-container {
-  margin: 50px auto 0 auto;
-  width: 500px;
-}
-.powerunit-index .powerunit-list-container h1 {
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  font-size: 24px;
-}
-.powerunit-index .powerunit-list-container h1 a {
-  color: #939191;
-  text-decoration: none;
-  text-align: center;
-}
-.powerunit-index .powerunit-list-container h1 a:hover {
-  color: #5e5d5d;
-}
-.powerunit-index .powerunit-list-container table {
-  margin-top: 25px;
-  border-collapse: separate;
-  border-spacing: 0 20px;
-  width: 500px;
-}
-.powerunit-index .powerunit-list-container table thead tr th {
-  color: #939191;
-  text-align: left;
-  width: 280px;
-}
-.powerunit-index .powerunit-list-container table tbody tr {
-  padding: 15px;
-}
-.powerunit-index .powerunit-list-container table tbody tr td {
-  text-align: center;
-}
-.powerunit-index .powerunit-list-container table tbody tr td a {
-  text-decoration: none;
-}
-.powerunit-index .powerunit-list-container table tbody tr td:nth-child(1) {
-  width: 130px;
-  text-align: left;
-}
-.powerunit-index .powerunit-list-container table tbody tr th:nth-child(2) {
-  width: 100px;
-}
-.powerunit-index .powerunit-list-container table tbody tr td:nth-child(3) {
-  width: 50px;
-}
-.powerunit-index .powerunit-list-container table tbody tr td:nth-child(4) {
-  width: 70px;
-}
-.powerunit-index .powerunit-list-container table tbody tr td:nth-child(2), .powerunit-index .powerunit-list-container table tbody tr td:nth-child(3), .powerunit-index .powerunit-list-container table tbody tr td:nth-child(4) {
-  text-align: right;
-  font-weight: bold;
-}
-.powerunit-index .powerunit-list-container table tbody tr td:nth-child(2) a, .powerunit-index .powerunit-list-container table tbody tr td:nth-child(3) a, .powerunit-index .powerunit-list-container table tbody tr td:nth-child(4) a {
-  color: #6c6c6a;
-}
-.powerunit-index .powerunit-list-container table tbody tr td:nth-child(2):hover a, .powerunit-index .powerunit-list-container table tbody tr td:nth-child(3):hover a {
-  color: #343433;
-}
-.powerunit-index .powerunit-list-container table tbody tr td:nth-child(4) a:hover {
-  color: #e81111;
-}
-
-.powerunit-create-edit-delete main .form-container {
-  padding: 0 15px 15px 15px;
-  width: 515px;
-  margin: 75px auto 0 auto;
-}
-.powerunit-create-edit-delete main .form-container form label {
-  font-weight: bold;
-  color: #6c6c6a;
-  display: block;
-  margin-top: 25px;
-  margin-left: 25px;
-  width: 496px;
-}
-.powerunit-create-edit-delete main .form-container form input[type=text] {
-  padding: 7.5px;
-  width: 498px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-}
-.powerunit-create-edit-delete main .form-container form input[type=submit] {
-  margin-top: 25px;
-  padding: 7.5px;
-  width: 515px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-  background-color: #ffffff;
-  font-weight: bold;
-  color: #6c6c6a;
-}
-.powerunit-create-edit-delete main .form-container form input[type=submit]:hover {
-  background-color: #c5c2c2;
-  color: #6c6c6a;
-}
-
-.powerunit-show .show-container {
-  width: 600px;
-  margin: 75px auto 0 auto;
-}
-.powerunit-show .show-container h1 {
-  text-align: center;
-  font-size: 24px;
-}
-.powerunit-show .show-container p {
-  text-align: center;
-  font-size: 16px;
-}
-
-.team-index .message {
-  width: 400px;
-  margin: 25px auto 0;
-  text-align: center;
-}
-.team-index .created {
-  color: #1fb40f;
-}
-.team-index .deleted {
-  color: #da1616;
-}
-.team-index .team-list-container {
-  margin: 50px auto 0 auto;
-  width: 800px;
-}
-.team-index .team-list-container h1 {
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  font-size: 24px;
-}
-.team-index .team-list-container h1 a {
-  color: #939191;
-  text-decoration: none;
-  text-align: center;
-}
-.team-index .team-list-container h1 a:hover {
-  color: #5e5d5d;
-}
-.team-index .team-list-container table {
-  margin-top: 25px;
-  border-collapse: separate;
-  border-spacing: 0 20px;
-  width: 800px;
-}
-.team-index .team-list-container table thead tr th {
-  color: #939191;
-  text-align: left;
-  width: 290px;
-}
-.team-index .team-list-container table tbody tr {
-  padding: 15px;
-}
-.team-index .team-list-container table tbody tr td {
-  text-align: center;
-}
-.team-index .team-list-container table tbody tr td a {
-  text-decoration: none;
-}
-.team-index .team-list-container table tbody tr td:nth-child(1), .team-index .team-list-container table tbody tr td:nth-child(2) {
-  width: 290px;
-  text-align: left;
-}
-.team-index .team-list-container table tbody tr td:nth-child(2) a {
-  font-weight: bold;
-  color: #5e5d5d;
-}
-.team-index .team-list-container table tbody tr td:nth-child(2) a:hover {
-  color: #343433;
-}
-.team-index .team-list-container table tbody tr th:nth-child(3) {
-  width: 100px;
-}
-.team-index .team-list-container table tbody tr td:nth-child(4) {
-  width: 50px;
-}
-.team-index .team-list-container table tbody tr td:nth-child(5) {
-  width: 70px;
-}
-.team-index .team-list-container table tbody tr td:nth-child(3), .team-index .team-list-container table tbody tr td:nth-child(4), .team-index .team-list-container table tbody tr td:nth-child(5) {
-  text-align: right;
-  font-weight: bold;
-}
-.team-index .team-list-container table tbody tr td:nth-child(3) a, .team-index .team-list-container table tbody tr td:nth-child(4) a, .team-index .team-list-container table tbody tr td:nth-child(5) a {
-  color: #6c6c6a;
-}
-.team-index .team-list-container table tbody tr td:nth-child(3):hover a, .team-index .team-list-container table tbody tr td:nth-child(4):hover a {
-  color: #343433;
-}
-.team-index .team-list-container table tbody tr td:nth-child(5) a:hover {
-  color: #e81111;
-}
-
-.team-create-edit-delete main .form-container {
-  padding: 0 15px 15px 15px;
-  width: 515px;
-  margin: 75px auto 0 auto;
-}
-.team-create-edit-delete main .form-container form label {
-  font-weight: bold;
-  color: #6c6c6a;
-  display: block;
-  margin-top: 25px;
-  margin-left: 25px;
-  width: 496px;
-}
-.team-create-edit-delete main .form-container form .select-container {
-  width: 515px;
-}
-.team-create-edit-delete main .form-container form .select-container select {
-  width: 515px;
-  padding: 7.5px;
-  border-radius: 25px;
-}
-.team-create-edit-delete main .form-container form input[type=text] {
-  padding: 7.5px;
-  width: 498px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-}
-.team-create-edit-delete main .form-container form input[type=submit] {
-  margin-top: 25px;
-  padding: 7.5px;
-  width: 515px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-  background-color: #ffffff;
-  font-weight: bold;
-  color: #6c6c6a;
-}
-.team-create-edit-delete main .form-container form input[type=submit]:hover {
-  background-color: #c5c2c2;
-  color: #6c6c6a;
-}
-
-.team-show .show-container {
-  width: 600px;
-  margin: 75px auto 0 auto;
-}
-.team-show .show-container table {
-  width: 600px;
-  border-collapse: separate;
-}
-.team-show .show-container table tbody {
-  width: 600px;
-}
-.team-show .show-container table tbody tr {
-  width: 600px;
-}
-.team-show .show-container table tbody tr td {
-  font-size: 16px;
-  text-align: center;
-}
-.team-show .show-container table tbody tr td a {
-  font-weight: bold;
-  color: #5e5d5d;
-  text-decoration: none;
-}
-.team-show .show-container table tbody tr td a:hover {
-  color: #343433;
-}
-.team-show .show-container .article-text-container {
-  margin-top: 50px;
-  width: 600px;
-}
-.team-show .show-container .article-text-container h1 {
-  display: block;
-  width: 600px;
-  font-size: 20px;
-  text-align: center;
-}
-.team-show .show-container .article-text-container p {
-  font-size: 15px;
-  text-align: justify;
-}
-
-.tier-index .message {
-  width: 300px;
-  margin: 25px auto 0;
-  text-align: center;
-}
-.tier-index .added {
-  color: #1fb40f;
-}
-.tier-index .deleted {
-  color: #da1616;
-}
-.tier-index .tier-list-container {
-  margin: 50px auto 0 auto;
-  width: 300px;
-}
-.tier-index .tier-list-container h1 {
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  font-size: 24px;
-}
-.tier-index .tier-list-container h1 a {
-  color: #939191;
-  text-decoration: none;
-  text-align: center;
-}
-.tier-index .tier-list-container h1 a:hover {
-  color: #5e5d5d;
-}
-.tier-index .tier-list-container table {
-  margin-top: 25px;
-  width: 300px;
-}
-.tier-index .tier-list-container table thead tr th {
-  color: #939191;
-  text-align: center;
-  width: 200px;
-}
-.tier-index .tier-list-container table tbody tr {
-  text-align: center;
-}
-.tier-index .tier-list-container table tbody tr td {
-  width: 200px;
-}
-.tier-index .tier-list-container table tbody tr td a {
-  text-decoration: none;
-}
-.tier-index .tier-list-container table tbody tr td:nth-child(2) {
-  text-align: right;
-  font-weight: bold;
-}
-.tier-index .tier-list-container table tbody tr td:nth-child(2) a {
-  color: #343433;
-}
-.tier-index .tier-list-container table tbody tr td:nth-child(2) a:hover {
-  color: #e81111;
-}
-
-.tier-create-delete main .form-container {
-  padding: 0 15px 15px 15px;
-  width: 515px;
-  margin: 75px auto 0 auto;
-}
-.tier-create-delete main .form-container form label {
-  font-weight: bold;
-  color: #6c6c6a;
-  display: block;
-  margin-top: 25px;
-  margin-left: 25px;
-  width: 496px;
-}
-.tier-create-delete main .form-container form input[type=number] {
-  font-size: 20px;
-  text-align: center;
-  margin-top: 25px;
-  width: 498px;
-  padding: 7.5px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-}
-.tier-create-delete main .form-container form input[type=submit] {
-  margin-top: 25px;
-  padding: 7.5px;
-  width: 515px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-  background-color: #ffffff;
-  font-weight: bold;
-  color: #6c6c6a;
-}
-.tier-create-delete main .form-container form input[type=submit]:hover {
-  background-color: #c5c2c2;
-  color: #6c6c6a;
-}
-
-.track-index .message {
-  width: 400px;
-  margin: 25px auto 0;
-  text-align: center;
-}
-.track-index .created {
-  color: #1fb40f;
-}
-.track-index .deleted {
-  color: #da1616;
-}
-.track-index .track-list-container {
-  margin: 50px auto 0 auto;
-  width: 800px;
-}
-.track-index .track-list-container h1 {
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  font-size: 24px;
-}
-.track-index .track-list-container h1 a {
-  color: #939191;
-  text-decoration: none;
-  text-align: center;
-}
-.track-index .track-list-container h1 a:hover {
-  color: #5e5d5d;
-}
-.track-index .track-list-container table {
-  margin-top: 25px;
-  border-collapse: separate;
-  border-spacing: 0 20px;
-  width: 800px;
-}
-.track-index .track-list-container table thead tr th {
-  color: #939191;
-  text-align: left;
-  width: 290px;
-}
-.track-index .track-list-container table tbody tr {
-  padding: 15px;
-}
-.track-index .track-list-container table tbody tr td {
-  text-align: center;
-}
-.track-index .track-list-container table tbody tr td a {
-  text-decoration: none;
-}
-.track-index .track-list-container table tbody tr td:nth-child(1), .track-index .track-list-container table tbody tr td:nth-child(2) {
-  width: 290px;
-  text-align: left;
-}
-.track-index .track-list-container table tbody tr th:nth-child(3) {
-  width: 100px;
-}
-.track-index .track-list-container table tbody tr td:nth-child(4) {
-  width: 50px;
-}
-.track-index .track-list-container table tbody tr td:nth-child(5) {
-  width: 70px;
-}
-.track-index .track-list-container table tbody tr td:nth-child(3), .track-index .track-list-container table tbody tr td:nth-child(4), .track-index .track-list-container table tbody tr td:nth-child(5) {
-  text-align: right;
-  font-weight: bold;
-}
-.track-index .track-list-container table tbody tr td:nth-child(3) a, .track-index .track-list-container table tbody tr td:nth-child(4) a, .track-index .track-list-container table tbody tr td:nth-child(5) a {
-  color: #6c6c6a;
-}
-.track-index .track-list-container table tbody tr td:nth-child(3):hover a, .track-index .track-list-container table tbody tr td:nth-child(4):hover a {
-  color: #343433;
-}
-.track-index .track-list-container table tbody tr td:nth-child(5) a:hover {
-  color: #e81111;
-}
-
-.track-create-edit-delete main .form-container {
-  padding: 0 15px 15px 15px;
-  width: 515px;
-  margin: 75px auto 0 auto;
-}
-.track-create-edit-delete main .form-container form label {
-  font-weight: bold;
-  color: #6c6c6a;
-  display: block;
-  margin-top: 25px;
-  margin-left: 25px;
-  width: 496px;
-}
-.track-create-edit-delete main .form-container form input[type=number] {
-  font-size: 13px;
-  text-align: center;
-  width: 498px;
-  padding: 7.5px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-}
-.track-create-edit-delete main .form-container form input[type=text] {
-  padding: 7.5px;
-  width: 498px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-}
-.track-create-edit-delete main .form-container form input[type=submit] {
-  margin-top: 25px;
-  padding: 7.5px;
-  width: 515px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-  background-color: #ffffff;
-  font-weight: bold;
-  color: #6c6c6a;
-}
-.track-create-edit-delete main .form-container form input[type=submit]:hover {
-  background-color: #c5c2c2;
-  color: #6c6c6a;
-}
-
-.track-show .show-container {
-  margin: 50px auto 0 auto;
-  width: 600px;
-}
-.track-show .show-container table tr th {
-  width: 300px;
-}
-.track-show .show-container table tr td {
-  width: 300px;
-}
-
-.driver-index .message {
-  width: 400px;
-  margin: 25px auto 0;
-  text-align: center;
-}
-.driver-index .created {
-  color: #1fb40f;
-}
-.driver-index .deleted {
-  color: #da1616;
-}
-.driver-index .driver-list-container {
-  margin: 50px auto 0 auto;
-  width: 800px;
-}
-.driver-index .driver-list-container h1 {
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  font-size: 24px;
-}
-.driver-index .driver-list-container h1 a {
-  color: #939191;
-  text-decoration: none;
-  text-align: center;
-}
-.driver-index .driver-list-container h1 a:hover {
-  color: #5e5d5d;
-}
-.driver-index .driver-list-container table {
-  margin-top: 25px;
-  border-collapse: separate;
-  border-spacing: 0 20px;
-  width: 800px;
-}
-.driver-index .driver-list-container table thead tr th:nth-child(1), .driver-index .driver-list-container table thead tr th:nth-child(2), .driver-index .driver-list-container table thead tr th:nth-child(3) {
-  color: #939191;
-  text-align: left;
-}
-.driver-index .driver-list-container table thead tr th:nth-child(1), .driver-index .driver-list-container table thead tr th:nth-child(2) {
-  width: 200px;
-}
-.driver-index .driver-list-container table thead tr th:nth-child(3) {
-  width: 100px;
-  text-align: center;
-}
-.driver-index .driver-list-container table tbody tr {
-  padding: 15px;
-}
-.driver-index .driver-list-container table tbody tr td {
-  text-align: center;
-}
-.driver-index .driver-list-container table tbody tr td a {
-  text-decoration: none;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(1), .driver-index .driver-list-container table tbody tr td:nth-child(2) {
-  width: 200px;
-  text-align: left;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(2) a {
-  font-weight: bold;
-  color: #5e5d5d;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(2) a:hover {
-  color: #343433;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(3) {
-  width: 100px;
-}
-.driver-index .driver-list-container table tbody tr th:nth-child(4) {
-  width: 100px;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(5) {
-  width: 50px;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(6) {
-  width: 70px;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(4), .driver-index .driver-list-container table tbody tr td:nth-child(5), .driver-index .driver-list-container table tbody tr td:nth-child(6) {
-  text-align: right;
-  font-weight: bold;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(4) a, .driver-index .driver-list-container table tbody tr td:nth-child(5) a, .driver-index .driver-list-container table tbody tr td:nth-child(6) a {
-  color: #6c6c6a;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(4):hover a, .driver-index .driver-list-container table tbody tr td:nth-child(5):hover a {
-  color: #343433;
-}
-.driver-index .driver-list-container table tbody tr td:nth-child(6) a:hover {
-  color: #e81111;
-}
-
-.driver-show .show-container {
-  width: 400px;
-  margin: 75px auto 0 auto;
-}
-.driver-show .show-container table {
-  width: 400px;
-  border-collapse: separate;
-}
-.driver-show .show-container table tbody {
-  width: 400px;
-}
-.driver-show .show-container table tbody tr {
-  width: 400px;
-}
-.driver-show .show-container table tbody tr th {
-  text-align: left;
-  width: 200px;
-}
-.driver-show .show-container table tbody tr td {
-  text-align: right;
-  width: 200px;
-  font-size: 16px;
-}
-.driver-show .show-container table tbody tr td a {
-  font-weight: bold;
-  color: #5e5d5d;
-  text-decoration: none;
-}
-.driver-show .show-container table tbody tr td a:hover {
-  color: #343433;
-}
-
-.driver-create-edit-delete main .form-container {
-  padding: 0 15px 15px 15px;
-  width: 515px;
-  margin: 75px auto 0 auto;
-}
-.driver-create-edit-delete main .form-container form label {
-  font-weight: bold;
-  color: #6c6c6a;
-  display: block;
-  margin-top: 25px;
-  margin-left: 25px;
-  width: 496px;
-}
-.driver-create-edit-delete main .form-container form .select-container {
-  height: 40px;
-  width: 515px;
-}
-.driver-create-edit-delete main .form-container form .select-container select {
-  width: 515px;
-  padding: 7.5px;
-  border-radius: 25px;
-}
-.driver-create-edit-delete main .form-container form input[type=text] {
-  padding: 7.5px;
-  width: 498px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-}
-.driver-create-edit-delete main .form-container form input[type=number] {
-  font-size: 20px;
-  text-align: center;
-  width: 498px;
-  padding: 7.5px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-}
-.driver-create-edit-delete main .form-container form input[type=submit] {
-  margin-top: 25px;
-  padding: 7.5px;
-  width: 515px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-  background-color: #ffffff;
-  font-weight: bold;
-  color: #6c6c6a;
-}
-.driver-create-edit-delete main .form-container form input[type=submit]:hover {
-  background-color: #c5c2c2;
-  color: #6c6c6a;
-}
-
-.driverchampionship-index .message {
-  width: 400px;
-  margin: 25px auto 0;
-  text-align: center;
-}
-.driverchampionship-index .created {
-  color: #1fb40f;
-}
-.driverchampionship-index .deleted {
-  color: #da1616;
-}
-.driverchampionship-index .driverchampionship-list-container {
-  margin: 50px auto 0 auto;
-  width: 800px;
-}
-.driverchampionship-index .driverchampionship-list-container h1 {
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  font-size: 24px;
-}
-.driverchampionship-index .driverchampionship-list-container h1 a {
-  color: #939191;
-  text-decoration: none;
-  text-align: center;
-}
-.driverchampionship-index .driverchampionship-list-container h1 a:hover {
-  color: #5e5d5d;
-}
-.driverchampionship-index .driverchampionship-list-container table {
-  margin-top: 25px;
-  border-collapse: separate;
-  border-spacing: 0 20px;
-  width: 800px;
-}
-.driverchampionship-index .driverchampionship-list-container table thead tr th:nth-child(1), .driverchampionship-index .driverchampionship-list-container table thead tr th:nth-child(2), .driverchampionship-index .driverchampionship-list-container table thead tr th:nth-child(3), .driverchampionship-index .driverchampionship-list-container table thead tr th:nth-child(4) {
-  color: #939191;
-  text-align: left;
-}
-.driverchampionship-index .driverchampionship-list-container table thead tr th:nth-child(1), .driverchampionship-index .driverchampionship-list-container table thead tr th:nth-child(2) {
-  width: 200px;
-}
-.driverchampionship-index .driverchampionship-list-container table thead tr th:nth-child(3), .driverchampionship-index .driverchampionship-list-container table thead tr th:nth-child(4) {
-  width: 100px;
-  text-align: center;
-}
-.driverchampionship-index .driverchampionship-list-container table tbody tr {
-  padding: 15px;
-}
-.driverchampionship-index .driverchampionship-list-container table tbody tr td {
-  text-align: center;
-}
-.driverchampionship-index .driverchampionship-list-container table tbody tr td a {
-  text-decoration: none;
-}
-.driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(1), .driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(2) {
-  width: 200px;
-  text-align: left;
-}
-.driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(1) a, .driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(2) a, .driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(3) a {
-  font-weight: bold;
-  color: #5e5d5d;
-}
-.driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(1) a:hover, .driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(2) a:hover, .driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(3) a:hover {
-  color: #343433;
-}
-.driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(3), .driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(4) {
-  width: 100px;
-  text-align: center;
-}
-.driverchampionship-index .driverchampionship-list-container table tbody tr th:nth-child(5) {
-  width: 100px;
-}
-.driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(6) {
-  width: 50px;
-}
-.driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(7) {
-  width: 70px;
-}
-.driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(5), .driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(6), .driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(7) {
-  text-align: right;
-  font-weight: bold;
-}
-.driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(5) a, .driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(6) a, .driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(7) a {
-  color: #6c6c6a;
-}
-.driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(5):hover a, .driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(6):hover a {
-  color: #343433;
-}
-.driverchampionship-index .driverchampionship-list-container table tbody tr td:nth-child(7) a:hover {
-  color: #e81111;
-}
-
-.driverchampionship-show .show-container {
-  width: 400px;
-  margin: 75px auto 0 auto;
-}
-.driverchampionship-show .show-container table {
-  width: 400px;
-  border-collapse: separate;
-}
-.driverchampionship-show .show-container table tbody {
-  width: 400px;
-}
-.driverchampionship-show .show-container table tbody tr {
-  width: 400px;
-}
-.driverchampionship-show .show-container table tbody tr th {
-  text-align: left;
-  width: 200px;
-}
-.driverchampionship-show .show-container table tbody tr td {
-  text-align: right;
-  width: 200px;
-  font-size: 16px;
-}
-.driverchampionship-show .show-container table tbody tr td a {
-  font-weight: bold;
-  color: #5e5d5d;
-  text-decoration: none;
-}
-.driverchampionship-show .show-container table tbody tr td a:hover {
-  color: #343433;
-}
-
-.driverchampionship-create-edit-delete main .form-container {
-  padding: 0 15px 15px 15px;
-  width: 515px;
-  margin: 75px auto 0 auto;
-}
-.driverchampionship-create-edit-delete main .form-container form label {
-  font-weight: bold;
-  color: #6c6c6a;
-  display: block;
-  margin-top: 25px;
-  margin-left: 25px;
-  width: 496px;
-}
-.driverchampionship-create-edit-delete main .form-container form .select-container {
-  height: 40px;
-  width: 515px;
-}
-.driverchampionship-create-edit-delete main .form-container form .select-container select {
-  width: 515px;
-  padding: 7.5px;
-  border-radius: 25px;
-}
-.driverchampionship-create-edit-delete main .form-container form input[type=submit] {
-  margin-top: 25px;
-  padding: 7.5px;
-  width: 515px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-  background-color: #ffffff;
-  font-weight: bold;
-  color: #6c6c6a;
-}
-.driverchampionship-create-edit-delete main .form-container form input[type=submit]:hover {
-  background-color: #c5c2c2;
-  color: #6c6c6a;
-}
-
-.constructorchampionship-index .message {
-  width: 400px;
-  margin: 25px auto 0;
-  text-align: center;
-}
-.constructorchampionship-index .created {
-  color: #1fb40f;
-}
-.constructorchampionship-index .deleted {
-  color: #da1616;
-}
-.constructorchampionship-index .constructorchampionship-list-container {
-  margin: 50px auto 0 auto;
-  width: 600px;
-}
-.constructorchampionship-index .constructorchampionship-list-container h1 {
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  font-size: 24px;
-}
-.constructorchampionship-index .constructorchampionship-list-container h1 a {
-  color: #939191;
-  text-decoration: none;
-  text-align: center;
-}
-.constructorchampionship-index .constructorchampionship-list-container h1 a:hover {
-  color: #5e5d5d;
-}
-.constructorchampionship-index .constructorchampionship-list-container table {
-  margin-top: 25px;
-  border-collapse: separate;
-  border-spacing: 0 20px;
-  width: 600px;
-}
-.constructorchampionship-index .constructorchampionship-list-container table thead tr th:nth-child(1), .constructorchampionship-index .constructorchampionship-list-container table thead tr th:nth-child(2), .constructorchampionship-index .constructorchampionship-list-container table thead tr th:nth-child(3) {
-  color: #939191;
-  text-align: left;
-}
-.constructorchampionship-index .constructorchampionship-list-container table thead tr th:nth-child(1) {
-  width: 200px;
-}
-.constructorchampionship-index .constructorchampionship-list-container table thead tr th:nth-child(2), .constructorchampionship-index .constructorchampionship-list-container table thead tr th:nth-child(3) {
-  width: 100px;
-  text-align: center;
-}
-.constructorchampionship-index .constructorchampionship-list-container table tbody tr {
-  padding: 15px;
-}
-.constructorchampionship-index .constructorchampionship-list-container table tbody tr td {
-  text-align: center;
-}
-.constructorchampionship-index .constructorchampionship-list-container table tbody tr td a {
-  text-decoration: none;
-}
-.constructorchampionship-index .constructorchampionship-list-container table tbody tr td:nth-child(1) {
-  width: 200px;
-  text-align: left;
-}
-.constructorchampionship-index .constructorchampionship-list-container table tbody tr td:nth-child(1) a, .constructorchampionship-index .constructorchampionship-list-container table tbody tr td:nth-child(2) a {
-  font-weight: bold;
-  color: #5e5d5d;
-}
-.constructorchampionship-index .constructorchampionship-list-container table tbody tr td:nth-child(1) a:hover, .constructorchampionship-index .constructorchampionship-list-container table tbody tr td:nth-child(2) a:hover {
-  color: #343433;
-}
-.constructorchampionship-index .constructorchampionship-list-container table tbody tr td:nth-child(3) {
-  width: 100px;
-  text-align: center;
-}
-.constructorchampionship-index .constructorchampionship-list-container table tbody tr th:nth-child(4) {
-  width: 100px;
-}
-.constructorchampionship-index .constructorchampionship-list-container table tbody tr td:nth-child(5) {
-  width: 50px;
-}
-.constructorchampionship-index .constructorchampionship-list-container table tbody tr td:nth-child(6) {
-  width: 70px;
-}
-.constructorchampionship-index .constructorchampionship-list-container table tbody tr td:nth-child(4), .constructorchampionship-index .constructorchampionship-list-container table tbody tr td:nth-child(5), .constructorchampionship-index .constructorchampionship-list-container table tbody tr td:nth-child(6) {
-  text-align: right;
-  font-weight: bold;
-}
-.constructorchampionship-index .constructorchampionship-list-container table tbody tr td:nth-child(4) a, .constructorchampionship-index .constructorchampionship-list-container table tbody tr td:nth-child(5) a, .constructorchampionship-index .constructorchampionship-list-container table tbody tr td:nth-child(6) a {
-  color: #6c6c6a;
-}
-.constructorchampionship-index .constructorchampionship-list-container table tbody tr td:nth-child(4):hover a, .constructorchampionship-index .constructorchampionship-list-container table tbody tr td:nth-child(5):hover a {
-  color: #343433;
-}
-.constructorchampionship-index .constructorchampionship-list-container table tbody tr td:nth-child(6) a:hover {
-  color: #e81111;
-}
-
-.constructorchampionship-show .show-container {
-  width: 400px;
-  margin: 75px auto 0 auto;
-}
-.constructorchampionship-show .show-container table {
-  width: 400px;
-  border-collapse: separate;
-}
-.constructorchampionship-show .show-container table tbody {
-  width: 400px;
-}
-.constructorchampionship-show .show-container table tbody tr {
-  width: 400px;
-}
-.constructorchampionship-show .show-container table tbody tr th {
-  text-align: left;
-  width: 200px;
-}
-.constructorchampionship-show .show-container table tbody tr td {
-  text-align: right;
-  width: 200px;
-  font-size: 16px;
-}
-.constructorchampionship-show .show-container table tbody tr td a {
-  font-weight: bold;
-  color: #5e5d5d;
-  text-decoration: none;
-}
-.constructorchampionship-show .show-container table tbody tr td a:hover {
-  color: #343433;
-}
-
-.constructorchampionship-create-edit-delete main .form-container {
-  padding: 0 15px 15px 15px;
-  width: 515px;
-  margin: 75px auto 0 auto;
-}
-.constructorchampionship-create-edit-delete main .form-container form label {
-  font-weight: bold;
-  color: #6c6c6a;
-  display: block;
-  margin-top: 25px;
-  margin-left: 25px;
-  width: 496px;
-}
-.constructorchampionship-create-edit-delete main .form-container form .select-container {
-  height: 40px;
-  width: 515px;
-}
-.constructorchampionship-create-edit-delete main .form-container form .select-container select {
-  width: 515px;
-  padding: 7.5px;
-  border-radius: 25px;
-}
-.constructorchampionship-create-edit-delete main .form-container form input[type=submit] {
-  margin-top: 25px;
-  padding: 7.5px;
-  width: 515px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-  background-color: #ffffff;
-  font-weight: bold;
-  color: #6c6c6a;
-}
-.constructorchampionship-create-edit-delete main .form-container form input[type=submit]:hover {
-  background-color: #c5c2c2;
-  color: #6c6c6a;
-}
-
-.season-index .message {
-  width: 400px;
-  margin: 25px auto 0;
-  text-align: center;
-}
-.season-index .created {
-  color: #1fb40f;
-}
-.season-index .deleted {
-  color: #da1616;
-}
-.season-index .season-list-container {
-  margin: 50px auto 0 auto;
-  width: 800px;
-}
-.season-index .season-list-container h1 {
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  font-size: 24px;
-}
-.season-index .season-list-container h1 a {
-  color: #939191;
-  text-decoration: none;
-  text-align: center;
-}
-.season-index .season-list-container h1 a:hover {
-  color: #5e5d5d;
-}
-.season-index .season-list-container table {
-  margin-top: 25px;
-  border-collapse: separate;
-  border-spacing: 0 20px;
-  width: 800px;
-}
-.season-index .season-list-container table thead tr th {
-  color: #939191;
-  text-align: left;
-  width: 290px;
-}
-.season-index .season-list-container table tbody tr {
-  padding: 15px;
-}
-.season-index .season-list-container table tbody tr td {
-  text-align: center;
-}
-.season-index .season-list-container table tbody tr td a {
-  text-decoration: none;
-}
-.season-index .season-list-container table tbody tr td:nth-child(1), .season-index .season-list-container table tbody tr td:nth-child(2) {
-  width: 290px;
-  text-align: left;
-}
-.season-index .season-list-container table tbody tr td:nth-child(2) a {
-  font-weight: bold;
-  color: #5e5d5d;
-}
-.season-index .season-list-container table tbody tr td:nth-child(2) a:hover {
-  color: #343433;
-}
-.season-index .season-list-container table tbody tr th:nth-child(3) {
-  width: 100px;
-}
-.season-index .season-list-container table tbody tr td:nth-child(4) {
-  width: 50px;
-}
-.season-index .season-list-container table tbody tr td:nth-child(5) {
-  width: 70px;
-}
-.season-index .season-list-container table tbody tr td:nth-child(3), .season-index .season-list-container table tbody tr td:nth-child(4), .season-index .season-list-container table tbody tr td:nth-child(5) {
-  text-align: right;
-  font-weight: bold;
-}
-.season-index .season-list-container table tbody tr td:nth-child(3) a, .season-index .season-list-container table tbody tr td:nth-child(4) a, .season-index .season-list-container table tbody tr td:nth-child(5) a {
-  color: #6c6c6a;
-}
-.season-index .season-list-container table tbody tr td:nth-child(3):hover a, .season-index .season-list-container table tbody tr td:nth-child(4):hover a {
-  color: #343433;
-}
-.season-index .season-list-container table tbody tr td:nth-child(5) a:hover {
-  color: #e81111;
-}
-
-.season-create-edit-delete main .form-container {
-  padding: 0 15px 15px 15px;
-  width: 515px;
-  margin: 75px auto 0 auto;
-}
-.season-create-edit-delete main .form-container form label {
-  font-weight: bold;
-  color: #6c6c6a;
-  display: block;
-  margin-top: 25px;
-  margin-left: 25px;
-  width: 496px;
-}
-.season-create-edit-delete main .form-container form .select-container {
-  width: 515px;
-}
-.season-create-edit-delete main .form-container form .select-container select {
-  width: 515px;
-  padding: 7.5px;
-  border-radius: 25px;
-}
-.season-create-edit-delete main .form-container form input[type=number] {
-  font-size: 20px;
-  text-align: center;
-  margin-top: 25px;
-  width: 498px;
-  padding: 7.5px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-}
-.season-create-edit-delete main .form-container form input[type=submit] {
-  margin-top: 25px;
-  padding: 7.5px;
-  width: 515px;
-  border: 1px solid #6c6c6a;
-  border-radius: 15px;
-  background-color: #ffffff;
-  font-weight: bold;
-  color: #6c6c6a;
-}
-.season-create-edit-delete main .form-container form input[type=submit]:hover {
-  background-color: #c5c2c2;
-  color: #6c6c6a;
-}
-
-.season-show .show-container {
-  width: 600px;
-  margin: 75px auto 0 auto;
-}
-.season-show .show-container table {
-  width: 600px;
-  border-collapse: separate;
-}
-.season-show .show-container table tbody {
-  width: 400px;
-}
-.season-show .show-container table tbody tr {
-  width: 600px;
-}
-.season-show .show-container table tbody tr th {
-  width: 400px;
-}
-.season-show .show-container table tbody tr td {
-  width: 200px;
-  font-size: 16px;
-  text-align: center;
-}
-.season-show .show-container table tbody tr td a {
-  font-weight: bold;
-  color: #5e5d5d;
-  text-decoration: none;
-}
-.season-show .show-container table tbody tr td a:hover {
-  color: #343433;
-}
-
 .race-index .message {
   width: 400px;
   margin: 25px auto 0;
@@ -1909,10 +905,47 @@
   color: #e81111;
 }
 
+.race-create-edit-delete main {
+  min-height: 100vh;
+  background-color: #d9d9d9;
+}
 .race-create-edit-delete main .race-create-container {
-  margin: 100px auto 0 auto;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+  margin: 25px auto 50px auto;
   width: 1000px;
-  background-color: #5e5d5d;
+}
+.race-create-edit-delete main .race-create-container .table-header {
+  position: relative;
+  white-space: nowrap;
+  border-radius: 15px 15px 0 0;
+  padding: 10px;
+  background-color: #111111;
+  height: fit-content;
+  display: block;
+}
+.race-create-edit-delete main .race-create-container .table-header h1 {
+  margin-left: 15px;
+  line-height: 50px;
+  color: white;
+  font-size: 18pt;
+  height: 50px;
+}
+.race-create-edit-delete main .race-create-container form input[type=submit] {
+  margin-top: 50px;
+  color: white;
+  width: 100%;
+  white-space: nowrap;
+  border-radius: 0 0 15px 15px;
+  background-color: #111111;
+  display: block;
+  line-height: 50px;
+  font-size: 18pt;
+  height: 70px;
+}
+.race-create-edit-delete main .race-create-container form input[type=submit]:hover {
+  background-color: #3f3f3f;
 }
 .race-create-edit-delete main .race-create-container form .race-info-container {
   margin: 0 auto;
@@ -1928,7 +961,7 @@
 .race-create-edit-delete main .race-create-container form .race-info-container label {
   font-size: 20px;
   font-weight: bold;
-  color: #ffffff;
+  color: #111111;
   width: 175px;
   padding-bottom: 10px;
 }
@@ -1937,6 +970,7 @@
   font-size: 24px;
   height: 35px;
   border: none;
+  border-top: solid 2px #111111;
 }
 .race-create-edit-delete main .race-create-container form .race-info-container .select-container {
   height: 35px;
@@ -1944,12 +978,16 @@
 }
 .race-create-edit-delete main .race-create-container form .race-info-container .select-container select {
   text-align: center;
-  height: 35px;
+  height: 45px;
   width: 175px;
+  border: none;
+  border-top: solid 2px #111111;
+  padding: 10px;
+  font-size: 16px;
 }
 .race-create-edit-delete main .race-create-container form .race-info-container .select-container select option {
   text-align: center;
-  height: 35px;
+  height: 45px;
   width: 175px;
 }
 .race-create-edit-delete main .race-create-container form .race-results-container {
@@ -1957,13 +995,15 @@
   width: 600px;
 }
 .race-create-edit-delete main .race-create-container form .race-results-container .result-row {
+  margin-top: 5px;
   width: 600px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  border: solid 2px #111111;
 }
 .race-create-edit-delete main .race-create-container form .race-results-container .result-row p {
-  color: #ffffff;
+  color: #111111;
   font-size: 20px;
   font-weight: bold;
   line-height: 35px;
@@ -1978,29 +1018,37 @@
   text-align: center;
   height: 35px;
   width: 250px;
+  border: none;
 }
 .race-create-edit-delete main .race-create-container form .race-results-container .result-row .select-container select option {
   text-align: center;
   height: 35px;
   width: 250px;
 }
+.race-create-edit-delete main .race-create-container form .race-results-container .result-row input[type=checkbox] {
+  margin: 5px 5px 0 0;
+  width: 25px;
+  height: 25px;
+}
 .race-create-edit-delete main .race-create-container form .fastest-lap-container {
   margin: 50px auto 0 auto;
   display: flex;
   flex-wrap: wrap;
-  width: 400px;
+  width: 412px;
+  border: solid 2px #111111;
 }
 .race-create-edit-delete main .race-create-container form .fastest-lap-container p {
-  width: 400px;
+  width: 412px;
   text-align: center;
-  color: #ffffff;
+  color: #111111;
+  font-weight: bold;
 }
 .race-create-edit-delete main .race-create-container form .fastest-lap-container table {
   margin-top: 25px;
-  width: 400px;
+  width: 412px;
 }
 .race-create-edit-delete main .race-create-container form .fastest-lap-container table thead tr th {
-  color: #ffffff;
+  color: #111111;
   text-align: center;
 }
 .race-create-edit-delete main .race-create-container form .fastest-lap-container table tbody tr td .select-container {
@@ -2009,6 +1057,7 @@
 .race-create-edit-delete main .race-create-container form .fastest-lap-container table tbody tr td .select-container select {
   text-align: center;
   width: 150px;
+  border: solid 2px #111111;
 }
 .race-create-edit-delete main .race-create-container form .fastest-lap-container table tbody tr td .select-container select option {
   text-align: center;
@@ -2016,16 +1065,23 @@
 }
 .race-create-edit-delete main .race-create-container form .fastest-lap-container table tbody tr td input[type=number] {
   width: 100px;
+  border: solid 2px #111111;
 }
 .race-create-edit-delete main .race-create-container form .race-buttons-container {
-  margin-top: 50px;
-  width: 1000px;
+  margin: 50px auto 0 auto;
+  width: 800px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+}
+.race-create-edit-delete main .race-create-container form .race-buttons-container p:nth-child(1) {
+  border-radius: 25px 0 0 25px;
+}
+.race-create-edit-delete main .race-create-container form .race-buttons-container p:nth-child(2) {
+  border-radius: 0 25px 25px 0;
 }
 .race-create-edit-delete main .race-create-container form .race-buttons-container p {
   padding: 10px 0;
-  background-color: #4f4e4e;
+  background-color: #111111;
   color: #ffffff;
   width: 500px;
   text-align: center;
@@ -2072,6 +1128,7 @@
   width: 150px;
 }
 .race-create-edit-delete main .race-create-container form .full-qualifying-results-container table tbody tr td .select-container select {
+  border: solid 2px #111111;
   text-align: center;
   width: 150px;
 }
@@ -2083,6 +1140,7 @@
   width: 50px;
 }
 .race-create-edit-delete main .race-create-container form .full-qualifying-results-container table tbody tr td .qualifying-select-container select {
+  border: solid 2px #111111;
   text-align: center;
   width: 50px;
 }
@@ -2090,8 +1148,12 @@
   text-align: center;
   width: 50px;
 }
+.race-create-edit-delete main .race-create-container form .full-qualifying-results-container table tbody tr td .tyre-select-container select {
+  border: solid 2px #111111;
+}
 .race-create-edit-delete main .race-create-container form .full-qualifying-results-container table tbody tr td input[type=number] {
   width: 75px;
+  border: solid 2px #111111;
 }
 .race-create-edit-delete main .race-create-container form .short-qualifying-results-container {
   margin: 25px auto 0 auto;
@@ -2108,13 +1170,15 @@
   text-align: center;
 }
 .race-create-edit-delete main .race-create-container form .short-qualifying-results-container table tbody tr td {
-  color: #ffffff;
+  padding: 2.5px 0;
+  color: #111111;
   text-align: center;
 }
 .race-create-edit-delete main .race-create-container form .short-qualifying-results-container table tbody tr td .select-container {
   width: 150px;
 }
 .race-create-edit-delete main .race-create-container form .short-qualifying-results-container table tbody tr td .select-container select {
+  border: solid 2px #111111;
   text-align: center;
   width: 150px;
 }
@@ -2122,71 +1186,177 @@
   text-align: center;
   width: 150px;
 }
+.race-create-edit-delete main .race-create-container form .short-qualifying-results-container table tbody tr td input[type=number] {
+  border: solid 2px #111111;
+}
 
-.race-show .show-container {
-  width: 1000px;
-  margin: 75px auto 0 auto;
+.race-show main {
+  min-height: 100vh;
+  background-color: #d9d9d9;
 }
-.race-show .show-container .race-container, .race-show .show-container .fastest-lap-container, .race-show .show-container .drivers-container {
-  margin: 50px auto 0 auto;
+.race-show main .show-container {
+  border-radius: 15px;
+  margin: 0 auto 50px auto;
+  width: 90%;
+  max-width: 750px;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
 }
-.race-show .show-container .race-container {
-  width: 900px;
+.race-show main .show-container .table-header {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+  padding: 10px;
+  background-color: #111111;
+  height: 50px;
+  display: flex;
 }
-.race-show .show-container .race-container th:nth-child(1), .race-show .show-container .race-container th:nth-child(2), .race-show .show-container .race-container th:nth-child(3), .race-show .show-container .race-container th:nth-child(4), .race-show .show-container .race-container td:nth-child(1), .race-show .show-container .race-container td:nth-child(2), .race-show .show-container .race-container td:nth-child(3), .race-show .show-container .race-container td:nth-child(4) {
-  width: 120px;
+.race-show main .show-container .table-header h1 {
+  margin-left: 15px;
+  line-height: 50px;
+  color: white;
+  font-size: 18pt;
+  height: 50px;
+}
+.race-show main .show-container .race-container, .race-show main .show-container .fastest-lap-container, .race-show main .show-container .drivers-container, .race-show main .show-container .qualifying-container {
   text-align: center;
 }
-.race-show .show-container .race-container th:nth-child(5), .race-show .show-container .race-container td:nth-child(5) {
-  width: 420px;
+.race-show main .show-container .race-container h1, .race-show main .show-container .fastest-lap-container h1, .race-show main .show-container .drivers-container h1, .race-show main .show-container .qualifying-container h1 {
   text-align: center;
 }
-.race-show .show-container .fastest-lap-container {
-  width: 400px;
+.race-show main .show-container .race-container {
+  width: 700px;
+  padding: 25px;
 }
-.race-show .show-container .fastest-lap-container th, .race-show .show-container .fastest-lap-container td {
-  width: 200px;
-  text-align: center;
+.race-show main .show-container .race-container table {
+  margin: 25px auto 0 auto;
 }
-.race-show .show-container .drivers-container table {
-  width: 1000px;
-  border-collapse: separate;
-}
-.race-show .show-container .drivers-container table tbody {
-  width: 1000px;
-}
-.race-show .show-container .drivers-container table tbody tr {
-  width: 1000px;
-}
-.race-show .show-container .drivers-container table tbody tr th:nth-child(1), .race-show .show-container .drivers-container table tbody tr td:nth-child(1) {
-  width: 100px;
-}
-.race-show .show-container .drivers-container table tbody tr th:nth-child(2), .race-show .show-container .drivers-container table tbody tr td:nth-child(2), .race-show .show-container .drivers-container table tbody tr th:nth-child(4), .race-show .show-container .drivers-container table tbody tr td:nth-child(4), .race-show .show-container .drivers-container table tbody tr th:nth-child(6), .race-show .show-container .drivers-container table tbody tr td:nth-child(6) {
-  width: 70px;
-}
-.race-show .show-container .drivers-container table tbody tr th:nth-child(3), .race-show .show-container .drivers-container table tbody tr td:nth-child(3), .race-show .show-container .drivers-container table tbody tr th:nth-child(5), .race-show .show-container .drivers-container table tbody tr td:nth-child(5), .race-show .show-container .drivers-container table tbody tr th:nth-child(7), .race-show .show-container .drivers-container table tbody tr td:nth-child(7) {
-  width: 120px;
-}
-.race-show .show-container .drivers-container table tbody tr th:nth-child(8), .race-show .show-container .drivers-container table tbody tr td:nth-child(8) {
-  width: 60px;
-}
-.race-show .show-container .drivers-container table tbody tr th:nth-child(9), .race-show .show-container .drivers-container table tbody tr td:nth-child(9) {
-  width: 120px;
-}
-.race-show .show-container .drivers-container table tbody tr th:nth-child(10), .race-show .show-container .drivers-container table tbody tr td:nth-child(10) {
-  width: 200px;
-}
-.race-show .show-container .drivers-container table tbody tr td {
+.race-show main .show-container .race-container table tr th, .race-show main .show-container .race-container table tr td {
   font-size: 16px;
   text-align: center;
 }
-.race-show .show-container .drivers-container table tbody tr td a {
+.race-show main .show-container .race-container table tr th {
   font-weight: bold;
-  color: #5e5d5d;
-  text-decoration: none;
 }
-.race-show .show-container .drivers-container table tbody tr td a:hover {
-  color: #343433;
+.race-show main .show-container .race-container table tr td {
+  font-weight: normal;
+}
+.race-show main .show-container .race-container table tr td:nth-child(1) {
+  width: 100px;
+}
+.race-show main .show-container .race-container table tr td:nth-child(2) {
+  width: 100px;
+}
+.race-show main .show-container .race-container table tr td:nth-child(3) {
+  width: 100px;
+}
+.race-show main .show-container .race-container table tr td:nth-child(4) {
+  width: 150px;
+}
+.race-show main .show-container .race-container table tr td:nth-child(5) {
+  width: 250px;
+}
+.race-show main .show-container .fastest-lap-container {
+  width: 700px;
+  padding: 25px;
+}
+.race-show main .show-container .fastest-lap-container table {
+  margin: 25px auto 0 auto;
+}
+.race-show main .show-container .fastest-lap-container table tr th, .race-show main .show-container .fastest-lap-container table tr td {
+  font-size: 16px;
+  text-align: center;
+}
+.race-show main .show-container .fastest-lap-container table tr th {
+  font-weight: bold;
+}
+.race-show main .show-container .fastest-lap-container table tr td {
+  font-weight: normal;
+}
+.race-show main .show-container .fastest-lap-container table tr td:nth-child(1), .race-show main .show-container .fastest-lap-container table tr td:nth-child(2), .race-show main .show-container .fastest-lap-container table tr td:nth-child(3) {
+  width: 200px;
+}
+.race-show main .show-container .drivers-container {
+  width: 700px;
+  padding: 25px;
+}
+.race-show main .show-container .drivers-container table {
+  margin: 25px auto 0 auto;
+}
+.race-show main .show-container .drivers-container table tr th, .race-show main .show-container .drivers-container table tr td {
+  font-size: 16px;
+  text-align: center;
+}
+.race-show main .show-container .drivers-container table tr th {
+  font-weight: bold;
+}
+.race-show main .show-container .drivers-container table tr td {
+  font-weight: normal;
+}
+.race-show main .show-container .drivers-container table tr td:nth-child(1) {
+  width: 100px;
+}
+.race-show main .show-container .drivers-container table tr td:nth-child(2) {
+  width: 100px;
+}
+.race-show main .show-container .drivers-container table tr td:nth-child(3) {
+  width: 200px;
+}
+.race-show main .show-container .drivers-container table tr td:nth-child(4) {
+  width: 200px;
+}
+.race-show main .show-container .qualifying-container table {
+  margin-top: 25px;
+}
+.race-show main .show-container .qualifying-container table .full-qualifying-body tr td img {
+  height: 40px;
+  width: 40px;
+}
+.race-show main .show-container .qualifying-container table .full-qualifying-body tr td:nth-child(1) {
+  width: 100px;
+}
+.race-show main .show-container .qualifying-container table .full-qualifying-body tr td:nth-child(2) {
+  width: 100px;
+}
+.race-show main .show-container .qualifying-container table .full-qualifying-body tr td:nth-child(3), .race-show main .show-container .qualifying-container table .full-qualifying-body tr td:nth-child(5), .race-show main .show-container .qualifying-container table .full-qualifying-body tr td:nth-child(6), .race-show main .show-container .qualifying-container table .full-qualifying-body tr td:nth-child(8), .race-show main .show-container .qualifying-container table .full-qualifying-body tr td:nth-child(9), .race-show main .show-container .qualifying-container table .full-qualifying-body tr td:nth-child(11) {
+  width: 75px;
+}
+.race-show main .show-container .qualifying-container table .full-qualifying-body tr td:nth-child(4), .race-show main .show-container .qualifying-container table .full-qualifying-body tr td:nth-child(7), .race-show main .show-container .qualifying-container table .full-qualifying-body tr td:nth-child(10) {
+  width: 125px;
+}
+.race-show main .show-container .qualifying-container table .short-qualifying-body tr td img {
+  height: 40px;
+  width: 40px;
+}
+.race-show main .show-container .qualifying-container table .short-qualifying-body tr td:nth-child(1) {
+  width: 100px;
+}
+.race-show main .show-container .qualifying-container table .short-qualifying-body tr td:nth-child(2) {
+  width: 100px;
+}
+.race-show main .show-container .qualifying-container table .short-qualifying-body tr td:nth-child(3) {
+  width: 200px;
+}
+.race-show main .show-container .qualifying-container table .short-qualifying-body tr td:nth-child(4) {
+  width: 200px;
+}
+.race-show main .show-container .qualifying-container table .short-qualifying-body tr td:nth-child(5) {
+  width: 200px;
+}
+.race-show main .show-container .submit-button input[type=submit] {
+  color: white;
+  font-size: 16pt;
+  height: 50px;
+  margin-top: 25px;
+  width: 100%;
+  border: none;
+  border-radius: 0 0 15px 15px;
+  background-color: #111111;
+}
+.race-show main .show-container .submit-button input[type=submit]:hover {
+  background-color: #4f4f4f;
+  transition: ease 0.2s;
 }
 
 .user-index {
@@ -2226,6 +1396,16 @@
   transition: 0.2s ease;
 }
 
+.user-permission main .permissions-container {
+  margin: 25px auto 0 auto;
+  width: 400px;
+  display: flex;
+}
+.user-permission main .roles-container {
+  margin: 25px auto 0 auto;
+  width: 400px;
+  display: flex;
+}
 .profile-show {
   background-color: #424141;
 }

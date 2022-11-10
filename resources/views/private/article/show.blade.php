@@ -2,32 +2,32 @@
 
 @section('page-title') Article - Show @endsection
 
-@section('page') article-show @endsection
+@section('page') private-show @endsection
 
 @section('content')
 
     <div class="show-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Article name</th>
-                    <th>Author</th>
-                    <th>Created at</th>
-                </tr>
-            </thead>
 
-            <tbody>
-                <tr>
-                    <td>{{ $article->article_name }}</td>
-                    <td>{{ $article->author }}</td>
-                    <td>{{ $article->created_at }}</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-header">
 
-        <div class="article-text-container">
-            <h1>Article content</h1>
+            <h1>Show Article</h1>
+
+        </div>
+
+        <div class="show-content">
+
+            <h1>Title</h1>
+            <p>{{ $article->article_name }}</p>
+
+            <h1>Author</h1>
+            <p>{{ $article->author }}</p>
+
+            <h1>Created At</h1>
+            <p>{{ $article->created_at }}</p>
+
+            <h1>Article</h1>
             <p>{{ $article->description }}</p>
+
         </div>
     </div>
 

@@ -119,6 +119,5 @@
     </div>
 
     <script src="{{ asset('resources/javascript/standings-carousel.js') }}"></script>
-    This page took {{ round((microtime(true) - LARAVEL_START), 3) }}
-    
+
 @endsection

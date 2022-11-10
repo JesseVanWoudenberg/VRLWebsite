@@ -1,0 +1,265 @@
+.private-index {
+
+    main {
+
+        min-height: 100vh;
+        background-color: #d9d9d9;
+
+        .index-list-container {
+
+            border-radius: 15px;
+            margin: 0 auto;
+            width: 90%;
+            max-width: 1000px;
+            background-color: white;
+            box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+
+            .table-header {
+
+                position:relative;
+                white-space: nowrap;
+                overflow: hidden;
+                border-radius: 15px 15px 0 0;
+                padding: 10px;
+                background-color: #111111;
+                height: 50px;
+                display: flex;
+
+                h1 {
+
+                    margin-left: 15px;
+                    line-height: 50px;
+                    color: white;
+                    font-size: 18pt;
+                    height: 50px;
+
+
+                }
+
+                .created {
+                    color: #21d24b;
+                }
+                .deleted {
+                    color: #b00d0d;
+                }
+                .edited {
+                    color: #d9a748;
+                }
+
+                .index-buttons-container {
+
+                    top: 17.5px;
+                    right: 15px;
+                    bottom: 0;
+                    position:absolute;
+
+                    a {
+
+                        padding: 5px 20px;
+                        line-height: 25px;
+                        color: white;
+                        background-color: #1ba93f;
+                        border-radius: 5px;
+                        display: flex;
+                        flex-wrap: nowrap;
+                        text-align: center;
+                        font-size: 12pt;
+                        text-decoration: none;
+
+                        img {
+
+                            color: white;
+                            position: relative;
+                            margin: auto;
+                            top: 0;
+                            left: -7.5px;
+                            right: 0;
+                            bottom: 0;
+
+                        }
+                    }
+
+                    a:hover {
+
+                        background-color: #15852f;
+                        transition: ease 0.2s;
+
+                    }
+                }
+            }
+
+            table {
+
+                border-collapse: separate;
+                border-spacing: 0;
+                width: 100%;
+                padding: 25px;
+
+                thead {
+
+                    tr {
+
+                        th {
+                            height: 50px;
+                            text-align: left;
+                        }
+
+                        th:nth-child(1) {
+                            padding: 0 0 0 15px;
+                        }
+                    }
+                }
+
+                tbody {
+
+                    tr {
+
+                        position: relative;
+
+                        td {
+
+                            padding: 15px 0;
+                            text-align: left;
+                            color: #111111;
+
+                            a {
+
+                                text-decoration: none;
+                                color: #111111;
+                                font-weight: bold;
+
+                            }
+
+                            a:hover {
+                                color: #464646;
+                            }
+                        }
+
+                        td:nth-child(1) {
+                            padding: 15px 0 15px 20px;
+                        }
+
+                        .edit-button, .delete-button, .info-button, .permissions-button {
+
+                            border-right: 10px solid transparent;
+                            width: 50px;
+                            padding: 5px 0;
+                            text-align: left;
+
+                            a {
+
+                                font-weight: normal;
+                                white-space: nowrap;
+                                text-decoration: none;
+                                padding: 5px 20px;
+                                color: white;
+                                border-radius: 5px;
+                                display: flex;
+                                flex-wrap: nowrap;
+                                text-align: center;
+
+                                img {
+
+                                    color: white;
+                                    position: relative;
+                                    margin: auto;
+                                    top: 0;
+                                    left: -7.5px;
+                                    right: 0;
+                                    bottom: 0;
+                                }
+                            }
+                        }
+
+                        .edit-button {
+
+                            a {
+
+                                background-color: #d9a748;
+
+                            }
+
+                            a:hover {
+
+                                background-color: #b2842b;
+                                transition: ease 0.2s;
+
+                            }
+                        }
+
+                        .delete-button {
+
+                            a {
+
+                                background-color: #b00d0d;
+
+                            }
+
+                            a:hover {
+
+                                background-color: #790909;
+                                transition: ease 0.2s;
+
+                            }
+                        }
+
+                        .info-button {
+
+                            a {
+
+                                background-color: #5792d5;
+
+                            }
+
+                            a:hover {
+
+                                background-color: #3c72b2;
+                                transition: ease 0.2s;
+
+                            }
+                        }
+
+                        .permissions-button {
+
+                            a {
+
+                                background-color: #3f09c2;
+
+                            }
+
+                            a:hover {
+
+                                background-color: #27037a;
+                                transition: ease 0.2s;
+
+                            }
+                        }
+                    }
+
+                    tr:nth-child(even) {
+
+                        background-color: white;
+
+                    }
+
+                    tr:nth-child(odd) {
+
+                        background-color: #dedcdc;
+
+                    }
+
+                    tr:last-child {
+
+                        td:first-child {
+                            border-radius: 0 0 0 7.5px;
+                        }
+
+                        td:last-child {
+                            border-radius: 0 0 7.5px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

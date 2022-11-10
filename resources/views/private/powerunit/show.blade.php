@@ -2,18 +2,28 @@
 
 @section('page-title') Power unit - Show @endsection
 
-@section('page') powerunit-show @endsection
+@section('page') private-show @endsection
 
 @section('content')
 
     <div class="show-container">
 
-        <h1>Power unit name</h1>
-        <p>{{ $powerunit->name }}</p>
+        <div class="table-header">
 
-        <ul>
-{{--            foreach of teams using this powerunit--}}
-        </ul>
+            <h1>Show Power Unit</h1>
+
+        </div>
+
+        <div class="show-content">
+            <h1>Power unit name</h1>
+            <p>{{ $powerunit->name }}</p>
+
+        <h1>Teams using this power unit</h1>
+        @foreach(\App\Models\Team::all()->where('powerunit_id', "=", $powerunit->id) as $team)
+            <p>{{ $team->name }}</p>
+        @endforeach
+
+        </div>
     </div>
 
 @endsection

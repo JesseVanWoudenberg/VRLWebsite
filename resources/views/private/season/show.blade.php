@@ -2,22 +2,27 @@
 
 @section('page-title') Season - Show @endsection
 
-@section('page') season-show @endsection
+@section('page') private-show @endsection
 
 @section('content')
 
     <div class="show-container">
-        <table>
-            <tr>
-                <th>Season Number</th>
-                <td>{{ $season->seasonnumber }}</td>
-            </tr>
 
-            <tr>
-                <th>Tier number</th>
-                <td>{{ $season->tier->tiernumber }}</td>
-            </tr>
-        </table>
+        <div class="table-header">
+
+            <h1>Show Article</h1>
+
+        </div>
+
+        <div class="show-content">
+
+            <h1>Season</h1>
+            <p>{{ $season->seasonnumber }}</p>
+
+            <h1>Tier</h1>
+            <p>{{ $season->tier->tiernumber }}</p>
+
+        </div>
     </div>
 
 @endsection

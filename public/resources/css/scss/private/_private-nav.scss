@@ -5,7 +5,7 @@
     left: 0;
     width: 300px;
     height: 100%;
-    background-color: #107dab;
+    background-color: #111111;
     transform: translateX(-250px);
     transition: 0.5s ease;
 
@@ -18,7 +18,7 @@
     .menu-button div {
         width: 25px;
         height: 3px;
-        background-color: #1a1a18;
+        background-color: #ffffff;
         margin: 5px 0;
         transition: all 0.3s ease;
     }
@@ -75,16 +75,17 @@
 }
 
 .main-container {
-    margin-left: 55px;
+    margin-left: 50px;
     transition: 0.5s ease;
 }
 
 .main-nav-active, .private-navigation:hover ~ .main-container {
-    margin-left: 305px;
+    margin-left: 300px;
     transition: 0.5s ease;
 }
 
-.page-opened {
+.top-bar {
+
+    height: 50px;
 
 }
-
