@@ -2,135 +2,172 @@
 
 @section('page-title') Race - Delete @endsection
 
-@section('page') race-create-edit-delete @endsection
+@section('page') race-show @endsection
 
 @section('content')
 
-    <div>
-        @if ($errors->any())
-            <div>
-                @foreach($errors->all() as $error)
-                    {{ $error }}
-                @endforeach
+    <div class="show-container">
+
+        <div class="table-header">
+
+            <h1>Delete Race</h1>
+
+        </div>
+
+        <div class="race-container">
+
+            <h1>Race Info</h1>
+
+            <table>
+                <tr>
+                    <th>Tier</th>
+                    <th>Season</th>
+                    <th>Round</th>
+                    <th>Race format</th>
+                    <th>Track</th>
+                </tr>
+
+                <tr>
+                    <td>{{ $race->tier->tiernumber }}</td>
+                    <td>{{ $race->season->seasonnumber }}</td>
+                    <td>{{ $race->round }}</td>
+                    <td>{{ $race->raceformat->format }}</td>
+                    <td>{{ $race->track->name }}</td>
+                </tr>
+            </table>
+        </div>
+
+        @if($fastestlap != null)
+            <div class="fastest-lap-container">
+
+                <h1>Fastest Lap</h1>
+
+                <table>
+                    <tr>
+                        <th>Fastest lap</th>
+                        <th>Driver</th>
+                        <th>Team</th>
+                    </tr>
+
+                    <tr>
+                        <td>{{ $fastestlap->laptime }}</td>
+                        <td>{{ $fastestlap->driver->name }}</td>
+                        <td>{{ $fastestlap->team->name }}</td>
+                    </tr>
+                </table>
             </div>
         @endif
 
-        <div class="form-container">
+        @if($race_drivers->count() > 0)
+            <div class="drivers-container">
+
+                <h1>Race Results</h1>
+
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>DNF</th>
+                        <th>Team</th>
+                        <th>Driver</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    @foreach($race_drivers as $race_driver)
+                        <tr>
+                            <td>{{ $race_driver->position }}</td>
+                            <td> @if($race_driver->dnf == 1 ) Yes @else No @endif</td>
+                            <td>{{ $race_driver->team->name }}</td>
+                            <td>{{ $race_driver->driver->name }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+
+                </table>
+            </div>
+        @endif
+
+        <div class="qualifying-container">
+
+            @if(isset($fullqualifyingdrivers))
+                @if($fullqualifyingdrivers->count() > 0)
+
+                    <h1>Qualifying Results</h1>
+
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Driver</th>
+                            <th>Team</th>
+                            <th>Q1</th>
+                            <th>Q1 Time</th>
+                            <th>Q1 Tyre</th>
+                            <th>Q2</th>
+                            <th>Q2 Time</th>
+                            <th>Q2 Tyre</th>
+                            <th>Q3</th>
+                            <th>Q3 Time</th>
+                            <th>Q3 Tyre</th>
+                        </tr>
+                        </thead>
+
+                        <tbody class="full-qualifying-body">
+                        @foreach($fullqualifyingdrivers as $fullqualifyingdriver)
+                            <tr>
+                                <td>{{ $fullqualifyingdriver->driver->name }}</td>
+                                <td>{{ $fullqualifyingdriver->team->name }}</td>
+                                <td>{{ $fullqualifyingdriver->q1 }}</td>
+                                <td>{{ $fullqualifyingdriver->q1laptime }}</td>
+                                <td><img src="{{ asset('resources/media/tyres/' .  strtolower($fullqualifyingdriver->q1tyre) . ".png") }}" alt=""></td>
+                                <td>{{ $fullqualifyingdriver->q2 }}</td>
+                                <td>{{ $fullqualifyingdriver->q2laptime }}</td>
+                                <td><img src="{{ asset('resources/media/tyres/' .  strtolower($fullqualifyingdriver->q2tyre) . ".png") }}" alt=""></td>
+                                <td>{{ $fullqualifyingdriver->q3 }}</td>
+                                <td>{{ $fullqualifyingdriver->q3laptime }}</td>
+                                <td><img src="{{ asset('resources/media/tyres/' .  strtolower($fullqualifyingdriver->q3tyre) . ".png") }}" alt=""></td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                @endif
+            @else
+                @if($shortqualifyingdrivers->count() > 0)
+
+                    <h1>Qualifying Results</h1>
+
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Driver</th>
+                            <th>Team</th>
+                            <th>Position</th>
+                            <th>Laptime</th>
+                            <th>Tyre</th>
+                        </tr>
+                        </thead>
+
+                        <tbody class="short-qualifying-body">
+                        @foreach($shortqualifyingdrivers as $shortqualifyingdriver)
+                            <tr>
+                                <td>{{ $shortqualifyingdriver->driver->name }}</td>
+                                <td>{{ $shortqualifyingdriver->team->name }}</td>
+                                <td>{{ $shortqualifyingdriver->position }}</td>
+                                <td>{{ $shortqualifyingdriver->laptime }}</td>
+                                <td><img src="{{ asset('resources/media/tyres/' .  strtolower($shortqualifyingdriver->tyre) . ".png") }}" alt=""></td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                @endif
+            @endif
+        </div>
+
+        <div class="submit-button">
             <form action="{{ route('race.destroy', ['race' => $race->id]) }}" method="POST">
 
                 @method('DELETE')
                 @csrf
-
-                <label for="round">Round</label>
-                <input @error('name') @enderror type="number" id="round" name='round' value="{{ $race->round }}" disabled>
-
-                <label for="track_id">Track</label>
-                <div class="select-container">
-                    <select name="track_id" id="track_id">
-                        @foreach($tracks as $track)
-                            <option value="{{ $track->id }}" @if($track->id == $race->track_id) selected @endif disabled>{{ $track->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <label for="season_id">Season</label>
-                <div class="select-container">
-                    <select name="season_id" id="season_id">
-                        @foreach($seasons as $season)
-                            <option value="{{ $season->id }}" @if($season->id == $race->season_id) selected @endif disabled >{{ "Season: " . $season->seasonnumber . " - Tier: " . $season->tier->tiernumber }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <label for="fldriver_id">Fastest Lap</label>
-                <div class="select-container">
-                    <select name="fldriver_id" id="fldriver_id">
-                        @foreach($drivers as $driver)
-                            <option value="{{ $driver->id }}" @if($driver->id == $fastestlaps->firstWhere('race_id', $race->id)->driver_id) selected @endif disabled>{{ $driver->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <label for="fltime">Time</label>
-                <input @error('name') @enderror type="number" step=".001" id="fltime" name='fltime' value="{{ $fastestlaps->firstWhere('race_id', $race->id)->laptime  }}" disabled>
-
-                <label for="raceformat_id">Race Format</label>
-                <div class="select-container">
-                    <select name="raceformat_id" id="raceformat_id">
-                        @foreach($raceformats as $raceformat)
-                            <option value="{{ $raceformat->id }}" @if($raceformat->id == $race->raceformat_id) selected @endif disabled>{{ $raceformat->format }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                @for($i = 1; $i <= 20; $i++)
-
-                    <div class="result-line-container">
-                        <label for="p{{$i}}">P{{$i}}</label>
-                        <label for="dnf{{$i}}">DNF</label>
-
-                        <label for="qualifying1-p{{$i}}">Q1</label>
-                        <label for="qualifying1-time{{$i}}">Q1 Time</label>
-
-                        <label for="qualifying2-p{{$i}}">Q2</label>
-                        <label for="qualifying2-time{{$i}}">Q2 Time</label>
-
-                        <label for="qualifying3-p{{$i}}">Q3</label>
-                        <label for="qualifying3-time{{$i}}">Q3 Time</label>
-
-                        <div class="select-container driver-input">
-                            <select name="driver{{$i}}" id="p{{$i}}">
-                                <option value="none">None</option>
-                                @foreach($drivers as $driver)
-                                    <option value="{{ $driver->id }}">{{ $driver->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="dnf-container">
-                            <input type="checkbox" id="dnf{{$i}}" name="dnf{{$i}}">
-                        </div>
-
-                        <div class="qualifying-container">
-                            <div class="select-container qualifying-input">
-                                <select name="qualifying1-driver{{$i}}" id="qualifying1-p{{$i}}">
-                                    @for($j = 1; $j <= 20; $j++)
-                                        <option value="{{$j}}" @if($race_drivers->contains('position', $i)) @if($race_drivers->firstWhere('position', $i)->q1 == $j) selected @endif @endif>{{$j}}</option>
-                                    @endfor
-                                    <option value="100">DNF</option>
-                                </select>
-                            </div>
-
-                            <input type="text" @if($race_drivers->contains('position', $i)) value="{{ $race_drivers->firstWhere('position', $i)->q1laptime }}" @endif name="qualifying1-time{{$i}}" id="qualifying1-time{{$i}}">
-                        </div>
-
-                        <div class="qualifying-container">
-                            <div class="select-container qualifying-input">
-                                <select name="qualifying2-driver{{$i}}" id="qualifying2-p{{$i}}">
-                                    @for($j = 1; $j <= 20; $j++)
-                                        <option value="{{$j}}" @if($race_drivers->contains('position', $i)) @if($race_drivers->firstWhere('position', $i)->q2 == $j) selected @endif @endif>{{$j}}</option>
-                                    @endfor
-                                    <option value="100">DNF</option>
-                                </select>
-                            </div>
-
-                            <input type="text" @if($race_drivers->contains('position', $i)) value="{{ $race_drivers->firstWhere('position', $i)->q2laptime }}" @endif name="qualifying2-time{{$i}}" id="qualifying2-time{{$i}}">
-                        </div>
-
-                        <div class="qualifying-container">
-                            <div class="select-container qualifying-input">
-                                <select name="qualifying3-driver{{$i}}" id="qualifying3-p{{$i}}">
-                                    @for($j = 1; $j <= 20; $j++)
-                                        <option value="{{$j}}" @if($race_drivers->contains('position', $i)) @if($race_drivers->firstWhere('position', $i)->q3 == $j) selected @endif @endif>{{$j}}</option>
-                                    @endfor
-                                    <option value="100">DNF</option>
-                                </select>
-                            </div>
-
-                            <input type="text" @if($race_drivers->contains('position', $i)) value="{{ $race_drivers->firstWhere('position', $i)->q3laptime }}" @endif name="qualifying3-time{{$i}}" id="qualifying3-time{{$i}}">
-                        </div>
-                    </div>
-                @endfor
 
                 <input type="submit" value="Remove">
             </form>

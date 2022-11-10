@@ -2,27 +2,30 @@
 
 @section('page-title') Constructor Championship - Show @endsection
 
-@section('page') constructorchampionship-show @endsection
+@section('page') private-show @endsection
 
 @section('content')
 
     <div class="show-container">
-        <table>
-            <tr>
-                <th>Team</th>
-                <td><a href="{{ route('team.show', ['team' => $constructorchampionship->team->id]) }}">{{ $constructorchampionship->team->name }}</a></td>
-            </tr>
 
-            <tr>
-                <th>Season</th>
-                <td><a href="{{ route('season.show', ['season' => $constructorchampionship->season->id]) }}">{{ $constructorchampionship->season->seasonnumber }}</a></td>
-            </tr>
+        <div class="table-header">
 
-            <tr>
-                <th>Tier</th>
-                <td>{{ $constructorchampionship->tier->tiernumber }}</td>
-            </tr>
-        </table>
+            <h1>Show Constructor Championship</h1>
+
+        </div>
+
+        <div class="show-content">
+
+            <h1>Team</h1>
+            <p><a href="{{ route('team.show', ['team' => $constructorchampionship->team->id]) }}">{{ $constructorchampionship->team->name }}</a></p>
+
+            <h1>Season</h1>
+            <p><a href="{{ route('season.show', ['season' => $constructorchampionship->season->id]) }}">{{ $constructorchampionship->season->seasonnumber }}</a></p>
+
+            <h1>Tier</h1>
+            <p>{{ $constructorchampionship->tier->tiernumber }}</p>
+
+        </div>
     </div>
 
 @endsection

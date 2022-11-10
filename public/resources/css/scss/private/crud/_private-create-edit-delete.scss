@@ -1,0 +1,127 @@
+.private-create-edit-delete {
+
+    main {
+
+        min-height: 100vh;
+        background-color: #d9d9d9;
+
+        .form-container {
+
+            border-radius: 15px;
+            margin: 0 auto;
+            width: 90%;
+            max-width: 600px;
+            background-color: white;
+            box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+
+            .table-header {
+
+                position:relative;
+                white-space: nowrap;
+                border-radius: 15px 15px 0 0;
+                padding: 10px;
+                background-color: #111111;
+                height: fit-content;
+                display: block;
+
+                h1 {
+
+                    margin-left: 15px;
+                    line-height: 50px;
+                    color: white;
+                    font-size: 18pt;
+                    height: 50px;
+
+                }
+            }
+
+            form {
+
+                width: 100%;
+
+                .select-container {
+
+                    width: calc(100% - 50px);
+                    height: 40px;
+                    margin: 10px auto 0 auto;
+
+                    select {
+
+                        width: 100%;
+                        border: none;
+                        border-top: solid 2px #111111;
+                        padding: 10px;
+                        font-size: 16px;
+
+                        option {
+
+                            padding: 10px;
+                            font-size: 16px;
+
+                        }
+                    }
+                }
+
+                input[type=text], textarea {
+                    font-size: 12pt;
+                    margin-top: 10px;
+                    margin-left: 25px;
+                    display: block;
+                    width: calc(100% - 50px);
+                    border: none;
+                    border-bottom: 2px solid #111111;
+                }
+
+                label {
+                    margin-left: 25px;
+                    font-size: 16pt;
+                    font-weight: bold;
+                    margin-top: 25px;
+                    display: block;
+                    width: 100%;
+                }
+
+                textarea {
+                    resize: none;
+                    height: 75px;
+                }
+
+                input[type=submit] {
+                    color: white;
+                    font-size: 16pt;
+                    height: 50px;
+                    margin-top: 25px;
+                    width: 100%;
+                    border: none;
+                    border-radius: 0 0 15px 15px;
+                    background-color: #111111;
+                }
+
+                input[type=submit]:hover {
+                    background-color: #4f4f4f;
+                    transition: ease 0.2s;
+                }
+
+                input[type=number] {
+
+                    font-size: 12pt;
+                    margin-top: 10px;
+                    margin-left: 25px;
+                    display: block;
+                    width: calc(100% - 50px);
+                    border: none;
+                    border-bottom: 2px solid #111111;
+
+                }
+
+
+                input:focus,
+                select:focus,
+                textarea:focus,
+                button:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+}

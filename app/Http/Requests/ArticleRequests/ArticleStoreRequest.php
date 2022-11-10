@@ -10,7 +10,7 @@ class ArticleStoreRequest extends FormRequest
     {
         return [
             'article_name' => 'required|string|max:70|unique:articles',
-            'author' => 'required|string|max:45|unique:articles',
+            'author' => 'required|string|max:45',
             'description' => 'required|string|max:500|unique:articles'
         ];
     }

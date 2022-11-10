@@ -1,0 +1,47 @@
+.user-permission {
+
+    main {
+
+        .permissions-container {
+
+            margin: 25px auto 0 auto;
+            width: 400px;
+            display: flex;
+
+            .user-permissions-container {
+
+                .user-permission-item {
+
+                }
+            }
+
+            .all-permissions-container {
+
+                .permission-item {
+
+                }
+            }
+        }
+
+        .roles-container {
+
+            margin: 25px auto 0 auto;
+            width: 400px;
+            display: flex;
+
+            .user-roles-container {
+
+                .user-role-item {
+
+                }
+            }
+
+            .all-roles-container {
+
+                .role-item {
+
+                }
+            }
+        }
+    }
+}
