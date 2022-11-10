@@ -2,32 +2,32 @@
 
 @section('page-title') Driver Championship - Show @endsection
 
-@section('page') driverchampionship-show @endsection
+@section('page') private-show @endsection
 
 @section('content')
 
     <div class="show-container">
-        <table>
-            <tr>
-                <th>Team</th>
-                <td><a href="{{ route('team.show', ['team' => $driverchampionship->team->id]) }}">{{ $driverchampionship->team->name }}</a></td>
-            </tr>
 
-            <tr>
-                <th>Driver</th>
-                <td><a href="{{ route('driver.show', ['driver' => $driverchampionship->driver->id]) }}">{{ $driverchampionship->driver->name }}</a></td>
-            </tr>
+        <div class="table-header">
 
-            <tr>
-                <th>Season</th>
-                <td><a href="{{ route('season.show', ['season' => $driverchampionship->season->id]) }}">{{ $driverchampionship->season->seasonnumber }}</a></td>
-            </tr>
+            <h1>Show Driver Championship</h1>
 
-            <tr>
-                <th>Tier</th>
-                <td>{{ $driverchampionship->tier->tiernumber }}</td>
-            </tr>
-        </table>
+        </div>
+
+        <div class="show-content">
+
+            <h1>Team</h1>
+            <p><a href="{{ route('team.show', ['team' => $driverchampionship->team->id]) }}">{{ $driverchampionship->team->name }}</a></p>
+
+            <h1>Driver</h1>
+            <p><a href="{{ route('driver.show', ['driver' => $driverchampionship->driver->id]) }}">{{ $driverchampionship->driver->name }}</a></p>
+
+            <h1>Season</h1>
+            <p><a href="{{ route('season.show', ['season' => $driverchampionship->season->id]) }}">{{ $driverchampionship->season->seasonnumber }}</a></p>
+
+            <h1>Tier</h1>
+            <p>{{ $driverchampionship->tier->tiernumber }}</p>
+        </div>
     </div>
 
 @endsection

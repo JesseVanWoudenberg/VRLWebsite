@@ -31,7 +31,7 @@ class TieroneController extends Controller
                     ->whereIn('races.tier_id',(function ($query) {
                         $query->from('tiers')
                             ->select('tiers.id')
-                            ->where('tiernumber','=',1);
+                            ->where('tiernumber', '=', 1);
                     }));
             }))
             ->where('racedrivers.dnf','=',0)

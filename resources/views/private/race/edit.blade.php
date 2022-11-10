@@ -6,15 +6,17 @@
 
 @section('content')
 
-    @if ($errors->any())
-        <div>
-            @foreach($errors->all() as $error)
-                {{ $error }}
-            @endforeach
-        </div>
-    @endif
-
     <div class="race-create-container">
+
+        <div class="table-header">
+            @if($errors->any())
+                @foreach($errors->all() as $error)
+                    <h1>{{ $error }}</h1>
+                @endforeach
+            @else
+                <h1>Edit Race</h1>
+            @endif
+        </div>
 
         <form action="{{ route('race.update', ['race' => $race->id]) }}" method="POST">
 
