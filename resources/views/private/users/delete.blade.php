@@ -18,7 +18,7 @@
             @endif
         </div>
 
-        <form action="{{ route('user.destroy') }}" method="POST">
+        <form action="{{ route('user.destroy', ['user' => $user->id]) }}" method="POST">
 
             @method('DELETE')
             @csrf
@@ -29,7 +29,7 @@
             <label for="email">Email</label>
             <input @error('email') @enderror type="email" id="email" name='email' value="{{ $user->email }}">
 
-            <input type="submit" value="Add">
+            <input type="submit" value="Delete">
         </form>
     </div>
 

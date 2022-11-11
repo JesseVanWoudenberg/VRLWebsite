@@ -182,6 +182,7 @@ Route::group(['middleware' => ['role:admin']], function() {
 });
 
 Route::group(['middleware' => ['role:admin']], function() {
+
     Route::resource('admin/user', UserController::class);
     Route::get('admin/user/{user}/delete', [UserController::class, 'delete'])->name('user.delete');
     Route::get('admin/user/{user}/permissions', [UserController::class, 'permissions'])->name('user.permissions');

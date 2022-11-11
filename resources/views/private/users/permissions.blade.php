@@ -6,6 +6,7 @@
 
 @section('content')
 
+
     <div class="permissions-container">
 
         <div class="user-permissions-container">
@@ -37,7 +38,7 @@
             @foreach($userRoles as $userRole)
 
                 <div id="{{ $userRole->role_id }}" class="user-role-item">
-                    {{ \Spatie\Permission\Models\Role::all()->where('id', '=', $userRole->role_id)->first()->name }}
+                    {{ \Spatie\Permission\Models\Role::all()->where('id', '=', $userRole->name }}
                 </div>
 
             @endforeach

@@ -18,7 +18,7 @@
             @endif
         </div>
 
-        <form action="{{ route('user.update') }}" method="POST">
+        <form action="{{ route('user.update', ['user' => $user->id]) }}" method="POST">
 
             @method('PUT')
             @csrf
@@ -29,7 +29,7 @@
             <label for="email">Email</label>
             <input @error('email') @enderror type="email" id="email" name='email' value="{{ $user->email }}">
 
-            <label for="password">New password</label>
+            <label for="password">Password, leave empty to keep old password</label>
             <input @error('password') @enderror type="password" id="password" name='password'>
 
             <input type="submit" value="Edit">
