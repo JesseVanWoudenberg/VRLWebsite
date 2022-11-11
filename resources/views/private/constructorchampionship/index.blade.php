@@ -2,18 +2,9 @@
 
 @section('page-title') Constructor Championship - Index @endsection
 
-@section('page') constructorchampionship-index private-index @endsection
+@section('page') private-index @endsection
 
 @section('content')
-
-    @if ($errors->any())
-        <div>
-            @foreach($errors->all() as $error)
-                {{ $error }}
-            @endforeach
-        </div>
-    @endif
-
 
     <div class="index-list-container">
 

@@ -41,36 +41,6 @@
 // Footer
 @import 'scss/general/footer';
 
-
-// Team pages
-@import 'scss/private/team/team-index';
-@import 'scss/private/team/team-create-edit-delete';
-@import 'scss/private/team/team-show';
-
-// Tier pages
-@import 'scss/private/tier/tier-index';
-@import 'scss/private/tier/tier-create-delete';
-
-// Track pages
-@import 'scss/private/track/track-index';
-@import 'scss/private/track/track-create-edit-delete';
-@import 'scss/private/track/track-show';
-
-// Driver championship pages
-@import 'scss/private/driverchampionship/driverchampionship-index';
-@import 'scss/private/driverchampionship/driverchampionship-show';
-@import 'scss/private/driverchampionship/driverchampionship-create-edit-delete';
-
-// Driver championship pages
-@import 'scss/private/constructorchampionship/constructorchampionship-index';
-@import 'scss/private/constructorchampionship/constructorchampionship-show';
-@import 'scss/private/constructorchampionship/constructorchampionship-create-edit-delete';
-
-// Season pages
-@import 'scss/private/season/season-index';
-@import 'scss/private/season/season-create-edit-delete';
-@import 'scss/private/season/season-show';
-
 // Race pages
 @import 'scss/private/race/race-index';
 @import 'scss/private/race/race-create-edit-delete';

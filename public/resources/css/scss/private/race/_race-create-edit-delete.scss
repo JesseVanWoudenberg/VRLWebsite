@@ -2,13 +2,58 @@
 
     main {
 
+        min-height: 100vh;
+        background-color: #d9d9d9;
+
         .race-create-container {
 
-            margin: 100px auto 0 auto;
+            border-radius: 15px;
+            background-color: white;
+            box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+            margin: 25px auto 50px auto;
             width: 1000px;
-            background-color: #5e5d5d;
+
+            .table-header {
+
+                position:relative;
+                white-space: nowrap;
+                border-radius: 15px 15px 0 0;
+                padding: 10px;
+                background-color: #111111;
+                height: fit-content;
+                display: block;
+
+                h1 {
+
+                    margin-left: 15px;
+                    line-height: 50px;
+                    color: white;
+                    font-size: 18pt;
+                    height: 50px;
+
+                }
+            }
 
             form {
+
+                input[type=submit] {
+
+                    margin-top: 50px;
+                    color: white;
+                    width: 100%;
+                    white-space: nowrap;
+                    border-radius: 0 0 15px 15px;
+                    background-color: #111111;
+                    display: block;
+                    line-height: 50px;
+                    font-size: 18pt;
+                    height: 70px;
+
+                }
+
+                input[type=submit]:hover {
+                    background-color: #3f3f3f;
+                }
 
                 .race-info-container {
 
@@ -26,7 +71,7 @@
                     label {
                         font-size: 20px;
                         font-weight: bold;
-                        color: #ffffff;
+                        color: #111111;
                         width: 175px;
                         padding-bottom: 10px;
                     }
@@ -36,6 +81,7 @@
                         font-size: 24px;
                         height: 35px;
                         border: none;
+                        border-top: solid 2px #111111;
                     }
 
                     .select-container {
@@ -46,13 +92,17 @@
                         select {
 
                             text-align: center;
-                            height: 35px;
+                            height: 45px;
                             width: 175px;
+                            border: none;
+                            border-top: solid 2px #111111;
+                            padding: 10px;
+                            font-size: 16px;
 
                             option {
 
                                 text-align: center;
-                                height: 35px;
+                                height: 45px;
                                 width: 175px;
 
                             }
@@ -67,14 +117,16 @@
 
                     .result-row {
 
+                        margin-top: 5px;
                         width: 600px;
                         display: flex;
                         justify-content: space-between;
                         flex-wrap: wrap;
+                        border: solid 2px #111111;
 
                         p {
 
-                            color: #ffffff;
+                            color: #111111;
                             font-size: 20px;
                             font-weight: bold;
                             line-height: 35px;
@@ -93,6 +145,7 @@
                                 text-align: center;
                                 height: 35px;
                                 width: 250px;
+                                border: none;
 
                                 option {
 
@@ -103,6 +156,14 @@
                                 }
                             }
                         }
+
+                        input[type=checkbox] {
+
+                            margin: 5px 5px 0 0;
+                            width: 25px;
+                            height: 25px;
+
+                        }
                     }
                 }
 
@@ -111,25 +172,27 @@
                     margin: 50px auto 0 auto;
                     display: flex;
                     flex-wrap: wrap;
-                    width: 400px;
+                    width: 412px;
+                    border: solid 2px #111111;
 
                     p {
-                        width: 400px;
+                        width: 412px;
                         text-align: center;
-                        color: #ffffff;
+                        color: #111111;
+                        font-weight: bold;
                     }
 
                     table {
 
                         margin-top: 25px;
-                        width: 400px;
+                        width: 412px;
 
                         thead {
 
                             tr {
 
                                 th {
-                                    color: #ffffff;
+                                    color: #111111;
                                     text-align: center;
                                 }
                             }
@@ -149,6 +212,7 @@
 
                                             text-align: center;
                                             width: 150px;
+                                            border: solid 2px #111111;
 
                                             option {
 
@@ -161,6 +225,7 @@
 
                                     input[type=number] {
                                         width: 100px;
+                                        border: solid 2px #111111;
                                     }
                                 }
                             }
@@ -170,14 +235,22 @@
 
                 .race-buttons-container {
 
-                    margin-top: 50px;
-                    width: 1000px;
+                    margin: 50px auto 0 auto;
+                    width: 800px;
                     display: flex;
-                    flex-wrap: wrap;
+                    flex-wrap: nowrap;
+
+                    p:nth-child(1) {
+                        border-radius: 25px 0 0 25px;
+                    }
+
+                    p:nth-child(2) {
+                        border-radius: 0 25px 25px 0;
+                    }
 
                     p {
                         padding: 10px 0;
-                        background-color: #4f4e4e;
+                        background-color: #111111;
                         color: #ffffff;
                         width: 500px;
                         text-align: center;
@@ -249,6 +322,7 @@
 
                                         select {
 
+                                            border: solid 2px #111111;
                                             text-align: center;
                                             width: 150px;
 
@@ -267,6 +341,7 @@
 
                                         select {
 
+                                            border: solid 2px #111111;
                                             text-align: center;
                                             width: 50px;
 
@@ -279,9 +354,19 @@
                                         }
                                     }
 
+                                    .tyre-select-container {
+
+                                        select {
+
+                                            border: solid 2px #111111;
+
+                                        }
+                                    }
+
 
                                     input[type=number] {
                                         width: 75px;
+                                        border: solid 2px #111111;
                                     }
                                 }
                             }
@@ -321,9 +406,11 @@
 
                             tr {
 
+
                                 td {
 
-                                    color: #ffffff;
+                                    padding: 2.5px 0;
+                                    color: #111111;
                                     text-align: center;
 
                                     .select-container {
@@ -332,6 +419,7 @@
 
                                         select {
 
+                                            border: solid 2px #111111;
                                             text-align: center;
                                             width: 150px;
 
@@ -342,6 +430,10 @@
 
                                             }
                                         }
+                                    }
+
+                                    input[type=number] {
+                                        border: solid 2px #111111;
                                     }
                                 }
                             }

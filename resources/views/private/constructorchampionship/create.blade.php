@@ -15,7 +15,7 @@
                     <h1>{{ $error }}</h1>
                 @endforeach
             @else
-                <h1>Create WCC</h1>
+                <h1>Create Constructor Championship</h1>
             @endif
         </div>
 

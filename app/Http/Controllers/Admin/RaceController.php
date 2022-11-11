@@ -182,15 +182,21 @@ class RaceController extends Controller
 
     public function delete(Race $race): View
     {
-        $tracks = Track::all();
-        $seasons = Season::all();
-        $tiers = Tier::all();
-        $drivers = Driver::all();
-        $raceformats = Raceformat::all();
-        $fastestlaps = Fastestlap::all();
-        $racedrivers = $this->getAssociatedDrivers($race);
+        $race_drivers = $this->getAssociatedDrivers($race);
+        $fastestlap = $this->getAssociatedFastestLap($race);
 
-        return view('private.race.delete', compact('racedrivers', 'race', 'tracks', 'seasons', 'drivers', 'tiers', 'raceformats', 'fastestlaps'));
+        if ($this->getAssociatedFullQualifyingDrivers($race)->count() > 0)
+        {
+            $fullqualifyingdrivers = $this->getAssociatedFullQualifyingDrivers($race);
+
+            return view('private.race.delete', compact('race', 'race_drivers', 'fastestlap', 'fullqualifyingdrivers'));
+        }
+        else
+        {
+            $shortqualifyingdrivers = $this->getAssociatedShortQualifyingDrivers($race);
+
+            return view('private.race.delete', compact('race', 'race_drivers', 'fastestlap', 'shortqualifyingdrivers'));
+        }
     }
 
     public function destroy(Race $race)
