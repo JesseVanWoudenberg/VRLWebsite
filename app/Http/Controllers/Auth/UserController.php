@@ -76,15 +76,7 @@ class UserController extends Controller
 
     public function permissions(User $user): View
     {
-        $roles = Role::query()
-            ->select('*')
-            ->whereNotIn('roles.id',(function ($query) use ($user) {
-                $query->from('model_has_roles')
-                    ->select('model_id')
-                    ->where('model_id','=', $user->id);
-            }))
-            ->get();
-
+        $roles = Role::all()->sortBy("id");
         $userRoles = Role::query()
             ->select('*')
             ->whereIn('roles.id',(function ($query) use ($user) {
@@ -92,17 +84,9 @@ class UserController extends Controller
                     ->select('model_id')
                     ->where('model_id','=', $user->id);
             }))
-            ->get();
+            ->get()->sortBy("id");
 
-        $permissions = Permission::query()
-            ->select('*')
-            ->whereNotIn('permissions.id', (function ($query) use ($user) {
-                $query->from('model_has_permissions')
-                    ->select('model_id')
-                    ->where('model_id', '=', $user->id);
-            }))
-            ->get();
-
+        $permissions = Permission::all()->sortBy("id");
         $userPermissions = Permission::query()
             ->select('*')
             ->whereIn('permissions.id', (function ($query) use ($user) {
@@ -110,8 +94,7 @@ class UserController extends Controller
                     ->select('model_id')
                     ->where('model_id', '=', $user->id);
             }))
-            ->get();
-
+            ->get()->sortBy("id");
 
         return view('private.users.permissions', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
 
@@ -119,7 +102,27 @@ class UserController extends Controller
 
     public function updatepermissions(User $user, Request $request): RedirectResponse
     {
+        $newPermissions = Permission::all()->where("id", "=", "-1");
+        $newRoles = Role::all()->where("id", "=", "-1");
 
+        foreach (Permission::all() as $permission)
+        {
+            if ($request->has("permission-" . $permission->id))
+            {
+                $newPermissions->add($permission);
+            }
+        }
+
+        foreach (Role::all() as $role)
+        {
+            if ($request->has("role-" . $role->id))
+            {
+                $newRoles->add($role);
+            }
+        }
+
+        $user->syncPermissions($newPermissions);
+        $user->syncRoles($newRoles);
 
         return redirect()->route('user')->with('status', 'User permissions successfully updated');
     }

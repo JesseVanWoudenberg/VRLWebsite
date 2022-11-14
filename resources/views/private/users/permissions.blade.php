@@ -23,7 +23,7 @@
 
             <form action="{{ route('user.update-permissions', ['user' => $user->id]) }}" method="POST">
 
-                @method('PUT')
+                @method('GET')
                 @csrf
 
                 <div class="perms-container">
@@ -34,8 +34,8 @@
                         @foreach($permissions as $permission)
                             <li>
                                 <div class="permission">
-                                    <input type="checkbox" name="{{ $permission->id }}" value="{{ $permission->id }}" @if($userPermissions->where($permission->id)->count() > 0) checked @endif>
-                                    <label for="{{ $permission->id }}">{{ $permission->name }}</label>
+                                    <input type="checkbox" name="permission-{{ $permission->id }}" value="permission-{{ $permission->id }}" id="permission-{{ $permission->id }}" @if($userPermissions->where("id", "=", $permission->id)->count() > 0) checked @endif>
+                                    <label for="permission-{{ $permission->id }}">{{ $permission->name }}</label>
                                 </div>
                             </li>
                         @endforeach
@@ -50,39 +50,17 @@
                         @foreach($roles as $role)
                             <li>
                                 <div class="permission">
-                                    <input type="checkbox" name="{{ $role->id }}" value="{{ $role->id }}">
-                                    <label for="{{ $role->id }}">{{ $role->name }}</label>
+                                    <input type="checkbox" name="role-{{ $role->id }}" value="role-{{ $role->id }}" id="role-{{ $role->id }}" @if($userRoles->where("id", "=", $role->id)->count() > 0) checked @endif>
+                                    <label for="role-{{ $role->id }}">{{ $role->name }}</label>
                                 </div>
                             </li>
                         @endforeach
                     </ul>
                 </div>
 
-                <input type="submit" value="Add Permissions">
+                <input type="submit" value="Update Permissions">
             </form>
         </div>
-
-{{--        <div class="perms-roles">
-
-            <form action="{{ route('user.update-permissions', ['user' => $user->id]) }}" method="POST">
-
-                @method('PUT')
-                @csrf
-
-                @foreach($permissions as $permission)
-
-                    <div class="permission">
-                        <input type="checkbox" name="{{ $permission->id }}" value="{{ $permission->id }}">
-                        <label for="{{ $permission->id }}">{{ $permission->name }}</label>
-                    </div>
-
-                @endforeach
-
-                <input type="submit" value="Add Permissions">
-            </form>
-
-        </div>--}}
-
     </div>
 
 @endsection
