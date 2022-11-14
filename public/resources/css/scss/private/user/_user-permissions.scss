@@ -2,44 +2,90 @@
 
     main {
 
-        .permissions-container {
+        .user-permissions-page-container {
 
-            margin: 25px auto 0 auto;
-            width: 400px;
-            display: flex;
+            border-radius: 15px;
+            margin: 0 auto;
+            width: 90%;
+            max-width: 1000px;
+            background-color: white;
+            box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
 
-            .user-permissions-container {
+            .table-header {
 
-                .user-permission-item {
+                position: relative;
+                white-space: nowrap;
+                border-radius: 15px 15px 0 0;
+                padding: 10px;
+                background-color: #111111;
+                height: fit-content;
+                display: block;
 
-                }
-            }
+                h1 {
 
-            .all-permissions-container {
-
-                .permission-item {
-
-                }
-            }
-        }
-
-        .roles-container {
-
-            margin: 25px auto 0 auto;
-            width: 400px;
-            display: flex;
-
-            .user-roles-container {
-
-                .user-role-item {
+                    margin-left: 15px;
+                    line-height: 50px;
+                    color: white;
+                    font-size: 18pt;
+                    height: 50px;
 
                 }
             }
 
-            .all-roles-container {
+            .user-permissions-form {
 
-                .role-item {
+                width: 100%;
+                display: flex;
+                flex-wrap: nowrap;
+                flex-direction: row;
 
+                form {
+
+                    width: 100%;
+
+                    .perms-container, .roles-container {
+
+                        width: 50%;
+
+                        h1 {
+
+                            display: block;
+                            margin-left: 15px;
+                            line-height: 50px;
+                            color: #111111;
+                            font-size: 18pt;
+                            height: 50px;
+                        }
+
+                        p {
+                            margin-left: 30px;
+                        }
+
+                        ul {
+
+                            margin-left: 30px;
+                            list-style: none;
+
+                            li {
+
+                                .permission {
+
+                                    width: fit-content;
+                                    padding: 5px;
+
+                                    label {
+
+
+                                    }
+
+                                    input[type=checkbox] {
+
+
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

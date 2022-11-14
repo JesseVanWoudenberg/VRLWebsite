@@ -76,7 +76,15 @@ class UserController extends Controller
 
     public function permissions(User $user): View
     {
-        $roles = Role::all();
+        $roles = Role::query()
+            ->select('*')
+            ->whereNotIn('roles.id',(function ($query) use ($user) {
+                $query->from('model_has_roles')
+                    ->select('model_id')
+                    ->where('model_id','=', $user->id);
+            }))
+            ->get();
+
         $userRoles = Role::query()
             ->select('*')
             ->whereIn('roles.id',(function ($query) use ($user) {
@@ -86,7 +94,15 @@ class UserController extends Controller
             }))
             ->get();
 
-        $permissions = Permission::all();
+        $permissions = Permission::query()
+            ->select('*')
+            ->whereNotIn('permissions.id', (function ($query) use ($user) {
+                $query->from('model_has_permissions')
+                    ->select('model_id')
+                    ->where('model_id', '=', $user->id);
+            }))
+            ->get();
+
         $userPermissions = Permission::query()
             ->select('*')
             ->whereIn('permissions.id', (function ($query) use ($user) {
@@ -96,7 +112,15 @@ class UserController extends Controller
             }))
             ->get();
 
+
         return view('private.users.permissions', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
 
+    }
+
+    public function updatepermissions(User $user, Request $request): RedirectResponse
+    {
+
+
+        return redirect()->route('user')->with('status', 'User permissions successfully updated');
     }
 }

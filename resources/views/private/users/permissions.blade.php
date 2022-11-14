@@ -6,54 +6,83 @@
 
 @section('content')
 
+    <div class="user-permissions-page-container">
 
-    <div class="permissions-container">
+        <div class="table-header">
 
-        <div class="user-permissions-container">
-
-            @foreach($userPermissions as $userPermission)
-
-                <div id="{{ $userPermission->permission_id }}" class="user-permission-item">
-                    {{ \Spatie\Permission\Models\Permission::all()->where('id', '=', $userPermission->permission_id)->first()->name }}
-                </div>
-
-            @endforeach
+            @if($errors->any())
+                @foreach($errors->all() as $error)
+                    <h1>{{ $error }}</h1>
+                @endforeach
+            @else
+                <h1>User Permissions</h1>
+            @endif
         </div>
 
-        <div class="all-permissions-container">
+        <div class="user-permissions-form">
 
-            @foreach($permissions as $permission)
+            <form action="{{ route('user.update-permissions', ['user' => $user->id]) }}" method="POST">
 
-                <div id="{{ $permission->id }}" class="permission-item">
-                    {{ $permission->name }}
+                @method('PUT')
+                @csrf
+
+                <div class="perms-container">
+
+                    <h1>User Permissions</h1>
+
+                    <ul>
+                        @foreach($permissions as $permission)
+                            <li>
+                                <div class="permission">
+                                    <input type="checkbox" name="{{ $permission->id }}" value="{{ $permission->id }}" @if($userPermissions->where($permission->id)->count() > 0) checked @endif>
+                                    <label for="{{ $permission->id }}">{{ $permission->name }}</label>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
 
-            @endforeach
-        </div>
-    </div>
+                <div class="roles-container">
 
-    <div class="roles-container">
+                    <h1>User Roles</h1>
 
-        <div class="user-roles-container">
-            @foreach($userRoles as $userRole)
-
-                <div id="{{ $userRole->role_id }}" class="user-role-item">
-                    {{ \Spatie\Permission\Models\Role::all()->where('id', '=', $userRole->name }}
+                    <ul>
+                        @foreach($roles as $role)
+                            <li>
+                                <div class="permission">
+                                    <input type="checkbox" name="{{ $role->id }}" value="{{ $role->id }}">
+                                    <label for="{{ $role->id }}">{{ $role->name }}</label>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
 
-            @endforeach
+                <input type="submit" value="Add Permissions">
+            </form>
         </div>
 
-        <div class="all-roles-container">
+{{--        <div class="perms-roles">
 
-            @foreach($roles as $role)
+            <form action="{{ route('user.update-permissions', ['user' => $user->id]) }}" method="POST">
 
-                <div id="{{ $role->id }}" class="role-item">
-                    {{ $role->name  }}
-                </div>
+                @method('PUT')
+                @csrf
 
-            @endforeach
-        </div>
+                @foreach($permissions as $permission)
+
+                    <div class="permission">
+                        <input type="checkbox" name="{{ $permission->id }}" value="{{ $permission->id }}">
+                        <label for="{{ $permission->id }}">{{ $permission->name }}</label>
+                    </div>
+
+                @endforeach
+
+                <input type="submit" value="Add Permissions">
+            </form>
+
+        </div>--}}
+
     </div>
 
 @endsection
