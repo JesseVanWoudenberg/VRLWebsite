@@ -36,14 +36,29 @@ class RoleController extends Controller
         return view('private.role.edit', compact('role'));
     }
 
-    public function delete(): View
+    public function update(Request $request, Role $role)
     {
-        return view('private.role.delete');
+        $role->name = $request->name;
+        $role->save();
+
+        return redirect()->route('role')->with('status', $role->name . ' successfully updated');
     }
-    
+
+    public function delete(Role $role): View
+    {
+        return view('private.role.delete', compact('role'));
+    }
+
     public function destroy(Role $role): RedirectResponse
     {
-        $users = $role->users();
+        $users = User::query()
+            ->select('*')
+            ->whereIn('id',(function ($query) use ($role) {
+                $query->from('model_has_roles')
+                    ->select('model_id')
+                    ->where('role_id','=', $role->id);
+            }))
+            ->get();
 
         foreach ($users as $user)
         {
@@ -55,7 +70,19 @@ class RoleController extends Controller
         return redirect()->route('role')->with('status', 'Role successfully deleted');
     }
 
-    public function update(Request $request, Role $role): RedirectResponse
+    public function permissions(Role $role): View
+    {
+        $permissions = Permission::all();
+        $rolePermissions = Permission::query()
+            ->select('*')
+            ->whereIn('permissions.name', $role->getPermissionNames()->toArray())
+            ->get();
+
+        return view('private.role.permissions', compact('role', 'permissions', 'rolePermissions'));
+
+    }
+
+    public function updatepermissions(Request $request, Role $role): RedirectResponse
     {
         $newPermissions = Permission::all()->where("id", "=", "-1");;
 
@@ -67,8 +94,8 @@ class RoleController extends Controller
             }
         }
 
-        $role->syncPermissions();
+        $role->syncPermissions($newPermissions);
 
-        return redirect()->route('role')->with('status', 'Role successfully updated');
+        return redirect()->route('role')->with('status', $role->name . '\'s roles successfully updated');
     }
 }

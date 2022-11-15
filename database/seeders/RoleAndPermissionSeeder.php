@@ -18,7 +18,7 @@ class RoleAndPermissionSeeder extends Seeder
     {
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
-        $cruds = ['article', 'constructorchampionship', 'driverchampionship', 'driver', 'powerunit', 'race', 'season', 'team', 'tier', 'track', 'user'];
+        $cruds = ['article', 'constructorchampionship', 'driverchampionship', 'driver', 'powerunit', 'race', 'season', 'team', 'tier', 'track', 'user', 'role', 'penaltypoint'];
 
         foreach ($cruds as $crud)
         {

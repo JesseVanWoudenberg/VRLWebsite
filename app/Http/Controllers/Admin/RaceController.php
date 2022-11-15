@@ -128,7 +128,7 @@ class RaceController extends Controller
 
     public function index(): View
     {
-        $races = Race::all();
+        $races = Race::all()->sortBy('round')->sortBy('season_id');
 
         return view('private.race.index', compact('races'));
     }

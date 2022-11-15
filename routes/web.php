@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\PenaltypointController;
+use App\Http\Controllers\Auth\RoleController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Open\TheteamController;
 use Illuminate\Support\Facades\Route;
@@ -186,4 +188,22 @@ Route::group(['middleware' => ['role:admin']], function() {
     Route::get('admin/user/{user}/permissions', [UserController::class, 'permissions'])->name('user.permissions');
     Route::get('admin/user/{user}/update-permissions', [UserController::class, 'updatepermissions'])->name('user.update-permissions');
     Route::get('admin/user', [UserController::class, 'index'])->name('user');
+});
+
+Route::group(['middleware' => ['role:admin']], function() {
+
+    Route::resource('admin/role', RoleController::class);
+    Route::get('admin/role/{role}/delete', [RoleController::class, 'delete'])->name('role.delete');
+    Route::get('admin/role/{role}/permissions', [RoleController::class, 'permissions'])->name('role.permissions');
+    Route::get('admin/role/{role}/update-permissions', [RoleController::class, 'updatepermissions'])->name('role.update-permissions');
+    Route::get('admin/role', [RoleController::class, 'index'])->name('role');
+});
+
+Route::group(['middleware' => ['role:admin']], function() {
+
+    Route::get('/admin/penaltypoint', [PenaltypointController::class, 'index'])->name('penaltypoint');
+    Route::get('/admin/penaltypoint/create', [PenaltypointController::class, 'create'])->name('penaltypoint.create');
+    Route::get('/admin/penaltypoint/store', [PenaltypointController::class, 'store'])->name('penaltypoint.store');
+    Route::get('/admin/penaltypoint/{driver}/edit', [PenaltypointController::class, 'edit'])->name('penaltypoint.edit');
+    Route::get('/admin/penaltypoint/{driver}/update', [PenaltypointController::class, 'update'])->name('penaltypoint.update');
 });

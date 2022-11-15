@@ -2,6 +2,29 @@
 
     main {
 
+        .role-permissions-page-container {
+            max-width: 500px !important;
+
+            .user-permissions-form {
+
+                .perms-container {
+                    width: 100% !important;
+
+                    h1 {
+                        margin-right: 15px !important;
+                    }
+
+                    p {
+                        margin-right: 30px !important;
+                    }
+
+                    ul {
+                        margin-right: 30px !important;
+                    }
+                }
+            }
+        }
+
         .user-permissions-page-container {
 
             border-radius: 15px;

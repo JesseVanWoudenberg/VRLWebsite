@@ -10,7 +10,7 @@
 
         <div class="table-header">
 
-            <h1>Show Article</h1>
+            <h1>Show Season</h1>
 
         </div>
 

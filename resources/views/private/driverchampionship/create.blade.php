@@ -22,7 +22,7 @@
 
             @csrf
 
-            <label for="driver_id">Team</label>
+            <label for="driver_id">Driver</label>
             <div class="select-container">
                 <select name="driver_id" id="driver_id">
                     @foreach($drivers as $driver)

@@ -89,6 +89,18 @@
                         </li>
                     @endcan
 
+                    @can('role index')
+                        <li>
+                            <a href="{{ route('role') }}">Role</a>
+                        </li>
+                    @endcan
+
+                    @can('penaltypoint index')
+                        <li>
+                            <a href="{{ route('penaltypoint') }}">Penalty Points</a>
+                        </li>
+                    @endcan
+
                     <li>
                         <a href="{{ route('home') }}">Open page</a>
                     </li>

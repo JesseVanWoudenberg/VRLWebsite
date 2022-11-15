@@ -1361,7 +1361,7 @@
 
 .user-index {
   min-height: 100vh;
-  background-color: #424141;
+  background-color: #424141FF;
   color: white;
 }
 .user-index main .user-table-container {
@@ -1379,7 +1379,7 @@
   padding: 20px 10px;
 }
 .user-index main .user-table-container table tbody tr td a {
-  color: #424141;
+  color: #424141FF;
   font-weight: bold;
   text-decoration: none;
   padding: 7.5px 15px;
@@ -1396,6 +1396,21 @@
   transition: 0.2s ease;
 }
 
+.user-permission main .role-permissions-page-container {
+  max-width: 500px !important;
+}
+.user-permission main .role-permissions-page-container .user-permissions-form .perms-container {
+  width: 100% !important;
+}
+.user-permission main .role-permissions-page-container .user-permissions-form .perms-container h1 {
+  margin-right: 15px !important;
+}
+.user-permission main .role-permissions-page-container .user-permissions-form .perms-container p {
+  margin-right: 30px !important;
+}
+.user-permission main .role-permissions-page-container .user-permissions-form .perms-container ul {
+  margin-right: 30px !important;
+}
 .user-permission main .user-permissions-page-container {
   border-radius: 15px;
   margin: 0 auto 50px auto;
@@ -2271,7 +2286,7 @@
   padding: 0 7.5px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #424141;
+  color: #424141FF;
   border-radius: 20px;
   font-stretch: expanded;
 }
@@ -2330,7 +2345,7 @@
   text-decoration: none;
   padding: 5px;
   border-radius: 25px;
-  color: #424141;
+  color: #424141FF;
   width: 100px;
   text-align: center;
 }
@@ -3116,7 +3131,7 @@
 }
 
 .the-team {
-  background-color: #424141;
+  background-color: #424141FF;
 }
 .the-team main .the-team-container {
   margin: 50px auto 0 auto;
