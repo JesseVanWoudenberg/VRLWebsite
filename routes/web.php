@@ -112,11 +112,9 @@ Route::group(['middleware' => ['permission:profile-show']], function () {
 });
 
 // Article Routing
-Route::group(['middleware' => ['role:reporter|admin']], function() {
-    Route::resource('/admin/article', ArticleController::class);
-    Route::get('/admin/article/{article}/delete', [ArticleController::class, 'delete'])->name('article.delete');
-    Route::get('/admin/article', [ArticleController::class, 'index'])->name('article');
-});
+Route::resource('/admin/article', ArticleController::class);
+Route::get('/admin/article/{article}/delete', [ArticleController::class, 'delete'])->name('article.delete');
+Route::get('/admin/article', [ArticleController::class, 'index'])->name('article');
 
 // Constructor Championship routing
 Route::group(['middleware' => ['role:admin']], function() {

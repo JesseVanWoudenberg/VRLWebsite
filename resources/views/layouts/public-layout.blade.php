@@ -88,7 +88,7 @@
                         @endif
 
                         @if(Auth::check())
-                            @if(Auth::user()->getRoleNames()->first() == "reporter")
+                            @if(Auth::user()->getRolenames()->first() == "reporter")
 
                                 <li>
                                     <a href="{{ route('article') }}">Articles</a>
@@ -98,7 +98,6 @@
                         @endif
 
                         @auth
-
                             <li>
                                 <a href="{{ route('profile') }}">Profile</a>
                             </li>

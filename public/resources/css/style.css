@@ -1361,7 +1361,7 @@
 
 .user-index {
   min-height: 100vh;
-  background-color: #424141FF;
+  background-color: #424141;
   color: white;
 }
 .user-index main .user-table-container {
@@ -1379,7 +1379,7 @@
   padding: 20px 10px;
 }
 .user-index main .user-table-container table tbody tr td a {
-  color: #424141FF;
+  color: #424141;
   font-weight: bold;
   text-decoration: none;
   padding: 7.5px 15px;
@@ -1429,30 +1429,64 @@
   flex-wrap: wrap;
   flex-direction: row;
 }
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container h1 {
+  margin-left: 15px;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container p {
+  margin-left: 30px;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul {
+  margin-left: 30px;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .roles-container h1 {
+  margin-right: 15px;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .roles-container p {
+  margin-right: 30px;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul {
+  margin-right: 30px;
+}
 .user-permission main .user-permissions-page-container .user-permissions-form form .perms-container, .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container {
   margin-top: 25px;
   width: 50%;
 }
 .user-permission main .user-permissions-page-container .user-permissions-form form .perms-container h1, .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container h1 {
   display: block;
-  margin-left: 15px;
   line-height: 50px;
   color: #111111;
   font-size: 18pt;
   height: 50px;
   text-align: center;
 }
-.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container p, .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container p {
-  margin-left: 30px;
-}
 .user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul, .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul {
-  margin-left: 30px;
   list-style: none;
 }
 .user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul li .permission, .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul li .permission {
   margin: 0 auto;
-  width: fit-content;
-  padding: 5px;
+  width: 100%;
+  height: 50px;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul li .permission label, .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul li .permission label {
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 50px;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul li .permission input[type=checkbox]:checked + label, .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul li .permission input[type=checkbox]:checked + label {
+  background-color: #0ac527;
+  color: #111111;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul li .permission input[type=checkbox], .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul li .permission input[type=checkbox] {
+  display: none;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul li:nth-child(even), .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul li:nth-child(even) {
+  background-color: white;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul li:nth-child(odd), .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul li:nth-child(odd) {
+  background-color: #dedcdc;
 }
 .user-permission main .user-permissions-page-container .user-permissions-form form input[type=submit] {
   color: white;
@@ -2237,7 +2271,7 @@
   padding: 0 7.5px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #424141FF;
+  color: #424141;
   border-radius: 20px;
   font-stretch: expanded;
 }
@@ -2296,7 +2330,7 @@
   text-decoration: none;
   padding: 5px;
   border-radius: 25px;
-  color: #424141FF;
+  color: #424141;
   width: 100px;
   text-align: center;
 }
@@ -3082,7 +3116,7 @@
 }
 
 .the-team {
-  background-color: #424141FF;
+  background-color: #424141;
 }
 .the-team main .the-team-container {
   margin: 50px auto 0 auto;

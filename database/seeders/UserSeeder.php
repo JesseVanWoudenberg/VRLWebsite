@@ -19,12 +19,12 @@ class UserSeeder extends Seeder
         ]);
         $guest->assignRole(Role::all()->where('name', '=', 'registered')->first());
 
-        $admin = User::factory()->create([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('admin')
+        $steward = User::factory()->create([
+            'name' => 'steward',
+            'email' => 'steward@gmail.com',
+            'password' => Hash::make('steward')
         ]);
-        $admin->assignRole(Role::all()->where('name', '=', 'admin')->first());
+        $steward->assignRole(Role::all()->where('name', '=', 'steward')->first());
 
         $reporter = User::factory()->create([
             'name' => 'reporter',
@@ -32,12 +32,13 @@ class UserSeeder extends Seeder
             'password' => Hash::make('reporter')
         ]);
         $reporter->assignRole(Role::all()->where('name', '=', 'reporter')->first());
+        $reporter->assignRole(Role::all()->where('name', '=', 'steward')->first());
 
-        $steward = User::factory()->create([
-            'name' => 'steward',
-            'email' => 'steward@gmail.com',
-            'password' => Hash::make('steward')
+        $admin = User::factory()->create([
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('admin')
         ]);
-        $steward->assignRole(Role::all()->where('name', '=', 'steward')->first());
+        $admin->assignRole(Role::all()->where('name', '=', 'admin')->first());
     }
 }

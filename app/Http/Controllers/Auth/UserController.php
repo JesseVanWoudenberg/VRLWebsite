@@ -13,9 +13,9 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
-
     public function index(): View
     {
+
         $users = User::all();
 
         return view('private.users.index', compact('users'));
@@ -33,6 +33,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
+
 
         return redirect()->route('user')->with('status', 'User successfully created');
     }
@@ -76,25 +77,18 @@ class UserController extends Controller
 
     public function permissions(User $user): View
     {
-        $roles = Role::all()->sortBy("id");
+        $roles = Role::all();
         $userRoles = Role::query()
             ->select('*')
-            ->whereIn('roles.id',(function ($query) use ($user) {
-                $query->from('model_has_roles')
-                    ->select('model_id')
-                    ->where('model_id','=', $user->id);
-            }))
-            ->get()->sortBy("id");
+            ->from("roles")
+            ->whereIn("roles.name", $user->getRoleNames()->toArray())
+            ->get();
 
-        $permissions = Permission::all()->sortBy("id");
+        $permissions = Permission::all();
         $userPermissions = Permission::query()
             ->select('*')
-            ->whereIn('permissions.id', (function ($query) use ($user) {
-                $query->from('model_has_permissions')
-                    ->select('model_id')
-                    ->where('model_id', '=', $user->id);
-            }))
-            ->get()->sortBy("id");
+            ->whereIn('permissions.name', $user->getPermissionNames()->toArray())
+            ->get();
 
         return view('private.users.permissions', compact('user', 'roles', 'userRoles', 'permissions', 'userPermissions'));
 
