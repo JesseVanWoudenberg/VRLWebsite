@@ -199,27 +199,35 @@
 }
 
 .pagination-navigation-links {
-  margin: 75px auto 0 auto;
-  width: 500px;
-  height: 100px;
+  margin: 25px 0 0 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 0 0 15px 15px;
+  width: 100%;
+  height: 52px;
+  background-color: #111111;
 }
 .pagination-navigation-links .page-nav-links {
+  height: 52px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .pagination-navigation-links .page-nav-links .previous-link, .pagination-navigation-links .page-nav-links .next-link {
-  padding: 1px;
+  background-color: #111111;
+  border: 1px solid #111111;
+  border-radius: 15px;
 }
 .pagination-navigation-links .page-nav-links .previous-link a, .pagination-navigation-links .page-nav-links .next-link a {
   text-decoration: none;
-  color: #1048ab;
+  color: white;
 }
 .pagination-navigation-links .page-nav-links .previous-link:hover, .pagination-navigation-links .page-nav-links .next-link:hover {
-  border: 1px solid #1048ab;
-  border-radius: 25px;
-  padding: 0;
+  transition: 0.2s ease;
+  border-color: #3a3838;
+  background-color: #3a3838;
 }
 .pagination-navigation-links .page-nav-links .previous-link {
+  margin-left: 15px;
   display: inline-block;
   height: 50px;
   width: 180px;
@@ -233,11 +241,13 @@
   width: 50px;
 }
 .pagination-navigation-links .page-nav-links .previous-link a div {
+  margin-right: 10px;
   width: 120px;
   height: 50px;
   line-height: 50px;
 }
 .pagination-navigation-links .page-nav-links .next-link {
+  margin-right: 15px;
   display: inline-block;
   height: 50px;
   width: 150px;
@@ -251,16 +261,18 @@
   width: 50px;
 }
 .pagination-navigation-links .page-nav-links .next-link a div {
-  margin-left: 10px;
+  margin-left: 15px;
   width: 90px;
   height: 50px;
   line-height: 50px;
 }
 .pagination-navigation-links .page-nav-links .available svg {
-  fill: #1048ab;
+  fill: white;
 }
 .pagination-navigation-links .page-numbered-links {
-  margin-top: 25px;
+  margin-top: 6.5px;
+  height: 37px;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
   text-align: center;
@@ -268,23 +280,19 @@
 .pagination-navigation-links .page-numbered-links a {
   padding: 6px;
   width: 25px;
-  color: #1048ab;
+  color: #111111;
   text-decoration: none;
   font-size: 16px;
 }
 .pagination-navigation-links .page-numbered-links a:hover {
   padding: 5px;
-  color: #0a327c;
-  border: 1px solid #0a327c;
+  color: #4f4f4f;
+  border: 1px solid #4f4f4f;
   border-radius: 25px;
 }
 .pagination-navigation-links .page-numbered-links span {
   padding: 6px;
   font-size: 16px;
-}
-.pagination-navigation-links .result-count-container {
-  margin-top: 25px;
-  text-align: center;
 }
 
 .news .pagination-navigation-links .page-nav-links .previous-link a, .news .pagination-navigation-links .page-nav-links .next-link a {
@@ -605,7 +613,7 @@
   padding: 0 25px 25px 25px;
   width: calc(100% - 50px);
 }
-.private-show main .show-container .show-content h1, .private-show main .show-container .show-content p {
+.private-show main .show-container .show-content h1, .private-show main .show-container .show-content p, .private-show main .show-container .show-content ul {
   width: 100%;
   text-align: center;
 }
@@ -623,6 +631,12 @@
 }
 .private-show main .show-container .show-content p a:hover {
   color: #464646;
+}
+.private-show main .show-container .show-content ul li {
+  list-style: none;
+  text-decoration: none;
+  font-size: 16pt;
+  text-align: center;
 }
 
 .login {
@@ -1361,7 +1375,7 @@
 
 .user-index {
   min-height: 100vh;
-  background-color: #424141FF;
+  background-color: #424141;
   color: white;
 }
 .user-index main .user-table-container {
@@ -1379,7 +1393,7 @@
   padding: 20px 10px;
 }
 .user-index main .user-table-container table tbody tr td a {
-  color: #424141FF;
+  color: #424141;
   font-weight: bold;
   text-decoration: none;
   padding: 7.5px 15px;
@@ -1496,6 +1510,10 @@
 }
 .user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul li .permission input[type=checkbox], .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul li .permission input[type=checkbox] {
   display: none;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul li .penaltypoint input[type=checkbox]:checked + label, .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul li .penaltypoint input[type=checkbox]:checked + label {
+  background-color: #d70b13;
+  color: #111111;
 }
 .user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul li:nth-child(even), .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul li:nth-child(even) {
   background-color: white;
@@ -2286,7 +2304,7 @@
   padding: 0 7.5px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #424141FF;
+  color: #424141;
   border-radius: 20px;
   font-stretch: expanded;
 }
@@ -2345,7 +2363,7 @@
   text-decoration: none;
   padding: 5px;
   border-radius: 25px;
-  color: #424141FF;
+  color: #424141;
   width: 100px;
   text-align: center;
 }
@@ -3131,7 +3149,7 @@
 }
 
 .the-team {
-  background-color: #424141FF;
+  background-color: #424141;
 }
 .the-team main .the-team-container {
   margin: 50px auto 0 auto;

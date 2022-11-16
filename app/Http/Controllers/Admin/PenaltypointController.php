@@ -71,11 +71,14 @@ class PenaltypointController extends Controller
             abort(403);
         }
 
-        $penaltypoint = new Penaltypoint();
-        $penaltypoint->driver_id = $request->driver_id;
-        $penaltypoint->race_id = $request->race_id;
-        $penaltypoint->amount = $request->amount;
-        $penaltypoint->save();
+        for ($i = 0; $i < $request->amount; $i++)
+        {
+            $penaltypoint = new Penaltypoint();
+            $penaltypoint->driver_id = $request->driver_id;
+            $penaltypoint->race_id = $request->race_id;
+            $penaltypoint->amount = 1;
+            $penaltypoint->save();
+        }
 
         return redirect()->route('penaltypoint')->with('status', 'Penalty Point successfully created');
     }
@@ -92,8 +95,6 @@ class PenaltypointController extends Controller
 
         $penaltypoints = Penaltypoint::all()->where('driver_id', '=', $driver->id);
 
-//        dd($penaltypoints);
-
         foreach ($penaltypoints as $penaltypoint)
         {
             $racesLeft = Race::query()
@@ -101,7 +102,7 @@ class PenaltypointController extends Controller
                 ->whereIn('races.id',(function ($query) {
                     $query->from('racedrivers')
                         ->select('race_id')
-                        ->where('race_id','=',DB::raw('races.id'));
+                        ->where('race_id','=', DB::raw('races.id'));
                 }))
                 ->whereIn('races.season_id',(function ($query) use ($penaltypoint) {
                     $query->from('seasons')
@@ -111,9 +112,10 @@ class PenaltypointController extends Controller
                 ->where('races.round','>=', $penaltypoint->race->round)
                 ->get()->count();
 
-
             $penaltypoint['racesleft'] = (11 - $racesLeft);
         }
+
+        $penaltypoints->sortBy('racesleft');
 
         return view('private.penaltypoint.edit', compact('driver', 'penaltypoints'));
     }
@@ -128,8 +130,14 @@ class PenaltypointController extends Controller
             abort(403);
         }
 
+        foreach (Penaltypoint::all()->where('driver_id', '=', $driver->id) as $penaltypoint)
+        {
+            if ($request->has('penaltypoint-' . $penaltypoint->id))
+            {
+                $penaltypoint->delete();
+            }
+        }
 
-
-        return redirect()->route('penaltypoint')->with('status', 'Penalty point successfully updated');
+        return redirect()->route('penaltypoint')->with('status', 'Penalty points successfully updated');
     }
 }

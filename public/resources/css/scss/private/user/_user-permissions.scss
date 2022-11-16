@@ -150,6 +150,13 @@
 
                                     }
                                 }
+
+                                .penaltypoint {
+                                    input[type=checkbox]:checked + label {
+                                        background-color: #d70b13;
+                                        color: #111111;
+                                    }
+                                }
                             }
 
                             li:nth-child(even) {

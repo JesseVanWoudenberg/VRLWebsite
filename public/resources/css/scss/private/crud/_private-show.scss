@@ -39,7 +39,7 @@
                 padding: 0 25px 25px 25px;
                 width: calc(100% - 50px);
 
-                h1, p {
+                h1, p, ul {
                     width: 100%;
                     text-align: center;
                 }
@@ -63,6 +63,15 @@
 
                     a:hover {
                         color: #464646;
+                    }
+                }
+
+                ul {
+                    li {
+                        list-style: none;
+                        text-decoration: none;
+                        font-size: 16pt;
+                        text-align: center;
                     }
                 }
             }

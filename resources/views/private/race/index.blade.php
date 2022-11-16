@@ -37,6 +37,7 @@
             <thead>
             <tr>
                 <th>Track</th>
+                <th>Status</th>
                 <th>Round</th>
                 <th>Season</th>
                 <th>Tier</th>
@@ -47,6 +48,11 @@
                 @foreach($races as $race)
                     <tr>
                         <td><a href="{{ route('track.show', ['track' => $race->track->id]) }}">{{ $race->track->name }}</a></td>
+                        @if($race->done)
+                            <td>Done</td>
+                        @else
+                            <td>DNS</td>
+                        @endif
                         <td>{{ $race->round }}</td>
                         <td><a href="{{ route('season.show', ['season' => $race->season->id]) }}">{{ $race->season->seasonnumber }}</a></td>
                         <td>{{ $race->season->tier->tiernumber }}</td>

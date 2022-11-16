@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\PenaltypointController;
 use App\Http\Controllers\Auth\RoleController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Open\TheteamController;
+use App\Models\Driver;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\ConstructorchampionshipController;
@@ -136,7 +137,7 @@ Route::group(['middleware' => ['role:admin']], function() {
 Route::group(['middleware' => ['role:admin']], function() {
     Route::resource('/admin/driver', DriverController::class);
     Route::get('/admin/driver/{driver}/delete', [DriverController::class, 'delete'])->name('driver.delete');
-    Route::get('/admin/driver', [DriverController::class, 'index'])->name('driver');
+    Route::get('/admin/driver/', [DriverController::class, 'index'])->name('driver');
 });
 
 // Power unit routing

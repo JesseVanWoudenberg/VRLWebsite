@@ -23,7 +23,7 @@
             @csrf
 
             <label for="name">Name</label>
-            <input @error('name') @enderror type="text" id="name" name='name' value="{{ old('name') }}">
+            <input @error('name') @enderror type="text" id="name" name='name' value="{{ old('name') }}" autofocus>
 
             <label for="nationality">Nationality</label>
             <input @error('name') @enderror type="text" id="nationality" name='nationality' value="{{ old('nationality') }}">
