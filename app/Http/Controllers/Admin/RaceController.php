@@ -128,7 +128,7 @@ class RaceController extends Controller
 
     public function index(): View
     {
-        $races = Race::all()->sortBy('round')->sortBy('season_id');
+        $races = Race::all()->sortBy('round')->sortByDesc('season_id');
 
         foreach ($races as $race)
         {

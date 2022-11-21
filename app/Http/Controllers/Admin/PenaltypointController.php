@@ -115,7 +115,7 @@ class PenaltypointController extends Controller
             $penaltypoint['racesleft'] = (11 - $racesLeft);
         }
 
-        $penaltypoints->sortBy('racesleft');
+        $penaltypoints = $penaltypoints->sortBy('racesleft');
 
         return view('private.penaltypoint.edit', compact('driver', 'penaltypoints'));
     }
