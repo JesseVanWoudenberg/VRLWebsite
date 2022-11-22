@@ -156,13 +156,53 @@
   transform: rotate(45deg) translate(-5px, -6px);
 }
 .private-navigation ul {
+  margin-top: 25px;
+  width: 100%;
   height: 100%;
 }
 .private-navigation ul li {
+  width: 100%;
   margin-bottom: 25px;
-  width: fit-content;
 }
-.private-navigation ul li a {
+.private-navigation ul li .private-nav-button-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 0 10px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.8);
+}
+.private-navigation ul li .private-nav-button-container button {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 40px;
+  line-height: 40px;
+  border: none;
+  width: 100%;
+  background-color: #111111;
+  color: white;
+  font-size: 16pt;
+}
+.private-navigation ul li .private-nav-button-container button span {
+  margin-left: 35px;
+}
+.private-navigation ul li .private-nav-button-container button img {
+  margin: 7.5px 0;
+  height: 25px;
+  width: 25px;
+}
+.private-navigation ul li .private-nav-button-container button .icon-svg {
+  margin-left: 10px;
+}
+.private-navigation ul li .private-nav-button-container button .arrow-down-svg {
+  margin: 7.5px 10px 7.5px 0;
+}
+.private-navigation ul li .private-nav-dropdown-content {
+  display: none;
+  width: 100%;
+  margin-top: 10px;
+}
+.private-navigation ul li .private-nav-dropdown-content ul li a {
   display: block;
   width: fit-content;
   margin-left: 50px;
@@ -170,7 +210,7 @@
   color: #e8e6e6;
   text-decoration: none;
 }
-.private-navigation ul li a:hover {
+.private-navigation ul li .private-nav-dropdown-content ul li a:hover {
   color: #a2a1a1;
 }
 
@@ -1375,7 +1415,7 @@
 
 .user-index {
   min-height: 100vh;
-  background-color: #424141FF;
+  background-color: #424141;
   color: white;
 }
 .user-index main .user-table-container {
@@ -1393,7 +1433,7 @@
   padding: 20px 10px;
 }
 .user-index main .user-table-container table tbody tr td a {
-  color: #424141FF;
+  color: #424141;
   font-weight: bold;
   text-decoration: none;
   padding: 7.5px 15px;
@@ -2304,7 +2344,7 @@
   padding: 0 7.5px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #424141FF;
+  color: #424141;
   border-radius: 20px;
   font-stretch: expanded;
 }
@@ -2363,7 +2403,7 @@
   text-decoration: none;
   padding: 5px;
   border-radius: 25px;
-  color: #424141FF;
+  color: #424141;
   width: 100px;
   text-align: center;
 }
@@ -3149,7 +3189,7 @@
 }
 
 .the-team {
-  background-color: #424141FF;
+  background-color: #424141;
 }
 .the-team main .the-team-container {
   margin: 50px auto 0 auto;
