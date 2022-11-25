@@ -18,7 +18,7 @@ class RoleAndPermissionSeeder extends Seeder
     {
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
-        $cruds = ['article', 'constructorchampionship', 'driverchampionship', 'driver', 'powerunit', 'race', 'season', 'team', 'tier', 'track', 'user'];
+        $cruds = ['article', 'constructorchampionship', 'driverchampionship', 'driver', 'powerunit', 'race', 'season', 'team', 'tier', 'track', 'user', 'role', 'penaltypoint'];
 
         foreach ($cruds as $crud)
         {
@@ -27,7 +27,6 @@ class RoleAndPermissionSeeder extends Seeder
             Permission::create(['name' => $crud . ' create']);
             Permission::create(['name' => $crud . ' edit']);
             Permission::create(['name' => $crud . ' delete']);
-            Permission::create(['name' => $crud . ' all']);
         }
 
         Permission::create(['name' => 'user permissions']);
@@ -38,12 +37,15 @@ class RoleAndPermissionSeeder extends Seeder
         $registered = Role::create(['name' => 'registered'])->givePermissionTo('profile-show');
 
         $reporter = Role::create(['name' => 'reporter'])->givePermissionTo([
-            'article all'
+            'article index',
+            'article show',
+            'article create',
+            'article edit',
+            'article delete',
         ]);
         $reporter->givePermissionTo($registered->getAllPermissions());
 
-        $steward = Role::create(['name' => 'steward']);
-        $steward->givePermissionTo($registered->getAllPermissions());
+        $steward = Role::create(['name' => 'steward'])->givePermissionTo($registered->getAllPermissions());
 
         $admin = Role::create(['name' => 'admin'])->givePermissionTo(Permission::all());
 

@@ -14,7 +14,7 @@
 
             <div class="email-container">
                 <i class="fas fa-user"></i>
-                <label for="name">Email</label>
+                <label for="name">Username</label>
                 <input type="text" id="name" name="name" autocomplete="off">
             </div>
 

@@ -22,6 +22,18 @@
             <h1>Power unit</h1>
             <p><a href="{{ route('powerunit.show', ['powerunit' => $team->powerunit->id]) }}">{{ $team->powerunit->name }}</a></p>
 
+            <h1>Drivers</h1>
+
+            <ul>
+                @if($drivers->count() > 0)
+                    @foreach($drivers as $driver)
+                        <li>{{ $driver->name }}</li>
+                    @endforeach
+                @else
+                    <li>None</li>
+                @endif
+            </ul>
+
         </div>
     </div>
 

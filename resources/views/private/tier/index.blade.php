@@ -32,32 +32,31 @@
             </div>
         </div>
 
-        <table>
+        <div class="table-wrapper-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tier number</th>
+                    </tr>
+                </thead>
 
-            <thead>
-                <tr>
-                    <th>Tier number</th>
-                </tr>
-            </thead>
+                <tbody>
+                    @foreach($tiers as $tier)
+                        <tr>
+                            <td>{{ $tier->tiernumber }}</td>
 
-            <tbody>
-            @foreach($tiers as $tier)
-                <tr>
-                    <td>{{ $tier->tiernumber }}</td>
-
-                    <td class="delete-button">
-                        <a href="{{ route('tier.delete', ['tier' => $tier->id]) }}">
-                            <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
-                            Delete
-                        </a>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-
-{{--        {{ $tiers->links() }}--}}
-
+                            <td class="delete-button">
+                                <a href="{{ route('tier.delete', ['tier' => $tier->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
+    
 
 @endsection

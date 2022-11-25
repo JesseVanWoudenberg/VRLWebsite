@@ -28,47 +28,49 @@
             </div>
         </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Team</th>
-                    <th>Season</th>
-                    <th>Tier</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach($constructorchampionships as $constructorchampionship)
+        <div class="table-wrapper-container">
+            <table>
+                <thead>
                     <tr>
-                        <td>{{ $constructorchampionship->id }}</td>
-                        <td><a href="{{ route('team.show', ['team' => $constructorchampionship->team->id]) }}">{{ $constructorchampionship->team->name }}</a></td>
-                        <td>{{ $constructorchampionship->season->seasonnumber }}</td>
-                        <td>{{ $constructorchampionship->tier->tiernumber }}</td>
-                        <td class="info-button">
-                            <a href="{{ route('constructorchampionship.show', ['constructorchampionship' => $constructorchampionship->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
-                                More info
-                            </a>
-                        </td>
-
-                        <td class="edit-button">
-                            <a href="{{ route('constructorchampionship.edit', ['constructorchampionship' => $constructorchampionship->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
-                                Edit
-                            </a>
-                        </td>
-
-                        <td class="delete-button">
-                            <a href="{{ route('constructorchampionship.delete', ['constructorchampionship' => $constructorchampionship->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
-                                Delete
-                            </a>
-                        </td>
+                        <th>ID</th>
+                        <th>Team</th>
+                        <th>Season</th>
+                        <th>Tier</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+
+                <tbody>
+                    @foreach($constructorchampionships as $constructorchampionship)
+                        <tr>
+                            <td>{{ $constructorchampionship->id }}</td>
+                            <td><a href="{{ route('team.show', ['team' => $constructorchampionship->team->id]) }}">{{ $constructorchampionship->team->name }}</a></td>
+                            <td>{{ $constructorchampionship->season->seasonnumber }}</td>
+                            <td>{{ $constructorchampionship->tier->tiernumber }}</td>
+                            <td class="info-button">
+                                <a href="{{ route('constructorchampionship.show', ['constructorchampionship' => $constructorchampionship->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
+                                    More info
+                                </a>
+                            </td>
+
+                            <td class="edit-button">
+                                <a href="{{ route('constructorchampionship.edit', ['constructorchampionship' => $constructorchampionship->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
+                                    Edit
+                                </a>
+                            </td>
+
+                            <td class="delete-button">
+                                <a href="{{ route('constructorchampionship.delete', ['constructorchampionship' => $constructorchampionship->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
 
         {{ $constructorchampionships->render() }}
 

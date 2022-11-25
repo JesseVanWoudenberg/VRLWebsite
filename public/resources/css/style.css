@@ -155,23 +155,153 @@
 .private-navigation .toggle .line3 {
   transform: rotate(45deg) translate(-5px, -6px);
 }
-.private-navigation ul {
+.private-navigation .open-page-link {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 45px;
+  width: 100%;
+}
+.private-navigation .open-page-link a {
+  text-decoration: none;
+  padding: 7.5px 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 30px;
+  line-height: 30px;
+  border: none;
+  width: 100%;
+  background-color: #111111;
+  color: #e8e6e6;
+  font-size: 12pt;
+}
+.private-navigation .open-page-link a span {
+  text-align: left;
+  width: calc(100% - 35px);
+  margin-left: 10px;
+}
+.private-navigation .open-page-link a svg {
+  margin: 5px 0 5px 10px;
+  height: 20px;
+  width: 20px;
+}
+.private-navigation .open-page-link a:hover {
+  background-color: white;
+  color: #111111;
+}
+.private-navigation .private-nav-list {
+  margin-top: 25px;
+  width: 100%;
   height: 100%;
 }
-.private-navigation ul li {
-  margin-bottom: 25px;
-  width: fit-content;
+.private-navigation .private-nav-list li:nth-child(1) {
+  border-top: 1px solid rgba(128, 128, 128, 0.8);
 }
-.private-navigation ul li a {
+.private-navigation .private-nav-list li {
+  opacity: 80%;
+  width: 100%;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.8);
+}
+.private-navigation .private-nav-list li .link-container {
+  height: 45px;
+}
+.private-navigation .private-nav-list li .link-container a {
+  text-decoration: none;
+  padding: 7.5px 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 30px;
+  line-height: 30px;
+  border: none;
+  width: 100%;
+  background-color: #111111;
+  color: #e8e6e6;
+  font-size: 12pt;
+}
+.private-navigation .private-nav-list li .link-container a span {
+  text-align: left;
+  width: calc(100% - 35px);
+  margin-left: 10px;
+}
+.private-navigation .private-nav-list li .link-container a img {
+  margin: 5px 0 5px 10px;
+  height: 20px;
+  width: 20px;
+}
+.private-navigation .private-nav-list li a:hover {
+  background-color: white;
+  color: #111111;
+}
+.private-navigation .private-nav-list li .private-nav-button-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.private-navigation .private-nav-list li .private-nav-button-container button {
+  padding: 7.5px 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 45px;
+  line-height: 30px;
+  border: none;
+  width: 100%;
+  background-color: #111111;
+  color: #e8e6e6;
+  font-size: 12pt;
+}
+.private-navigation .private-nav-list li .private-nav-button-container button span {
+  text-align: left;
+  width: calc(100% - 70px);
+  margin-left: 10px;
+}
+.private-navigation .private-nav-list li .private-nav-button-container button img {
+  margin: 5px 0;
+  height: 20px;
+  width: 20px;
+}
+.private-navigation .private-nav-list li .private-nav-button-container button .icon-svg {
+  margin-left: 10px;
+}
+.private-navigation .private-nav-list li .private-nav-button-container button .arrow-down-svg {
+  margin-right: 12.5px;
+}
+.private-navigation .private-nav-list li .private-nav-button-container button:hover {
+  background-color: white;
+  color: #111111;
+}
+.private-navigation .private-nav-list li .private-nav-dropdown-content {
+  width: 100%;
+  background-color: transparent;
+}
+.private-navigation .private-nav-list li .private-nav-dropdown-content ul {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height ease 0.5s;
+}
+.private-navigation .private-nav-list li .private-nav-dropdown-content ul li {
+  padding: 0;
+  border: none !important;
+}
+.private-navigation .private-nav-list li .private-nav-dropdown-content ul li a {
+  padding: 10px 0 10px 25px;
+  height: 100%;
+  width: calc(100% - 25px);
+  font-size: 10pt;
   display: block;
-  width: fit-content;
-  margin-left: 50px;
   text-align: left;
   color: #e8e6e6;
   text-decoration: none;
 }
-.private-navigation ul li a:hover {
-  color: #a2a1a1;
+.private-navigation .private-nav-list li .private-nav-dropdown-content ul li a:hover {
+  background-color: white;
+  color: #111111;
+}
+.private-navigation .private-nav-list li .activated ul {
+  max-height: 1000px;
+  transition: max-height ease 1s;
 }
 
 .private-navigation:hover {
@@ -199,27 +329,35 @@
 }
 
 .pagination-navigation-links {
-  margin: 75px auto 0 auto;
-  width: 500px;
-  height: 100px;
+  margin: 25px 0 0 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 0 0 15px 15px;
+  width: 100%;
+  height: 52px;
+  background-color: #111111;
 }
 .pagination-navigation-links .page-nav-links {
+  height: 52px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .pagination-navigation-links .page-nav-links .previous-link, .pagination-navigation-links .page-nav-links .next-link {
-  padding: 1px;
+  background-color: #111111;
+  border: 1px solid #111111;
+  border-radius: 15px;
 }
 .pagination-navigation-links .page-nav-links .previous-link a, .pagination-navigation-links .page-nav-links .next-link a {
   text-decoration: none;
-  color: #1048ab;
+  color: white;
 }
 .pagination-navigation-links .page-nav-links .previous-link:hover, .pagination-navigation-links .page-nav-links .next-link:hover {
-  border: 1px solid #1048ab;
-  border-radius: 25px;
-  padding: 0;
+  transition: 0.2s ease;
+  border-color: #3a3838;
+  background-color: #3a3838;
 }
 .pagination-navigation-links .page-nav-links .previous-link {
+  margin-left: 15px;
   display: inline-block;
   height: 50px;
   width: 180px;
@@ -233,11 +371,13 @@
   width: 50px;
 }
 .pagination-navigation-links .page-nav-links .previous-link a div {
+  margin-right: 10px;
   width: 120px;
   height: 50px;
   line-height: 50px;
 }
 .pagination-navigation-links .page-nav-links .next-link {
+  margin-right: 15px;
   display: inline-block;
   height: 50px;
   width: 150px;
@@ -251,16 +391,18 @@
   width: 50px;
 }
 .pagination-navigation-links .page-nav-links .next-link a div {
-  margin-left: 10px;
+  margin-left: 15px;
   width: 90px;
   height: 50px;
   line-height: 50px;
 }
 .pagination-navigation-links .page-nav-links .available svg {
-  fill: #1048ab;
+  fill: white;
 }
 .pagination-navigation-links .page-numbered-links {
-  margin-top: 25px;
+  margin-top: 6.5px;
+  height: 37px;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
   text-align: center;
@@ -268,23 +410,19 @@
 .pagination-navigation-links .page-numbered-links a {
   padding: 6px;
   width: 25px;
-  color: #1048ab;
+  color: #111111;
   text-decoration: none;
   font-size: 16px;
 }
 .pagination-navigation-links .page-numbered-links a:hover {
   padding: 5px;
-  color: #0a327c;
-  border: 1px solid #0a327c;
+  color: #4f4f4f;
+  border: 1px solid #4f4f4f;
   border-radius: 25px;
 }
 .pagination-navigation-links .page-numbered-links span {
   padding: 6px;
   font-size: 16px;
-}
-.pagination-navigation-links .result-count-container {
-  margin-top: 25px;
-  text-align: center;
 }
 
 .news .pagination-navigation-links .page-nav-links .previous-link a, .news .pagination-navigation-links .page-nav-links .next-link a {
@@ -306,6 +444,27 @@
   border-radius: 25px;
 }
 
+.private-index {
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.private-index ::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 0 0 15px 15px;
+}
+.private-index ::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 0 0 15px 15px;
+}
+.private-index ::-webkit-scrollbar-thumb {
+  background: #111111;
+  border-radius: 15px;
+}
+.private-index .table-wrapper-container::-webkit-scrollbar-thumb:hover {
+  background: #4b4b4b;
+}
 .private-index main {
   min-height: 100vh;
   background-color: #d9d9d9;
@@ -334,6 +493,11 @@
   color: white;
   font-size: 18pt;
   height: 50px;
+}
+@media only screen and (max-width: 640px) {
+  .private-index main .index-list-container .table-header h1 {
+    display: none;
+  }
 }
 .private-index main .index-list-container .table-header .created {
   color: #21d24b;
@@ -375,45 +539,47 @@
   background-color: #15852f;
   transition: ease 0.2s;
 }
-.private-index main .index-list-container table {
+.private-index main .index-list-container .table-wrapper-container {
+  overflow-x: scroll;
+}
+.private-index main .index-list-container .table-wrapper-container table {
   border-collapse: separate;
   border-spacing: 0;
   width: 100%;
   padding: 25px;
 }
-.private-index main .index-list-container table thead tr th {
+.private-index main .index-list-container .table-wrapper-container table thead tr th {
   height: 50px;
   text-align: left;
+  white-space: nowrap;
+  padding: 0 15px;
 }
-.private-index main .index-list-container table thead tr th:nth-child(1) {
-  padding: 0 0 0 15px;
-}
-.private-index main .index-list-container table tbody tr {
+.private-index main .index-list-container .table-wrapper-container table tbody tr {
   position: relative;
 }
-.private-index main .index-list-container table tbody tr td {
-  padding: 15px 0;
+.private-index main .index-list-container .table-wrapper-container table tbody tr td {
+  padding: 15px 0 15px 15px;
   text-align: left;
   color: #111111;
 }
-.private-index main .index-list-container table tbody tr td a {
+.private-index main .index-list-container .table-wrapper-container table tbody tr td a {
   text-decoration: none;
   color: #111111;
   font-weight: bold;
 }
-.private-index main .index-list-container table tbody tr td a:hover {
+.private-index main .index-list-container .table-wrapper-container table tbody tr td a:hover {
   color: #464646;
 }
-.private-index main .index-list-container table tbody tr td:nth-child(1) {
+.private-index main .index-list-container .table-wrapper-container table tbody tr td:nth-child(1) {
   padding: 15px 0 15px 20px;
 }
-.private-index main .index-list-container table tbody tr .edit-button, .private-index main .index-list-container table tbody tr .delete-button, .private-index main .index-list-container table tbody tr .info-button, .private-index main .index-list-container table tbody tr .permissions-button {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .edit-button, .private-index main .index-list-container .table-wrapper-container table tbody tr .delete-button, .private-index main .index-list-container .table-wrapper-container table tbody tr .info-button, .private-index main .index-list-container .table-wrapper-container table tbody tr .permissions-button {
   border-right: 10px solid transparent;
   width: 50px;
   padding: 5px 0;
   text-align: left;
 }
-.private-index main .index-list-container table tbody tr .edit-button a, .private-index main .index-list-container table tbody tr .delete-button a, .private-index main .index-list-container table tbody tr .info-button a, .private-index main .index-list-container table tbody tr .permissions-button a {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .edit-button a, .private-index main .index-list-container .table-wrapper-container table tbody tr .delete-button a, .private-index main .index-list-container .table-wrapper-container table tbody tr .info-button a, .private-index main .index-list-container .table-wrapper-container table tbody tr .permissions-button a {
   font-weight: normal;
   white-space: nowrap;
   text-decoration: none;
@@ -424,7 +590,7 @@
   flex-wrap: nowrap;
   text-align: center;
 }
-.private-index main .index-list-container table tbody tr .edit-button a img, .private-index main .index-list-container table tbody tr .delete-button a img, .private-index main .index-list-container table tbody tr .info-button a img, .private-index main .index-list-container table tbody tr .permissions-button a img {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .edit-button a img, .private-index main .index-list-container .table-wrapper-container table tbody tr .delete-button a img, .private-index main .index-list-container .table-wrapper-container table tbody tr .info-button a img, .private-index main .index-list-container .table-wrapper-container table tbody tr .permissions-button a img {
   color: white;
   position: relative;
   margin: auto;
@@ -433,44 +599,44 @@
   right: 0;
   bottom: 0;
 }
-.private-index main .index-list-container table tbody tr .edit-button a {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .edit-button a {
   background-color: #d9a748;
 }
-.private-index main .index-list-container table tbody tr .edit-button a:hover {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .edit-button a:hover {
   background-color: #b2842b;
   transition: ease 0.2s;
 }
-.private-index main .index-list-container table tbody tr .delete-button a {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .delete-button a {
   background-color: #b00d0d;
 }
-.private-index main .index-list-container table tbody tr .delete-button a:hover {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .delete-button a:hover {
   background-color: #790909;
   transition: ease 0.2s;
 }
-.private-index main .index-list-container table tbody tr .info-button a {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .info-button a {
   background-color: #5792d5;
 }
-.private-index main .index-list-container table tbody tr .info-button a:hover {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .info-button a:hover {
   background-color: #3c72b2;
   transition: ease 0.2s;
 }
-.private-index main .index-list-container table tbody tr .permissions-button a {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .permissions-button a {
   background-color: #3f09c2;
 }
-.private-index main .index-list-container table tbody tr .permissions-button a:hover {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .permissions-button a:hover {
   background-color: #27037a;
   transition: ease 0.2s;
 }
-.private-index main .index-list-container table tbody tr:nth-child(even) {
+.private-index main .index-list-container .table-wrapper-container table tbody tr:nth-child(even) {
   background-color: white;
 }
-.private-index main .index-list-container table tbody tr:nth-child(odd) {
+.private-index main .index-list-container .table-wrapper-container table tbody tr:nth-child(odd) {
   background-color: #dedcdc;
 }
-.private-index main .index-list-container table tbody tr:last-child td:first-child {
+.private-index main .index-list-container .table-wrapper-container table tbody tr:last-child td:first-child {
   border-radius: 0 0 0 7.5px;
 }
-.private-index main .index-list-container table tbody tr:last-child td:last-child {
+.private-index main .index-list-container .table-wrapper-container table tbody tr:last-child td:last-child {
   border-radius: 0 0 7.5px 0;
 }
 
@@ -521,7 +687,7 @@
   padding: 10px;
   font-size: 16px;
 }
-.private-create-edit-delete main .form-container form input[type=text], .private-create-edit-delete main .form-container form textarea {
+.private-create-edit-delete main .form-container form input[type=text], .private-create-edit-delete main .form-container form input[type=email], .private-create-edit-delete main .form-container form input[type=password], .private-create-edit-delete main .form-container form textarea {
   font-size: 12pt;
   margin-top: 10px;
   margin-left: 25px;
@@ -605,7 +771,7 @@
   padding: 0 25px 25px 25px;
   width: calc(100% - 50px);
 }
-.private-show main .show-container .show-content h1, .private-show main .show-container .show-content p {
+.private-show main .show-container .show-content h1, .private-show main .show-container .show-content p, .private-show main .show-container .show-content ul {
   width: 100%;
   text-align: center;
 }
@@ -623,6 +789,12 @@
 }
 .private-show main .show-container .show-content p a:hover {
   color: #464646;
+}
+.private-show main .show-container .show-content ul li {
+  list-style: none;
+  text-decoration: none;
+  font-size: 16pt;
+  text-align: center;
 }
 
 .login {
@@ -1105,7 +1277,7 @@
   width: 950px;
 }
 .race-create-edit-delete main .race-create-container form .full-qualifying-results-container table thead tr th {
-  color: #ffffff;
+  color: #111111;
   text-align: center;
 }
 .race-create-edit-delete main .race-create-container form .full-qualifying-results-container table thead tr th:nth-child(1), .race-create-edit-delete main .race-create-container form .full-qualifying-results-container table thead tr th:nth-child(2) {
@@ -1396,16 +1568,132 @@
   transition: 0.2s ease;
 }
 
-.user-permission main .permissions-container {
-  margin: 25px auto 0 auto;
-  width: 400px;
-  display: flex;
+.user-permission main .role-permissions-page-container {
+  max-width: 500px !important;
 }
-.user-permission main .roles-container {
-  margin: 25px auto 0 auto;
-  width: 400px;
-  display: flex;
+.user-permission main .role-permissions-page-container .user-permissions-form .perms-container {
+  width: 100% !important;
 }
+.user-permission main .role-permissions-page-container .user-permissions-form .perms-container h1 {
+  margin-right: 15px !important;
+}
+.user-permission main .role-permissions-page-container .user-permissions-form .perms-container p {
+  margin-right: 30px !important;
+}
+.user-permission main .role-permissions-page-container .user-permissions-form .perms-container ul {
+  margin-right: 30px !important;
+}
+.user-permission main .user-permissions-page-container {
+  border-radius: 15px;
+  margin: 0 auto 50px auto;
+  width: 90%;
+  max-width: 1000px;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+}
+.user-permission main .user-permissions-page-container .table-header {
+  position: relative;
+  white-space: nowrap;
+  border-radius: 15px 15px 0 0;
+  padding: 10px;
+  background-color: #111111;
+  height: fit-content;
+  display: block;
+}
+.user-permission main .user-permissions-page-container .table-header h1 {
+  margin-left: 15px;
+  line-height: 50px;
+  color: white;
+  font-size: 18pt;
+  height: 50px;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form {
+  width: 100%;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container h1 {
+  margin-left: 15px;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container p {
+  margin-left: 30px;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul {
+  margin-left: 30px;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .roles-container h1 {
+  margin-right: 15px;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .roles-container p {
+  margin-right: 30px;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul {
+  margin-right: 30px;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container, .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container {
+  margin-top: 25px;
+  width: 50%;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container h1, .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container h1 {
+  display: block;
+  line-height: 50px;
+  color: #111111;
+  font-size: 18pt;
+  height: 50px;
+  text-align: center;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul, .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul {
+  list-style: none;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul li .permission, .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul li .permission {
+  margin: 0 auto;
+  width: 100%;
+  height: 50px;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul li .permission label, .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul li .permission label {
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 50px;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul li .permission input[type=checkbox]:checked + label, .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul li .permission input[type=checkbox]:checked + label {
+  background-color: #0ac527;
+  color: #111111;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul li .permission input[type=checkbox], .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul li .permission input[type=checkbox] {
+  display: none;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul li .penaltypoint input[type=checkbox]:checked + label, .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul li .penaltypoint input[type=checkbox]:checked + label {
+  background-color: #d70b13;
+  color: #111111;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul li:nth-child(even), .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul li:nth-child(even) {
+  background-color: white;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form .perms-container ul li:nth-child(odd), .user-permission main .user-permissions-page-container .user-permissions-form form .roles-container ul li:nth-child(odd) {
+  background-color: #dedcdc;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form input[type=submit] {
+  color: white;
+  font-size: 16pt;
+  height: 50px;
+  margin-top: 25px;
+  width: 100%;
+  border: none;
+  border-radius: 0 0 15px 15px;
+  background-color: #111111;
+}
+.user-permission main .user-permissions-page-container .user-permissions-form form input[type=submit]:hover {
+  background-color: #4f4f4f;
+  transition: ease 0.2s;
+}
+
 .profile-show {
   background-color: #424141;
 }

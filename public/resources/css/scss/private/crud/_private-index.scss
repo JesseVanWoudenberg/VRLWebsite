@@ -1,5 +1,28 @@
 .private-index {
 
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+        border-radius: 0 0 15px 15px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: white;
+        border-radius: 0 0 15px 15px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #111111;
+        border-radius: 15px;
+    }
+
+    /* Handle on hover */
+    .table-wrapper-container::-webkit-scrollbar-thumb:hover {
+        background: #4b4b4b;
+    }
+
     main {
 
         min-height: 100vh;
@@ -34,6 +57,14 @@
                     height: 50px;
 
 
+                }
+
+                @media only screen and (max-width: 640px) {
+                    h1 {
+
+                        display: none;
+
+                    }
                 }
 
                 .created {
@@ -88,174 +119,177 @@
                 }
             }
 
-            table {
+            .table-wrapper-container {
 
-                border-collapse: separate;
-                border-spacing: 0;
-                width: 100%;
-                padding: 25px;
+                overflow-x: scroll;
 
-                thead {
+                table {
 
-                    tr {
+                    border-collapse: separate;
+                    border-spacing: 0;
+                    width: 100%;
+                    padding: 25px;
 
-                        th {
-                            height: 50px;
-                            text-align: left;
-                        }
+                    thead {
 
-                        th:nth-child(1) {
-                            padding: 0 0 0 15px;
+                        tr {
+
+                            th {
+                                height: 50px;
+                                text-align: left;
+                                white-space: nowrap;
+                                padding: 0 15px;
+                            }
                         }
                     }
-                }
 
-                tbody {
+                    tbody {
 
-                    tr {
+                        tr {
 
-                        position: relative;
+                            position: relative;
 
-                        td {
+                            td {
 
-                            padding: 15px 0;
-                            text-align: left;
-                            color: #111111;
-
-                            a {
-
-                                text-decoration: none;
+                                padding: 15px 0 15px 15px;
+                                text-align: left;
                                 color: #111111;
-                                font-weight: bold;
 
+                                a {
+
+                                    text-decoration: none;
+                                    color: #111111;
+                                    font-weight: bold;
+
+                                }
+
+                                a:hover {
+                                    color: #464646;
+                                }
                             }
 
-                            a:hover {
-                                color: #464646;
+                            td:nth-child(1) {
+                                padding: 15px 0 15px 20px;
                             }
-                        }
 
-                        td:nth-child(1) {
-                            padding: 15px 0 15px 20px;
-                        }
+                            .edit-button, .delete-button, .info-button, .permissions-button {
 
-                        .edit-button, .delete-button, .info-button, .permissions-button {
+                                border-right: 10px solid transparent;
+                                width: 50px;
+                                padding: 5px 0;
+                                text-align: left;
 
-                            border-right: 10px solid transparent;
-                            width: 50px;
-                            padding: 5px 0;
-                            text-align: left;
+                                a {
 
-                            a {
-
-                                font-weight: normal;
-                                white-space: nowrap;
-                                text-decoration: none;
-                                padding: 5px 20px;
-                                color: white;
-                                border-radius: 5px;
-                                display: flex;
-                                flex-wrap: nowrap;
-                                text-align: center;
-
-                                img {
-
+                                    font-weight: normal;
+                                    white-space: nowrap;
+                                    text-decoration: none;
+                                    padding: 5px 20px;
                                     color: white;
-                                    position: relative;
-                                    margin: auto;
-                                    top: 0;
-                                    left: -7.5px;
-                                    right: 0;
-                                    bottom: 0;
+                                    border-radius: 5px;
+                                    display: flex;
+                                    flex-wrap: nowrap;
+                                    text-align: center;
+
+                                    img {
+
+                                        color: white;
+                                        position: relative;
+                                        margin: auto;
+                                        top: 0;
+                                        left: -7.5px;
+                                        right: 0;
+                                        bottom: 0;
+                                    }
+                                }
+                            }
+
+                            .edit-button {
+
+                                a {
+
+                                    background-color: #d9a748;
+
+                                }
+
+                                a:hover {
+
+                                    background-color: #b2842b;
+                                    transition: ease 0.2s;
+
+                                }
+                            }
+
+                            .delete-button {
+
+                                a {
+
+                                    background-color: #b00d0d;
+
+                                }
+
+                                a:hover {
+
+                                    background-color: #790909;
+                                    transition: ease 0.2s;
+
+                                }
+                            }
+
+                            .info-button {
+
+                                a {
+
+                                    background-color: #5792d5;
+
+                                }
+
+                                a:hover {
+
+                                    background-color: #3c72b2;
+                                    transition: ease 0.2s;
+
+                                }
+                            }
+
+                            .permissions-button {
+
+                                a {
+
+                                    background-color: #3f09c2;
+
+                                }
+
+                                a:hover {
+
+                                    background-color: #27037a;
+                                    transition: ease 0.2s;
+
                                 }
                             }
                         }
 
-                        .edit-button {
+                        tr:nth-child(even) {
 
-                            a {
+                            background-color: white;
 
-                                background-color: #d9a748;
-
-                            }
-
-                            a:hover {
-
-                                background-color: #b2842b;
-                                transition: ease 0.2s;
-
-                            }
                         }
 
-                        .delete-button {
+                        tr:nth-child(odd) {
 
-                            a {
+                            background-color: #dedcdc;
 
-                                background-color: #b00d0d;
-
-                            }
-
-                            a:hover {
-
-                                background-color: #790909;
-                                transition: ease 0.2s;
-
-                            }
                         }
 
-                        .info-button {
+                        tr:last-child {
 
-                            a {
-
-                                background-color: #5792d5;
-
+                            td:first-child {
+                                border-radius: 0 0 0 7.5px;
                             }
 
-                            a:hover {
-
-                                background-color: #3c72b2;
-                                transition: ease 0.2s;
-
+                            td:last-child {
+                                border-radius: 0 0 7.5px 0;
                             }
-                        }
-
-                        .permissions-button {
-
-                            a {
-
-                                background-color: #3f09c2;
-
-                            }
-
-                            a:hover {
-
-                                background-color: #27037a;
-                                transition: ease 0.2s;
-
-                            }
-                        }
-                    }
-
-                    tr:nth-child(even) {
-
-                        background-color: white;
-
-                    }
-
-                    tr:nth-child(odd) {
-
-                        background-color: #dedcdc;
-
-                    }
-
-                    tr:last-child {
-
-                        td:first-child {
-                            border-radius: 0 0 0 7.5px;
-                        }
-
-                        td:last-child {
-                            border-radius: 0 0 7.5px 0;
                         }
                     }
                 }
