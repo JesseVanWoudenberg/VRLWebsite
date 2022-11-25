@@ -32,44 +32,44 @@
             </div>
         </div>
 
-        <table>
+        <div class="table-wrapper-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                    </tr>
+                </thead>
 
-            <thead>
-                <tr>
-                    <th>Name</th>
-                </tr>
-            </thead>
+                <tbody>
+                    @foreach($powerunits as $powerunit)
+                        <tr>
+                            <td>{{ $powerunit->name }}</td>
 
-            <tbody>
-            @foreach($powerunits as $powerunit)
-                <tr>
-                    <td>{{ $powerunit->name }}</td>
+                            <td class="info-button">
+                                <a href="{{ route('powerunit.show', ['powerunit' => $powerunit->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
+                                    More info
+                                </a>
+                            </td>
 
-                    <td class="info-button">
-                        <a href="{{ route('powerunit.show', ['powerunit' => $powerunit->id]) }}">
-                            <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
-                            More info
-                        </a>
-                    </td>
+                            <td class="edit-button">
+                                <a href="{{ route('powerunit.edit', ['powerunit' => $powerunit->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
+                                    Edit
+                                </a>
+                            </td>
 
-                    <td class="edit-button">
-                        <a href="{{ route('powerunit.edit', ['powerunit' => $powerunit->id]) }}">
-                            <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
-                            Edit
-                        </a>
-                    </td>
-
-                    <td class="delete-button">
-                        <a href="{{ route('powerunit.delete', ['powerunit' => $powerunit->id]) }}">
-                            <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
-                            Delete
-                        </a>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-
-        </table>
+                            <td class="delete-button">
+                                <a href="{{ route('powerunit.delete', ['powerunit' => $powerunit->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
 
 {{--        {{ $powerunits->links() }}--}}
 

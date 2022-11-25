@@ -1,6 +1,6 @@
 @extends('layouts.private-layout')
 
-@section('page-title') User - Index @endsection
+@section('page-title') Role - Index @endsection
 
 @section('page') private-index @endsection
 
@@ -21,13 +21,13 @@
                     <h1>{{ $error }}</h1>
                 @endforeach
             @else
-                <h1>Manage Users</h1>
+                <h1>Manage Roles</h1>
             @endif
 
             <div class="index-buttons-container">
-                <a href="{{ route('user.create') }}">
+                <a href="{{ route('role.create') }}">
                     <img src="{{ asset('resources/media/svgs/plus-circle-fill.svg') }}" alt="X">
-                    Add new user
+                    Add new role
                 </a>
             </div>
         </div>
@@ -41,33 +41,26 @@
                 </thead>
 
                 <tbody>
-                    @foreach($users as $user)
+                    @foreach($roles as $role)
                         <tr>
-                            <td>{{ $user->name }}</td>
+                            <td>{{ $role->name }}</td>
 
                             <td class="permissions-button">
-                                <a href="{{ route('user.permissions', ['user' => $user->id]) }}">
+                                <a href="{{ route('role.permissions', ['role' => $role->id]) }}">
                                     <img src="{{ asset('resources/media/svgs/person-lines-fill.svg') }}" alt="X">
                                     Manage Permissions
                                 </a>
                             </td>
 
-                            <td class="info-button">
-                                <a href="{{ route('user.show', ['user' => $user->id]) }}">
-                                    <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
-                                    More info
-                                </a>
-                            </td>
-
                             <td class="edit-button">
-                                <a href="{{ route('user.edit', ['user' => $user->id]) }}">
+                                <a href="{{ route('role.edit', ['role' => $role->id]) }}">
                                     <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
                                     Edit
                                 </a>
                             </td>
 
                             <td class="delete-button">
-                                <a href="{{ route('user.delete', ['user' => $user->id]) }}">
+                                <a href="{{ route('role.delete', ['role' => $role->id]) }}">
                                     <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
                                     Delete
                                 </a>

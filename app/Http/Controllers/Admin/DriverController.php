@@ -7,12 +7,13 @@ use App\Models\Driver;
 use App\Models\Team;
 use App\Models\Tier;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class DriverController extends Controller
 {
     public function index()
     {
-        $drivers = Driver::orderBy('name', 'asc')->paginate(20);
+        $drivers = Driver::orderBy('name', 'asc')->paginate(10);
 
         return view('private.driver.index', compact('drivers'));
     }

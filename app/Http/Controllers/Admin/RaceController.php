@@ -128,7 +128,19 @@ class RaceController extends Controller
 
     public function index(): View
     {
-        $races = Race::all();
+        $races = Race::all()->sortBy('round')->sortByDesc('season_id');
+
+        foreach ($races as $race)
+        {
+            if ($this->getAssociatedDrivers($race)->count() == 0)
+            {
+                $race['done'] = false;
+            }
+            else
+            {
+                $race['done'] = true;
+            }
+        }
 
         return view('private.race.index', compact('races'));
     }

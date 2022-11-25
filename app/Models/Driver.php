@@ -45,4 +45,9 @@ class Driver extends Model
     {
         return $this->hasMany(Shortqualifyingdriver::class);
     }
+
+    public function penaltypoint(): HasMany
+    {
+        return $this->hasMany(Penaltypoint::class);
+    }
 }

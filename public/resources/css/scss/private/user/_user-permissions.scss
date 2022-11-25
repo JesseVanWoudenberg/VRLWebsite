@@ -2,44 +2,192 @@
 
     main {
 
-        .permissions-container {
+        .role-permissions-page-container {
+            max-width: 500px !important;
 
-            margin: 25px auto 0 auto;
-            width: 400px;
-            display: flex;
+            .user-permissions-form {
 
-            .user-permissions-container {
+                .perms-container {
+                    width: 100% !important;
 
-                .user-permission-item {
+                    h1 {
+                        margin-right: 15px !important;
+                    }
 
-                }
-            }
+                    p {
+                        margin-right: 30px !important;
+                    }
 
-            .all-permissions-container {
-
-                .permission-item {
-
+                    ul {
+                        margin-right: 30px !important;
+                    }
                 }
             }
         }
 
-        .roles-container {
+        .user-permissions-page-container {
 
-            margin: 25px auto 0 auto;
-            width: 400px;
-            display: flex;
+            border-radius: 15px;
+            margin: 0 auto 50px auto;
+            width: 90%;
+            max-width: 1000px;
+            background-color: white;
+            box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
 
-            .user-roles-container {
+            .table-header {
 
-                .user-role-item {
+                position: relative;
+                white-space: nowrap;
+                border-radius: 15px 15px 0 0;
+                padding: 10px;
+                background-color: #111111;
+                height: fit-content;
+                display: block;
+
+                h1 {
+
+                    margin-left: 15px;
+                    line-height: 50px;
+                    color: white;
+                    font-size: 18pt;
+                    height: 50px;
 
                 }
             }
 
-            .all-roles-container {
+            .user-permissions-form {
 
-                .role-item {
+                width: 100%;
 
+                form {
+
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row;
+
+                    .perms-container {
+
+                        h1 {
+                            margin-left: 15px;
+                        }
+
+                        p {
+                            margin-left: 30px;
+                        }
+
+                        ul {
+                            margin-left: 30px;
+                        }
+                    }
+                    .roles-container {
+
+                        h1 {
+                            margin-right: 15px;
+                        }
+
+                        p {
+                            margin-right: 30px;
+                        }
+
+                        ul {
+                            margin-right: 30px;
+                        }
+                    }
+
+                    .perms-container, .roles-container {
+
+                        margin-top: 25px;
+                        width: 50%;
+
+                        h1 {
+
+                            display: block;
+                            line-height: 50px;
+                            color: #111111;
+                            font-size: 18pt;
+                            height: 50px;
+                            text-align: center;
+
+                        }
+
+                        p {
+
+                        }
+
+                        ul {
+
+                            list-style: none;
+
+                            li {
+
+                                .permission {
+
+                                    margin: 0 auto;
+                                    width: 100%;
+                                    height: 50px;
+
+                                    label {
+
+                                        display: block;
+                                        width: 100%;
+                                        min-height: 50px;
+                                        text-align: center;
+                                        font-size: 18px;
+                                        line-height: 50px;
+
+                                    }
+
+                                    input[type=checkbox]:checked + label {
+                                        background-color: #0ac527;
+                                        color: #111111;
+                                    }
+
+
+                                    input[type=checkbox] {
+
+                                        display: none;
+
+                                    }
+                                }
+
+                                .penaltypoint {
+                                    input[type=checkbox]:checked + label {
+                                        background-color: #d70b13;
+                                        color: #111111;
+                                    }
+                                }
+                            }
+
+                            li:nth-child(even) {
+
+                                background-color: white;
+
+                            }
+
+                            li:nth-child(odd) {
+
+                                background-color: #dedcdc;
+
+                            }
+                        }
+                    }
+
+                    input[type=submit] {
+                        color: white;
+                        font-size: 16pt;
+                        height: 50px;
+                        margin-top: 25px;
+                        width: 100%;
+                        border: none;
+                        border-radius: 0 0 15px 15px;
+                        background-color: #111111;
+                    }
+
+                    input[type=submit]:hover {
+                        background-color: #4f4f4f;
+                        transition: ease 0.2s;
+                    }
                 }
             }
         }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Driver;
 use App\Models\Powerunit;
 use App\Models\Team;
 use Illuminate\Http\Request;
@@ -37,7 +38,9 @@ class TeamController extends Controller
 
     public function show(Team $team)
     {
-        return view('private.team.show', compact('team'));
+        $drivers = Driver::all()->where('team_id', $team->id);
+
+        return view('private.team.show', compact('team', 'drivers'));
     }
 
     public function edit(Team $team)

@@ -68,11 +68,14 @@ class RaceController extends Controller
             ->where('race_id', $race->id)
             ->first();
 
-        $fastestlap->laptime = $this->convertFloatToTime($fastestlap->laptime);
+        if ($fastestlap != null)
+        {
+            $fastestlap->laptime = $this->convertFloatToTime($fastestlap->laptime);
+        }
 
         return $fastestlap;
     }
-
+    
     public function getAssociatedFullQualifyingDrivers(Race $race): Collection
     {
         $fullqualifyingdrivers = Qualifyingdriver::all()

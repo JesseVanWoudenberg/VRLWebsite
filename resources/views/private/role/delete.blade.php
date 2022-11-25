@@ -1,6 +1,6 @@
 @extends('layouts.private-layout')
 
-@section('page-title') User - Delete @endsection
+@section('page-title') Role - Edit @endsection
 
 @section('page') private-create-edit-delete @endsection
 
@@ -14,20 +14,17 @@
                     <h1>{{ $error }}</h1>
                 @endforeach
             @else
-                <h1>Delete User</h1>
+                <h1>Edit Driver</h1>
             @endif
         </div>
 
-        <form action="{{ route('user.destroy', ['user' => $user->id]) }}" method="POST">
+        <form action="{{ route('role.update', ['role' => $role->id]) }}" method="POST">
 
             @method('DELETE')
             @csrf
 
             <label for="name">Name</label>
-            <input @error('name') @enderror type="text" id="name" name='name' value="{{ $user->name }}">
-
-            <label for="email">Email</label>
-            <input @error('email') @enderror type="email" id="email" name='email' value="{{ $user->email }}">
+            <input @error('name') @enderror type="text" id="name" name='name' value="{{ $role->name }}" disabled>
 
             <input type="submit" value="Delete">
         </form>

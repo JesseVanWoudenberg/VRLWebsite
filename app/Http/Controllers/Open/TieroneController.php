@@ -350,14 +350,13 @@ class TieroneController extends Controller
 
         // WDC's
 
-        DB::table('driverchampionships')
+        Driverchampionship::query()
             ->select('*')
             ->whereIn('tier_id',(function ($query) {
                 $query->from('tiers')
                     ->select('id')
-                    ->where('tiers.tiernumber','=',1);
+                    ->where('tiers.tiernumber', '=', 1);
             }))
-            ->where("",'>',0)
             ->get();
 
         foreach (Driver::all() as $driver)
@@ -376,12 +375,16 @@ class TieroneController extends Controller
         {
             $racedrivers = Racedriver::query()
                 ->select('*')
-                ->where('position','=',1)
-                ->where('driver_id','=', $driver->id)
-                ->whereIn('tier_id',(function ($query) {
-                    $query->from('tiers')
+                ->where('position', '=', 1)
+                ->where('driver_id', '=', $driver->id)
+                ->whereIn('race_id',(function ($query) {
+                    $query->from('races')
                         ->select('id')
-                        ->where('tiernumber','=',1);
+                        ->whereIn('races.tier_id',(function ($query) {
+                            $query->from('tiers')
+                                ->select('id')
+                                ->where('tiernumber','=',1);
+                        }));
                 }))
                 ->get();
 
@@ -399,12 +402,16 @@ class TieroneController extends Controller
         {
             $racedrivers = Racedriver::query()
                 ->select('*')
-                ->where('position','<',4)
-                ->where('driver_id','=', $driver->id)
-                ->whereIn('tier_id',(function ($query) {
-                    $query->from('tiers')
+                ->where('position', '>=', 3)
+                ->where('driver_id', '=', $driver->id)
+                ->whereIn('race_id',(function ($query) {
+                    $query->from('races')
                         ->select('id')
-                        ->where('tiernumber','=',1);
+                        ->whereIn('races.tier_id',(function ($query) {
+                            $query->from('tiers')
+                                ->select('id')
+                                ->where('tiernumber','=',1);
+                        }));
                 }))
                 ->get();
 
@@ -424,10 +431,14 @@ class TieroneController extends Controller
                 ->select('*')
                 ->where('q3','=',1)
                 ->where('driver_id','=', $driver->id)
-                ->whereIn('tier_id',(function ($query) {
-                    $query->from('tiers')
+                ->whereIn('race_id',(function ($query) {
+                    $query->from('races')
                         ->select('id')
-                        ->where('tiernumber','=',1);
+                        ->whereIn('races.tier_id',(function ($query) {
+                            $query->from('tiers')
+                                ->select('id')
+                                ->where('tiernumber','=',1);
+                        }));
                 }))
                 ->get();
 
@@ -435,10 +446,14 @@ class TieroneController extends Controller
                 ->select('*')
                 ->where('position','=',1)
                 ->where('driver_id','=', $driver->id)
-                ->whereIn('tier_id',(function ($query) {
-                    $query->from('tiers')
+                ->whereIn('race_id',(function ($query) {
+                    $query->from('races')
                         ->select('id')
-                        ->where('tiernumber','=',1);
+                        ->whereIn('races.tier_id',(function ($query) {
+                            $query->from('tiers')
+                                ->select('id')
+                                ->where('tiernumber','=',1);
+                        }));
                 }))
                 ->get();
 
@@ -457,10 +472,14 @@ class TieroneController extends Controller
             $driver['amount'] = Fastestlap::query()
                 ->select("*")
                 ->where("driver_id", $driver->id)
-                ->whereIn('tier_id',(function ($query) {
-                    $query->from('tiers')
+                ->whereIn('race_id',(function ($query) {
+                    $query->from('races')
                         ->select('id')
-                        ->where('tiernumber','=',1);
+                        ->whereIn('races.tier_id',(function ($query) {
+                            $query->from('tiers')
+                                ->select('id')
+                                ->where('tiernumber','=',1);
+                        }));
                 }))
                 ->get()->count();
 
@@ -477,10 +496,14 @@ class TieroneController extends Controller
             $driver['amount'] = Racedriver::query()
                 ->select("*")
                 ->where("driver_id", $driver->id)
-                ->whereIn('tier_id',(function ($query) {
-                    $query->from('tiers')
+                ->whereIn('race_id',(function ($query) {
+                    $query->from('races')
                         ->select('id')
-                        ->where('tiernumber','=',1);
+                        ->whereIn('races.tier_id',(function ($query) {
+                            $query->from('tiers')
+                                ->select('id')
+                                ->where('tiernumber','=',1);
+                        }));
                 }))
                 ->get()->count();
 

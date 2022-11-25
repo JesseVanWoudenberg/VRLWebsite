@@ -30,29 +30,29 @@
                         </div>
                     </li>
 
-                    {{--                    <li>--}}
-                    {{--                        <div class="dropdown">--}}
-                    {{--                            <a href="">Tier 2</a>--}}
+{{--                    <li>--}}
+{{--                        <div class="dropdown">--}}
+{{--                            <a href="">Tier 2</a>--}}
 
-                    {{--                            <div class="dropdown-content">--}}
-                    {{--                                <a href="{{ route('tier2.lineup') }}">Lineup</a>--}}
-                    {{--                                <a href="{{ route('tier2.standings') }}">Standings</a>--}}
-                    {{--                                <a href="{{ route('tier2.calendar') }}">Calendar</a>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                    </li>--}}
+{{--                            <div class="dropdown-content">--}}
+{{--                                <a href="{{ route('tier2.lineup') }}">Lineup</a>--}}
+{{--                                <a href="{{ route('tier2.standings') }}">Standings</a>--}}
+{{--                                <a href="{{ route('tier2.calendar') }}">Calendar</a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </li>--}}
 
-                    {{--                    <li>--}}
-                    {{--                        <div class="dropdown">--}}
-                    {{--                            <a href="">Tier 3</a>--}}
+{{--                    <li>--}}
+{{--                        <div class="dropdown">--}}
+{{--                            <a href="">Tier 3</a>--}}
 
-                    {{--                            <div class="dropdown-content">--}}
-                    {{--                                <a href="{{ route('tier3.lineup') }}">Lineup</a>--}}
-                    {{--                                <a href="{{ route('tier3.standings') }}">Standings</a>--}}
-                    {{--                                <a href="{{ route('tier3.calendar') }}">Calendar</a>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                    </li>--}}
+{{--                            <div class="dropdown-content">--}}
+{{--                                <a href="{{ route('tier3.lineup') }}">Lineup</a>--}}
+{{--                                <a href="{{ route('tier3.standings') }}">Standings</a>--}}
+{{--                                <a href="{{ route('tier3.calendar') }}">Calendar</a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </li>--}}
 
                     <li>
                         <a class="non-dropdown-link" href="{{ route('news') }}">News</a>
@@ -88,7 +88,7 @@
                         @endif
 
                         @if(Auth::check())
-                            @if(Auth::user()->getRoleNames()->first() == "reporter")
+                            @if(Auth::user()->getRolenames()->first() == "reporter")
 
                                 <li>
                                     <a href="{{ route('article') }}">Articles</a>
@@ -98,7 +98,6 @@
                         @endif
 
                         @auth
-
                             <li>
                                 <a href="{{ route('profile') }}">Profile</a>
                             </li>

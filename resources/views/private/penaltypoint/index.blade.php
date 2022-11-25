@@ -1,6 +1,6 @@
 @extends('layouts.private-layout')
 
-@section('page-title') Tier - Index @endsection
+@section('page-title') Penalty point - Index @endsection
 
 @section('page') private-index @endsection
 
@@ -21,13 +21,13 @@
                     <h1>{{ $error }}</h1>
                 @endforeach
             @else
-                <h1>Manage Tiers</h1>
+                <h1>Penalty points</h1>
             @endif
 
             <div class="index-buttons-container">
-                <a href="{{ route('tier.create') }}">
+                <a href="{{ route('penaltypoint.create') }}">
                     <img src="{{ asset('resources/media/svgs/plus-circle-fill.svg') }}" alt="X">
-                    Add new tier
+                    Add new penalty points
                 </a>
             </div>
         </div>
@@ -36,27 +36,28 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Tier number</th>
+                        <th>Name</th>
+                        <th>Penalty points</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach($tiers as $tier)
-                        <tr>
-                            <td>{{ $tier->tiernumber }}</td>
+                @foreach($drivers as $driver)
+                    <tr>
+                        <td>{{ $driver->name }}</td>
+                        <td>{{ $driver->amount }}</td>
 
-                            <td class="delete-button">
-                                <a href="{{ route('tier.delete', ['tier' => $tier->id]) }}">
-                                    <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
-                                    Delete
-                                </a>
-                            </td>
-                        </tr>
-                    @endforeach
+                        <td class="permissions-button">
+                            <a href="{{ route('penaltypoint.edit', ['driver' => $driver->id]) }}">
+                                <img src="{{ asset('resources/media/svgs/person-lines-fill.svg') }}" alt="X">
+                                Manage Penalty points
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-    
 
 @endsection

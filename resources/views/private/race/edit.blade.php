@@ -68,7 +68,7 @@
                             <select name="driver{{$i}}" id="driver{{$i}}">
                                 <option value="none">None</option>
                                     @foreach($drivers as $driver)
-                                        <option value="{{ $driver->id }}" @if($racedrivers->where('driver_id', $driver->id)->count() > 0) @if($driver->id == $racedrivers->where('driver_id', $driver->id)->first()->id) selected @endif @endif>{{ $driver->name }}</option>
+                                        <option value="{{ $driver->id }}" @if($racedrivers->where('driver_id', '=', $driver->id)->where('position', '=', $i)->count() > 0) @if($driver->id == $racedrivers->where('driver_id', $driver->id)->where('position', '=', $i)->first()->driver_id) selected @endif @endif>{{ $driver->name }}</option>
                                     @endforeach
                             </select>
                         </div>
@@ -77,12 +77,12 @@
                             <select name="team{{$i}}" id="team{{$i}}">
                                 <option value="none">None</option>
                                     @foreach($teams as $team)
-                                        <option value="{{ $team->id }}">{{ $team->name }}</option>
+                                        <option value="{{ $team->id }}" @if($racedrivers->where('team_id', '=', $team->id)->where('position', '=', $i)->count() > 0) @if($team->id == $racedrivers->where('team_id', $team->id)->where('position', '=', $i)->first()->team_id) selected @endif @endif>{{ $team->name }}</option>
                                     @endforeach
                             </select>
                         </div>
 
-                        <input type="checkbox" name="dnf{{$i}}" value="dnf{{$i}}">
+                        <input type="checkbox" name="dnf{{$i}}" value="dnf{{$i}}" @if($racedrivers->where('position', '=', $i)->where('dnf', '=', 1)->count() > 0) checked @endif>
                     </div>
                 @endfor
             </div>
@@ -107,7 +107,7 @@
                                     <select name="fastest-lap-driver" id="fastest-lap-driver">
                                         <option value="none">None</option>
                                             @foreach($drivers as $driver)
-                                                <option value="{{ $driver->id }}">{{ $driver->name }}</option>
+                                                <option value="{{ $driver->id }}" @if($fastestlap != null) @if($fastestlap->driver_id == $driver->id) selected @endif @endif>{{ $driver->name }}</option>
                                             @endforeach
                                     </select>
                                 </div>
@@ -117,13 +117,13 @@
                                     <select name="fastest-lap-team" id="fastest-lap-team">
                                         <option value="none">None</option>
                                             @foreach($teams as $team)
-                                                <option value="{{ $team->id }}">{{ $team->name }}</option>
+                                                <option value="{{ $team->id }}" @if($fastestlap != null) @if($fastestlap->driver_id == $driver->id) selected @endif @endif>{{ $team->name }}</option>
                                             @endforeach
                                     </select>
                                 </div>
                             </td>
                             <td>
-                                <input type="number" step=".001" id="fastest-lap-time" name="fastest-lap-time">
+                                <input type="number" step=".001" id="fastest-lap-time" name="fastest-lap-time" @if($fastestlap != null) value="{{ $fastestlap->laptime }}" @endif>
                             </td>
                         </tr>
                     </tbody>
@@ -165,7 +165,7 @@
                                         <select name="full-driver-{{$i}}" id="full-driver-{{$i}}">
                                             <option value="none">None</option>
                                             @foreach($drivers as $driver)
-                                                <option value="{{ $driver->id }}">{{ $driver->name }}</option>
+                                                <option value="{{ $driver->id }}" @if($fullqualifyingdrivers->where('driver_id', '=', $driver->id)->where('q3', '=', $i)->count() > 0) selected @endif>{{ $driver->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -175,7 +175,7 @@
                                         <select name="full-team-{{$i}}" id="full-team-{{$i}}">
                                             <option value="none">None</option>
                                             @foreach($teams as $team)
-                                                <option value="{{ $team->id }}">{{ $team->name }}</option>
+                                                <option value="{{ $team->id }}" @if($fullqualifyingdrivers->where('team_id', '=', $team->id)->where('q3', '=', $i)->count() > 0) selected @endif>{{ $team->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -185,21 +185,21 @@
                                         <select name="full-Q1-{{$i}}" id="full-Q1-{{$i}}">
                                             <option value="100">out</option>
                                             @for($j = 1; $j < 21; $j++)
-                                                <option value="{{$j}}">{{$j}}</option>
+                                                <option value="{{$j}}" @if($fullqualifyingdrivers->where('q1', '=', $j)->count() > 0) selected @endif>{{$j}}</option>
                                             @endfor
                                         </select>
                                     </div>
                                 </td>
                                 <td>
-                                    <input type="number" step=".001" id="full-q1-time-{{$i}}" name="full-q1-time-{{$i}}">
+                                    <input type="number" step=".001" id="full-q1-time-{{$i}}" name="full-q1-time-{{$i}}" @if($fullqualifyingdrivers->where('q3', '=', $i)->count() > 0) value="{{ $fullqualifyingdrivers->where('q3', '=', $i)->first()->q1laptime }}" @endif>
                                 </td>
                                 <td>
                                     <div class="tyre-select-container">
                                         <select name="full-q1tyre-{{$i}}">
-                                            <option value="Soft">Soft</option>
-                                            <option value="Medium">Medium</option>
-                                            <option value="Intermediate">Inter</option>
-                                            <option value="Fullwet">Wet</option>
+                                            <option value="Soft" @if($fullqualifyingdrivers->where('q3', '=', $i)->where('q1tyre', '=', 'Soft')->count() > 0) selected @endif>Soft</option>
+                                            <option value="Medium" @if($fullqualifyingdrivers->where('q3', '=', $i)->where('q1tyre', '=', 'Medium')->count() > 0) selected @endif>Medium</option>
+                                            <option value="Intermediate" @if($fullqualifyingdrivers->where('q3', '=', $i)->where('q1tyre', '=', 'Intermediate')->count() > 0) selected @endif>Inter</option>
+                                            <option value="Fullwet" @if($fullqualifyingdrivers->where('q3', '=', $i)->where('q1tyre', '=', 'Fullwet')->count() > 0) selected @endif>Wet</option>
                                         </select>
                                     </div>
                                 </td>
@@ -208,21 +208,21 @@
                                         <select name="full-Q2-{{$i}}" id="full-Q2-{{$i}}">
                                             <option value="100">out</option>
                                             @for($j = 1; $j < 21; $j++)
-                                                <option value="{{$j}}">{{$j}}</option>
+                                                <option value="{{$j}}" @if($fullqualifyingdrivers->where('q2', '=', $j)->count() > 0) selected @endif>{{$j}}</option>
                                             @endfor
                                         </select>
                                     </div>
                                 </td>
                                 <td>
-                                    <input type="number" step=".001" id="full-q2-time-{{$i}}" name="full-q2-time-{{$i}}">
+                                    <input type="number" step=".001" id="full-q2-time-{{$i}}" name="full-q2-time-{{$i}}" @if($fullqualifyingdrivers->where('q3', '=', $i)->count() > 0) value="{{ $fullqualifyingdrivers->where('q3', '=', $i)->first()->q2laptime }}" @endif>
                                 </td>
                                 <td>
                                     <div class="tyre-select-container">
                                         <select name="full-q2tyre-{{$i}}">
-                                            <option value="Soft">Soft</option>
-                                            <option value="Medium">Medium</option>
-                                            <option value="Intermediate">Inter</option>
-                                            <option value="Fullwet">Wet</option>
+                                            <option value="Soft" @if($fullqualifyingdrivers->where('q3', '=', $i)->where('q2tyre', '=', 'Soft')->count() > 0) selected @endif>Soft</option>
+                                            <option value="Medium" @if($fullqualifyingdrivers->where('q3', '=', $i)->where('q2tyre', '=', 'Medium')->count() > 0) selected @endif>Medium</option>
+                                            <option value="Intermediate" @if($fullqualifyingdrivers->where('q3', '=', $i)->where('q2tyre', '=', 'Intermediate')->count() > 0) selected @endif>Inter</option>
+                                            <option value="Fullwet" @if($fullqualifyingdrivers->where('q3', '=', $i)->where('q2tyre', '=', 'Fullwet')->count() > 0) selected @endif>Wet</option>
                                         </select>
                                     </div>
                                 </td>
@@ -238,15 +238,15 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <input type="number" step=".001" id="full-q3-time-{{$i}}" name="full-q3-time-{{$i}}">
+                                    <input type="number" step=".001" id="full-q3-time-{{$i}}" name="full-q3-time-{{$i}}" @if($fullqualifyingdrivers->where('q3', '=', $i)->count() > 0) value="{{ $fullqualifyingdrivers->where('q3', '=', $i)->first()->q3laptime }}" @endif>
                                 </td>
                                 <td>
                                     <div class="tyre-select-container">
                                         <select name="full-q3tyre-{{$i}}">
-                                            <option value="Soft">Soft</option>
-                                            <option value="Medium">Medium</option>
-                                            <option value="Intermediate">Inter</option>
-                                            <option value="Fullwet">Wet</option>
+                                            <option value="Soft" @if($fullqualifyingdrivers->where('q3', '=', $i)->where('q3tyre', '=', 'Soft')->count() > 0) selected @endif>Soft</option>
+                                            <option value="Medium" @if($fullqualifyingdrivers->where('q3', '=', $i)->where('q3tyre', '=', 'Medium')->count() > 0) selected @endif>Medium</option>
+                                            <option value="Intermediate" @if($fullqualifyingdrivers->where('q3', '=', $i)->where('q3tyre', '=', 'Intermediate')->count() > 0) selected @endif>Inter</option>
+                                            <option value="Fullwet" @if($fullqualifyingdrivers->where('q3', '=', $i)->where('q3tyre', '=', 'Fullwet')->count() > 0) selected @endif>Wet</option>
                                         </select>
                                     </div>
                                 </td>
@@ -279,7 +279,7 @@
                                 <td>{{ $i }}</td>
 
                                 <td>
-                                    <input type="number" step=".001" id="short-laptime-{{$i}}" name='short-laptime-{{$i}}'>
+                                    <input type="number" step=".001" id="short-laptime-{{$i}}" name='short-laptime-{{$i}}' @if($shortqualifyingdrivers->where('position', '=', $i)->count() > 0) value="{{ $shortqualifyingdrivers->where('position', '=', $i)->first()->laptime }}" @endif>
                                 </td>
 
                                 <td>
@@ -287,7 +287,7 @@
                                         <select name="short-driver-{{$i}}" id="short-driver-{{$i}}">
                                             <option value="none">None</option>
                                             @foreach($drivers as $driver)
-                                                <option value="{{ $driver->id }}">{{ $driver->name }}</option>
+                                                <option value="{{ $driver->id }}" @if($shortqualifyingdrivers->where('driver_id', '=', $driver->id)->where('position', '=', $i)->count() > 0) selected @endif>{{ $driver->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -297,7 +297,7 @@
                                         <select name="short-team-{{$i}}" id="short-team-{{$i}}">
                                             <option value="none">None</option>
                                             @foreach($teams as $team)
-                                                <option value="{{ $team->id }}">{{ $team->name }}</option>
+                                                <option value="{{ $team->id }}" @if($shortqualifyingdrivers->where('team_id', '=', $team->id)->where('position', '=', $i)->count() > 0) selected @endif>{{ $team->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -305,10 +305,10 @@
                                 <td>
                                     <div class="select-container">
                                         <select name="short-tyre-{{$i}}" id="short-tyre-{{$i}}">
-                                            <option value="Soft">Soft</option>
-                                            <option value="Medium">Medium</option>
-                                            <option value="Intermediate">Inter</option>
-                                            <option value="Fullwet">Wet</option>
+                                            <option value="Soft" @if($shortqualifyingdrivers->where('position', '=', $i)->where('tyre', '=', 'Soft')->count() > 0) selected @endif>Soft</option>
+                                            <option value="Medium" @if($shortqualifyingdrivers->where('position', '=', $i)->where('tyre', '=', 'Medium')->count() > 0) selected @endif>Medium</option>
+                                            <option value="Intermediate" @if($shortqualifyingdrivers->where('position', '=', $i)->where('tyre', '=', 'Intermediate')->count() > 0) selected @endif>Inter</option>
+                                            <option value="Fullwet" @if($shortqualifyingdrivers->where('position', '=', $i)->where('tyre', '=', 'Fullwet')->count() > 0) selected @endif>Wet</option>
                                         </select>
                                     </div>
                                 </td>
