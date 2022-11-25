@@ -157,8 +157,38 @@
 }
 .private-navigation .open-page-link {
   position: absolute;
-  bottom: 15px;
-  left: 15px;
+  bottom: 0;
+  left: 0;
+  height: 45px;
+  width: 100%;
+}
+.private-navigation .open-page-link a {
+  text-decoration: none;
+  padding: 7.5px 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 30px;
+  line-height: 30px;
+  border: none;
+  width: 100%;
+  background-color: #111111;
+  color: #e8e6e6;
+  font-size: 12pt;
+}
+.private-navigation .open-page-link a span {
+  text-align: left;
+  width: calc(100% - 35px);
+  margin-left: 10px;
+}
+.private-navigation .open-page-link a svg {
+  margin: 5px 0 5px 10px;
+  height: 20px;
+  width: 20px;
+}
+.private-navigation .open-page-link a:hover {
+  background-color: white;
+  color: #111111;
 }
 .private-navigation .private-nav-list {
   margin-top: 25px;
@@ -172,6 +202,37 @@
   opacity: 80%;
   width: 100%;
   border-bottom: 1px solid rgba(128, 128, 128, 0.8);
+}
+.private-navigation .private-nav-list li .link-container {
+  height: 45px;
+}
+.private-navigation .private-nav-list li .link-container a {
+  text-decoration: none;
+  padding: 7.5px 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 30px;
+  line-height: 30px;
+  border: none;
+  width: 100%;
+  background-color: #111111;
+  color: #e8e6e6;
+  font-size: 12pt;
+}
+.private-navigation .private-nav-list li .link-container a span {
+  text-align: left;
+  width: calc(100% - 35px);
+  margin-left: 10px;
+}
+.private-navigation .private-nav-list li .link-container a img {
+  margin: 5px 0 5px 10px;
+  height: 20px;
+  width: 20px;
+}
+.private-navigation .private-nav-list li a:hover {
+  background-color: white;
+  color: #111111;
 }
 .private-navigation .private-nav-list li .private-nav-button-container {
   display: flex;
@@ -197,7 +258,6 @@
   margin-left: 10px;
 }
 .private-navigation .private-nav-list li .private-nav-button-container button img {
-  color: white;
   margin: 5px 0;
   height: 20px;
   width: 20px;
@@ -384,6 +444,27 @@
   border-radius: 25px;
 }
 
+.private-index {
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.private-index ::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 0 0 15px 15px;
+}
+.private-index ::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 0 0 15px 15px;
+}
+.private-index ::-webkit-scrollbar-thumb {
+  background: #111111;
+  border-radius: 15px;
+}
+.private-index .table-wrapper-container::-webkit-scrollbar-thumb:hover {
+  background: #4b4b4b;
+}
 .private-index main {
   min-height: 100vh;
   background-color: #d9d9d9;
@@ -412,6 +493,11 @@
   color: white;
   font-size: 18pt;
   height: 50px;
+}
+@media only screen and (max-width: 640px) {
+  .private-index main .index-list-container .table-header h1 {
+    display: none;
+  }
 }
 .private-index main .index-list-container .table-header .created {
   color: #21d24b;
@@ -453,45 +539,47 @@
   background-color: #15852f;
   transition: ease 0.2s;
 }
-.private-index main .index-list-container table {
+.private-index main .index-list-container .table-wrapper-container {
+  overflow-x: scroll;
+}
+.private-index main .index-list-container .table-wrapper-container table {
   border-collapse: separate;
   border-spacing: 0;
   width: 100%;
   padding: 25px;
 }
-.private-index main .index-list-container table thead tr th {
+.private-index main .index-list-container .table-wrapper-container table thead tr th {
   height: 50px;
   text-align: left;
+  white-space: nowrap;
+  padding: 0 15px;
 }
-.private-index main .index-list-container table thead tr th:nth-child(1) {
-  padding: 0 0 0 15px;
-}
-.private-index main .index-list-container table tbody tr {
+.private-index main .index-list-container .table-wrapper-container table tbody tr {
   position: relative;
 }
-.private-index main .index-list-container table tbody tr td {
-  padding: 15px 0;
+.private-index main .index-list-container .table-wrapper-container table tbody tr td {
+  padding: 15px 0 15px 15px;
   text-align: left;
   color: #111111;
 }
-.private-index main .index-list-container table tbody tr td a {
+.private-index main .index-list-container .table-wrapper-container table tbody tr td a {
   text-decoration: none;
   color: #111111;
   font-weight: bold;
 }
-.private-index main .index-list-container table tbody tr td a:hover {
+.private-index main .index-list-container .table-wrapper-container table tbody tr td a:hover {
   color: #464646;
 }
-.private-index main .index-list-container table tbody tr td:nth-child(1) {
+.private-index main .index-list-container .table-wrapper-container table tbody tr td:nth-child(1) {
   padding: 15px 0 15px 20px;
 }
-.private-index main .index-list-container table tbody tr .edit-button, .private-index main .index-list-container table tbody tr .delete-button, .private-index main .index-list-container table tbody tr .info-button, .private-index main .index-list-container table tbody tr .permissions-button {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .edit-button, .private-index main .index-list-container .table-wrapper-container table tbody tr .delete-button, .private-index main .index-list-container .table-wrapper-container table tbody tr .info-button, .private-index main .index-list-container .table-wrapper-container table tbody tr .permissions-button {
   border-right: 10px solid transparent;
   width: 50px;
   padding: 5px 0;
   text-align: left;
 }
-.private-index main .index-list-container table tbody tr .edit-button a, .private-index main .index-list-container table tbody tr .delete-button a, .private-index main .index-list-container table tbody tr .info-button a, .private-index main .index-list-container table tbody tr .permissions-button a {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .edit-button a, .private-index main .index-list-container .table-wrapper-container table tbody tr .delete-button a, .private-index main .index-list-container .table-wrapper-container table tbody tr .info-button a, .private-index main .index-list-container .table-wrapper-container table tbody tr .permissions-button a {
   font-weight: normal;
   white-space: nowrap;
   text-decoration: none;
@@ -502,7 +590,7 @@
   flex-wrap: nowrap;
   text-align: center;
 }
-.private-index main .index-list-container table tbody tr .edit-button a img, .private-index main .index-list-container table tbody tr .delete-button a img, .private-index main .index-list-container table tbody tr .info-button a img, .private-index main .index-list-container table tbody tr .permissions-button a img {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .edit-button a img, .private-index main .index-list-container .table-wrapper-container table tbody tr .delete-button a img, .private-index main .index-list-container .table-wrapper-container table tbody tr .info-button a img, .private-index main .index-list-container .table-wrapper-container table tbody tr .permissions-button a img {
   color: white;
   position: relative;
   margin: auto;
@@ -511,44 +599,44 @@
   right: 0;
   bottom: 0;
 }
-.private-index main .index-list-container table tbody tr .edit-button a {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .edit-button a {
   background-color: #d9a748;
 }
-.private-index main .index-list-container table tbody tr .edit-button a:hover {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .edit-button a:hover {
   background-color: #b2842b;
   transition: ease 0.2s;
 }
-.private-index main .index-list-container table tbody tr .delete-button a {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .delete-button a {
   background-color: #b00d0d;
 }
-.private-index main .index-list-container table tbody tr .delete-button a:hover {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .delete-button a:hover {
   background-color: #790909;
   transition: ease 0.2s;
 }
-.private-index main .index-list-container table tbody tr .info-button a {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .info-button a {
   background-color: #5792d5;
 }
-.private-index main .index-list-container table tbody tr .info-button a:hover {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .info-button a:hover {
   background-color: #3c72b2;
   transition: ease 0.2s;
 }
-.private-index main .index-list-container table tbody tr .permissions-button a {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .permissions-button a {
   background-color: #3f09c2;
 }
-.private-index main .index-list-container table tbody tr .permissions-button a:hover {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .permissions-button a:hover {
   background-color: #27037a;
   transition: ease 0.2s;
 }
-.private-index main .index-list-container table tbody tr:nth-child(even) {
+.private-index main .index-list-container .table-wrapper-container table tbody tr:nth-child(even) {
   background-color: white;
 }
-.private-index main .index-list-container table tbody tr:nth-child(odd) {
+.private-index main .index-list-container .table-wrapper-container table tbody tr:nth-child(odd) {
   background-color: #dedcdc;
 }
-.private-index main .index-list-container table tbody tr:last-child td:first-child {
+.private-index main .index-list-container .table-wrapper-container table tbody tr:last-child td:first-child {
   border-radius: 0 0 0 7.5px;
 }
-.private-index main .index-list-container table tbody tr:last-child td:last-child {
+.private-index main .index-list-container .table-wrapper-container table tbody tr:last-child td:last-child {
   border-radius: 0 0 7.5px 0;
 }
 
@@ -1445,7 +1533,7 @@
 
 .user-index {
   min-height: 100vh;
-  background-color: #424141;
+  background-color: #424141FF;
   color: white;
 }
 .user-index main .user-table-container {
@@ -1463,7 +1551,7 @@
   padding: 20px 10px;
 }
 .user-index main .user-table-container table tbody tr td a {
-  color: #424141;
+  color: #424141FF;
   font-weight: bold;
   text-decoration: none;
   padding: 7.5px 15px;
@@ -2374,7 +2462,7 @@
   padding: 0 7.5px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #424141;
+  color: #424141FF;
   border-radius: 20px;
   font-stretch: expanded;
 }
@@ -2433,7 +2521,7 @@
   text-decoration: none;
   padding: 5px;
   border-radius: 25px;
-  color: #424141;
+  color: #424141FF;
   width: 100px;
   text-align: center;
 }
@@ -3219,7 +3307,7 @@
 }
 
 .the-team {
-  background-color: #424141;
+  background-color: #424141FF;
 }
 .the-team main .the-team-container {
   margin: 50px auto 0 auto;

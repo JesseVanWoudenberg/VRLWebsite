@@ -32,46 +32,46 @@
             </div>
         </div>
 
-        <table>
-
-            <thead>
-            <tr>
-                <th>Season</th>
-                <th>Tier</th>
-            </tr>
-            </thead>
-
-            <tbody>
-                @foreach($seasons as $season)
+        <div class="table-wrapper-container">
+            <table>
+                <thead>
                     <tr>
-                        <td>{{ $season->seasonnumber }}</td>
-                        <td>{{ $season->tier->tiernumber }}</td>
-
-                        <td class="info-button">
-                            <a href="{{ route('season.show', ['season' => $season->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
-                                More info
-                            </a>
-                        </td>
-
-                        <td class="edit-button">
-                            <a href="{{ route('season.edit', ['season' => $season->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
-                                Edit
-                            </a>
-                        </td>
-
-                        <td class="delete-button">
-                            <a href="{{ route('season.delete', ['season' => $season->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
-                                Delete
-                            </a>
-                        </td>
+                        <th>Season</th>
+                        <th>Tier</th>
                     </tr>
-                @endforeach
-            </tbody>
+                </thead>
 
-        </table>
+                <tbody>
+                    @foreach($seasons as $season)
+                        <tr>
+                            <td>{{ $season->seasonnumber }}</td>
+                            <td>{{ $season->tier->tiernumber }}</td>
+
+                            <td class="info-button">
+                                <a href="{{ route('season.show', ['season' => $season->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
+                                    More info
+                                </a>
+                            </td>
+
+                            <td class="edit-button">
+                                <a href="{{ route('season.edit', ['season' => $season->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
+                                    Edit
+                                </a>
+                            </td>
+
+                            <td class="delete-button">
+                                <a href="{{ route('season.delete', ['season' => $season->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
 
         {{ $seasons->render() }}
 

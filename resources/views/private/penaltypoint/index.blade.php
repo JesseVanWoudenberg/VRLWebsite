@@ -32,30 +32,32 @@
             </div>
         </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Penalty points</th>
-                </tr>
-            </thead>
+        <div class="table-wrapper-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Penalty points</th>
+                    </tr>
+                </thead>
 
-            <tbody>
-            @foreach($drivers as $driver)
-                <tr>
-                    <td>{{ $driver->name }}</td>
-                    <td>{{ $driver->amount }}</td>
+                <tbody>
+                @foreach($drivers as $driver)
+                    <tr>
+                        <td>{{ $driver->name }}</td>
+                        <td>{{ $driver->amount }}</td>
 
-                    <td class="permissions-button">
-                        <a href="{{ route('penaltypoint.edit', ['driver' => $driver->id]) }}">
-                            <img src="{{ asset('resources/media/svgs/person-lines-fill.svg') }}" alt="X">
-                            Manage Penalty points
-                        </a>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+                        <td class="permissions-button">
+                            <a href="{{ route('penaltypoint.edit', ['driver' => $driver->id]) }}">
+                                <img src="{{ asset('resources/media/svgs/person-lines-fill.svg') }}" alt="X">
+                                Manage Penalty points
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 
 @endsection

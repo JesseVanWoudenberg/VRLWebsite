@@ -32,49 +32,51 @@
             </div>
         </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach($users as $user)
+        <div class="table-wrapper-container">
+            <table>
+                <thead>
                     <tr>
-                        <td>{{ $user->name }}</td>
-
-                        <td class="permissions-button">
-                            <a href="{{ route('user.permissions', ['user' => $user->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/person-lines-fill.svg') }}" alt="X">
-                                Manage Permissions
-                            </a>
-                        </td>
-
-                        <td class="info-button">
-                            <a href="{{ route('user.show', ['user' => $user->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
-                                More info
-                            </a>
-                        </td>
-
-                        <td class="edit-button">
-                            <a href="{{ route('user.edit', ['user' => $user->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
-                                Edit
-                            </a>
-                        </td>
-
-                        <td class="delete-button">
-                            <a href="{{ route('user.delete', ['user' => $user->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
-                                Delete
-                            </a>
-                        </td>
+                        <th>Name</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+
+                <tbody>
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{ $user->name }}</td>
+
+                            <td class="permissions-button">
+                                <a href="{{ route('user.permissions', ['user' => $user->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/person-lines-fill.svg') }}" alt="X">
+                                    Manage Permissions
+                                </a>
+                            </td>
+
+                            <td class="info-button">
+                                <a href="{{ route('user.show', ['user' => $user->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
+                                    More info
+                                </a>
+                            </td>
+
+                            <td class="edit-button">
+                                <a href="{{ route('user.edit', ['user' => $user->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
+                                    Edit
+                                </a>
+                            </td>
+
+                            <td class="delete-button">
+                                <a href="{{ route('user.delete', ['user' => $user->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 
 @endsection

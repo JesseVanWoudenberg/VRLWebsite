@@ -28,48 +28,49 @@
             </div>
         </div>
 
-        <table>
+        <div class="table-wrapper-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Driver</th>
+                        <th>Team</th>
+                        <th>Season</th>
+                        <th>Tier</th>
+                    </tr>
+                </thead>
 
-            <thead>
-                <tr>
-                    <th>Driver</th>
-                    <th>Team</th>
-                    <th>Season</th>
-                    <th>Tier</th>
-                </tr>
-            </thead>
+                <tbody>
+                @foreach($driverchampionships as $driverchampionship)
+                    <tr>
+                        <td><a href="{{ route('driver.show', ['driver' => $driverchampionship->driver->id]) }}">{{ $driverchampionship->driver->name }}</a></td>
+                        <td><a href="{{ route('team.show', ['team' => $driverchampionship->team->id]) }}">{{ $driverchampionship->team->name }}</a></td>
+                        <td><a href="{{ route('season.show', ['season' => $driverchampionship->season->id]) }}">{{ $driverchampionship->season->seasonnumber }}</a></td>
+                        <td>{{ $driverchampionship->tier->tiernumber }}</td>
+                        <td class="info-button">
+                            <a href="{{ route('driverchampionship.show', ['driverchampionship' => $driverchampionship->id]) }}">
+                                <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
+                                More info
+                            </a>
+                        </td>
 
-            <tbody>
-            @foreach($driverchampionships as $driverchampionship)
-                <tr>
-                    <td><a href="{{ route('driver.show', ['driver' => $driverchampionship->driver->id]) }}">{{ $driverchampionship->driver->name }}</a></td>
-                    <td><a href="{{ route('team.show', ['team' => $driverchampionship->team->id]) }}">{{ $driverchampionship->team->name }}</a></td>
-                    <td><a href="{{ route('season.show', ['season' => $driverchampionship->season->id]) }}">{{ $driverchampionship->season->seasonnumber }}</a></td>
-                    <td>{{ $driverchampionship->tier->tiernumber }}</td>
-                    <td class="info-button">
-                        <a href="{{ route('driverchampionship.show', ['driverchampionship' => $driverchampionship->id]) }}">
-                            <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
-                            More info
-                        </a>
-                    </td>
+                        <td class="edit-button">
+                            <a href="{{ route('driverchampionship.edit', ['driverchampionship' => $driverchampionship->id]) }}">
+                                <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
+                                Edit
+                            </a>
+                        </td>
 
-                    <td class="edit-button">
-                        <a href="{{ route('driverchampionship.edit', ['driverchampionship' => $driverchampionship->id]) }}">
-                            <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
-                            Edit
-                        </a>
-                    </td>
-
-                    <td class="delete-button">
-                        <a href="{{ route('driverchampionship.delete', ['driverchampionship' => $driverchampionship->id]) }}">
-                            <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
-                            Delete
-                        </a>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+                        <td class="delete-button">
+                            <a href="{{ route('driverchampionship.delete', ['driverchampionship' => $driverchampionship->id]) }}">
+                                <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
 
         {{ $driverchampionships->render() }}
 

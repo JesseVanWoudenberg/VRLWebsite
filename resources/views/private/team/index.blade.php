@@ -32,45 +32,46 @@
             </div>
         </div>
 
-        <table>
-
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Powerunit</th>
-            </tr>
-            </thead>
-
-            <tbody>
-                @foreach($teams as $team)
+        <div class="table-wrapper-container">
+            <table>
+                <thead>
                     <tr>
-                        <td>{{ $team->name }}</td>
-                        <td><a href="{{ route('powerunit.show', ['powerunit' => $team->powerunit->id]) }}">{{ $team->powerunit->name }}</a></td>
-
-                        <td class="info-button">
-                            <a href="{{ route('team.show', ['team' => $team->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
-                                More info
-                            </a>
-                        </td>
-
-                        <td class="edit-button">
-                            <a href="{{ route('team.edit', ['team' => $team->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
-                                Edit
-                            </a>
-                        </td>
-
-                        <td class="delete-button">
-                            <a href="{{ route('team.delete', ['team' => $team->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
-                                Delete
-                            </a>
-                        </td>
+                        <th>Name</th>
+                        <th>Powerunit</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+
+                <tbody>
+                    @foreach($teams as $team)
+                        <tr>
+                            <td>{{ $team->name }}</td>
+                            <td><a href="{{ route('powerunit.show', ['powerunit' => $team->powerunit->id]) }}">{{ $team->powerunit->name }}</a></td>
+
+                            <td class="info-button">
+                                <a href="{{ route('team.show', ['team' => $team->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
+                                    More info
+                                </a>
+                            </td>
+
+                            <td class="edit-button">
+                                <a href="{{ route('team.edit', ['team' => $team->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
+                                    Edit
+                                </a>
+                            </td>
+
+                            <td class="delete-button">
+                                <a href="{{ route('team.delete', ['team' => $team->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 
 @endsection

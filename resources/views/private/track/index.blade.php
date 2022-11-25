@@ -32,48 +32,50 @@
             </div>
         </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Country</th>
-                    <th>Length</th>
-{{--                    <th>Corners</th>--}}
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach($tracks as $track)
+        <div class="table-wrapper-container">
+            <table>
+                <thead>
                     <tr>
-                        <td>{{ $track->name }}</td>
-                        <td>{{ $track->country }}</td>
-                        <td>{{ $track->length }}</td>
-{{--                        <td>{{ $track->turns }}</td>--}}
-
-                        <td class="info-button">
-                            <a href="{{ route('track.show', ['track' => $track->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
-                                More info
-                            </a>
-                        </td>
-
-                        <td class="edit-button">
-                            <a href="{{ route('track.edit', ['track' => $track->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
-                                Edit
-                            </a>
-                        </td>
-
-                        <td class="delete-button">
-                            <a href="{{ route('track.delete', ['track' => $track->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
-                                Delete
-                            </a>
-                        </td>
+                        <th>Name</th>
+                        <th>Country</th>
+                        <th>Length</th>
+                        <th>Corners</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+
+                <tbody>
+                    @foreach($tracks as $track)
+                        <tr>
+                            <td>{{ $track->name }}</td>
+                            <td>{{ $track->country }}</td>
+                            <td>{{ $track->length }}</td>
+                            <td>{{ $track->turns }}</td>
+
+                            <td class="info-button">
+                                <a href="{{ route('track.show', ['track' => $track->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
+                                    More info
+                                </a>
+                            </td>
+
+                            <td class="edit-button">
+                                <a href="{{ route('track.edit', ['track' => $track->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
+                                    Edit
+                                </a>
+                            </td>
+
+                            <td class="delete-button">
+                                <a href="{{ route('track.delete', ['track' => $track->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
 
         {{ $tracks->links() }}
 

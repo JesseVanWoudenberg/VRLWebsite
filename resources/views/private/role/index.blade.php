@@ -32,42 +32,44 @@
             </div>
         </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach($roles as $role)
+        <div class="table-wrapper-container">
+            <table>
+                <thead>
                     <tr>
-                        <td>{{ $role->name }}</td>
-
-                        <td class="permissions-button">
-                            <a href="{{ route('role.permissions', ['role' => $role->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/person-lines-fill.svg') }}" alt="X">
-                                Manage Permissions
-                            </a>
-                        </td>
-
-                        <td class="edit-button">
-                            <a href="{{ route('role.edit', ['role' => $role->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
-                                Edit
-                            </a>
-                        </td>
-
-                        <td class="delete-button">
-                            <a href="{{ route('role.delete', ['role' => $role->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
-                                Delete
-                            </a>
-                        </td>
+                        <th>Name</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+
+                <tbody>
+                    @foreach($roles as $role)
+                        <tr>
+                            <td>{{ $role->name }}</td>
+
+                            <td class="permissions-button">
+                                <a href="{{ route('role.permissions', ['role' => $role->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/person-lines-fill.svg') }}" alt="X">
+                                    Manage Permissions
+                                </a>
+                            </td>
+
+                            <td class="edit-button">
+                                <a href="{{ route('role.edit', ['role' => $role->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
+                                    Edit
+                                </a>
+                            </td>
+
+                            <td class="delete-button">
+                                <a href="{{ route('role.delete', ['role' => $role->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 
 @endsection

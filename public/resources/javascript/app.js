@@ -35,10 +35,8 @@ const navFunctionality = () => {
 
         if(localStorage.getItem('menu-open') === "true") {
             localStorage.setItem('menu-open', "false")
-            console.log(localStorage.getItem('menu-open'))
         } else {
             localStorage.setItem('menu-open', "true")
-            console.log(localStorage.getItem('menu-open'))
         }
     });
 }
@@ -48,9 +46,27 @@ const collapseAllCategories = () => {
     fiaDropdown.classList.remove('activated');
     reporterDropdown.classList.remove('activated');
     championshipsDropdown.classList.remove('activated');
+
+    localStorage.setItem('adminDropdown-open', "false");
+    localStorage.setItem('fiaDropdown-open', "false");
+    localStorage.setItem('reporterDropdown-open', "false");
+    localStorage.setItem('championshipsDropdown-open', "false");
 }
 
 const navCategoriesFunctionality = () => {
+
+    if(localStorage.getItem('adminDropdown-open') === "true") {
+        adminDropdown.classList.add('activated');
+    }
+    if(localStorage.getItem('fiaDropdown-open') === "true") {
+        fiaDropdown.classList.add('activated');
+    }
+    if(localStorage.getItem('reporterDropdown-open') === "true") {
+        reporterDropdown.classList.add('activated');
+    }
+    if(localStorage.getItem('championshipsDropdown-open') === "true") {
+        championshipsDropdown.classList.add('activated');
+    }
 
     adminButton.addEventListener('click', () => {
         let active = adminDropdown.classList.contains('activated');
@@ -59,6 +75,9 @@ const navCategoriesFunctionality = () => {
 
         if (!active) {
             adminDropdown.classList.add('activated');
+            localStorage.setItem('adminDropdown-open', "true");
+        } else {
+            localStorage.setItem('adminDropdown-open', "false");
         }
     })
 
@@ -69,6 +88,9 @@ const navCategoriesFunctionality = () => {
 
         if (!active) {
             fiaDropdown.classList.add('activated');
+            localStorage.setItem('fiaDropdown-open', "true");
+        } else {
+            localStorage.setItem('fiaDropdown-open', "false");
         }
     })
 
@@ -79,6 +101,9 @@ const navCategoriesFunctionality = () => {
 
         if (!active) {
             reporterDropdown.classList.add('activated');
+            localStorage.setItem('reporterDropdown-open', "true");
+        } else {
+            localStorage.setItem('reporterDropdown-open', "false");
         }
     })
 
@@ -89,70 +114,12 @@ const navCategoriesFunctionality = () => {
 
         if (!active) {
             championshipsDropdown.classList.add('activated');
+            localStorage.setItem('championshipsDropdown-open', "true");
+        } else {
+            localStorage.setItem('championshipsDropdown-open', "false");
         }
     })
-
-    // adminDropdown.style.display = 'none';
-    //
-    // adminButton.addEventListener('click', ()=> {
-    //
-    //     if (adminDropdown.style.display === 'none') {
-    //
-    //         collapseAllCategories();
-    //         adminDropdown.style.display = 'block';
-    //
-    //     } else {
-    //
-    //         adminDropdown.style.display = 'none';
-    //
-    //     }
-    //
-    // })
-    //
-    // fiaDropdown.style.display = 'none';
-    //
-    // fiaButton.addEventListener('click', ()=> {
-    //
-    //     if (fiaDropdown.style.display === 'none') {
-    //
-    //         collapseAllCategories();
-    //         fiaDropdown.style.display = 'block';
-    //
-    //     } else {
-    //
-    //         fiaDropdown.style.display = 'none';
-    //
-    //     }
-    // })
-    //
-    // // Reporter button functionality
-    // reporterDropdown.style.display = 'none';
-    //
-    // reporterButton.addEventListener('click', ()=> {
-    //
-    //     collapseAllCategories();
-    //     reporterDropdown.classList.toggle('activated');
-    //
-    // })
-    //
-    // // Championships button functionality
-    // championshipsDropdown.style.display = 'none';
-    //
-    // championshipsButton.addEventListener('click', ()=> {
-    //
-    //     if (championshipsDropdown.style.display === 'none') {
-    //
-    //         collapseAllCategories();
-    //         championshipsDropdown.style.display = 'block';
-    //
-    //     } else {
-    //
-    //         championshipsDropdown.style.display = 'none';
-    //
-    //     }
-    // })
 }
 
 navCategoriesFunctionality()
 navFunctionality();
-

@@ -34,59 +34,60 @@
             @endcan
         </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Article Name</th>
-                    <th>Author</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach($articles as $article)
+        <div class="table-wrapper-container">
+            <table>
+                <thead>
                     <tr>
-                        <td>{{ $article->id }}</td>
-                        <td>{{ $article->article_name }}</td>
-                        <td>{{ $article->author }}</td>
-
-                        @if(Auth::check())
-                            @if (Auth::user()->hasPermissionTo("article show"))
-                                <td class="info-button">
-                                    <a href="{{ route('article.show', ['article' => $article->id]) }}">
-                                        <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
-                                        More info
-                                    </a>
-                                </td>
-                            @endif
-                        @endif
-
-                        @if(Auth::check())
-                            @if (Auth::user()->hasPermissionTo("article edit"))
-                                <td class="edit-button">
-                                    <a href="{{ route('article.edit', ['article' => $article->id]) }}">
-                                        <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
-                                        Edit
-                                    </a>
-                                </td>
-                            @endif
-                        @endif
-
-                        @if(Auth::check())
-                            @if (Auth::user()->hasPermissionTo("article delete"))
-                                <td class="delete-button">
-                                    <a href="{{ route('article.delete', ['article' => $article->id]) }}">
-                                        <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
-                                        Delete
-                                    </a>
-                                </td>
-                            @endif
-                        @endif
+                        <th>ID</th>
+                        <th>Article Name</th>
+                        <th>Author</th>
                     </tr>
-                @endforeach
-            </tbody>
+                </thead>
 
-        </table>
+                <tbody>
+                    @foreach($articles as $article)
+                        <tr>
+                            <td>{{ $article->id }}</td>
+                            <td>{{ $article->article_name }}</td>
+                            <td>{{ $article->author }}</td>
+
+                            @if(Auth::check())
+                                @if (Auth::user()->hasPermissionTo("article show"))
+                                    <td class="info-button">
+                                        <a href="{{ route('article.show', ['article' => $article->id]) }}">
+                                            <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
+                                            More info
+                                        </a>
+                                    </td>
+                                @endif
+                            @endif
+
+                            @if(Auth::check())
+                                @if (Auth::user()->hasPermissionTo("article edit"))
+                                    <td class="edit-button">
+                                        <a href="{{ route('article.edit', ['article' => $article->id]) }}">
+                                            <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
+                                            Edit
+                                        </a>
+                                    </td>
+                                @endif
+                            @endif
+
+                            @if(Auth::check())
+                                @if (Auth::user()->hasPermissionTo("article delete"))
+                                    <td class="delete-button">
+                                        <a href="{{ route('article.delete', ['article' => $article->id]) }}">
+                                            <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
+                                            Delete
+                                        </a>
+                                    </td>
+                                @endif
+                            @endif
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
 
         {{ $articles->links() }}
 

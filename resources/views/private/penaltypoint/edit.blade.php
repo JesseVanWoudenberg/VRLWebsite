@@ -36,7 +36,7 @@
                             <li>
                                 <div class="permission penaltypoint">
                                     <input type="checkbox" name="penaltypoint-{{ $penaltypoint->id }}" value="penaltypoint-{{ $penaltypoint->id }}" id="penaltypoint-{{ $penaltypoint->id }}">
-                                    <label for="penaltypoint-{{ $penaltypoint->id }}">{{ $penaltypoint->racesleft }} Races Left</label>
+                                    <label for="penaltypoint-{{ $penaltypoint->id }}">{{ $penaltypoint->racesleft }} Races Left </label>
                                 </div>
                             </li>
                         @endforeach
