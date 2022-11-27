@@ -38,6 +38,7 @@ class DriverController extends Controller
                     8 => 4,
                     9 => 2,
                     10 => 1,
+                    default => 0,
                 };
 
                 if (Fastestlap::all()->where('driver_id', $driver->id)->where('race_id', $racedriver->race->id)->count() > 0) {

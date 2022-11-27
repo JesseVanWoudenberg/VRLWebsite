@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
 //            ArticleSeeder::class,
             RaceformatSeeder::class,
-            TierSeeder::class,
+//            TierSeeder::class,
             PowerunitSeeder::class,
             TrackSeeder::class,
             TeamSeeder::class,

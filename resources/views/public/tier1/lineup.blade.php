@@ -34,7 +34,7 @@
                 @endforeach
 
                 <tr>
-                    <th class="{{ strtolower(str_replace(' ', '', $team->name)) }}">{{ $team->name }}</th>
+                    <th class="reserves">Reserves</th>
                 </tr>
 
                 @foreach($drivers->where('team_id', $teams->where('name', 'Reserves')->first()->id) as $driver)

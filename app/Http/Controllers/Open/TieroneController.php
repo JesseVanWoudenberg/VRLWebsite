@@ -296,7 +296,7 @@ class TieroneController extends Controller
         $teams = Team::all();
         $drivers = Driver::all()->where('tier_id', 1);
 
-        return view('public.tier1.lineup', compact('drivers', 'teams'),);
+        return view('public.tier1.lineup', compact('drivers', 'teams'));
     }
 
     public function calendar(): View
