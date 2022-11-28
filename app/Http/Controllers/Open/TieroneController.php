@@ -42,7 +42,7 @@ class TieroneController extends Controller
         foreach ($racedrivers as $racedriver) {
 
             if ($racedriver->race->raceformat->format == "full") {
-                $points += match ($racedriver->position) {
+                $points += match (intval($racedriver->position)) {
                     1 => 25,
                     2 => 18,
                     3 => 15,
@@ -62,9 +62,9 @@ class TieroneController extends Controller
 
             } elseif ($racedriver->race->raceformat->format == "sprint") {
 
-                if ($racedriver->position < 9) {
+                if (intval($racedriver->position) < 9) {
 
-                    $points += 9 - $racedriver->position;
+                    $points += 9 - intval($racedriver->position);
 
                 }
             }
@@ -132,7 +132,7 @@ class TieroneController extends Controller
                 {
                     if ($racedriver->race->raceformat->format == "full")
                     {
-                        $points += match ($racedriver->position)
+                        $points += match (intval($racedriver->position))
                         {
                             1 => 25,
                             2 => 18,
@@ -154,9 +154,9 @@ class TieroneController extends Controller
 
                     } elseif ($racedriver->race->raceformat->format == "sprint") {
 
-                        if ($racedriver->position < 9) {
+                        if (intval($racedriver->position) < 9) {
 
-                            $points += 9 - $racedriver->position;
+                            $points += 9 - intval($racedriver->position);
 
                         }
                     }
@@ -221,7 +221,7 @@ class TieroneController extends Controller
                 {
                     if ($racedriver->race->raceformat->format == "full")
                     {
-                        $points += match ($racedriver->position)
+                        $points += match (intval($racedriver->position))
                         {
                             1 => 25,
                             2 => 18,
@@ -244,9 +244,9 @@ class TieroneController extends Controller
 
                     } elseif ($racedriver->race->raceformat->format == "sprint") {
 
-                        if ($racedriver->position < 9) {
+                        if (intval($racedriver->position) < 9) {
 
-                            $points += 9 - $racedriver->position;
+                            $points += 9 - intval($racedriver->position);
 
                             if (Fastestlap::all()->where('team_id', $team->id)->where('race_id', $racedriver->race->id)->count() > 0)
                             {
@@ -296,7 +296,7 @@ class TieroneController extends Controller
         $teams = Team::all();
         $drivers = Driver::all()->where('tier_id', 1);
 
-        return view('public.tier1.lineup', compact('drivers', 'teams'));
+        return view('public.tier1.lineup', compact('drivers', 'teams'),);
     }
 
     public function calendar(): View
@@ -363,7 +363,7 @@ class TieroneController extends Controller
         {
             $driver['amount'] = Driverchampionship::all()->where('tier_id', 1)->where('driver_id', $driver->id)->count();
 
-            if ($driver->amount > 0)
+            if (intval($driver->amount) > 0)
             {
                 $championshipdrivers->add($driver);
             }
@@ -390,7 +390,7 @@ class TieroneController extends Controller
 
             $driver['amount'] = $racedrivers->count();
 
-            if ($driver->amount > 0)
+            if (intval($driver->amount) > 0)
             {
                 $windrivers->add($driver);
             }
@@ -402,26 +402,27 @@ class TieroneController extends Controller
         {
             $racedrivers = Racedriver::query()
                 ->select('*')
-                ->where('position', '>=', 3)
-                ->where('driver_id', '=', $driver->id)
+                ->where('position', '<=', 3)
+                ->where('driver_id', '=', intval($driver->id))
                 ->whereIn('race_id',(function ($query) {
                     $query->from('races')
                         ->select('id')
                         ->whereIn('races.tier_id',(function ($query) {
                             $query->from('tiers')
                                 ->select('id')
-                                ->where('tiernumber','=',1);
+                                ->where('tiernumber', '=', 1);
                         }));
                 }))
                 ->get();
 
             $driver['amount'] = $racedrivers->count();
 
-            if ($driver->amount > 0)
+            if (intval($driver->amount) > 0)
             {
                 $podiumdrivers->add($driver);
             }
         }
+
         $podiumdrivers = $podiumdrivers->sortByDesc('amount');
 
         // Poles
@@ -459,7 +460,7 @@ class TieroneController extends Controller
 
             $driver['amount'] = $qualifyingdrivers->count() + $shortqualifyingdrivers->count();
 
-            if ($driver->amount > 0)
+            if (intval($driver->amount) > 0)
             {
                 $poledrivers->add($driver);
             }
@@ -483,7 +484,7 @@ class TieroneController extends Controller
                 }))
                 ->get()->count();
 
-            if ($driver->amount > 0)
+            if (intval($driver->amount) > 0)
             {
                 $fastestlapdrivers->add($driver);
             }
@@ -507,7 +508,7 @@ class TieroneController extends Controller
                 }))
                 ->get()->count();
 
-            if ($driver->amount > 0)
+            if (intval($driver->amount) > 0)
             {
                 $racestartdrivers->add($driver);
             }
@@ -518,7 +519,7 @@ class TieroneController extends Controller
         {
             $driver['points'] = $this->calculateTotalDriverPoints($driver);
 
-            if ($driver->points > 0)
+            if (intval($driver->points) > 0)
             {
                 $pointsdrivers->add($driver);
             }
