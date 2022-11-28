@@ -6,28 +6,37 @@ use App\Http\Controllers\Controller;
 use App\Models\Driver;
 use App\Models\Team;
 use App\Models\Tier;
+use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class DriverController extends Controller
 {
-    public function index()
+    public function index(): View
     {
+        User::checkPermissions("driver index");
+
         $drivers = Driver::orderBy('name', 'asc')->paginate(10);
 
         return view('private.driver.index', compact('drivers'));
     }
 
-    public function create()
+    public function create(): View
     {
+        User::checkPermissions("driver create");
+
         $teams = Team::all();
         $tiers = Tier::all();
 
         return view('private.driver.create', compact('teams', 'tiers'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
+        User::checkPermissions("driver create");
+
         $driver = new Driver();
 
         $driver->name = $request->name;
@@ -41,21 +50,27 @@ class DriverController extends Controller
         return redirect()->route('driver')->with('status', 'Driver successfully added');
     }
 
-    public function show(Driver $driver)
+    public function show(Driver $driver): View
     {
+        User::checkPermissions("driver show");
+
         return view('private.driver.show', compact('driver'));
     }
 
-    public function edit(Driver $driver)
+    public function edit(Driver $driver): View
     {
+        User::checkPermissions("driver edit");
+
         $teams = Team::all();
         $tiers = Tier::all();
 
         return view('private.driver.edit', compact('driver', 'teams', 'tiers'));
     }
 
-    public function update(Request $request, Driver $driver)
+    public function update(Request $request, Driver $driver): RedirectResponse
     {
+        User::checkPermissions("driver edit");
+
         $driver->name = $request->name;
         $driver->nationality = $request->nationality;
         $driver->drivernumber = $request->drivernumber;
@@ -67,17 +82,22 @@ class DriverController extends Controller
         return redirect()->route('driver')->with('status', 'Driver successfully updated');
     }
 
-    public function delete(Driver $driver)
+    public function delete(Driver $driver): View
     {
+        User::checkPermissions("driver delete");
+
         $teams = Team::all();
         $tiers = Tier::all();
 
         return view('private.driver.delete', compact('driver', 'teams', 'tiers'));
     }
 
-    public function destroy(Driver $driver)
+    public function destroy(Driver $driver): RedirectResponse
     {
+        User::checkPermissions("driver delete");
+
         $driver->delete();
+
         return redirect()->route('driver')->with('status', 'Driver successfully deleted');
     }
 }

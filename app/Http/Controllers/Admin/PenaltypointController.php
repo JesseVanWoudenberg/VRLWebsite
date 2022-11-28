@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Driver;
 use App\Models\Penaltypoint;
 use App\Models\Race;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,15 +17,16 @@ class PenaltypointController extends Controller
 {
     public function index(): View
     {
-        if(Auth::check()) {
-            if (!Auth::user()->hasPermissionTo("penaltypoint index")) {
-                abort(403);
-            }
-        } else {
-            abort(403);
-        }
+        User::checkPermissions("penaltypoint index");
 
-        $drivers = Driver::all();
+        $drivers = Driver::query()
+            ->select('*')
+            ->whereIn('drivers.id',(function ($query) {
+                $query->from('penaltypoints')
+                    ->select('driver_id')
+                    ->where('driver_id','=', DB::raw('drivers.id'));
+            }))
+            ->get();
 
         foreach ($drivers as $driver)
         {
@@ -47,13 +49,7 @@ class PenaltypointController extends Controller
 
     public function create(): View
     {
-        if(Auth::check()) {
-            if (!Auth::user()->hasPermissionTo("penaltypoint create")) {
-                abort(403);
-            }
-        } else {
-            abort(403);
-        }
+        User::checkPermissions("penaltypoint create");
 
         $drivers = Driver::all();
         $races = Race::all();
@@ -63,13 +59,7 @@ class PenaltypointController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        if(Auth::check()) {
-            if (!Auth::user()->hasPermissionTo("penaltypoint create")) {
-                abort(403);
-            }
-        } else {
-            abort(403);
-        }
+        User::checkPermissions("penaltypoint create");
 
         for ($i = 0; $i < $request->amount; $i++)
         {
@@ -85,13 +75,7 @@ class PenaltypointController extends Controller
 
     public function edit(Driver $driver): View
     {
-        if(Auth::check()) {
-            if (!Auth::user()->hasPermissionTo("penaltypoint edit")) {
-                abort(403);
-            }
-        } else {
-            abort(403);
-        }
+        User::checkPermissions("penaltypoint edit");
 
         $penaltypoints = Penaltypoint::all()->where('driver_id', '=', $driver->id);
 
@@ -122,13 +106,7 @@ class PenaltypointController extends Controller
 
     public function update(Request $request, Driver $driver): RedirectResponse
     {
-        if(Auth::check()) {
-            if (!Auth::user()->hasPermissionTo("penaltypoint edit")) {
-                abort(403);
-            }
-        } else {
-            abort(403);
-        }
+        User::checkPermissions("penaltypoint edit");
 
         foreach (Penaltypoint::all()->where('driver_id', '=', $driver->id) as $penaltypoint)
         {

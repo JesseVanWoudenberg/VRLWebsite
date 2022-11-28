@@ -18,7 +18,7 @@ class RoleAndPermissionSeeder extends Seeder
     {
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
-        $cruds = ['article', 'constructorchampionship', 'driverchampionship', 'driver', 'powerunit', 'race', 'season', 'team', 'tier', 'track', 'user', 'role', 'penaltypoint'];
+        $cruds = ['article', 'constructorchampionship', 'driverchampionship', 'driver', 'powerunit', 'race', 'season', 'team', 'track', 'user', 'role'];
 
         foreach ($cruds as $crud)
         {
@@ -30,6 +30,14 @@ class RoleAndPermissionSeeder extends Seeder
         }
 
         Permission::create(['name' => 'user permissions']);
+
+        Permission::create(['name' => 'penaltypoint index']);
+        Permission::create(['name' => 'penaltypoint create']);
+        Permission::create(['name' => 'penaltypoint edit']);
+
+        Permission::create(['name' => 'tier index']);
+        Permission::create(['name' => 'tier create']);
+        Permission::create(['name' => 'tier delete']);
 
         // User profile permissions
         Permission::create(['name' => 'profile-show']);

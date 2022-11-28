@@ -1,8 +1,13 @@
+@php use Illuminate\Support\Facades\Session; @endphp
 @extends('layouts.private-layout')
 
-@section('page-title') Race - Index @endsection
+@section('page-title')
+    Race - Index
+@endsection
 
-@section('page') private-index @endsection
+@section('page')
+    private-index
+@endsection
 
 @section('content')
 
@@ -10,11 +15,11 @@
 
         <div class="table-header">
 
-            @if(\Illuminate\Support\Facades\Session::exists('status'))
-                <h1 @if(Illuminate\Support\Str::contains(\Illuminate\Support\Facades\Session::get('status'), 'create')) class="created" @endif
-                @if(Illuminate\Support\Str::contains(\Illuminate\Support\Facades\Session::get('status'), 'delete')) class="deleted" @endif
-                    @if(Illuminate\Support\Str::contains(\Illuminate\Support\Facades\Session::get('status'), 'updated')) class="edited" @endif>
-                    {{ \Illuminate\Support\Facades\Session::get('status') }}
+            @if(Session::exists('status'))
+                <h1 @if(Illuminate\Support\Str::contains(Session::get('status'), 'create')) class="created" @endif
+                @if(Illuminate\Support\Str::contains(Session::get('status'), 'delete')) class="deleted" @endif
+                    @if(Illuminate\Support\Str::contains(Session::get('status'), 'updated')) class="edited" @endif>
+                    {{ Session::get('status') }}
                 </h1>
             @elseif($errors->any())
                 @foreach($errors->all() as $error)
@@ -35,54 +40,58 @@
         <div class="table-wrapper-container">
             <table>
                 <thead>
-                    <tr>
-                        <th>Track</th>
-                        <th>Status</th>
-                        <th>Round</th>
-                        <th>Season</th>
-                        <th>Tier</th>
-                    </tr>
+                <tr>
+                    <th>Track</th>
+                    <th>Status</th>
+                    <th>Round</th>
+                    <th>Season</th>
+                    <th>Tier</th>
+                </tr>
                 </thead>
 
                 <tbody>
-                    @foreach($races as $race)
-                        <tr>
-                            <td><a href="{{ route('track.show', ['track' => $race->track->id]) }}">{{ $race->track->name }}</a></td>
-                            @if($race->done)
-                                <td>Done</td>
-                            @else
-                                <td>DNS</td>
-                            @endif
-                            <td>{{ $race->round }}</td>
-                            <td><a href="{{ route('season.show', ['season' => $race->season->id]) }}">{{ $race->season->seasonnumber }}</a></td>
-                            <td>{{ $race->season->tier->tiernumber }}</td>
-                            <td class="info-button">
-                                <a href="{{ route('race.show', ['race' => $race->id]) }}">
-                                    <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
-                                    More info
-                                </a>
-                            </td>
+                @foreach($races as $race)
+                    <tr>
+                        <td>
+                            <a href="{{ route('track.show', ['track' => $race->track->id]) }}">{{ $race->track->name }}</a>
+                        </td>
+                        @if($race->done)
+                            <td>Done</td>
+                        @else
+                            <td>DNS</td>
+                        @endif
+                        <td>{{ $race->round }}</td>
+                        <td>
+                            <a href="{{ route('season.show', ['season' => $race->season->id]) }}">{{ $race->season->seasonnumber }}</a>
+                        </td>
+                        <td>{{ $race->season->tier->tiernumber }}</td>
+                        <td class="info-button">
+                            <a href="{{ route('race.show', ['race' => $race->id]) }}">
+                                <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
+                                More info
+                            </a>
+                        </td>
 
-                            <td class="edit-button">
-                                <a href="{{ route('race.edit', ['race' => $race->id]) }}">
-                                    <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
-                                    Edit
-                                </a>
-                            </td>
+                        <td class="edit-button">
+                            <a href="{{ route('race.edit', ['race' => $race->id]) }}">
+                                <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">
+                                Edit
+                            </a>
+                        </td>
 
-                            <td class="delete-button">
-                                <a href="{{ route('race.delete', ['race' => $race->id]) }}">
-                                    <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
-                                    Delete
-                                </a>
-                            </td>
-                        </tr>
-                    @endforeach
+                        <td class="delete-button">
+                            <a href="{{ route('race.delete', ['race' => $race->id]) }}">
+                                <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
 
-{{--        {{ $seasons->render() }}--}}
+        {{--        {{ $races->render() }}--}}
 
     </div>
 

@@ -14,10 +14,12 @@ use App\Models\Shortqualifyingdriver;
 use App\Models\Team;
 use App\Models\Tier;
 use App\Models\Track;
+use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RaceController extends Controller
 {
@@ -128,6 +130,8 @@ class RaceController extends Controller
 
     public function index(): View
     {
+        User::checkPermissions("race index");
+
         $races = Race::all()->sortBy('round')->sortByDesc('season_id');
 
         foreach ($races as $race)
@@ -147,6 +151,8 @@ class RaceController extends Controller
 
     public function create(): View
     {
+        User::checkPermissions("race create");
+
         $tracks = Track::all();
         $seasons = Season::all();
         $tiers = Tier::all();
@@ -159,6 +165,8 @@ class RaceController extends Controller
 
     public function show(Race $race): View
     {
+        User::checkPermissions("race show");
+
         $race_drivers = $this->getAssociatedDrivers($race);
         $fastestlap = $this->getAssociatedFastestLap($race);
 
@@ -178,6 +186,8 @@ class RaceController extends Controller
 
     public function edit(Race $race): View
     {
+        User::checkPermissions("race edit");
+
         $tracks = Track::all();
         $seasons = Season::all();
         $tiers = Tier::all();
@@ -194,6 +204,8 @@ class RaceController extends Controller
 
     public function delete(Race $race): View
     {
+        User::checkPermissions("race delete");
+
         $race_drivers = $this->getAssociatedDrivers($race);
         $fastestlap = $this->getAssociatedFastestLap($race);
 
@@ -213,6 +225,8 @@ class RaceController extends Controller
 
     public function destroy(Race $race)
     {
+        User::checkPermissions("race delete");
+
         $race->delete();
 
         return redirect()->route('race')->with('status', 'Race successfully removed');
@@ -220,6 +234,8 @@ class RaceController extends Controller
 
     public function update(Request $request, Race $race): RedirectResponse
     {
+        User::checkPermissions("race update");
+
         $fastestlap = $this->getAssociatedFastestLap($race);
         $race_drivers = $this->getAssociatedDrivers($race);
         $shortqualifyingdrivers = $this->getAssociatedShortQualifyingDrivers($race);
@@ -257,6 +273,8 @@ class RaceController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+        User::checkPermissions("race edit");
+
         $race = new Race();
 
         $race->track_id = $request->track_id;

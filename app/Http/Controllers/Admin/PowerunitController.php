@@ -4,25 +4,35 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Powerunit;
+use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class PowerunitController extends Controller
 {
-    public function index()
+    public function index(): View
     {
+        User::checkPermissions("powerunit index");
+
         return view('private.powerunit.index',[
-            'powerunits' => DB::table('powerunits')->paginate(20)
+            'powerunits' => DB::table('powerunits')->paginate(10)
         ]);
     }
 
-    public function create()
+    public function create(): View
     {
+        User::checkPermissions("powerunit create");
+
         return view('private.powerunit.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
+        User::checkPermissions("powerunit create");
+
         $powerunit = new Powerunit();
 
         $powerunit->name = $request->name;
@@ -32,18 +42,24 @@ class PowerunitController extends Controller
         return redirect()->route('powerunit')->with('status', 'Power unit successfully added');
     }
 
-    public function show(Powerunit $powerunit)
+    public function show(Powerunit $powerunit): View
     {
+        User::checkPermissions("powerunit show");
+
         return view('private.powerunit.show', compact('powerunit'));
     }
 
-    public function edit(Powerunit $powerunit)
+    public function edit(Powerunit $powerunit): View
     {
+        User::checkPermissions("powerunit edit");
+
         return view('private.powerunit.edit', compact('powerunit'));
     }
 
-    public function update(Request $request, Powerunit $powerunit)
+    public function update(Request $request, Powerunit $powerunit): RedirectResponse
     {
+        User::checkPermissions("powerunit edit");
+
         $powerunit->name = $request->name;
 
         $powerunit->save();
@@ -51,13 +67,17 @@ class PowerunitController extends Controller
         return redirect()->route('powerunit')->with('status', 'Power unit successfully updated');
     }
 
-    public function delete(Powerunit $powerunit)
+    public function delete(Powerunit $powerunit): View
     {
+        User::checkPermissions("powerunit delete");
+
         return view('private.powerunit.delete', compact('powerunit'));
     }
 
-    public function destroy(Powerunit $powerunit)
+    public function destroy(Powerunit $powerunit): RedirectResponse
     {
+        User::checkPermissions("powerunit delete");
+
         $powerunit->delete();
         return redirect()->route('powerunit')->with('status', 'Power unit successfully deleted');
     }

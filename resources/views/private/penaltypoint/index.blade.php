@@ -42,19 +42,19 @@
                 </thead>
 
                 <tbody>
-                @foreach($drivers as $driver)
-                    <tr>
-                        <td>{{ $driver->name }}</td>
-                        <td>{{ $driver->amount }}</td>
+                    @foreach($drivers as $driver)
+                        <tr>
+                            <td>{{ $driver->name }}</td>
+                            <td @if($driver->amount >= 12) class="red" @endif>{{ $driver->amount }}</td>
 
-                        <td class="permissions-button">
-                            <a href="{{ route('penaltypoint.edit', ['driver' => $driver->id]) }}">
-                                <img src="{{ asset('resources/media/svgs/person-lines-fill.svg') }}" alt="X">
-                                Manage Penalty points
-                            </a>
-                        </td>
-                    </tr>
-                @endforeach
+                            <td class="permissions-button">
+                                <a href="{{ route('penaltypoint.edit', ['driver' => $driver->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/person-lines-fill.svg') }}" alt="X">
+                                    Manage Penalty points
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

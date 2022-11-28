@@ -557,6 +557,10 @@
 .private-index main .index-list-container .table-wrapper-container table tbody tr {
   position: relative;
 }
+.private-index main .index-list-container .table-wrapper-container table tbody tr .red {
+  color: #ff0000;
+  font-weight: bold;
+}
 .private-index main .index-list-container .table-wrapper-container table tbody tr td {
   padding: 15px 0 15px 15px;
   text-align: left;
@@ -1533,7 +1537,7 @@
 
 .user-index {
   min-height: 100vh;
-  background-color: #424141FF;
+  background-color: #424141;
   color: white;
 }
 .user-index main .user-table-container {
@@ -1551,7 +1555,7 @@
   padding: 20px 10px;
 }
 .user-index main .user-table-container table tbody tr td a {
-  color: #424141FF;
+  color: #424141;
   font-weight: bold;
   text-decoration: none;
   padding: 7.5px 15px;
@@ -2462,7 +2466,7 @@
   padding: 0 7.5px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #424141FF;
+  color: #424141;
   border-radius: 20px;
   font-stretch: expanded;
 }
@@ -2521,7 +2525,7 @@
   text-decoration: none;
   padding: 5px;
   border-radius: 25px;
-  color: #424141FF;
+  color: #424141;
   width: 100px;
   text-align: center;
 }
@@ -3307,7 +3311,7 @@
 }
 
 .the-team {
-  background-color: #424141FF;
+  background-color: #424141;
 }
 .the-team main .the-team-container {
   margin: 50px auto 0 auto;

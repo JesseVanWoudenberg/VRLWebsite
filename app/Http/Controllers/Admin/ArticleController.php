@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequests\ArticleStoreRequest;
 use App\Http\Requests\ArticleRequests\ArticleUpdateRequest;
 use App\Models\Article;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -15,41 +16,23 @@ class ArticleController extends Controller
 {
     public function index(): View
     {
-        if(Auth::check()) {
-            if (!Auth::user()->hasPermissionTo("article index")) {
-                abort(403);
-            }
-        } else {
-            abort(403);
-        }
+        User::checkPermissions("article index");
 
         return view('private.article.index', [
-            'articles' => DB::table('articles')->paginate(20)
+            'articles' => DB::table('articles')->paginate(10)
         ]);
     }
 
     public function create(): View
     {
-        if(Auth::check()) {
-            if (!Auth::user()->hasPermissionTo("article create")) {
-                abort(403);
-            }
-        } else {
-            abort(403);
-        }
+        User::checkPermissions("article create");
 
         return view('private.article.create');
     }
 
     public function store(ArticleStoreRequest $request): RedirectResponse
     {
-        if(Auth::check()) {
-            if (!Auth::user()->hasPermissionTo("article create")) {
-                abort(403);
-            }
-        } else {
-            abort(403);
-        }
+        User::checkPermissions("article create");
 
         $news = new Article();
         $news->article_name = $request->article_name;
@@ -61,39 +44,21 @@ class ArticleController extends Controller
 
     public function show(Article $article): View
     {
-        if(Auth::check()) {
-            if (!Auth::user()->hasPermissionTo("article show")) {
-                abort(403);
-            }
-        } else {
-            abort(403);
-        }
+        User::checkPermissions("article show");
 
         return view('private.article.show', compact('article'));
     }
 
     public function edit(Article $article): View
     {
-        if(Auth::check()) {
-            if (!Auth::user()->hasPermissionTo("article edit")) {
-                abort(403);
-            }
-        } else {
-            abort(403);
-        }
+        User::checkPermissions("article edit");
 
         return view('private.article.edit', compact('article'));
     }
 
     public function update(ArticleUpdateRequest $request, Article $article): RedirectResponse
     {
-        if(Auth::check()) {
-            if (!Auth::user()->hasPermissionTo("article edit")) {
-                abort(403);
-            }
-        } else {
-            abort(403);
-        }
+        User::checkPermissions("article edit");
 
         $article->article_name = $request->article_name;
         $article->author = $request->author;
@@ -105,26 +70,14 @@ class ArticleController extends Controller
 
     public function delete(Article $article): View
     {
-        if(Auth::check()) {
-            if (!Auth::user()->hasPermissionTo("article delete")) {
-                abort(403);
-            }
-        } else {
-            abort(403);
-        }
+        User::checkPermissions("article delete");
 
         return view('private.article.delete', compact('article'));
     }
 
     public function destroy(Article $article): RedirectResponse
     {
-        if(Auth::check()) {
-            if (!Auth::user()->hasPermissionTo("article delete")) {
-                abort(403);
-            }
-        } else {
-            abort(403);
-        }
+        User::checkPermissions("article delete");
 
         $article->delete();
         return redirect()->route('article')->with('status', 'Article successfully deleted');

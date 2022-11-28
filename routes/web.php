@@ -120,70 +120,58 @@ Route::get('/admin/article/{article}/delete', [ArticleController::class, 'delete
 Route::get('/admin/article', [ArticleController::class, 'index'])->name('article');
 
 // Constructor Championship routing
-Route::group(['middleware' => ['role:admin']], function() {
-    Route::resource('/admin/constructorchampionship', ConstructorchampionshipController::class);
-    Route::get('/admin/constructorchampionship/{constructorchampionship}/delete', [ConstructorchampionshipController::class, 'delete'])->name('constructorchampionship.delete');
-    Route::get('/admin/constructorchampionship', [ConstructorchampionshipController::class, 'index'])->name('constructorchampionship');
-});
+Route::resource('/admin/constructorchampionship', ConstructorchampionshipController::class);
+Route::get('/admin/constructorchampionship/{constructorchampionship}/delete', [ConstructorchampionshipController::class, 'delete'])->name('constructorchampionship.delete');
+Route::get('/admin/constructorchampionship', [ConstructorchampionshipController::class, 'index'])->name('constructorchampionship');
 
 // Driver Championship routing
-Route::group(['middleware' => ['role:admin']], function() {
-    Route::resource('/admin/driverchampionship', DriverchampionshipController::class);
-    Route::get('/admin/driverchampionship/{driverchampionship}/delete', [DriverchampionshipController::class, 'delete'])->name('driverchampionship.delete');
-    Route::get('/admin/driverchampionship', [DriverchampionshipController::class, 'index'])->name('driverchampionship');
-});
+Route::resource('/admin/driverchampionship', DriverchampionshipController::class);
+Route::get('/admin/driverchampionship/{driverchampionship}/delete', [DriverchampionshipController::class, 'delete'])->name('driverchampionship.delete');
+Route::get('/admin/driverchampionship', [DriverchampionshipController::class, 'index'])->name('driverchampionship');
 
 // Driver routing
-Route::group(['middleware' => ['role:admin']], function() {
-    Route::resource('/admin/driver', DriverController::class);
-    Route::get('/admin/driver/{driver}/delete', [DriverController::class, 'delete'])->name('driver.delete');
-    Route::get('/admin/driver/', [DriverController::class, 'index'])->name('driver');
-});
+Route::resource('/admin/driver', DriverController::class);
+Route::get('/admin/driver/{driver}/delete', [DriverController::class, 'delete'])->name('driver.delete');
+Route::get('/admin/driver/', [DriverController::class, 'index'])->name('driver');
 
 // Power unit routing
-Route::group(['middleware' => ['role:admin']], function() {
-    Route::resource('/admin/powerunit', PowerunitController::class);
-    Route::get('/admin/powerunit/{powerunit}/delete', [PowerunitController::class, 'delete'])->name('powerunit.delete');
-    Route::get('/admin/powerunit', [PowerunitController::class, 'index'])->name('powerunit');
-});
+Route::resource('/admin/powerunit', PowerunitController::class);
+Route::get('/admin/powerunit/{powerunit}/delete', [PowerunitController::class, 'delete'])->name('powerunit.delete');
+Route::get('/admin/powerunit', [PowerunitController::class, 'index'])->name('powerunit');
 
 // Race routing
-Route::group(['middleware' => ['role:admin']], function() {
-    Route::resource('/admin/race', RaceController::class);
-    Route::get('/admin/race/{race}/delete', [RaceController::class, 'delete'])->name('race.delete');
-    Route::get('/admin/race', [RaceController::class, 'index'])->name('race');
-});
+Route::resource('/admin/race', RaceController::class);
+Route::get('/admin/race/{race}/delete', [RaceController::class, 'delete'])->name('race.delete');
+Route::get('/admin/race', [RaceController::class, 'index'])->name('race');
 
 // Season routing
-Route::group(['middleware' => ['role:admin']], function() {
-    Route::resource('/admin/season', SeasonController::class);
-    Route::get('/admin/season/{season}/delete', [SeasonController::class, 'delete'])->name('season.delete');
-    Route::get('/admin/season', [SeasonController::class, 'index'])->name('season');
-});
+Route::resource('/admin/season', SeasonController::class);
+Route::get('/admin/season/{season}/delete', [SeasonController::class, 'delete'])->name('season.delete');
+Route::get('/admin/season', [SeasonController::class, 'index'])->name('season');
 
 // Team routing
-Route::group(['middleware' => ['role:admin']], function() {
-    Route::resource('/admin/team', TeamController::class);
-    Route::get('/admin/team/{team}/delete', [TeamController::class, 'delete'])->name('team.delete');
-    Route::get('/admin/team', [TeamController::class, 'index'])->name('team');
-});
+Route::resource('/admin/team', TeamController::class);
+Route::get('/admin/team/{team}/delete', [TeamController::class, 'delete'])->name('team.delete');
+Route::get('/admin/team', [TeamController::class, 'index'])->name('team');
 
 // Tier routing
-Route::group(['middleware' => ['role:admin']], function() {
-    Route::resource('/admin/tier', TierController::class);
-    Route::get('/admin/tier/{tier}/delete', [TierController::class, 'delete'])->name('tier.delete');
-    Route::get('/admin/tier', [TierController::class, 'index'])->name('tier');
-});
+Route::resource('/admin/tier', TierController::class);
+Route::get('/admin/tier/{tier}/delete', [TierController::class, 'delete'])->name('tier.delete');
+Route::get('/admin/tier', [TierController::class, 'index'])->name('tier');
 
 // Track routing
-Route::group(['middleware' => ['role:admin']], function() {
-    Route::resource('/admin/track', TrackController::class);
-    Route::get('/admin/track/{track}/delete', [TrackController::class, 'delete'])->name('track.delete');
-    Route::get('/admin/track', [TrackController::class, 'index'])->name('track');
-});
+Route::resource('/admin/track', TrackController::class);
+Route::get('/admin/track/{track}/delete', [TrackController::class, 'delete'])->name('track.delete');
+Route::get('/admin/track', [TrackController::class, 'index'])->name('track');
+
+// Penalty points routing
+Route::get('/admin/penaltypoint', [PenaltypointController::class, 'index'])->name('penaltypoint');
+Route::get('/admin/penaltypoint/create', [PenaltypointController::class, 'create'])->name('penaltypoint.create');
+Route::get('/admin/penaltypoint/store', [PenaltypointController::class, 'store'])->name('penaltypoint.store');
+Route::get('/admin/penaltypoint/{driver}/edit', [PenaltypointController::class, 'edit'])->name('penaltypoint.edit');
+Route::get('/admin/penaltypoint/{driver}/update', [PenaltypointController::class, 'update'])->name('penaltypoint.update');
 
 Route::group(['middleware' => ['role:admin']], function() {
-
     Route::resource('admin/user', UserController::class);
     Route::get('admin/user/{user}/delete', [UserController::class, 'delete'])->name('user.delete');
     Route::get('admin/user/{user}/permissions', [UserController::class, 'permissions'])->name('user.permissions');
@@ -192,19 +180,9 @@ Route::group(['middleware' => ['role:admin']], function() {
 });
 
 Route::group(['middleware' => ['role:admin']], function() {
-
     Route::resource('admin/role', RoleController::class);
     Route::get('admin/role/{role}/delete', [RoleController::class, 'delete'])->name('role.delete');
     Route::get('admin/role/{role}/permissions', [RoleController::class, 'permissions'])->name('role.permissions');
     Route::get('admin/role/{role}/update-permissions', [RoleController::class, 'updatepermissions'])->name('role.update-permissions');
     Route::get('admin/role', [RoleController::class, 'index'])->name('role');
-});
-
-Route::group(['middleware' => ['role:admin']], function() {
-
-    Route::get('/admin/penaltypoint', [PenaltypointController::class, 'index'])->name('penaltypoint');
-    Route::get('/admin/penaltypoint/create', [PenaltypointController::class, 'create'])->name('penaltypoint.create');
-    Route::get('/admin/penaltypoint/store', [PenaltypointController::class, 'store'])->name('penaltypoint.store');
-    Route::get('/admin/penaltypoint/{driver}/edit', [PenaltypointController::class, 'edit'])->name('penaltypoint.edit');
-    Route::get('/admin/penaltypoint/{driver}/update', [PenaltypointController::class, 'update'])->name('penaltypoint.update');
 });
