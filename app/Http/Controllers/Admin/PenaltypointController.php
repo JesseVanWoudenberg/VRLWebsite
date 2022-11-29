@@ -82,18 +82,18 @@ class PenaltypointController extends Controller
         foreach ($penaltypoints as $penaltypoint)
         {
             $racesLeft = Race::query()
-                ->select('races.id', 'races.round', 'races.season_id')
-                ->whereIn('races.id',(function ($query) {
-                    $query->from('racedrivers')
-                        ->select('race_id')
-                        ->where('race_id','=', DB::raw('races.id'));
+                ->select('*')
+                ->whereIn('races.tier_id', (function ($query) use ($penaltypoint) {
+                    $query->from('tiers')
+                        ->select('tiers.id')
+                        ->where('tiers.tiernumber', '=', $penaltypoint->race->tier->tiernumber);
                 }))
-                ->whereIn('races.season_id',(function ($query) use ($penaltypoint) {
-                    $query->from('seasons')
-                        ->select('season_id')
-                        ->where('seasonnumber','>=', $penaltypoint->race->season->seasonnumber);
+                ->whereIn('races.raceformat_id', (function ($query) {
+                    $query->from('raceformats')
+                        ->select('raceformats.id')
+                        ->where('raceformats.format', '=', 'full');
                 }))
-                ->where('races.round','>=', $penaltypoint->race->round)
+                ->where('races.round', '>=', $penaltypoint->race->round)
                 ->get()->count();
 
             $penaltypoint['racesleft'] = (11 - $racesLeft);

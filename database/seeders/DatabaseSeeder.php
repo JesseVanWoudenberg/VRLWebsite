@@ -18,11 +18,11 @@ class DatabaseSeeder extends Seeder
             RoleAndPermissionSeeder::class,
             UserSeeder::class,
 //            ArticleSeeder::class,
-//            RaceformatSeeder::class,
+            RaceformatSeeder::class,
 //            TierSeeder::class,
-//            PowerunitSeeder::class,
-//            TrackSeeder::class,
-//            TeamSeeder::class,
+            PowerunitSeeder::class,
+            TrackSeeder::class,
+            TeamSeeder::class,
 //            DriverSeeder::class
         ]);
     }
