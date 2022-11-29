@@ -14,6 +14,9 @@ const reporterDropdown = document.getElementById('reporter-dropdown');
 const championshipsButton = document.getElementById('championships-button');
 const championshipsDropdown = document.getElementById('championships-dropdown');
 
+const authButton = document.getElementById('auth-button');
+const authDropdown = document.getElementById('auth-dropdown');
+
 const navFunctionality = () => {
 
     if(localStorage.getItem('menu-open') === "true") {
@@ -46,11 +49,13 @@ const collapseAllCategories = () => {
     fiaDropdown.classList.remove('activated');
     reporterDropdown.classList.remove('activated');
     championshipsDropdown.classList.remove('activated');
+    authDropdown.classList.remove('activated');
 
     localStorage.setItem('adminDropdown-open', "false");
     localStorage.setItem('fiaDropdown-open', "false");
     localStorage.setItem('reporterDropdown-open', "false");
     localStorage.setItem('championshipsDropdown-open', "false");
+    localStorage.setItem('authDropdown-open', "false");
 }
 
 const navCategoriesFunctionality = () => {
@@ -66,6 +71,9 @@ const navCategoriesFunctionality = () => {
     }
     if(localStorage.getItem('championshipsDropdown-open') === "true") {
         championshipsDropdown.classList.add('activated');
+    }
+    if(localStorage.getItem('authDropdown-open') === "true") {
+        authDropdown.classList.add('activated');
     }
 
     adminButton.addEventListener('click', () => {
@@ -117,6 +125,19 @@ const navCategoriesFunctionality = () => {
             localStorage.setItem('championshipsDropdown-open', "true");
         } else {
             localStorage.setItem('championshipsDropdown-open', "false");
+        }
+    })
+
+    authButton.addEventListener('click', () => {
+        let active = authDropdown.classList.contains('activated');
+
+        collapseAllCategories();
+
+        if (!active) {
+            authDropdown.classList.add('activated');
+            localStorage.setItem('authDropdown-open', "true");
+        } else {
+            localStorage.setItem('authDropdown-open', "false");
         }
     })
 }

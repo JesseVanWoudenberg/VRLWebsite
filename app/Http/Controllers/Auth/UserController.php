@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Requests\UserRequests\UserStoreRequest;
+use App\Http\Requests\UserRequests\UserUpdateRequest;
+use App\Models\Driver;
 use \Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -23,17 +26,22 @@ class UserController extends Controller
 
     public function create(): View
     {
-        return view('private.users.create');
+        $drivers = Driver::all();
+
+        return view('private.users.create', compact('drivers'));
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(UserStoreRequest $request): RedirectResponse
     {
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $user->save();
 
+        if ($request->driver_id != "none") {
+            $user->driver_id = $request->driver_id;
+        }
+        $user->save();
 
         return redirect()->route('user')->with('status', 'User successfully created');
     }
@@ -45,10 +53,12 @@ class UserController extends Controller
 
     public function edit(User $user): View
     {
-        return view('private.users.edit', compact('user'));
+        $drivers = Driver::all();
+
+        return view('private.users.edit', compact('user', 'drivers'));
     }
 
-    public function update(Request $request, User $user): RedirectResponse
+    public function update(UserUpdateRequest $request, User $user): RedirectResponse
     {
         if($request->password == "") {
             $user->name = $request->name;
@@ -58,6 +68,12 @@ class UserController extends Controller
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
         }
+        if ($request->driver_id != "none") {
+            $user->driver_id = $request->driver_id;
+        } else {
+            $user->driver_id = null;
+        }
+
         $user->save();
 
         return redirect()->route('user')->with('status', 'User successfully updated');

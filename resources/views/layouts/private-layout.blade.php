@@ -152,7 +152,21 @@
                                         <a href="{{ route('powerunit') }}">Power-units</a>
                                     </li>
                                 @endcan
+                            </ul>
+                        </div>
+                    </li>
 
+                    <li>
+                        <div class="private-nav-button-container">
+                            <button id="auth-button">
+                                <img class="icon-svg" src="{{ asset('resources/media/svgs/lock-fill.svg') }}" alt="X">
+                                <span>Auth</span>
+                                <img class="arrow-down-svg"  src="{{ asset('resources/media/svgs/arrow-down.svg') }}" alt="X">
+                            </button>
+                        </div>
+
+                        <div class="private-nav-dropdown-content" id="auth-dropdown">
+                            <ul>
                                 @can('user index')
                                     <li>
                                         <a href="{{ route('user') }}">User</a>
@@ -162,6 +176,12 @@
                                 @can('role index')
                                     <li>
                                         <a href="{{ route('role') }}">Role</a>
+                                    </li>
+                                @endcan
+
+                                @can('permission index')
+                                    <li>
+                                        <a href="{{ route('permission') }}">Permission</a>
                                     </li>
                                 @endcan
                             </ul>

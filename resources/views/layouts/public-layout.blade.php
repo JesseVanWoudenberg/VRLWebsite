@@ -54,46 +54,32 @@
 {{--                        </div>--}}
 {{--                    </li>--}}
 
-                    <li>
-                        <a class="non-dropdown-link" href="{{ route('news') }}">News</a>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a class="non-dropdown-link" href="{{ route('news') }}">News</a>--}}
+{{--                    </li>--}}
 
                     <li>
                         <a class="non-dropdown-link" href="{{ route('the-team') }}">The team</a>
                     </li>
 
                     <li>
-                        <a class="non-dropdown-link" target="_blank" href="https://discord.gg/xn2gcnJb">Discord</a>
+                        <a class="non-dropdown-link" target="_blank" href="https://discord.gg/9edxrvJDMc">Discord</a>
                     </li>
                 </ul>
 
                 <div class="user-links-container">
                     <ul>
                         @guest
-
                             <li>
                                 <a href="{{ route('login') }}">Login</a>
                             </li>
-
                         @endguest
 
                         @if(Auth::check())
-                            @if(Auth::user()->getRoleNames()->first() == "admin")
-
+                            @if(Auth::user()->hasRole("staff"))
                                 <li>
-                                    <a href="{{ route('admin') }}">Admin</a>
+                                    <a href="{{ route('admin') }}">Admin Panel</a>
                                 </li>
-
-                            @endif
-                        @endif
-
-                        @if(Auth::check())
-                            @if(Auth::user()->getRolenames()->first() == "reporter")
-
-                                <li>
-                                    <a href="{{ route('article') }}">Articles</a>
-                                </li>
-
                             @endif
                         @endif
 
@@ -105,7 +91,6 @@
                             <li>
                                 <a href="{{ route('signout') }}">Sign out</a>
                             </li>
-
                         @endauth
                     </ul>
                 </div>

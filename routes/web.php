@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\PenaltypointController;
+use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Auth\RoleController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Open\TheteamController;
@@ -170,6 +171,10 @@ Route::get('/admin/penaltypoint/create', [PenaltypointController::class, 'create
 Route::get('/admin/penaltypoint/store', [PenaltypointController::class, 'store'])->name('penaltypoint.store');
 Route::get('/admin/penaltypoint/{driver}/edit', [PenaltypointController::class, 'edit'])->name('penaltypoint.edit');
 Route::get('/admin/penaltypoint/{driver}/update', [PenaltypointController::class, 'update'])->name('penaltypoint.update');
+
+Route::resource('admin/permission', PermissionController::class);
+Route::get('/admin/permission/{permission}/permission', [PermissionController::class, 'delete'])->name('permission.delete');
+Route::get('/admin/permission', [PermissionController::class, 'index'])->name('permission');
 
 Route::group(['middleware' => ['role:admin']], function() {
     Route::resource('admin/user', UserController::class);

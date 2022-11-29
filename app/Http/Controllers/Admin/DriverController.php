@@ -47,7 +47,7 @@ class DriverController extends Controller
 
         $driver->save();
 
-        return redirect()->route('driver')->with('status', 'Driver successfully added');
+        return redirect()->route('driver')->with('status', 'Driver successfully created');
     }
 
     public function show(Driver $driver): View

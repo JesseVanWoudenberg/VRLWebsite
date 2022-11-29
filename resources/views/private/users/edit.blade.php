@@ -32,6 +32,16 @@
             <label for="password">Password, leave empty to keep old password</label>
             <input @error('password') @enderror type="password" id="password" name='password'>
 
+            <label for="driver_id">Optional Linked Driver ID</label>
+            <div class="select-container">
+                <select name="driver_id" id="driver_id">
+                    <option value="none" @if($user->driver_id == null) selected @endif>None</option>
+                    @foreach($drivers as $driver)
+                        <option value="{{ $driver->id }}" @if($driver->id == $user->driver_id) selected @endif>{{ $driver->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <input type="submit" value="Edit">
         </form>
     </div>

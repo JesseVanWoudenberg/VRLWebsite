@@ -1,8 +1,13 @@
+@php use App\Models\User; @endphp
 @extends('layouts.public-layout')
 
-@section('page-title') The Team @endsection
+@section('page-title')
+    The Team
+@endsection
 
-@section('page') the-team @endsection
+@section('page')
+    the-team
+@endsection
 
 @section('content')
 
@@ -17,9 +22,11 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>Ijesseeee</td>
-                    </tr>
+                    @foreach(User::role('developer')->get() as $user)
+                        <tr>
+                            <td>{{ $user->name }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -31,27 +38,12 @@
                         <th>Admins</th>
                     </tr>
                 </thead>
-
+                    @foreach(User::role('admin')->get() as $user)
+                        <tr>
+                            <td>{{ $user->name }}</td>
+                        </tr>
+                    @endforeach
                 <tbody>
-                    <tr>
-                        <td>Maxette</td>
-                    </tr>
-
-                    <tr>
-                        <td>Bram</td>
-                    </tr>
-
-                    <tr>
-                        <td>Pobydd</td>
-                    </tr>
-
-                    <tr>
-                        <td>Boots & Cats</td>
-                    </tr>
-
-                    <tr>
-                        <td>Kayak</td>
-                    </tr>
 
                 </tbody>
             </table>
@@ -66,29 +58,11 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>Maxette</td>
-                    </tr>
-
-                    <tr>
-                        <td>Bram</td>
-                    </tr>
-
-                    <tr>
-                        <td>Pobydd</td>
-                    </tr>
-
-                    <tr>
-                        <td>Sebb</td>
-                    </tr>
-
-                    <tr>
-                        <td>iDieLots</td>
-                    </tr>
-
-                    <tr>
-                        <td>Gally</td>
-                    </tr>
+                    @foreach(User::role('FIA')->get() as $user)
+                        <tr>
+                            <td>{{ $user->name }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
