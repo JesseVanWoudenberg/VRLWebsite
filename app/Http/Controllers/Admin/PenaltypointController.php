@@ -97,19 +97,32 @@ class PenaltypointController extends Controller
         foreach ($penaltypoints as $penaltypoint)
         {
             $racesLeft = Race::query()
-                ->select('*')
-                ->whereIn('races.tier_id', (function ($query) use ($penaltypoint) {
+                ->select('races.*', 'seasons.seasonnumber')
+                ->join('seasons','races.season_id','=','seasons.id')
+                ->whereIn('races.tier_id', (function ($query) {
                     $query->from('tiers')
                         ->select('tiers.id')
-                        ->where('tiers.tiernumber', '=', $penaltypoint->race->tier->tiernumber);
+                        ->where('tiers.tiernumber','=',1);
                 }))
                 ->whereIn('races.raceformat_id', (function ($query) {
                     $query->from('raceformats')
                         ->select('raceformats.id')
-                        ->where('raceformats.format', '=', 'full');
+                        ->where('raceformats.format','=','full');
                 }))
-                ->where('races.round', '>=', $penaltypoint->race->round)
-                ->where('races.season_id', '>=', $penaltypoint->race->season_id)
+                ->whereIn('races.id',(function ($query) {
+                    $query->from('racedrivers')
+                        ->select('racedrivers.race_id')
+                        ->where('racedrivers.race_id','=', DB::raw('races.id'));
+                }))
+                ->whereRaw("
+                    CASE WHEN seasonnumber = " . $penaltypoint->race->season->seasonnumber . " THEN
+                        IF(races.round >= " . $penaltypoint->race->round . ", TRUE, FALSE)
+                    WHEN seasonnumber < " . $penaltypoint->race->season->seasonnumber . " THEN FALSE
+                    WHEN seasonnumber > " . $penaltypoint->race->season->seasonnumber . " THEN TRUE
+                    END
+                ")
+                ->orderBy('seasons.seasonnumber','desc')
+                ->orderBy('races.round','desc')
                 ->get()->count();
 
             if ($racesLeft > 10)
@@ -117,7 +130,7 @@ class PenaltypointController extends Controller
                 $racesLeft = 0;
             }
 
-            $penaltypoint['racesleft'] = (10 - $racesLeft);
+            $penaltypoint['racesleft'] = (11 - $racesLeft);
         }
 
         $penaltypoints = $penaltypoints->sortBy('racesleft');

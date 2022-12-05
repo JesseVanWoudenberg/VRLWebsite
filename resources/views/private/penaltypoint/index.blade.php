@@ -1,8 +1,13 @@
+@php use Illuminate\Support\Facades\Session; @endphp
 @extends('layouts.private-layout')
 
-@section('page-title') Penalty point - Index @endsection
+@section('page-title')
+    Penalty point - Index
+@endsection
 
-@section('page') private-index @endsection
+@section('page')
+    private-index
+@endsection
 
 @section('content')
 
@@ -10,11 +15,11 @@
 
         <div class="table-header">
 
-            @if(\Illuminate\Support\Facades\Session::exists('status'))
-                <h1 @if(Illuminate\Support\Str::contains(\Illuminate\Support\Facades\Session::get('status'), 'create')) class="created" @endif
-                @if(Illuminate\Support\Str::contains(\Illuminate\Support\Facades\Session::get('status'), 'delete')) class="deleted" @endif
-                    @if(Illuminate\Support\Str::contains(\Illuminate\Support\Facades\Session::get('status'), 'updated')) class="edited" @endif>
-                    {{ \Illuminate\Support\Facades\Session::get('status') }}
+            @if(Session::exists('status'))
+                <h1 @if(Illuminate\Support\Str::contains(Session::get('status'), 'create')) class="created" @endif
+                @if(Illuminate\Support\Str::contains(Session::get('status'), 'delete')) class="deleted" @endif
+                    @if(Illuminate\Support\Str::contains(Session::get('status'), 'updated')) class="edited" @endif>
+                    {{ Session::get('status') }}
                 </h1>
             @elseif($errors->any())
                 @foreach($errors->all() as $error)
@@ -45,7 +50,9 @@
                     @foreach($drivers as $driver)
                         <tr>
                             <td>{{ $driver->name }}</td>
-                            <td @if($driver->amount >= 12) class="red" @endif>{{ $driver->amount }}</td>
+                            <td @if($driver->amount >= 7 && $driver->amount < 10) class="orange" @elseif($driver->amount >= 10) class="red" @endif>
+                                {{ $driver->amount }} @if($driver->amount >= 7 && $driver->amount < 10) Qualifying Ban @elseif($driver->amount >= 10) Race ban @endif
+                            </td>
 
                             <td class="permissions-button">
                                 <a href="{{ route('penaltypoint.edit', ['driver' => $driver->id]) }}">

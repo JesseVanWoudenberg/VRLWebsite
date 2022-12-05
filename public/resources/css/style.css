@@ -561,12 +561,18 @@
   color: #ff0000;
   font-weight: bold;
 }
+.private-index main .index-list-container .table-wrapper-container table tbody tr .orange {
+  color: #e34c0d;
+  font-weight: bold;
+}
 .private-index main .index-list-container .table-wrapper-container table tbody tr td {
+  white-space: nowrap;
   padding: 15px 0 15px 15px;
   text-align: left;
   color: #111111;
 }
 .private-index main .index-list-container .table-wrapper-container table tbody tr td a {
+  white-space: nowrap;
   text-decoration: none;
   color: #111111;
   font-weight: bold;
@@ -1166,6 +1172,31 @@
   height: 45px;
   width: 175px;
 }
+.race-create-edit-delete main .race-create-container form .date-picker {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 300px;
+  margin: 25px auto 0 auto;
+}
+.race-create-edit-delete main .race-create-container form .date-picker label {
+  font-size: 20px;
+  font-weight: bold;
+  color: #111111;
+  padding-bottom: 10px;
+  text-align: center;
+  width: 300px;
+}
+.race-create-edit-delete main .race-create-container form .date-picker input[type=date] {
+  border: none;
+  border-top: 2px #111111 solid;
+  text-align: center;
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #111111;
+}
 .race-create-edit-delete main .race-create-container form .race-results-container {
   margin: 25px auto 0 auto;
   width: 600px;
@@ -1537,7 +1568,7 @@
 
 .user-index {
   min-height: 100vh;
-  background-color: #424141FF;
+  background-color: #424141;
   color: white;
 }
 .user-index main .user-table-container {
@@ -1555,7 +1586,7 @@
   padding: 20px 10px;
 }
 .user-index main .user-table-container table tbody tr td a {
-  color: #424141FF;
+  color: #424141;
   font-weight: bold;
   text-decoration: none;
   padding: 7.5px 15px;
@@ -2466,7 +2497,7 @@
   padding: 0 7.5px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #424141FF;
+  color: #424141;
   border-radius: 20px;
   font-stretch: expanded;
 }
@@ -2525,7 +2556,7 @@
   text-decoration: none;
   padding: 5px;
   border-radius: 25px;
-  color: #424141FF;
+  color: #424141;
   width: 100px;
   text-align: center;
 }
@@ -3311,7 +3342,7 @@
 }
 
 .the-team {
-  background-color: #424141FF;
+  background-color: #424141;
 }
 .the-team main .the-team-container {
   margin: 50px auto 0 auto;

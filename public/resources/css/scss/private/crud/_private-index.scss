@@ -154,14 +154,21 @@
                                 font-weight: bold;
                             }
 
+                            .orange {
+                                color: #e34c0d;
+                                font-weight: bold;
+                            }
+
                             td {
 
+                                white-space: nowrap;
                                 padding: 15px 0 15px 15px;
                                 text-align: left;
                                 color: #111111;
 
                                 a {
 
+                                    white-space: nowrap;
                                     text-decoration: none;
                                     color: #111111;
                                     font-weight: bold;

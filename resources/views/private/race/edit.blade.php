@@ -57,6 +57,11 @@
                 </div>
             </div>
 
+            <div class="date-picker">
+                <label for="date">Date</label>
+                <input type="date" name="date" id="date" value="{{ $race->date }}" required>
+            </div>
+
             <div class="race-results-container">
 
                 @for($i = 1; $i < 21; $i++)

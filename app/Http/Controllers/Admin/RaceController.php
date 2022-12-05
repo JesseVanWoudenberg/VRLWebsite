@@ -263,6 +263,7 @@ class RaceController extends Controller
         $race->tier_id = $race->season->tier_id;
         $race->raceformat_id = $request->raceformat_id;
         $race->round = $request->round;
+        $race->date = $request->date;
 
         $race->save();
 
@@ -282,6 +283,7 @@ class RaceController extends Controller
         $race->tier_id = $race->season->tier_id;
         $race->raceformat_id = $request->raceformat_id;
         $race->round = $request->round;
+        $race->date = $request->date;
 
         $race->save();
 
