@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequests\ArticleStoreRequest;
 use App\Http\Requests\ArticleRequests\ArticleUpdateRequest;
 use App\Models\Article;
+use App\Models\Log;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -34,12 +35,19 @@ class ArticleController extends Controller
     {
         User::checkPermissions("article create");
 
-        $news = new Article();
-        $news->article_name = $request->article_name;
-        $news->author = $request->author;
-        $news->description = $request->description;
-        $news->save();
+        $article = new Article();
+        $article->article_name = $request->article_name;
+        $article->author = $request->author;
+        $article->description = $request->description;
+        $article->save();
+
+        $log = new Log();
+        $log->action = "Stored article [ ID: " . $article->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('article')->with('status', 'Article successfully created');
+
     }
 
     public function show(Article $article): View
