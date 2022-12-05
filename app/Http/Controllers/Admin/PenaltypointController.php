@@ -125,12 +125,12 @@ class PenaltypointController extends Controller
                 ->orderBy('races.round','desc')
                 ->get()->count();
 
+            $penaltypoint['racesleft'] = (11 - $racesLeft);
+
             if ($racesLeft > 10)
             {
-                $racesLeft = 0;
+                $penaltypoint['racesleft'] = 0;
             }
-
-            $penaltypoint['racesleft'] = (11 - $racesLeft);
         }
 
         $penaltypoints = $penaltypoints->sortBy('racesleft');

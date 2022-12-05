@@ -1,8 +1,13 @@
+@php use Carbon\Carbon; @endphp
 @extends('layouts.public-layout')
 
-@section('page-title') Tier 1 - Calendar @endsection
+@section('page-title')
+    Tier 1 - Calendar
+@endsection
 
-@section('page') race-calendar @endsection
+@section('page')
+    race-calendar
+@endsection
 
 @section('content')
 
@@ -25,13 +30,13 @@
 
                     <div class="date">
                         <p>
-                            {{ \Carbon\Carbon::make($race->date)->format("d") }}
+                            {{ Carbon::make($race->date)->format("d") }}
                         </p>
                     </div>
 
                     <div class="month">
                         <p>
-                            {{ \Carbon\Carbon::make($race->date)->getTranslatedMonthName() }}
+                            {{ Carbon::make($race->date)->getTranslatedMonthName() }}
                         </p>
                     </div>
 
@@ -42,7 +47,9 @@
                     </div>
 
                     <div class="flag">
-                        <img src="{{ asset('resources/media/flags/' .  strtolower(str_replace(" ", "", $race->track->country )) . "-flag.jpg") }}" alt="">
+                        <img
+                            src="{{ asset('resources/media/flags/' .  strtolower(str_replace(" ", "", $race->track->country )) . "-flag.jpg") }}"
+                            alt="">
                     </div>
 
                     <hr class="divider-line divider-line-1">
@@ -59,7 +66,9 @@
                     <div class="track-map">
                         <div>
                             <a href="{{ route('open-track', ['track' => $race->track->id]) }}">
-                                <img src="{{ asset('resources/media/trackimages/' . strtolower(str_replace(" ", "-", $race->track->name)) . ".png") }}" alt="">
+                                <img
+                                    src="{{ asset('resources/media/trackimages/' . strtolower(str_replace(" ", "-", $race->track->name)) . ".png") }}"
+                                    alt="">
                             </a>
                         </div>
                     </div>
@@ -68,46 +77,46 @@
 
             @endforeach
 
-{{--            <div class="race-calendar-container">--}}
+            {{--            <div class="race-calendar-container">--}}
 
-{{--                <h1>Season {{ $loop->index + 1 }}</h1>--}}
+            {{--                <h1>Season {{ $loop->index + 1 }}</h1>--}}
 
-{{--                <table>--}}
-{{--                    <thead>--}}
-{{--                        <tr>--}}
-{{--                            <th>Round</th>--}}
-{{--                            <th>Race Format</th>--}}
-{{--                            <th>Track</th>--}}
-{{--                            <th>Country</th>--}}
-{{--                        </tr>--}}
-{{--                    </thead>--}}
+            {{--                <table>--}}
+            {{--                    <thead>--}}
+            {{--                        <tr>--}}
+            {{--                            <th>Round</th>--}}
+            {{--                            <th>Race Format</th>--}}
+            {{--                            <th>Track</th>--}}
+            {{--                            <th>Country</th>--}}
+            {{--                        </tr>--}}
+            {{--                    </thead>--}}
 
-{{--                    <tbody>--}}
-{{--                        @foreach($raceseason as $race)--}}
+            {{--                    <tbody>--}}
+            {{--                        @foreach($raceseason as $race)--}}
 
-{{--                            <tr>--}}
-{{--                                <td>{{ $race->round }}</td>--}}
-{{--                                <td>{{ $race->raceformat->format }}</td>--}}
-{{--                                <td>{{ $race->track->name }}</td>--}}
-{{--                                <td>--}}
-{{--                                    <div class="flag-container">--}}
-{{--                                        <img src="{{ asset('resources/media/flags/' .  strtolower(str_replace(" ", "", $race->track->country )) . "-flag.jpg") }}" alt="">--}}
+            {{--                            <tr>--}}
+            {{--                                <td>{{ $race->round }}</td>--}}
+            {{--                                <td>{{ $race->raceformat->format }}</td>--}}
+            {{--                                <td>{{ $race->track->name }}</td>--}}
+            {{--                                <td>--}}
+            {{--                                    <div class="flag-container">--}}
+            {{--                                        <img src="{{ asset('resources/media/flags/' .  strtolower(str_replace(" ", "", $race->track->country )) . "-flag.jpg") }}" alt="">--}}
 
-{{--                                        <p>{{ $race->track->country }}</p>--}}
-{{--                                    </div>--}}
+            {{--                                        <p>{{ $race->track->country }}</p>--}}
+            {{--                                    </div>--}}
 
-{{--                                </td>--}}
+            {{--                                </td>--}}
 
-{{--                                @if($race->done)--}}
-{{--                                    <td><a href="{{ route('open-race', ['race' => $race->id]) }}">Results</a></td>--}}
-{{--                                @else--}}
-{{--                                    <td>No Results yet</td>--}}
-{{--                                @endif--}}
-{{--                            </tr>--}}
-{{--                        @endforeach--}}
-{{--                    </tbody>--}}
-{{--                </table>--}}
-{{--            </div>--}}
+            {{--                                @if($race->done)--}}
+            {{--                                    <td><a href="{{ route('open-race', ['race' => $race->id]) }}">Results</a></td>--}}
+            {{--                                @else--}}
+            {{--                                    <td>No Results yet</td>--}}
+            {{--                                @endif--}}
+            {{--                            </tr>--}}
+            {{--                        @endforeach--}}
+            {{--                    </tbody>--}}
+            {{--                </table>--}}
+            {{--            </div>--}}
 
 
         </div>

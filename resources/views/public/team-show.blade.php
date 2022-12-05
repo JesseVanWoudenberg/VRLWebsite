@@ -1,8 +1,13 @@
+@php use App\Models\Constructorchampionship;use App\Models\Driverchampionship;use App\Models\Fastestlap;use App\Models\Qualifyingdriver;use App\Models\Racedriver;use App\Models\Shortqualifyingdriver; @endphp
 @extends('layouts.public-layout')
 
-@section('page-title') Team - {{ $team->name }} @endsection
+@section('page-title')
+    Team - {{ $team->name }}
+@endsection
 
-@section('page') open-team-show @endsection
+@section('page')
+    open-team-show
+@endsection
 
 @section('content')
 
@@ -36,17 +41,17 @@
 
             <tr>
                 <th>Wins</th>
-                <td>{{ \App\Models\Racedriver::all()->where('team_id', $team->id)->where('dnf', 0)->where('position', 1)->count() }}</td>
+                <td>{{ Racedriver::all()->where('team_id', $team->id)->where('dnf', 0)->where('position', 1)->count() }}</td>
             </tr>
 
             <tr>
                 <th>Fastest laps</th>
-                <td>{{ \App\Models\Fastestlap::all()->where('team_id', $team->id)->count() }}</td>
+                <td>{{ Fastestlap::all()->where('team_id', $team->id)->count() }}</td>
             </tr>
 
             <tr>
                 <th>Poles</th>
-                <td>{{ \App\Models\Qualifyingdriver::all()->where('q3', 1)->where('team_id', $team->id)->count() }}</td>
+                <td>{{ Qualifyingdriver::all()->where('team_id', $team->id)->where('q3', 1)->count() + Shortqualifyingdriver::all()->where('team_id', $team->id)->where('position', 1)->count() }}</td>
             </tr>
 
             <tr>
@@ -56,12 +61,12 @@
 
             <tr>
                 <th>WDC's</th>
-                <td>{{ \App\Models\Driverchampionship::all()->where('team_id', $team->id)->count() }}</td>
+                <td>{{ Driverchampionship::all()->where('team_id', $team->id)->count() }}</td>
             </tr>
 
             <tr>
                 <th>WCC's</th>
-                <td>{{ \App\Models\Constructorchampionship::all()->where('team_id', $team->id)->count() }}</td>
+                <td>{{ Constructorchampionship::all()->where('team_id', $team->id)->count() }}</td>
             </tr>
 
             </tbody>

@@ -1,6 +1,6 @@
 @extends('layouts.public-layout')
 
-@section('page-title') Tier 1 - Calendar @endsection
+@section('page-title') Tier 1 - Leaderboard @endsection
 
 @section('page') tier-1-leaderboard @endsection
 

@@ -27,7 +27,7 @@ class DriverController extends Controller
 
             if ($racedriver->race->raceformat->format == "full") {
 
-                $totalpoints += match ($racedriver->position) {
+                $totalpoints += match (intval($racedriver->position)) {
                     1 => 25,
                     2 => 18,
                     3 => 15,
@@ -47,9 +47,9 @@ class DriverController extends Controller
 
             } elseif ($racedriver->race->raceformat->format == "sprint") {
 
-                if ($racedriver->position < 9) {
+                if (intval($racedriver->position) < 9) {
 
-                    $totalpoints += 9 - $racedriver->position;
+                    $totalpoints += 9 - intval($racedriver->position);
 
                 }
             }
@@ -57,11 +57,11 @@ class DriverController extends Controller
 
         $positions = collect();
 
-        if (Qualifyingdriver::all()->where('driver_id', $driver->id)->count() > 0)
+        if (Qualifyingdriver::all()->where('driver_id', $driver->id)->where('q3', '!=', 100)->count() > 0)
         {
             $positions->add(Qualifyingdriver::all()->where('driver_id', $driver->id)->min('q3'));
         }
-        if (Shortqualifyingdriver::all()->where('driver_id', $driver->id)->count() > 0)
+        if (Shortqualifyingdriver::all()->where('driver_id', $driver->id)->where('position', '!=', 100)->count() > 0)
         {
             $positions->add(Shortqualifyingdriver::all()->where('driver_id', $driver->id)->min('position'));
         }

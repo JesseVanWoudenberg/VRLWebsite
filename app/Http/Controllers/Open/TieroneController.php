@@ -381,6 +381,15 @@ class TieroneController extends Controller
                                 ->where('tiernumber','=',1);
                         }));
                 }))
+                ->whereIn('race_id',(function ($query) {
+                    $query->from('races')
+                        ->select('id')
+                        ->whereIn('races.raceformat_id',(function ($query) {
+                            $query->from('raceformats')
+                                ->select('id')
+                                ->where('format', '=', 'full');
+                        }));
+                }))
                 ->get();
 
             $driver['amount'] = $racedrivers->count();
@@ -406,6 +415,15 @@ class TieroneController extends Controller
                             $query->from('tiers')
                                 ->select('id')
                                 ->where('tiernumber', '=', 1);
+                        }));
+                }))
+                ->whereIn('race_id',(function ($query) {
+                    $query->from('races')
+                        ->select('id')
+                        ->whereIn('races.raceformat_id',(function ($query) {
+                            $query->from('raceformats')
+                                ->select('id')
+                                ->where('format', '=', 'full');
                         }));
                 }))
                 ->get();
@@ -477,6 +495,15 @@ class TieroneController extends Controller
                                 ->where('tiernumber','=',1);
                         }));
                 }))
+                ->whereIn('race_id',(function ($query) {
+                    $query->from('races')
+                        ->select('id')
+                        ->whereIn('races.raceformat_id',(function ($query) {
+                            $query->from('raceformats')
+                                ->select('id')
+                                ->where('format', '=', 'full');
+                        }));
+                }))
                 ->get()->count();
 
             if (intval($driver->amount) > 0)
@@ -499,6 +526,15 @@ class TieroneController extends Controller
                             $query->from('tiers')
                                 ->select('id')
                                 ->where('tiernumber','=',1);
+                        }));
+                }))
+                ->whereIn('race_id',(function ($query) {
+                    $query->from('races')
+                        ->select('id')
+                        ->whereIn('races.raceformat_id',(function ($query) {
+                            $query->from('raceformats')
+                                ->select('id')
+                                ->where('format', '=', 'full');
                         }));
                 }))
                 ->get()->count();
