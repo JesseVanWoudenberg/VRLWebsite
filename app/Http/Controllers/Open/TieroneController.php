@@ -56,7 +56,7 @@ class TieroneController extends Controller
                     default => 0,
                 };
 
-                if (Fastestlap::all()->where('driver_id', $driver->id)->where('race_id', $racedriver->race->id)->count() > 0) {
+                if (Fastestlap::all()->where('driver_id', $driver->id)->where('race_id', $racedriver->race->id)->where('position', '<=', 10)->count() > 0) {
                     $points++;
                 }
 
@@ -233,7 +233,7 @@ class TieroneController extends Controller
                             8 => 4,
                             9 => 2,
                             10 => 1,
-                            default => 0
+                            default => 0,
                         };
 
                         if (Fastestlap::all()->where('driver_id', $racedriver->driver->id)->where('race_id', $racedriver->race->id)->count() > 0)
@@ -248,13 +248,8 @@ class TieroneController extends Controller
 
                             $points += 9 - intval($racedriver->position);
 
-                            if (Fastestlap::all()->where('team_id', $team->id)->where('race_id', $racedriver->race->id)->count() > 0)
-                            {
-                                $points++;
-                            }
                         }
                     }
-
                 }
 
                 $team['points'] = $points;

@@ -117,7 +117,7 @@
                                     <select name="fastest-lap-team" id="fastest-lap-team">
                                         <option value="none">None</option>
                                             @foreach($teams as $team)
-                                                <option value="{{ $team->id }}" @if($fastestlap != null) @if($fastestlap->driver_id == $driver->id) selected @endif @endif>{{ $team->name }}</option>
+                                                <option value="{{ $team->id }}" @if($fastestlap != null) @if($fastestlap->team_id == $team->id) selected @endif @endif>{{ $team->name }}</option>
                                             @endforeach
                                     </select>
                                 </div>

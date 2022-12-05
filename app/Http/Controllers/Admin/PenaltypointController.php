@@ -52,7 +52,22 @@ class PenaltypointController extends Controller
         User::checkPermissions("penaltypoint create");
 
         $drivers = Driver::all();
-        $races = Race::all();
+        $races = Race::query()
+            ->select('*')
+            ->whereIn('races.id', (function ($query) {
+                $query->from('racedrivers')
+                    ->select('race_id')
+                    ->where('race_id', '=', DB::raw('races.id'));
+            }))
+            ->whereIn('races.raceformat_id', (function ($query) {
+                $query->from('raceformats')
+                    ->select('id')
+                    ->where('raceformats.format','=','full');
+            }))
+            ->orderBy('races.season_id','desc')
+            ->orderBy('races.round','desc')
+            ->limit(10)
+            ->get();
 
         return view('private.penaltypoint.create', compact('drivers', 'races'));
     }
@@ -94,9 +109,15 @@ class PenaltypointController extends Controller
                         ->where('raceformats.format', '=', 'full');
                 }))
                 ->where('races.round', '>=', $penaltypoint->race->round)
+                ->where('races.season_id', '>=', $penaltypoint->race->season_id)
                 ->get()->count();
 
-            $penaltypoint['racesleft'] = (11 - $racesLeft);
+            if ($racesLeft > 10)
+            {
+                $racesLeft = 0;
+            }
+
+            $penaltypoint['racesleft'] = (10 - $racesLeft);
         }
 
         $penaltypoints = $penaltypoints->sortBy('racesleft');

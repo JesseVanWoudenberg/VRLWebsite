@@ -25,7 +25,7 @@ class TeamController extends Controller
 
             if ($racedriver->race->raceformat->format == "full")
             {
-                $totalpoints += match ($racedriver->position)
+                $totalpoints += match (intval($racedriver->position))
                 {
                     1 => 25,
                     2 => 18,
@@ -37,9 +37,10 @@ class TeamController extends Controller
                     8 => 4,
                     9 => 2,
                     10 => 1,
+                    default => 0,
                 };
 
-                if ($racedriver->position < 11)
+                if (intval($racedriver->position) < 11)
                 {
                     if (Fastestlap::all()->where('driver_id', $racedriver->driver->id)->where('team_id', $team->id)->where('race_id', $racedriver->race->id)->count() > 0)
                     {
@@ -49,9 +50,9 @@ class TeamController extends Controller
 
             } elseif ($racedriver->race->raceformat->format == "sprint") {
 
-                if ($racedriver->position < 9) {
+                if (intval($racedriver->position) < 9) {
 
-                    $totalpoints += 9 - $racedriver->position;
+                    $totalpoints += 9 - intval($racedriver->position);
 
                     if (Fastestlap::all()->where('team_id', $team->id)->where('race_id', $racedriver->race->id)->count() > 0)
                     {

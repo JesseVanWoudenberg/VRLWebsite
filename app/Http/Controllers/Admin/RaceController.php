@@ -234,7 +234,7 @@ class RaceController extends Controller
 
     public function update(Request $request, Race $race): RedirectResponse
     {
-        User::checkPermissions("race update");
+        User::checkPermissions("race edit");
 
         $fastestlap = $this->getAssociatedFastestLap($race);
         $race_drivers = $this->getAssociatedDrivers($race);
@@ -273,7 +273,7 @@ class RaceController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        User::checkPermissions("race edit");
+        User::checkPermissions("race create");
 
         $race = new Race();
 
