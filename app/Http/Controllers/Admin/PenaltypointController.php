@@ -107,12 +107,8 @@ class PenaltypointController extends Controller
                 ->whereIn('races.raceformat_id', (function ($query) {
                     $query->from('raceformats')
                         ->select('raceformats.id')
-                        ->where('raceformats.format', '=', 'full');
-                }))
-                ->orWhere('races.raceformat_id', (function ($query) {
-                    $query->from('raceformats')
-                        ->select('raceformats.id')
-                        ->where('raceformats.format', '=', 'preseason');
+                        ->where("raceformats.format", "=", 'full')
+                        ->orWhere("raceformats.format", "=", 'preseason');
                 }))
                 ->whereIn('races.id',(function ($query) {
                     $query->from('racedrivers')

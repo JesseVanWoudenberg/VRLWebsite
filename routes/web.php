@@ -176,18 +176,15 @@ Route::resource('admin/permission', PermissionController::class);
 Route::get('/admin/permission/{permission}/permission', [PermissionController::class, 'delete'])->name('permission.delete');
 Route::get('/admin/permission', [PermissionController::class, 'index'])->name('permission');
 
-Route::group(['middleware' => ['role:admin']], function() {
-    Route::resource('admin/user', UserController::class);
-    Route::get('admin/user/{user}/delete', [UserController::class, 'delete'])->name('user.delete');
-    Route::get('admin/user/{user}/permissions', [UserController::class, 'permissions'])->name('user.permissions');
-    Route::get('admin/user/{user}/update-permissions', [UserController::class, 'updatepermissions'])->name('user.update-permissions');
-    Route::get('admin/user', [UserController::class, 'index'])->name('user');
-});
+Route::resource('admin/user', UserController::class);
+Route::get('admin/user/{user}/delete', [UserController::class, 'delete'])->name('user.delete');
+Route::get('admin/user/{user}/permissions', [UserController::class, 'permissions'])->name('user.permissions');
+Route::get('admin/user/{user}/update-permissions', [UserController::class, 'updatepermissions'])->name('user.update-permissions');
+Route::get('admin/user', [UserController::class, 'index'])->name('user');
 
-Route::group(['middleware' => ['role:admin']], function() {
-    Route::resource('admin/role', RoleController::class);
-    Route::get('admin/role/{role}/delete', [RoleController::class, 'delete'])->name('role.delete');
-    Route::get('admin/role/{role}/permissions', [RoleController::class, 'permissions'])->name('role.permissions');
-    Route::get('admin/role/{role}/update-permissions', [RoleController::class, 'updatepermissions'])->name('role.update-permissions');
-    Route::get('admin/role', [RoleController::class, 'index'])->name('role');
-});
+Route::resource('admin/role', RoleController::class);
+Route::get('admin/role/{role}/delete', [RoleController::class, 'delete'])->name('role.delete');
+Route::get('admin/role/{role}/permissions', [RoleController::class, 'permissions'])->name('role.permissions');
+Route::get('admin/role/{role}/update-permissions', [RoleController::class, 'updatepermissions'])->name('role.update-permissions');
+Route::get('admin/role', [RoleController::class, 'index'])->name('role');
+

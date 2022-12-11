@@ -18,6 +18,7 @@ class UserController extends Controller
 {
     public function index(): View
     {
+        User::checkPermissions("user index");
 
         $users = User::all();
 
@@ -26,6 +27,8 @@ class UserController extends Controller
 
     public function create(): View
     {
+        User::checkPermissions("user create");
+
         $drivers = Driver::all();
 
         return view('private.users.create', compact('drivers'));
@@ -33,6 +36,8 @@ class UserController extends Controller
 
     public function store(UserStoreRequest $request): RedirectResponse
     {
+        User::checkPermissions("user create");
+
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -48,11 +53,15 @@ class UserController extends Controller
 
     public function show(User $user): View
     {
+        User::checkPermissions("permission show");
+
         return view('private.users.show', compact('user'));
     }
 
     public function edit(User $user): View
     {
+        User::checkPermissions("permission edit");
+
         $drivers = Driver::all();
 
         return view('private.users.edit', compact('user', 'drivers'));
@@ -60,6 +69,8 @@ class UserController extends Controller
 
     public function update(UserUpdateRequest $request, User $user): RedirectResponse
     {
+        User::checkPermissions("permission edit");
+
         if($request->password == "") {
             $user->name = $request->name;
             $user->email = $request->email;
@@ -81,11 +92,15 @@ class UserController extends Controller
 
     public function delete(User $user): View
     {
+        User::checkPermissions("permission delete");
+
         return view('private.users.delete', compact('user'));
     }
 
     public function destroy(User $user): RedirectResponse
     {
+        User::checkPermissions("permission delete");
+
         $user->delete();
 
         return redirect()->route('user')->with('status', 'User successfully deleted');
@@ -93,6 +108,8 @@ class UserController extends Controller
 
     public function permissions(User $user): View
     {
+        User::checkPermissions("user permissions");
+
         $roles = Role::all();
         $userRoles = Role::query()
             ->select('*')
@@ -112,6 +129,8 @@ class UserController extends Controller
 
     public function updatepermissions(User $user, Request $request): RedirectResponse
     {
+        User::checkPermissions("user permissions");
+
         $newPermissions = Permission::all()->where("id", "=", "-1");
         $newRoles = Role::all()->where("id", "=", "-1");
 

@@ -14,6 +14,8 @@ class RoleController extends Controller
 {
     public function index(): View
     {
+        User::checkPermissions("role index");
+
         $roles = Role::all();
 
         return view('private.role.index', compact('roles'));
@@ -21,11 +23,15 @@ class RoleController extends Controller
 
     public function create(): View
     {
+        User::checkPermissions("role create");
+
         return view('private.role.create');
     }
 
     public function store(Request $request): RedirectResponse
     {
+        User::checkPermissions("role create");
+
         Role::create(['name' => $request->input("name")]);
 
         return redirect()->route('role')->with('status', 'Role successfully created');
@@ -33,11 +39,15 @@ class RoleController extends Controller
 
     public function edit(Role $role)
     {
+        User::checkPermissions("role edit");
+
         return view('private.role.edit', compact('role'));
     }
 
     public function update(Request $request, Role $role)
     {
+        User::checkPermissions("role edit");
+
         $role->name = $request->name;
         $role->save();
 
@@ -46,11 +56,15 @@ class RoleController extends Controller
 
     public function delete(Role $role): View
     {
+        User::checkPermissions("role delete");
+
         return view('private.role.delete', compact('role'));
     }
 
     public function destroy(Role $role): RedirectResponse
     {
+        User::checkPermissions("role delete");
+
         $users = User::query()
             ->select('*')
             ->whereIn('id',(function ($query) use ($role) {
@@ -72,6 +86,8 @@ class RoleController extends Controller
 
     public function permissions(Role $role): View
     {
+        User::checkPermissions("role permissions");
+
         $permissions = Permission::all();
         $rolePermissions = Permission::query()
             ->select('*')
@@ -84,6 +100,8 @@ class RoleController extends Controller
 
     public function updatepermissions(Request $request, Role $role): RedirectResponse
     {
+        User::checkPermissions("role permissions");
+
         $newPermissions = Permission::all()->where("id", "=", "-1");;
 
         foreach (Permission::all() as $permission)
