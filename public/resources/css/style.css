@@ -1889,156 +1889,389 @@
   min-height: 100vh;
   background-color: #424141;
 }
-.lineup main .title-container h1 {
-  color: #efeded;
-  margin-top: 50px;
-  text-align: center;
-}
 .lineup main .lineup-table-container {
-  margin-top: 25px;
-  margin-bottom: 100px;
+  margin: 25px auto 0 auto;
+  width: 65%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.lineup main .lineup-table-container table {
-  margin: 0 auto;
-  width: 450px;
-  border-collapse: collapse;
-  border-spacing: 0;
+.lineup main .lineup-table-container fieldset {
+  margin: 0 15px 50px 15px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  border-top-right-radius: 25px;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  border-bottom: none;
+  border-left: none;
+  width: 400px;
+  height: 300px;
 }
-.lineup main .lineup-table-container table tbody {
-  width: 500px;
+.lineup main .lineup-table-container fieldset .team-name-container, .lineup main .lineup-table-container fieldset .team-icon-container, .lineup main .lineup-table-container fieldset .team-car-container, .lineup main .lineup-table-container fieldset .team-drivers-container {
+  position: absolute;
 }
-.lineup main .lineup-table-container table tbody tr {
-  border-top: 15px solid transparent;
+.lineup main .lineup-table-container fieldset .team-name-container {
+  top: 20px;
+  left: 25px;
 }
-.lineup main .lineup-table-container table tbody tr .mercedes a {
+.lineup main .lineup-table-container fieldset .team-name-container .mercedes a {
   color: #70d4bc;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .mercedes a:hover {
+.lineup main .lineup-table-container fieldset .team-name-container .mercedes a:hover {
   color: #52a993;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .redbull a {
+.lineup main .lineup-table-container fieldset .team-name-container .redbull a {
   color: #3671c6;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .redbull a:hover {
+.lineup main .lineup-table-container fieldset .team-name-container .redbull a:hover {
   color: #1e4f96;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .ferrari a {
+.lineup main .lineup-table-container fieldset .team-name-container .ferrari a {
   color: #f91536;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .ferrari a:hover {
+.lineup main .lineup-table-container fieldset .team-name-container .ferrari a:hover {
   color: #860718;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .mclaren a {
+.lineup main .lineup-table-container fieldset .team-name-container .mclaren a {
   color: #f58020;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .mclaren a:hover {
+.lineup main .lineup-table-container fieldset .team-name-container .mclaren a:hover {
   color: #bb5e14;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .alpine a {
+.lineup main .lineup-table-container fieldset .team-name-container .alpine a {
   color: #2293d1;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .alpine a:hover {
+.lineup main .lineup-table-container fieldset .team-name-container .alpine a:hover {
   color: #1872a2;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .alfaromeo a {
+.lineup main .lineup-table-container fieldset .team-name-container .alfaromeo a {
   color: #d93855;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .alfaromeo a:hover {
+.lineup main .lineup-table-container fieldset .team-name-container .alfaromeo a:hover {
   color: #b0253d;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .alphatauri a {
+.lineup main .lineup-table-container fieldset .team-name-container .alphatauri a {
   color: #5e8faa;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .alphatauri a:hover {
+.lineup main .lineup-table-container fieldset .team-name-container .alphatauri a:hover {
   color: #346983;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .astonmartin a {
+.lineup main .lineup-table-container fieldset .team-name-container .astonmartin a {
   color: #0e8c73;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .astonmartin a:hover {
+.lineup main .lineup-table-container fieldset .team-name-container .astonmartin a:hover {
   color: #126953;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .williamsracing a {
+.lineup main .lineup-table-container fieldset .team-name-container .williamsracing a {
   color: #37bedd;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .williamsracing a:hover {
+.lineup main .lineup-table-container fieldset .team-name-container .williamsracing a:hover {
   color: #2b99b2;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .haas a {
+.lineup main .lineup-table-container fieldset .team-name-container .haas a {
   color: #b6babd;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .haas a:hover {
+.lineup main .lineup-table-container fieldset .team-name-container .haas a:hover {
   color: #909193;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr .reserves {
+.lineup main .lineup-table-container fieldset .team-name-container .reserves {
   color: #efeded;
 }
-.lineup main .lineup-table-container table tbody tr .mercedes {
+.lineup main .lineup-table-container fieldset .team-name-container .mercedes {
   color: #70d4bc;
 }
-.lineup main .lineup-table-container table tbody tr .redbull {
+.lineup main .lineup-table-container fieldset .team-name-container .redbull {
   color: #3671c6;
 }
-.lineup main .lineup-table-container table tbody tr .ferrari {
+.lineup main .lineup-table-container fieldset .team-name-container .ferrari {
   color: #f91536;
 }
-.lineup main .lineup-table-container table tbody tr .mclaren {
+.lineup main .lineup-table-container fieldset .team-name-container .mclaren {
   color: #f58020;
 }
-.lineup main .lineup-table-container table tbody tr .alpine {
+.lineup main .lineup-table-container fieldset .team-name-container .alpine {
   color: #2293d1;
 }
-.lineup main .lineup-table-container table tbody tr .alfaromeo {
+.lineup main .lineup-table-container fieldset .team-name-container .alfaromeo {
   color: #d93855;
 }
-.lineup main .lineup-table-container table tbody tr .alphatauri {
+.lineup main .lineup-table-container fieldset .team-name-container .alphatauri {
   color: #5e8faa;
 }
-.lineup main .lineup-table-container table tbody tr .astonmartin {
+.lineup main .lineup-table-container fieldset .team-name-container .astonmartin {
   color: #0e8c73;
 }
-.lineup main .lineup-table-container table tbody tr .williamsracing {
+.lineup main .lineup-table-container fieldset .team-name-container .williamsracing {
   color: #37bedd;
 }
-.lineup main .lineup-table-container table tbody tr .haas {
+.lineup main .lineup-table-container fieldset .team-name-container .haas {
   color: #b6babd;
 }
-.lineup main .lineup-table-container table tbody tr th {
-  padding: 25px 0 0 0;
-  font-size: 24px;
+.lineup main .lineup-table-container fieldset .team-name-container p {
+  font-size: 24pt;
+  font-weight: bold;
+  height: 30px;
 }
-.lineup main .lineup-table-container table tbody tr td {
-  text-align: left;
+.lineup main .lineup-table-container fieldset .team-name-container p a {
+  padding-left: 10px;
+  display: block;
+  height: 30px;
+  line-height: 30px;
 }
-.lineup main .lineup-table-container table tbody tr td a {
-  color: #efeded;
+.lineup main .lineup-table-container fieldset .team-name-container .mercedes {
+  border-left: 5px solid #70d4bc;
+}
+.lineup main .lineup-table-container fieldset .team-name-container .redbull {
+  border-left: 5px solid #3671c6;
+}
+.lineup main .lineup-table-container fieldset .team-name-container .ferrari {
+  border-left: 5px solid #f91536;
+}
+.lineup main .lineup-table-container fieldset .team-name-container .mclaren {
+  border-left: 5px solid #f58020;
+}
+.lineup main .lineup-table-container fieldset .team-name-container .alpine {
+  border-left: 5px solid #2293d1;
+}
+.lineup main .lineup-table-container fieldset .team-name-container .alfaromeo {
+  border-left: 5px solid #d93855;
+}
+.lineup main .lineup-table-container fieldset .team-name-container .alphatauri {
+  border-left: 5px solid #5e8faa;
+}
+.lineup main .lineup-table-container fieldset .team-name-container .astonmartin {
+  border-left: 5px solid #0e8c73;
+}
+.lineup main .lineup-table-container fieldset .team-name-container .williamsracing {
+  border-left: 5px solid #37bedd;
+}
+.lineup main .lineup-table-container fieldset .team-name-container .haas {
+  border-left: 5px solid #b6babd;
+}
+.lineup main .lineup-table-container fieldset .team-icon-container {
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+}
+.lineup main .lineup-table-container fieldset .team-icon-container img {
+  width: 50px;
+  height: 50px;
+}
+.lineup main .lineup-table-container fieldset .team-car-container {
+  top: 200px;
+  left: 50px;
+  width: 200px;
+  height: 60px;
+}
+.lineup main .lineup-table-container fieldset .team-car-container img {
+  width: 300px;
+  height: 90px;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container {
+  top: 50px;
+  width: 400px;
+  height: 100px;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul {
+  position: absolute;
+  top: 50px;
+  left: 25px;
+  list-style-type: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .mercedes a {
+  color: #70d4bc;
   text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr td a:hover {
-  color: #c5c4c4;
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .mercedes a:hover {
+  color: #52a993;
+  text-decoration: none;
 }
-.lineup main .lineup-table-container table tbody tr td {
-  text-align: center;
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .redbull a {
+  color: #3671c6;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .redbull a:hover {
+  color: #1e4f96;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .ferrari a {
+  color: #f91536;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .ferrari a:hover {
+  color: #860718;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .mclaren a {
+  color: #f58020;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .mclaren a:hover {
+  color: #bb5e14;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .alpine a {
+  color: #2293d1;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .alpine a:hover {
+  color: #1872a2;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .alfaromeo a {
+  color: #d93855;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .alfaromeo a:hover {
+  color: #b0253d;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .alphatauri a {
+  color: #5e8faa;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .alphatauri a:hover {
+  color: #346983;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .astonmartin a {
+  color: #0e8c73;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .astonmartin a:hover {
+  color: #126953;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .williamsracing a {
+  color: #37bedd;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .williamsracing a:hover {
+  color: #2b99b2;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .haas a {
+  color: #b6babd;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .haas a:hover {
+  color: #909193;
+  text-decoration: none;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .reserves {
+  color: #efeded;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .mercedes {
+  color: #70d4bc;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .redbull {
+  color: #3671c6;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .ferrari {
+  color: #f91536;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .mclaren {
+  color: #f58020;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .alpine {
+  color: #2293d1;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .alfaromeo {
+  color: #d93855;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .alphatauri {
+  color: #5e8faa;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .astonmartin {
+  color: #0e8c73;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .williamsracing {
+  color: #37bedd;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul .haas {
+  color: #b6babd;
+}
+.lineup main .lineup-table-container fieldset .team-drivers-container ul li a {
+  text-decoration: none;
+  font-size: 16pt;
+}
+.lineup main .lineup-table-container .mercedes:hover {
+  border-color: #70d4bc;
+}
+.lineup main .lineup-table-container .redbull:hover {
+  border-color: #3671c6;
+}
+.lineup main .lineup-table-container .ferrari:hover {
+  border-color: #f91536;
+}
+.lineup main .lineup-table-container .mclaren:hover {
+  border-color: #f58020;
+}
+.lineup main .lineup-table-container .alpine:hover {
+  border-color: #2293d1;
+}
+.lineup main .lineup-table-container .alfaromeo:hover {
+  border-color: #d93855;
+}
+.lineup main .lineup-table-container .alphatauri:hover {
+  border-color: #5e8faa;
+}
+.lineup main .lineup-table-container .astonmartin:hover {
+  border-color: #0e8c73;
+}
+.lineup main .lineup-table-container .williamsracing:hover {
+  border-color: #37bedd;
+}
+.lineup main .lineup-table-container .haas:hover {
+  border-color: #b6babd;
+}
+.lineup main .lineup-table-container .divider-line {
+  background-color: white;
+  position: absolute;
+  right: 25px;
+  border: none;
+  width: 350px;
+  height: 2px;
+  opacity: 50%;
+}
+.lineup main .lineup-table-container .divider-line-1 {
+  top: 70px;
+}
+.lineup main .lineup-table-container .divider-line-2 {
+  top: 190px;
+}
+@media only screen and (max-width: 1350px) {
+  .lineup main .lineup-table-container {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .lineup main .lineup-table-container {
+    width: 100%;
+  }
 }
 
 .standings {
@@ -2508,7 +2741,7 @@
 }
 .race-calendar .calendar-seasons-container fieldset .country {
   position: absolute;
-  top: 40px;
+  top: 0;
   right: 20px;
 }
 .race-calendar .calendar-seasons-container fieldset .country em {
@@ -2517,7 +2750,7 @@
 }
 .race-calendar .calendar-seasons-container fieldset .flag {
   position: absolute;
-  top: 0;
+  top: 35px;
   right: 20px;
 }
 .race-calendar .calendar-seasons-container fieldset .flag img {
@@ -2570,7 +2803,7 @@
   color: #ffffff;
 }
 .race-calendar .calendar-seasons-container fieldset .divider-line {
-  background-color: #ffffff;
+  background-color: white;
   position: absolute;
   right: 20px;
   border: none;

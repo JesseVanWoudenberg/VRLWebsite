@@ -5,63 +5,236 @@
 
     main {
 
-        .title-container {
-
-            h1 {
-
-                color: #efeded;
-                margin-top: 50px;
-                text-align: center;
-
-            }
-        }
-
         .lineup-table-container {
 
-            margin-top: 25px;
-            margin-bottom: 100px;
+            margin: 25px auto 0 auto;
+            width: 65%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
 
-            table {
+            fieldset {
 
-                margin: 0 auto;
-                width: 450px;
-                border-collapse: collapse;
-                border-spacing: 0;
+                margin: 0 15px 50px 15px;
+                position: relative;
+                display: flex;
+                flex-wrap: wrap;
+                border-top-right-radius: 25px;
+                border-top: 2px solid white;
+                border-right: 2px solid white;
+                border-bottom: none;
+                border-left: none;
+                width: 400px;
+                height: 300px;
 
-                tbody {
+                .team-name-container, .team-icon-container, .team-car-container, .team-drivers-container {
+                    position: absolute;
+                }
 
-                    width: 500px;
+                .team-name-container {
 
-                    tr {
+                    @import '../resources/_team-colors';
 
-                        border-top: 15px solid transparent;
+                    top: 20px;
+                    left: 25px;
 
-                        @import '../resources/team-colors';
+                    p {
 
-                        th {
-                            padding: 25px 0 0 0;
-                            font-size: 24px;
+                        font-size: 24pt;
+                        font-weight: bold;
+                        height: 30px;
+
+                        a {
+                            padding-left: 10px;
+                            display: block;
+                            height: 30px;
+                            line-height: 30px;
                         }
+                    }
 
-                        td {
+                    .mercedes {
+                        border-left: 5px solid #70d4bc;
 
-                            text-align: left;
+                    }
+
+                    .redbull {
+                        border-left: 5px solid #3671c6;
+
+                    }
+
+                    .ferrari {
+                        border-left: 5px solid #f91536;
+
+                    }
+
+                    .mclaren {
+                        border-left: 5px solid #f58020;
+
+                    }
+
+                    .alpine {
+                        border-left: 5px solid #2293d1;
+                    }
+
+                    .alfaromeo {
+                        border-left: 5px solid #d93855;
+                    }
+
+                    .alphatauri {
+                        border-left: 5px solid #5e8faa;
+                    }
+
+                    .astonmartin {
+                        border-left: 5px solid #0e8c73;
+                    }
+
+                    .williamsracing {
+                        border-left: 5px solid #37bedd;
+                    }
+
+                    .haas {
+                        border-left: 5px solid #b6babd;
+                    }
+                }
+
+                .team-icon-container {
+
+                    top: 10px;
+                    right: 10px;
+
+                    width: 50px;
+                    height: 50px;
+
+                    img {
+                        width: 50px;
+                        height: 50px;
+                    }
+                }
+
+                .team-car-container {
+
+                    top: 200px;
+                    left: 50px;
+
+                    width: 200px;
+                    height: 60px;
+
+                    img {
+                        width: 300px;
+                        height: 90px;
+                    }
+                }
+
+                .team-drivers-container {
+
+                    top: 50px;
+                    width: 400px;
+                    height: 100px;
+
+                    ul {
+
+                        position: absolute;
+                        top: 50px;
+                        left: 25px;
+                        list-style-type: none;
+
+                        @import '../resources/_team-colors';
+
+                        li {
 
                             a {
-                                color: #efeded;
+
                                 text-decoration: none;
-                            }
+                                font-size: 16pt;
 
-                            a:hover {
-                                color: #c5c4c4;
                             }
-                        }
-
-                        td {
-                            text-align: center;
                         }
                     }
                 }
+            }
+
+            .mercedes:hover {
+                border-color: #70d4bc;
+
+            }
+
+            .redbull:hover {
+                border-color: #3671c6;
+
+            }
+
+            .ferrari:hover {
+                border-color: #f91536;
+            }
+
+            .mclaren:hover {
+                border-color: #f58020;
+            }
+
+            .alpine:hover {
+                border-color: #2293d1;
+            }
+
+            .alfaromeo:hover {
+                border-color: #d93855;
+            }
+
+            .alphatauri:hover {
+                border-color: #5e8faa;
+            }
+
+            .astonmartin:hover {
+                border-color: #0e8c73;
+            }
+
+            .williamsracing:hover {
+                border-color: #37bedd;
+            }
+
+            .haas:hover {
+                border-color: #b6babd;
+            }
+
+            .divider-line {
+                background-color: white;
+                position: absolute;
+                right: 25px;
+                border: none;
+                width: 350px;
+                height: 2px;
+                opacity: 50%;
+            }
+
+            .divider-line-1 {
+                top: 70px;
+            }
+
+            .divider-line-2 {
+                top: 190px;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 1350px) {
+
+        main {
+
+            .lineup-table-container {
+
+                width: 80%;
+
+            }
+        }
+    }
+
+    @media only screen and (max-width: 800px) {
+
+        main {
+
+            .lineup-table-container {
+
+                width: 100%;
+
             }
         }
     }

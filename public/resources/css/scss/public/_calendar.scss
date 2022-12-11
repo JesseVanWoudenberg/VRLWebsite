@@ -87,7 +87,7 @@
 
             .country {
                 position: absolute;
-                top: 40px;
+                top: 0;
                 right: 20px;
 
                 em {
@@ -99,7 +99,7 @@
             .flag {
 
                 position: absolute;
-                top: 0;
+                top: 35px;
                 right: 20px;
 
                 img {
@@ -163,7 +163,7 @@
             }
 
             .divider-line {
-                background-color: #ffffff;
+                background-color: white;
                 position: absolute;
                 right: 20px;
                 border: none;

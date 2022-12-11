@@ -23,7 +23,6 @@
         <> WDC/(WCC's)
         First race/last race?
 
-
        --}}
 
     <div class="team-info-container">
