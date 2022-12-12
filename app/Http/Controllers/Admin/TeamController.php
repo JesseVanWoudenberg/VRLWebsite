@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Driver;
+use App\Models\Log;
 use App\Models\Powerunit;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TeamController extends Controller
 {
@@ -40,6 +42,11 @@ class TeamController extends Controller
 
         $team->save();
 
+        $log = new Log();
+        $log->action = "Stored team [ ID: " . $team->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('team')->with('status', 'Team successfully created');
     }
 
@@ -69,6 +76,11 @@ class TeamController extends Controller
 
         $team->save();
 
+        $log = new Log();
+        $log->action = "Edited team [ ID: " . $team->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('team')->with('status', 'Team successfully updated');
     }
 
@@ -84,6 +96,11 @@ class TeamController extends Controller
         User::checkPermissions("team delete");
 
         $team->delete();
+
+        $log = new Log();
+        $log->action = "Deleted team [ ID: " . $team->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('team')->with('status', 'Team successfully deleted');
     }

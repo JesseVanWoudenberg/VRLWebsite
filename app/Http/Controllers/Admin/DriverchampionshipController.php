@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Driver;
 use App\Models\Driverchampionship;
+use App\Models\Log;
 use App\Models\Season;
 use App\Models\Team;
 use App\Models\Tier;
@@ -49,6 +50,11 @@ class DriverchampionshipController extends Controller
 
         $driverchampionship->save();
 
+        $log = new Log();
+        $log->action = "Stored driverchampionship [ ID: " . $driverchampionship->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('driverchampionship')->with('status', 'driver championship successfully added');
     }
 
@@ -82,6 +88,11 @@ class DriverchampionshipController extends Controller
 
         $driverchampionship->save();
 
+        $log = new Log();
+        $log->action = "Edited driverchampionship [ ID: " . $driverchampionship->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('driverchampionship')->with('status', 'driver championship successfully updated');
     }
 
@@ -102,6 +113,11 @@ class DriverchampionshipController extends Controller
         User::checkPermissions("driverchampionship delete");
 
         $driverchampionship->delete();
+
+        $log = new Log();
+        $log->action = "Deleted driverchampionship [ ID: " . $driverchampionship->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('driverchampionship')->with('status', 'driverchampionship successfully deleted');
     }

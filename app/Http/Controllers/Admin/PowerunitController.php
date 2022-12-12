@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Log;
 use App\Models\Powerunit;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
@@ -34,10 +35,14 @@ class PowerunitController extends Controller
         User::checkPermissions("powerunit create");
 
         $powerunit = new Powerunit();
-
         $powerunit->name = $request->name;
 
         $powerunit->save();
+
+        $log = new Log();
+        $log->action = "Stored powerunit [ ID: " . $powerunit->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('powerunit')->with('status', 'Power unit successfully added');
     }
@@ -64,6 +69,11 @@ class PowerunitController extends Controller
 
         $powerunit->save();
 
+        $log = new Log();
+        $log->action = "Edited powerunit [ ID: " . $powerunit->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('powerunit')->with('status', 'Power unit successfully updated');
     }
 
@@ -79,6 +89,12 @@ class PowerunitController extends Controller
         User::checkPermissions("powerunit delete");
 
         $powerunit->delete();
+
+        $log = new Log();
+        $log->action = "Deleted powerunit [ ID: " . $powerunit->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('powerunit')->with('status', 'Power unit successfully deleted');
     }
 }

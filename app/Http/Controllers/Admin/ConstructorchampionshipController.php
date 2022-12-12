@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Constructorchampionship;
 use App\Models\Driver;
+use App\Models\Log;
 use App\Models\Season;
 use App\Models\Team;
 use App\Models\Tier;
@@ -47,6 +48,11 @@ class ConstructorchampionshipController extends Controller
 
         $constructorchampionship->save();
 
+        $log = new Log();
+        $log->action = "Stored constructorchampionship [ ID: " . $constructorchampionship->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('constructorchampionship')->with('status', 'Constructor championship successfully added');
     }
 
@@ -77,6 +83,11 @@ class ConstructorchampionshipController extends Controller
 
         $constructorchampionship->save();
 
+        $log = new Log();
+        $log->action = "Edited constructorchampionship [ ID: " . $constructorchampionship->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('constructorchampionship')->with('status', 'Constructor championship successfully updated');
 
 
@@ -97,6 +108,11 @@ class ConstructorchampionshipController extends Controller
         User::checkPermissions("constructorchampionship delete");
 
         $constructorchampionship->delete();
+
+        $log = new Log();
+        $log->action = "Deleted constructorchampionship [ ID: " . $constructorchampionship->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('constructorchampionship')->with('status', 'Constructor championship successfully deleted');
     }

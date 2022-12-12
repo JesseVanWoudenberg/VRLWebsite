@@ -39,7 +39,6 @@
                         </select>
                     </div>
 
-
                     <div class="select-container">
                         <select name="season_id" id="season_id">
                             @foreach($seasons as $season)
@@ -47,7 +46,6 @@
                             @endforeach
                         </select>
                     </div>
-
 
                     <div class="select-container">
                         <select name="raceformat_id" id="raceformat_id">

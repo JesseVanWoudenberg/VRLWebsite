@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Driver;
+use App\Models\Log;
 use App\Models\Team;
 use App\Models\Tier;
 use App\Models\User;
@@ -47,6 +48,11 @@ class DriverController extends Controller
 
         $driver->save();
 
+        $log = new Log();
+        $log->action = "Stored driver [ ID: " . $driver->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('driver')->with('status', 'Driver successfully created');
     }
 
@@ -79,6 +85,11 @@ class DriverController extends Controller
 
         $driver->save();
 
+        $log = new Log();
+        $log->action = "Edited driver [ ID: " . $driver->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('driver')->with('status', 'Driver successfully updated');
     }
 
@@ -97,6 +108,11 @@ class DriverController extends Controller
         User::checkPermissions("driver delete");
 
         $driver->delete();
+
+        $log = new Log();
+        $log->action = "Deleted driver [ ID: " . $driver->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('driver')->with('status', 'Driver successfully deleted');
     }

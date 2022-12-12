@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Requests\UserRequests\UserStoreRequest;
 use App\Http\Requests\UserRequests\UserUpdateRequest;
 use App\Models\Driver;
+use App\Models\Log;
 use \Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -47,6 +49,11 @@ class UserController extends Controller
             $user->driver_id = $request->driver_id;
         }
         $user->save();
+
+        $log = new Log();
+        $log->action = "Stored user [ ID: " . $user->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('user')->with('status', 'User successfully created');
     }
@@ -87,6 +94,11 @@ class UserController extends Controller
 
         $user->save();
 
+        $log = new Log();
+        $log->action = "Edited user [ ID: " . $user->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('user')->with('status', 'User successfully updated');
     }
 
@@ -102,6 +114,11 @@ class UserController extends Controller
         User::checkPermissions("permission delete");
 
         $user->delete();
+
+        $log = new Log();
+        $log->action = "Deleted user [ ID: " . $user->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('user')->with('status', 'User successfully deleted');
     }
@@ -152,6 +169,11 @@ class UserController extends Controller
 
         $user->syncPermissions($newPermissions);
         $user->syncRoles($newRoles);
+
+        $log = new Log();
+        $log->action = "Updated permissions for user [ ID: " . $user->id . " Name: " . $user->name . " ]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('user')->with('status', 'User permissions successfully updated');
     }

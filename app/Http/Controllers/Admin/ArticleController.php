@@ -19,9 +19,11 @@ class ArticleController extends Controller
     {
         User::checkPermissions("article index");
 
-        return view('private.article.index', [
-            'articles' => DB::table('articles')->paginate(10)
-        ]);
+        $articles = Article::query()
+            ->select("*")
+            ->paginate(10);
+
+        return view('private.article.index', compact('articles'));
     }
 
     public function create(): View
@@ -39,6 +41,7 @@ class ArticleController extends Controller
         $article->article_name = $request->article_name;
         $article->author = $request->author;
         $article->description = $request->description;
+
         $article->save();
 
         $log = new Log();
@@ -71,7 +74,13 @@ class ArticleController extends Controller
         $article->article_name = $request->article_name;
         $article->author = $request->author;
         $article->description = $request->description;
+
         $article->save();
+
+        $log = new Log();
+        $log->action = "Edited article [ ID: " . $article->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('article')->with('status', 'Article successfully updated');
     }
@@ -88,6 +97,12 @@ class ArticleController extends Controller
         User::checkPermissions("article delete");
 
         $article->delete();
+
+        $log = new Log();
+        $log->action = "Deleted article [ ID: " . $article->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('article')->with('status', 'Article successfully deleted');
     }
 }

@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TierRequests\TierStoreRequest;
+use App\Models\Log;
 use App\Models\Tier;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
@@ -33,7 +35,14 @@ class TierController extends Controller
 
         $tier = new Tier();
         $tier->tiernumber = $request->tiernumber;
+
         $tier->save();
+
+        $log = new Log();
+        $log->action = "Stored tier [ ID: " . $tier->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('tier')->with('status', 'tier successfully added');
     }
 
@@ -50,6 +59,12 @@ class TierController extends Controller
         User::checkPermissions("tier delete");
 
         $tier->delete();
+
+        $log = new Log();
+        $log->action = "Deleted tier [ ID: " . $tier->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('tier')->with('status', 'Tier successfully deleted');
     }
 }

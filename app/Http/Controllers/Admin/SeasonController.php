@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Log;
 use App\Models\Season;
 use App\Models\Tier;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SeasonController extends Controller
 {
@@ -40,6 +42,11 @@ class SeasonController extends Controller
 
         $season->save();
 
+        $log = new Log();
+        $log->action = "Stored season [ ID: " . $season->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('season')->with('status', 'Season successfully created');
     }
 
@@ -68,6 +75,11 @@ class SeasonController extends Controller
 
         $season->save();
 
+        $log = new Log();
+        $log->action = "Edited season [ ID: " . $season->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('season')->with('status', 'Season successfully updated');
 
     }
@@ -87,6 +99,11 @@ class SeasonController extends Controller
         User::checkPermissions("season delete");
 
         $season->delete();
+
+        $log = new Log();
+        $log->action = "Deleted season [ ID: " . $season->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('season')->with('status', 'Season successfully deleted');
     }

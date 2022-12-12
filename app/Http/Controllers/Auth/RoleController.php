@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Log;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -34,6 +36,11 @@ class RoleController extends Controller
 
         Role::create(['name' => $request->input("name")]);
 
+        $log = new Log();
+        $log->action = "Stored role [ Name: " . $request->name . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('role')->with('status', 'Role successfully created');
     }
 
@@ -48,8 +55,15 @@ class RoleController extends Controller
     {
         User::checkPermissions("role edit");
 
+        $oldname = $role->name;
+
         $role->name = $request->name;
         $role->save();
+
+        $log = new Log();
+        $log->action = "Updated permission [ ID: " . $role->id . ", Old name: " . $oldname . ", New name: " . $role->name . " ]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('role')->with('status', $role->name . ' successfully updated');
     }
@@ -80,6 +94,11 @@ class RoleController extends Controller
         }
 
         $role->delete();
+
+        $log = new Log();
+        $log->action = "Deleted permission [ ID: " . $role->id . ", Permission name: " . $role->name . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('role')->with('status', 'Role successfully deleted');
     }

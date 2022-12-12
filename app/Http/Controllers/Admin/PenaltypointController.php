@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Driver;
+use App\Models\Log;
 use App\Models\Penaltypoint;
 use App\Models\Race;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
@@ -88,8 +90,15 @@ class PenaltypointController extends Controller
             $penaltypoint->driver_id = $request->driver_id;
             $penaltypoint->race_id = $request->race_id;
             $penaltypoint->amount = 1;
+
             $penaltypoint->save();
+
         }
+
+        $log = new Log();
+        $log->action = "Added " . $request->amount . " penaltypoint(s) to [ DriverID: " . $request->driver_id . " Driver name: " . Driver::all()->where('id', '=', $request->driver_id)->first()->name . " ]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('penaltypoint')->with('status', 'Penalty Point successfully created');
     }
@@ -114,6 +123,8 @@ class PenaltypointController extends Controller
     {
         User::checkPermissions("penaltypoint edit");
 
+        $penaltypointCount = Penaltypoint::all()->where('driver_id', '=', $driver->id)->count();
+
         foreach (Penaltypoint::all()->where('driver_id', '=', $driver->id) as $penaltypoint)
         {
             if ($request->has('penaltypoint-' . $penaltypoint->id))
@@ -121,6 +132,11 @@ class PenaltypointController extends Controller
                 $penaltypoint->delete();
             }
         }
+
+        $log = new Log();
+        $log->action = "Changed penaltypoint(s) from " . $penaltypointCount . " To " . Penaltypoint::all()->where('driver_id', '=', $driver->id)->count() . " [ DriverID: " . $driver->id . " Driver name: " . $driver->name . " ]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('penaltypoint')->with('status', 'Penalty points successfully updated');
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Log;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,6 +15,8 @@ class LogController extends Controller
     {
         User::checkPermissions("log index");
 
-        return view('private.log.index');
+        $logs = Log::query()->orderBy('created_at', 'desc')->paginate(10);
+
+        return view('private.log.index', compact('logs'));
     }
 }

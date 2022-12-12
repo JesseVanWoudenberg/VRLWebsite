@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Log;
 use App\Models\Track;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
-class TrackController extends Controller
+class  TrackController extends Controller
 {
     public function index()
     {
@@ -40,6 +42,11 @@ class TrackController extends Controller
 
         $track->save();
 
+        $log = new Log();
+        $log->action = "Stored track [ ID: " . $track->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('track')->with('status', 'Track successfully added');
     }
 
@@ -68,6 +75,11 @@ class TrackController extends Controller
 
         $track->save();
 
+        $log = new Log();
+        $log->action = "Edited track [ ID: " . $track->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('track')->with('status', 'Track successfully updated');
 
     }
@@ -85,6 +97,12 @@ class TrackController extends Controller
         User::checkPermissions("track delete");
 
         $track->delete();
+
+        $log = new Log();
+        $log->action = "Deleted track [ ID: " . $track->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('track')->with('status', 'Track successfully deleted');
     }
 }

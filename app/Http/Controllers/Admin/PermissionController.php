@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Log;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Spatie\Permission\Models\Permission;
@@ -35,6 +37,11 @@ class PermissionController extends Controller
         User::checkPermissions("permission create");
 
         Permission::create(['name' => $request->name]);
+
+        $log = new Log();
+        $log->action = "Stored permission [ Name: " . $request->name . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('permission')->with('status', 'Permission successfully created');
     }
@@ -75,8 +82,15 @@ class PermissionController extends Controller
     {
         User::checkPermissions("permission edit");
 
+        $oldname = $permission->name;
+
         $permission->name = $request->name;
         $permission->save();
+
+        $log = new Log();
+        $log->action = "Updated permission [ ID: " . $permission->id . ", Old name: " . $oldname . ", New name: " . $permission->name . " ]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('permission')->with('status', 'Permission successfully updated');
     }
@@ -93,6 +107,11 @@ class PermissionController extends Controller
         User::checkPermissions("permission delete");
 
         $permission->delete();
+
+        $log = new Log();
+        $log->action = "Deleted permission [ ID: " . $permission->id . ", Permission name: " . $permission->name . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('permission')->with('status', 'Permission successfully deleted');
     }

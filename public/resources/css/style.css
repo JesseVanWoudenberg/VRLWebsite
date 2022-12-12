@@ -329,7 +329,7 @@
 }
 
 .pagination-navigation-links {
-  margin: 25px 0 0 0;
+  margin: 0;
   padding-top: 15px;
   padding-bottom: 15px;
   border-radius: 0 0 15px 15px;
@@ -410,19 +410,25 @@
 .pagination-navigation-links .page-numbered-links a {
   padding: 6px;
   width: 25px;
-  color: #111111;
+  color: white;
   text-decoration: none;
   font-size: 16px;
 }
 .pagination-navigation-links .page-numbered-links a:hover {
   padding: 5px;
-  color: #4f4f4f;
-  border: 1px solid #4f4f4f;
+  border: 1px solid white;
   border-radius: 25px;
 }
 .pagination-navigation-links .page-numbered-links span {
-  padding: 6px;
+  color: white;
   font-size: 16px;
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 25px;
+  width: 25px;
+}
+.pagination-navigation-links .page-numbered-links span span {
+  border: none;
 }
 
 .news .pagination-navigation-links .page-nav-links .previous-link a, .news .pagination-navigation-links .page-nav-links .next-link a {
@@ -473,7 +479,6 @@
   border-radius: 15px;
   margin: 0 auto;
   width: 90%;
-  max-width: 1000px;
   background-color: white;
   box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
 }
@@ -541,6 +546,8 @@
 }
 .private-index main .index-list-container .table-wrapper-container {
   overflow-x: scroll;
+  overflow-y: scroll;
+  max-height: 700px;
 }
 .private-index main .index-list-container .table-wrapper-container table {
   border-collapse: separate;
@@ -564,6 +571,9 @@
 .private-index main .index-list-container .table-wrapper-container table tbody tr .orange {
   color: #e34c0d;
   font-weight: bold;
+}
+.private-index main .index-list-container .table-wrapper-container table tbody tr .green {
+  color: #1fb40f !important;
 }
 .private-index main .index-list-container .table-wrapper-container table tbody tr td {
   white-space: nowrap;
@@ -1568,7 +1578,7 @@
 
 .user-index {
   min-height: 100vh;
-  background-color: #424141FF;
+  background-color: #424141;
   color: white;
 }
 .user-index main .user-table-container {
@@ -1586,7 +1596,7 @@
   padding: 20px 10px;
 }
 .user-index main .user-table-container table tbody tr td a {
-  color: #424141FF;
+  color: #424141;
   font-weight: bold;
   text-decoration: none;
   padding: 7.5px 15px;
@@ -2730,7 +2740,7 @@
   padding: 0 7.5px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #424141FF;
+  color: #424141;
   border-radius: 20px;
   font-stretch: expanded;
 }
@@ -2789,7 +2799,7 @@
   text-decoration: none;
   padding: 5px;
   border-radius: 25px;
-  color: #424141FF;
+  color: #424141;
   width: 100px;
   text-align: center;
 }
@@ -3575,7 +3585,7 @@
 }
 
 .the-team {
-  background-color: #424141FF;
+  background-color: #424141;
 }
 .the-team main .the-team-container {
   margin: 50px auto 0 auto;

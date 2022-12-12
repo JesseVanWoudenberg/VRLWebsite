@@ -33,7 +33,6 @@
             border-radius: 15px;
             margin: 0 auto;
             width: 90%;
-            max-width: 1000px;
             background-color: white;
             box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
 
@@ -55,7 +54,6 @@
                     color: white;
                     font-size: 18pt;
                     height: 50px;
-
 
                 }
 
@@ -122,6 +120,8 @@
             .table-wrapper-container {
 
                 overflow-x: scroll;
+                overflow-y: scroll;
+                max-height: 700px;
 
                 table {
 
@@ -157,6 +157,10 @@
                             .orange {
                                 color: #e34c0d;
                                 font-weight: bold;
+                            }
+
+                            .green {
+                                color: #1fb40f !important;
                             }
 
                             td {

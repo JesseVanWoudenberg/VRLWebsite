@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\LogController;
 use App\Http\Controllers\Admin\PenaltypointController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Auth\RoleController;
@@ -142,6 +143,11 @@ Route::get('/admin/powerunit', [PowerunitController::class, 'index'])->name('pow
 
 // Race routing
 Route::resource('/admin/race', RaceController::class);
+Route::get('/admin/race/{season}/{tier}', [
+    'as'   => 'race.search',
+    'uses' => 'App\Http\Controllers\Admin\RaceController@search'
+]);
+
 Route::get('/admin/race/{race}/delete', [RaceController::class, 'delete'])->name('race.delete');
 Route::get('/admin/race', [RaceController::class, 'index'])->name('race');
 
@@ -188,3 +194,4 @@ Route::get('admin/role/{role}/permissions', [RoleController::class, 'permissions
 Route::get('admin/role/{role}/update-permissions', [RoleController::class, 'updatepermissions'])->name('role.update-permissions');
 Route::get('admin/role', [RoleController::class, 'index'])->name('role');
 
+Route::resource('admin/log', LogController::class);

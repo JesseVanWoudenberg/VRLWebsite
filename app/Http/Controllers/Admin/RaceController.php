@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Driver;
 use App\Models\Fastestlap;
+use App\Models\Log;
 use App\Models\Qualifyingdriver;
 use App\Models\Race;
 use App\Models\Racedriver;
@@ -132,7 +133,40 @@ class RaceController extends Controller
     {
         User::checkPermissions("race index");
 
-        $races = Race::all()->sortBy('round')->sortByDesc('season_id');
+        $races = Race::query()
+            ->select("races.*", 'seasons.seasonnumber')
+            ->join('seasons', 'races.season_id', '=', 'seasons.id')
+            ->orderBy('seasons.seasonnumber', 'desc')
+            ->orderBy('round', 'desc')
+            ->paginate(10);
+
+        foreach ($races as $race)
+        {
+            if ($this->getAssociatedDrivers($race)->count() == 0)
+            {
+                $race['done'] = false;
+            }
+            else
+            {
+                $race['done'] = true;
+            }
+        }
+
+        return view('private.race.index', compact('races'));
+    }
+
+    public function search(int $season, int $tier): View
+    {
+        User::checkPermissions("race index");
+
+        $races = Race::query()
+            ->select("races.*", 'seasons.seasonnumber', 'tiers.tiernumber')
+            ->join('seasons', 'races.season_id', '=', 'seasons.id')
+            ->join('tiers', 'races.tier_id', '=', 'tiers.id')
+            ->where('seasonnumber', '=', $season)
+            ->where('tiernumber', '=', $tier)
+            ->orderBy('seasons.seasonnumber', 'desc')
+            ->orderBy('round', 'desc')->paginate(10);
 
         foreach ($races as $race)
         {
@@ -229,6 +263,11 @@ class RaceController extends Controller
 
         $race->delete();
 
+        $log = new Log();
+        $log->action = "Deleted race [ ID: " . $race->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('race')->with('status', 'Race successfully removed');
     }
 
@@ -269,6 +308,11 @@ class RaceController extends Controller
 
         $this->createDriversRows($request, $race);
 
+        $log = new Log();
+        $log->action = "Edited race [ ID: " . $race->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
+
         return redirect()->route('race')->with('status', 'Race successfully updated');
     }
 
@@ -288,6 +332,11 @@ class RaceController extends Controller
         $race->save();
 
         $this->createDriversRows($request, $race);
+
+        $log = new Log();
+        $log->action = "Stored race [ ID: " . $race->id . "]";
+        $log->user_id = intval(Auth::id());
+        $log->save();
 
         return redirect()->route('race')->with('status', 'Race successfully created');
     }
