@@ -29,11 +29,11 @@
                 <h1>Manage Races</h1>
             @endif
 
-            <div class="search-container">
+            <div class="race-search-container">
                 <form action="{{ route('race.search', ['season' => '1', 'tier' => '1']) }}" id="race-search">
 
-                    <input name="season" placeholder="Season" id="season-input">
-                    <input name="tier" placeholder="Tier" id="tier-input">
+                    <input type="number" name="season" placeholder="Season" id="season-input">
+                    <input type="number" name="tier" placeholder="Tier" id="tier-input">
 
                     <input type="submit" value="Search">
                 </form>

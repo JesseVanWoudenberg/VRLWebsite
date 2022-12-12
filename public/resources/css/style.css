@@ -492,6 +492,57 @@
   height: 50px;
   display: flex;
 }
+.private-index main .index-list-container .table-header .race-search-container {
+  margin-left: 25px;
+  height: 25px;
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 10.5px;
+}
+.private-index main .index-list-container .table-header .race-search-container form {
+  display: block;
+  height: 25px;
+  line-height: 25px;
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+.private-index main .index-list-container .table-header .race-search-container form input::-webkit-outer-spin-button,
+.private-index main .index-list-container .table-header .race-search-container form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.private-index main .index-list-container .table-header .race-search-container form input[type=number] {
+  -moz-appearance: textfield;
+}
+.private-index main .index-list-container .table-header .race-search-container form input[type=number] {
+  text-align: center;
+  width: 65px;
+  height: 25px;
+  border: none;
+  background-color: #111111;
+  color: white;
+  font-weight: bold;
+  font-size: 12pt;
+}
+.private-index main .index-list-container .table-header .race-search-container form input[type=number]:nth-child(2) {
+  width: 35px;
+}
+.private-index main .index-list-container .table-header .race-search-container form input[type=submit] {
+  text-align: center;
+  background-color: #111111;
+  color: white;
+  width: 70px;
+  height: 25px;
+  border: none;
+  font-size: 12pt;
+}
+.private-index main .index-list-container .table-header .race-search-container form input[type=number]:focus {
+  outline: none;
+}
+.private-index main .index-list-container .table-header .race-search-container form input[type=submit]:hover {
+  border-radius: 25px;
+  background-color: #606060;
+}
 .private-index main .index-list-container .table-header h1 {
   margin-left: 15px;
   line-height: 50px;
@@ -1578,7 +1629,7 @@
 
 .user-index {
   min-height: 100vh;
-  background-color: #424141;
+  background-color: #424141FF;
   color: white;
 }
 .user-index main .user-table-container {
@@ -1596,7 +1647,7 @@
   padding: 20px 10px;
 }
 .user-index main .user-table-container table tbody tr td a {
-  color: #424141;
+  color: #424141FF;
   font-weight: bold;
   text-decoration: none;
   padding: 7.5px 15px;
@@ -2740,7 +2791,7 @@
   padding: 0 7.5px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #424141;
+  color: #424141FF;
   border-radius: 20px;
   font-stretch: expanded;
 }
@@ -2799,7 +2850,7 @@
   text-decoration: none;
   padding: 5px;
   border-radius: 25px;
-  color: #424141;
+  color: #424141FF;
   width: 100px;
   text-align: center;
 }
@@ -3585,7 +3636,7 @@
 }
 
 .the-team {
-  background-color: #424141;
+  background-color: #424141FF;
 }
 .the-team main .the-team-container {
   margin: 50px auto 0 auto;

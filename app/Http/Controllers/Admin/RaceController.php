@@ -165,8 +165,8 @@ class RaceController extends Controller
             ->join('tiers', 'races.tier_id', '=', 'tiers.id')
             ->where('seasonnumber', '=', $season)
             ->where('tiernumber', '=', $tier)
-            ->orderBy('seasons.seasonnumber', 'desc')
-            ->orderBy('round', 'desc')->paginate(10);
+            ->orderBy('seasons.seasonnumber', 'asc')
+            ->orderBy('round', 'asc')->paginate(100);
 
         foreach ($races as $race)
         {

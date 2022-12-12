@@ -63,10 +63,10 @@
             <table>
                 <tbody>
 
-                @if(Racedriver::all()->where('driver_id', $driver->id)->where('position', 1)->where('dnf', 0)->count() > 0)
+                @if($wins > 0)
                     <tr>
                         <th>Wins</th>
-                        <td>{{ Racedriver::all()->where('driver_id', $driver->id)->where('position', 1)->where('dnf', 0)->count() }}</td>
+                        <td>{{ $wins }}</td>
                     </tr>
                 @else
 

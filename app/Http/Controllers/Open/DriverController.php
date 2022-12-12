@@ -70,6 +70,31 @@ class DriverController extends Controller
 
         $highestPositionAmount = Qualifyingdriver::all()->where('driver_id', $driver->id)->where('q3', $highestPosition)->count() + Shortqualifyingdriver::all()->where('driver_id', $driver->id)->where('position', $highestPosition)->count();
 
-        return view('public.driver-show', compact('driver', 'totalpoints', 'highestPosition', 'highestPositionAmount'));
+        $wins = Racedriver::query()
+            ->select('*')
+            ->where('position', '=', 1)
+            ->where('driver_id', '=', $driver->id)
+            ->whereIn('race_id',(function ($query) {
+                $query->from('races')
+                    ->select('id')
+                    ->whereIn('races.tier_id',(function ($query) {
+                        $query->from('tiers')
+                            ->select('id')
+                            ->where('tiernumber', '=', 1);
+                    }));
+            }))
+            ->whereIn('race_id',(function ($query) {
+                $query->from('races')
+                    ->select('id')
+                    ->whereIn('races.raceformat_id',(function ($query) {
+                        $query->from('raceformats')
+                            ->select('id')
+                            ->where('format', '=', 'full')
+                            ->orWhere('format', '=', 'preseason');
+                    }));
+            }))
+            ->get()->count();
+
+        return view('public.driver-show', compact('driver', 'totalpoints', 'highestPosition', 'highestPositionAmount', 'wins'));
     }
 }

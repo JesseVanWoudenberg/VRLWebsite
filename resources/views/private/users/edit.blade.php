@@ -24,13 +24,13 @@
             @csrf
 
             <label for="name">Name</label>
-            <input @error('name') @enderror type="text" id="name" name='name' value="{{ $user->name }}">
+            <input @error('name') @enderror type="text" id="name" name='name' value="{{ $user->name }}" autocomplete="off">
 
             <label for="email">Email</label>
-            <input @error('email') @enderror type="email" id="email" name='email' value="{{ $user->email }}">
+            <input @error('email') @enderror type="email" id="email" name='email' value="{{ $user->email }}" autocomplete="off">
 
             <label for="password">Password, leave empty to keep old password</label>
-            <input @error('password') @enderror type="password" id="password" name='password'>
+            <input @error('password') @enderror type="password" id="password" name='password' autocomplete="off">
 
             <label for="driver_id">Optional Linked Driver ID</label>
             <div class="select-container">

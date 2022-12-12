@@ -387,7 +387,8 @@ class TieroneController extends Controller
                         ->whereIn('races.raceformat_id',(function ($query) {
                             $query->from('raceformats')
                                 ->select('id')
-                                ->where('format', '=', 'full');
+                                ->where('format', '=', 'full')
+                                ->orWhere('format', '=', 'preseason');
                         }));
                 }))
                 ->get();
@@ -423,7 +424,8 @@ class TieroneController extends Controller
                         ->whereIn('races.raceformat_id',(function ($query) {
                             $query->from('raceformats')
                                 ->select('id')
-                                ->where('format', '=', 'full');
+                                ->where('format', '=', 'full')
+                                ->orWhere('format', '=', 'preseason');
                         }));
                 }))
                 ->get();
@@ -501,7 +503,8 @@ class TieroneController extends Controller
                         ->whereIn('races.raceformat_id',(function ($query) {
                             $query->from('raceformats')
                                 ->select('id')
-                                ->where('format', '=', 'full');
+                                ->where('format', '=', 'full')
+                                ->orWhere('format', '=', 'preseason');
                         }));
                 }))
                 ->get()->count();
@@ -534,7 +537,8 @@ class TieroneController extends Controller
                         ->whereIn('races.raceformat_id',(function ($query) {
                             $query->from('raceformats')
                                 ->select('id')
-                                ->where('format', '=', 'full');
+                                ->where('format', '=', 'full')
+                                ->orWhere('format', '=', 'preseason');
                         }));
                 }))
                 ->get()->count();

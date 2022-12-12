@@ -147,7 +147,6 @@ Route::get('/admin/race/{season}/{tier}', [
     'as'   => 'race.search',
     'uses' => 'App\Http\Controllers\Admin\RaceController@search'
 ]);
-
 Route::get('/admin/race/{race}/delete', [RaceController::class, 'delete'])->name('race.delete');
 Route::get('/admin/race', [RaceController::class, 'index'])->name('race');
 
