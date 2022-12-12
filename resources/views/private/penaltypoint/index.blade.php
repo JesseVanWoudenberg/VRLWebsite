@@ -43,6 +43,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Penalty points</th>
+                        <th>Expired Points</th>
                     </tr>
                 </thead>
 
@@ -52,6 +53,9 @@
                             <td>{{ $driver->name }}</td>
                             <td @if($driver->amount >= 7 && $driver->amount < 10) class="orange" @elseif($driver->amount >= 10) class="red" @endif>
                                 {{ $driver->amount }} @if($driver->amount >= 7 && $driver->amount < 10) Qualifying Ban @elseif($driver->amount >= 10) Race ban @endif
+                            </td>
+                            <td @if($driver->expired > 0) class="red" @endif>
+                                {{ $driver->expired }}
                             </td>
 
                             <td class="permissions-button">

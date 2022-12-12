@@ -9,7 +9,6 @@ use App\Models\Race;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
@@ -31,10 +30,16 @@ class PenaltypointController extends Controller
         foreach ($drivers as $driver)
         {
             $driverPenaltypoints = 0;
+            $driver['expired'] = 0;
 
             foreach (Penaltypoint::all()->where('driver_id', '=', $driver->id) as $driverPenaltypoint)
             {
                 $driverPenaltypoints += $driverPenaltypoint->amount;
+
+                if (Penaltypoint::getRacesLeft($driverPenaltypoint) >= 10)
+                {
+                    $driver['expired'] += 1;
+                }
             }
 
             $driver['amount'] = $driverPenaltypoints;
@@ -62,11 +67,12 @@ class PenaltypointController extends Controller
             ->whereIn('races.raceformat_id', (function ($query) {
                 $query->from('raceformats')
                     ->select('id')
-                    ->where('raceformats.format','=','full');
+                    ->where('raceformats.format','=','full')
+                    ->orWhere("raceformats.format", "=", 'preseason');
             }))
             ->orderBy('races.season_id','desc')
             ->orderBy('races.round','desc')
-            ->limit(10)
+            ->limit(15)
             ->get();
 
         return view('private.penaltypoint.create', compact('drivers', 'races'));
@@ -96,42 +102,7 @@ class PenaltypointController extends Controller
 
         foreach ($penaltypoints as $penaltypoint)
         {
-            $racesLeft = Race::query()
-                ->select('races.*', 'seasons.seasonnumber')
-                ->join('seasons','races.season_id','=','seasons.id')
-                ->whereIn('races.tier_id', (function ($query) {
-                    $query->from('tiers')
-                        ->select('tiers.id')
-                        ->where('tiers.tiernumber','=',1);
-                }))
-                ->whereIn('races.raceformat_id', (function ($query) {
-                    $query->from('raceformats')
-                        ->select('raceformats.id')
-                        ->where("raceformats.format", "=", 'full')
-                        ->orWhere("raceformats.format", "=", 'preseason');
-                }))
-                ->whereIn('races.id',(function ($query) {
-                    $query->from('racedrivers')
-                        ->select('racedrivers.race_id')
-                        ->where('racedrivers.race_id','=', DB::raw('races.id'));
-                }))
-                ->whereRaw("
-                    CASE WHEN seasonnumber = " . $penaltypoint->race->season->seasonnumber . " THEN
-                        IF(races.round >= " . $penaltypoint->race->round . ", TRUE, FALSE)
-                    WHEN seasonnumber < " . $penaltypoint->race->season->seasonnumber . " THEN FALSE
-                    WHEN seasonnumber > " . $penaltypoint->race->season->seasonnumber . " THEN TRUE
-                    END
-                ")
-                ->orderBy('seasons.seasonnumber','desc')
-                ->orderBy('races.round','desc')
-                ->get()->count();
-
-            $penaltypoint['racesleft'] = (11 - $racesLeft);
-
-            if ($racesLeft > 10)
-            {
-                $penaltypoint['racesleft'] = 0;
-            }
+            Penaltypoint::getRacesLeft($penaltypoint);
         }
 
         $penaltypoints = $penaltypoints->sortBy('racesleft');
