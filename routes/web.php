@@ -1,12 +1,15 @@
 <?php
 
+   /////////////////
+  //// Imports ////
+ /////////////////
+///
 use App\Http\Controllers\Admin\LogController;
 use App\Http\Controllers\Admin\PenaltypointController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Auth\RoleController;
 use App\Http\Controllers\Auth\UserController;
-use App\Http\Controllers\Open\TheteamController;
-use App\Models\Driver;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\ConstructorchampionshipController;
@@ -21,10 +24,7 @@ use App\Http\Controllers\Admin\TrackController;
 use App\Http\Controllers\Auth\CustomAuthController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ProfileController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Open\HomeController;
 use App\Http\Controllers\Open\TieroneController;
-use App\Http\Controllers\Open\ArticleController as OpenArticleController;
 use App\Http\Controllers\Open\RaceController as OpenRaceController;
 use App\Http\Controllers\Open\TrackController as OpenTrackController;
 
@@ -50,6 +50,10 @@ use App\Http\Controllers\Open\DriverController as OpenDriver;
 //Route::get('register', [RegisterController::class, 'index'])->name('register');
 //Route::post('register', [RegisterController::class, 'register']);
 
+   /////////////////////
+  //// Auth Routes ////
+ /////////////////////
+
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
@@ -65,11 +69,30 @@ Route::group(['middleware' => ['role:admin']], function () {
     })->name('admin');
 });
 
-// Home routing
-Route::get('/', [HomeController::class, 'index'])->name('home');
+   ///////////////////////
+  //// Public Routes ////
+ ///////////////////////
+// Home Routing
+Route::get('/', function () {
+    return view('public.home');
+})->name('home');
 
-// Open news routing
-Route::get('/news', [OpenArticleController::class, 'index'])->name('news');
+// Open news Routing
+Route::get('/news', function () {
+    return view('public.news', [
+        'articles' => DB::table('articles')->paginate(5)
+    ]);
+})->name('news');
+
+// The Team Routing
+Route::get('/the-team', function () {
+    return view('public.the-team');
+})->name('the-team');
+
+// Roadmap Routing
+Route::get('/roadmap', function () {
+    return view('public.roadmap');
+})->name('roadmap');
 
 // Tier 1 routing
 Route::get('/tier1', [TieroneController::class, 'index'])->name('tier1');
@@ -105,9 +128,6 @@ Route::get('/race/{race}', [OpenRaceController::class, 'show'])->name('open-race
 // Public track routing
 Route::get('/track/{track}', [OpenTrackController::class, 'show'])->name('open-track');
 
-// The Team Routing
-Route::get('/the-team', [TheteamController::class, 'index'])->name('the-team');
-
 // Profile routing
 Route::group(['middleware' => ['permission:profile-show']], function () {
 
@@ -116,6 +136,9 @@ Route::group(['middleware' => ['permission:profile-show']], function () {
 
 });
 
+   //////////////////////
+  //// Admin Routes ////
+ //////////////////////
 // Article Routing
 Route::resource('/admin/article', ArticleController::class);
 Route::get('/admin/article/{article}/delete', [ArticleController::class, 'delete'])->name('article.delete');
@@ -194,3 +217,19 @@ Route::get('admin/role/{role}/update-permissions', [RoleController::class, 'upda
 Route::get('admin/role', [RoleController::class, 'index'])->name('role');
 
 Route::resource('admin/log', LogController::class);
+Route::get('/admin/log', [LogController::class, 'index'])->name('log');
+
+   ///////////////////////
+  //// Driver Routes ////
+ ///////////////////////
+// Driver dashboard/home
+Route::get('driver/', function () {
+    return view('driver.home');
+})->name('driver');
+
+// Driver sign up form
+Route::get('driver/sign-up', function () {
+    return view('driver.signup');
+})->name('driver.sign-up');
+
+

@@ -184,6 +184,12 @@
                                         <a href="{{ route('permission') }}">Permission</a>
                                     </li>
                                 @endcan
+
+                                @can('log index')
+                                    <li>
+                                        <a href="{{ route('log') }}">Log</a>
+                                    </li>
+                                @endcan
                             </ul>
                         </div>
                     </li>

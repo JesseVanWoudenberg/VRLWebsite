@@ -19,4 +19,11 @@ class LogController extends Controller
 
         return view('private.log.index', compact('logs'));
     }
+
+    public function show(Log $log): View
+    {
+        User::checkPermissions("log show");
+
+        return view('private.log.show', compact('log'));
+    }
 }

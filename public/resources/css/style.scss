@@ -16,17 +16,17 @@
     margin-left: 55px;
 }
 
-      ////////////
-     /// Navs ///
-    ////////////
+      //////////////
+     //// Navs ////
+    //////////////
 
 @import 'scss/public/public-nav';
 @import 'scss/private/private-nav';
 @import 'scss/general/pagination-navigation';
 
-      /////////////////////
-     /// Private Pages ///
-    /////////////////////
+      ///////////////////////
+     //// Private Pages ////
+    //////////////////////
 
 @import 'scss/private/crud/private-index';
 @import 'scss/private/crud/private-create-edit-delete';
@@ -61,6 +61,9 @@
 // Home page
 @import 'scss/public/homepage';
 
+// Roadmap page
+@import 'scss/public/roadmap';
+
 // Lineup pages
 @import 'scss/public/lineup';
 
@@ -91,9 +94,15 @@
 // The Team page
 @import 'scss/public/the-team';
 
-      ///////////////////
-     /// Error Pages ///
-    ///////////////////
+      /////////////////////
+     //// Error Pages ////
+    /////////////////////
 
 // 403 error
 @import 'scss/errors/403-error';
+
+      //////////////////////
+     //// Driver Pages ////
+    //////////////////////
+
+@import 'scss/driver/driver-nav';

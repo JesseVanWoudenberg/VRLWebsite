@@ -1,0 +1,193 @@
+.driver-panel-body {
+
+    min-height: 100vh;
+    background-color: #d9d9d9;
+
+    .driver-panel-nav { /* header */
+
+        position: relative;
+        background-color: #00a8ec;
+        box-shadow: rgba(0, 0, 0, 0.35) 0 3px 6px;
+        height: 100vh;
+        width: 300px;
+        transition: 1s ease-in-out;
+
+        .menu-toggle {
+
+            position: absolute;
+            top: 7.5px;
+            right: 7.5px;
+            height: 35px;
+            width: 35px;
+
+            svg {
+
+                border-radius: 2.5px;
+                height: 35px;
+                width: 35px;
+                background-color: white;
+                color: #00a8ec;
+
+            }
+        }
+
+        nav {
+
+            position: absolute;
+            height: 100%;
+            width: 100%;
+
+            ul {
+
+                margin-top: 50px;
+                width: 100%;
+
+                .driver-home-link {
+
+                    border-bottom: 1px solid white;
+                    border-top: 1px solid white;
+
+                    a {
+
+                        text-decoration: none;
+                        background-color: #00a8ec;
+                        width: 100%;
+                        display: flex;
+                        height: 50px;
+                        border: none;
+
+                        svg {
+
+                            color: white;
+                            margin-left: 12.5px;
+                            margin-top: 12.5px;
+                            width: 25px;
+                            height: 25px;
+                        }
+
+                        span {
+
+                            color: white;
+                            margin-left: 10px;
+                            height: 50px;
+                            line-height: 52.5px;
+                            font-size: 16pt;
+                        }
+                    }
+
+                    a:hover {
+                        background-color: #048ec7;
+                    }
+
+                    a:active {
+                        background-color: #0679a8;
+                    }
+                }
+
+                li {
+
+                    width: 100%;
+                    height: fit-content;
+
+                    .dropdown-container {
+
+                        height: fit-content;
+                        border-bottom: 1px solid white;
+
+                        .dropdown-activator-button {
+
+                            background-color: #00a8ec;
+                            width: 100%;
+                            display: flex;
+                            height: 50px;
+                            border: none;
+
+                            svg {
+
+                                color: white;
+                                margin-left: 12.5px;
+                                margin-top: 12.5px;
+                                width: 25px;
+                                height: 25px;
+                            }
+
+                            span {
+
+                                color: white;
+                                margin-left: 10px;
+                                height: 50px;
+                                line-height: 52.5px;
+                                font-size: 16pt;
+                            }
+                        }
+
+                        .dropdown-activator-button:hover {
+                            background-color: #048ec7;
+                        }
+
+                        .dropdown-activator-button:active {
+                            background-color: #0679a8;
+                        }
+
+                        .dropdown-content {
+
+                            height: fit-content;
+
+                            ul {
+
+                                margin-top: 0;
+                                height: fit-content;
+
+                                li {
+
+                                    height: fit-content;
+
+                                    .link-container {
+
+                                        a {
+
+                                            width: 300px;
+                                            display: flex;
+                                            text-decoration: none;
+                                            color: white;
+
+                                            svg {
+                                                color: white;
+                                                margin-left: 25px;
+                                                margin-top: 15px;
+                                                width: 20px;
+                                                height: 20px;
+                                            }
+
+                                            span {
+
+                                                margin-left: 10px;
+                                                height: 50px;
+                                                line-height: 52.5px;
+                                                font-size: 12pt;
+
+                                            }
+                                        }
+
+                                        a:hover {
+                                            background-color: #048ec7;
+                                        }
+
+                                        a:active {
+                                            background-color: #0679a8;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .driver-panel-nav-non-active {
+        transform: translateX(-250px);
+        transition: transform 0.4s ease-in-out;
+    }
+}

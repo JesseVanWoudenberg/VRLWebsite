@@ -1629,7 +1629,7 @@
 
 .user-index {
   min-height: 100vh;
-  background-color: #424141FF;
+  background-color: #424141;
   color: white;
 }
 .user-index main .user-table-container {
@@ -1647,7 +1647,7 @@
   padding: 20px 10px;
 }
 .user-index main .user-table-container table tbody tr td a {
-  color: #424141FF;
+  color: #424141;
   font-weight: bold;
   text-decoration: none;
   padding: 7.5px 15px;
@@ -1944,6 +1944,35 @@
 }
 .homepage main div img {
   width: 100%;
+}
+
+.roadmap {
+  min-height: 100vh;
+  background-color: #424141;
+}
+.roadmap main {
+  width: 100%;
+}
+.roadmap main .roadmap-container {
+  width: 100%;
+}
+.roadmap main .roadmap-container h1 {
+  margin-top: 50px;
+  color: white;
+  width: 100%;
+  text-align: center;
+  font-size: 24pt;
+}
+.roadmap main .roadmap-container .features-container {
+  margin: 25px auto 0 auto;
+  width: fit-content;
+}
+.roadmap main .roadmap-container .features-container ul {
+  width: fit-content;
+}
+.roadmap main .roadmap-container .features-container ul li {
+  color: white;
+  font-size: 16pt;
 }
 
 .lineup {
@@ -2791,7 +2820,7 @@
   padding: 0 7.5px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #424141FF;
+  color: #424141;
   border-radius: 20px;
   font-stretch: expanded;
 }
@@ -2850,7 +2879,7 @@
   text-decoration: none;
   padding: 5px;
   border-radius: 25px;
-  color: #424141FF;
+  color: #424141;
   width: 100px;
   text-align: center;
 }
@@ -3636,7 +3665,7 @@
 }
 
 .the-team {
-  background-color: #424141FF;
+  background-color: #424141;
 }
 .the-team main .the-team-container {
   margin: 50px auto 0 auto;
@@ -3705,6 +3734,148 @@
   background-color: white;
   color: #525050;
   transition: 0.3s ease;
+}
+
+.driver-panel-body {
+  min-height: 100vh;
+  background-color: #d9d9d9;
+}
+.driver-panel-body .driver-panel-nav { /* header */
+  position: relative;
+  background-color: #00a8ec;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 3px 6px;
+  height: 100vh;
+  width: 300px;
+  transition: 1s ease-in-out;
+}
+.driver-panel-body .driver-panel-nav .menu-toggle {
+  position: absolute;
+  top: 7.5px;
+  right: 7.5px;
+  height: 35px;
+  width: 35px;
+}
+.driver-panel-body .driver-panel-nav .menu-toggle svg {
+  border-radius: 2.5px;
+  height: 35px;
+  width: 35px;
+  background-color: white;
+  color: #00a8ec;
+}
+.driver-panel-body .driver-panel-nav nav {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.driver-panel-body .driver-panel-nav nav ul {
+  margin-top: 50px;
+  width: 100%;
+}
+.driver-panel-body .driver-panel-nav nav ul .driver-home-link {
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+}
+.driver-panel-body .driver-panel-nav nav ul .driver-home-link a {
+  text-decoration: none;
+  background-color: #00a8ec;
+  width: 100%;
+  display: flex;
+  height: 50px;
+  border: none;
+}
+.driver-panel-body .driver-panel-nav nav ul .driver-home-link a svg {
+  color: white;
+  margin-left: 12.5px;
+  margin-top: 12.5px;
+  width: 25px;
+  height: 25px;
+}
+.driver-panel-body .driver-panel-nav nav ul .driver-home-link a span {
+  color: white;
+  margin-left: 10px;
+  height: 50px;
+  line-height: 52.5px;
+  font-size: 16pt;
+}
+.driver-panel-body .driver-panel-nav nav ul .driver-home-link a:hover {
+  background-color: #048ec7;
+}
+.driver-panel-body .driver-panel-nav nav ul .driver-home-link a:active {
+  background-color: #0679a8;
+}
+.driver-panel-body .driver-panel-nav nav ul li {
+  width: 100%;
+  height: fit-content;
+}
+.driver-panel-body .driver-panel-nav nav ul li .dropdown-container {
+  height: fit-content;
+  border-bottom: 1px solid white;
+}
+.driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-activator-button {
+  background-color: #00a8ec;
+  width: 100%;
+  display: flex;
+  height: 50px;
+  border: none;
+}
+.driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-activator-button svg {
+  color: white;
+  margin-left: 12.5px;
+  margin-top: 12.5px;
+  width: 25px;
+  height: 25px;
+}
+.driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-activator-button span {
+  color: white;
+  margin-left: 10px;
+  height: 50px;
+  line-height: 52.5px;
+  font-size: 16pt;
+}
+.driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-activator-button:hover {
+  background-color: #048ec7;
+}
+.driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-activator-button:active {
+  background-color: #0679a8;
+}
+.driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-content {
+  height: fit-content;
+}
+.driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-content ul {
+  margin-top: 0;
+  height: fit-content;
+}
+.driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-content ul li {
+  height: fit-content;
+}
+.driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-content ul li .link-container a {
+  width: 300px;
+  display: flex;
+  text-decoration: none;
+  color: white;
+}
+.driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-content ul li .link-container a svg {
+  color: white;
+  margin-left: 25px;
+  margin-top: 15px;
+  width: 20px;
+  height: 20px;
+}
+.driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-content ul li .link-container a span {
+  margin-left: 10px;
+  height: 50px;
+  line-height: 52.5px;
+  font-size: 12pt;
+}
+.driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-content ul li .link-container a:hover {
+  background-color: #048ec7;
+}
+.driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-content ul li .link-container a:active {
+  background-color: #0679a8;
+}
+.driver-panel-body .driver-panel-nav-non-active {
+  transform: translateX(-250px);
+  transition: transform 0.4s ease-in-out;
 }
 
 /*# sourceMappingURL=style.css.map */

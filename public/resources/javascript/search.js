@@ -4,7 +4,6 @@ seasonInput = document.getElementById("season-input");
 tierInput = document.getElementById("tier-input");
 
 url = searchForm.action.replace("1/1", "");
-console.log(url);
 
 seasonInput.addEventListener('input', ()=> {
 

@@ -1,4 +1,5 @@
-<!doctype html>
+@php use Illuminate\Support\Facades\Auth; @endphp
+    <!doctype html>
 
 <html lang="en">
     <head>
@@ -63,6 +64,10 @@
                     </li>
 
                     <li>
+                        <a class="non-dropdown-link" href="{{ route('roadmap') }}">Roadmap</a>
+                    </li>
+
+                    <li>
                         <a class="non-dropdown-link" target="_blank" href="https://discord.gg/9edxrvJDMc">Discord</a>
                     </li>
                 </ul>
@@ -79,6 +84,16 @@
                             @if(Auth::user()->hasRole("staff"))
                                 <li>
                                     <a href="{{ route('admin') }}">Admin Panel</a>
+                                </li>
+                            @endif
+
+                            @if(Auth::user()->driver_id != null)
+                                <li>
+                                    <a href="{{ route('driver') }}">Driver Panel</a>
+                                </li>
+                            @else
+                                <li>
+                                    <a href="{{ route('driver.sign-up') }}">Sign Up</a>
                                 </li>
                             @endif
                         @endif

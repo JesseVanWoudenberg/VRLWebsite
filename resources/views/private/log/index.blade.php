@@ -40,42 +40,42 @@
         <div class="table-wrapper-container">
             <table>
                 <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>User</th>
-                    <th>Log</th>
-                </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Action</th>
+                    </tr>
                 </thead>
 
                 <tbody>
-                @foreach($logs as $log)
-                    <tr>
-                        <td>{{ $log->id }}</td>
-                        <td>{{ $log->user->name }}</td>
-                        <td>{{ $log->action }}</td>
+                    @foreach($logs as $log)
+                        <tr>
+                            <td>{{ $log->id }}</td>
+                            <td>{{ $log->user->name }}</td>
+                            <td>{{ $log->action }}</td>
 
-{{--                        <td class="info-button">--}}
-{{--                            <a href="{{ route('driver.show', ['driver' => $driver->id]) }}">--}}
-{{--                                <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">--}}
-{{--                                More info--}}
-{{--                            </a>--}}
-{{--                        </td>--}}
+                            <td class="info-button">
+                                <a href="{{ route('log.show', ['log' => $log->id]) }}">
+                                    <img src="{{ asset('resources/media/svgs/info-circle-fill.svg') }}" alt="X">
+                                    More info
+                                </a>
+                            </td>
 
-{{--                        <td class="edit-button">--}}
-{{--                            <a href="{{ route('driver.edit', ['driver' => $driver->id]) }}">--}}
-{{--                                <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">--}}
-{{--                                Edit--}}
-{{--                            </a>--}}
-{{--                        </td>--}}
+    {{--                        <td class="edit-button">--}}
+    {{--                            <a href="{{ route('driver.edit', ['driver' => $driver->id]) }}">--}}
+    {{--                                <img src="{{ asset('resources/media/svgs/pencil-fill.svg') }}" alt="X">--}}
+    {{--                                Edit--}}
+    {{--                            </a>--}}
+    {{--                        </td>--}}
 
-{{--                        <td class="delete-button">--}}
-{{--                            <a href="{{ route('driver.delete', ['driver' => $driver->id]) }}">--}}
-{{--                                <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">--}}
-{{--                                Delete--}}
-{{--                            </a>--}}
-{{--                        </td>--}}
-                    </tr>
-                @endforeach
+    {{--                        <td class="delete-button">--}}
+    {{--                            <a href="{{ route('driver.delete', ['driver' => $driver->id]) }}">--}}
+    {{--                                <img src="{{ asset('resources/media/svgs/x-circle-fill.svg') }}" alt="X">--}}
+    {{--                                Delete--}}
+    {{--                            </a>--}}
+    {{--                        </td>--}}
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
