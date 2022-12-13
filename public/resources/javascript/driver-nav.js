@@ -9,17 +9,19 @@ driverNavFunctionality = () => {
 
     driverMenuToggle.addEventListener("click", () => {
 
-        console.log("Click")
+        console.log(driverMenuToggle);
 
         //Toggle nav
         driverNav.classList.toggle('driver-panel-nav-non-active');
 
-        if (localStorage.getItem('menu-open') === "true") {
+        if (localStorage.getItem('driver-menu') === "true") {
             localStorage.setItem('driver-menu', "false")
         } else {
             localStorage.setItem('driver-menu', "true")
         }
     });
-}
+};
+
+
 
 driverNavFunctionality();

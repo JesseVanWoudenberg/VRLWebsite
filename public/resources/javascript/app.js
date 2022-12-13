@@ -29,7 +29,7 @@ const navFunctionality = () => {
 
     }
 
-    menubutton.addEventListener('click',()=>{
+    menubutton.addEventListener('click', ()=>{
 
         //Toggle nav
         nav.classList.toggle('nav-active');
