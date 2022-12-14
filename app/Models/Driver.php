@@ -50,4 +50,9 @@ class Driver extends Model
     {
         return $this->hasMany(Penaltypoint::class);
     }
+
+    public function user(): HasMany
+    {
+        return $this->hasMany(User::class);
+    }
 }

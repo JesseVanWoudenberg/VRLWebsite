@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Requests\Teamtransferrequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -49,5 +50,10 @@ class Team extends Model
     public function shortqualifyingdriver(): HasMany
     {
         return $this->hasMany(Shortqualifyingdriver::class);
+    }
+
+    public function teamtransferrequest(): HasMany
+    {
+        return $this->hasMany(Teamtransferrequest::class);
     }
 }

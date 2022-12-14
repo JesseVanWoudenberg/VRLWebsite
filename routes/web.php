@@ -9,6 +9,9 @@ use App\Http\Controllers\Admin\PenaltypointController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Auth\RoleController;
 use App\Http\Controllers\Auth\UserController;
+use App\Http\Controllers\Driver\RequestController;
+use App\Http\Controllers\Driver\Requests\DrivernumberController;
+use App\Http\Controllers\Driver\Requests\TeamtransferController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ArticleController;
@@ -232,4 +235,10 @@ Route::get('driver/sign-up', function () {
     return view('driver.signup');
 })->name('driver.sign-up');
 
+// General index for all requests
+Route::get('driver/requests', [RequestController::class, 'index'])->name('driver.requests');
 
+Route::get('driver/requests/drivernumber/create', [DrivernumberController::class, 'create'])->name('driver.requests.drivernumber.create');
+Route::get('driver/requests/drivernumber/store', [DrivernumberController::class, 'store'])->name('driver.requests.drivernumber.store');
+
+Route::get('driver/requests/teamtransfer/create', [TeamtransferController::class, 'create'])->name('driver.requests.teamtransfer.create');

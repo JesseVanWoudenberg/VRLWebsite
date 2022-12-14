@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Requests\Drivernumberchangerequest;
+use App\Models\Requests\Teamtransferrequest;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -49,6 +52,21 @@ class User extends Authenticatable implements MustVerifyEmail
     public function log(): HasMany
     {
         return $this->hasMany(Log::class);
+    }
+
+    public function drivernumberchangerequest(): HasMany
+    {
+        return $this->hasMany(Drivernumberchangerequest::class);
+    }
+
+    public function teamtransferrequest(): HasMany
+    {
+        return $this->hasMany(Teamtransferrequest::class);
+    }
+
+    public function driver(): BelongsTo
+    {
+        return $this->belongsTo(Driver::class);
     }
 
     public static function checkPermissions(string $permission)

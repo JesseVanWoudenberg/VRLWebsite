@@ -1,6 +1,6 @@
 @extends('layouts.driver-layout')
 
-@section('page-title') Driver panel @endsection
+@section('page-title') Driver - Home @endsection
 
 @section('page') driver-home @endsection
 
