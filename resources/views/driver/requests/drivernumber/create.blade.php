@@ -19,12 +19,12 @@
             @endif
         </div>
 
-        <form action="{{ route('driver.requests.drivernumber.store') }}" method="POST">
-            
+        <form action="{{ route('driver.requests.drivernumber.store') }}" method="GET">
+
             @csrf
 
-            <label for="newnumber">New Number</label>
-            <input @error('newnumber') @enderror type="text" id="newnumber" name='newnumber' value="{{ old('newnumber') }}">
+            <label for="newnumber">New driver number</label>
+            <input @error('newnumber') @enderror type="number" id="newnumber" name='newnumber' value="{{ old('newnumber') }}">
 
             <input type="submit" value="Send Request">
         </form>

@@ -1629,7 +1629,7 @@
 
 .user-index {
   min-height: 100vh;
-  background-color: #424141;
+  background-color: #424141FF;
   color: white;
 }
 .user-index main .user-table-container {
@@ -1647,7 +1647,7 @@
   padding: 20px 10px;
 }
 .user-index main .user-table-container table tbody tr td a {
-  color: #424141;
+  color: #424141FF;
   font-weight: bold;
   text-decoration: none;
   padding: 7.5px 15px;
@@ -2820,7 +2820,7 @@
   padding: 0 7.5px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #424141;
+  color: #424141FF;
   border-radius: 20px;
   font-stretch: expanded;
 }
@@ -2879,7 +2879,7 @@
   text-decoration: none;
   padding: 5px;
   border-radius: 25px;
-  color: #424141;
+  color: #424141FF;
   width: 100px;
   text-align: center;
 }
@@ -3665,7 +3665,7 @@
 }
 
 .the-team {
-  background-color: #424141;
+  background-color: #424141FF;
 }
 .the-team main .the-team-container {
   margin: 50px auto 0 auto;
@@ -3743,18 +3743,25 @@
   background-color: #d9d9d9;
 }
 .driver-panel-body .driver-main {
-  width: calc(100% - 300px);
+  margin-left: 300px;
+  transition: margin-left 0.4s ease-in-out;
+  width: 100%;
 }
-.driver-panel-body .driver-panel-nav { /* header */
-  position: relative;
-  background-color: #00a8ec;
+.driver-panel-body .collapsed {
+  margin-left: 50px;
+  transition: margin-left 0.4s ease-in-out;
+}
+.driver-panel-body .driver-panel-nav {
+  /* header */
+  position: fixed;
+  background-color: #0a8bc0;
   box-shadow: rgba(0, 0, 0, 0.35) 0 3px 6px;
   height: 100vh;
   width: 300px;
   transition: 0.4s ease-in-out;
 }
 .driver-panel-body .driver-panel-nav .menu-button-wrapper {
-  width: 100%;
+  width: 300px;
   height: 50px;
 }
 .driver-panel-body .driver-panel-nav .menu-button-wrapper .menu-toggle {
@@ -3771,11 +3778,11 @@
   color: #00a8ec;
 }
 .driver-panel-body .driver-panel-nav .menu-button-wrapper .menu-toggle svg:hover {
-  background-color: #0a8bc0;
+  background-color: #07688f;
   color: white;
 }
 .driver-panel-body .driver-panel-nav .menu-button-wrapper .menu-toggle svg:active {
-  background-color: #066085;
+  background-color: #044e6c;
 }
 .driver-panel-body .driver-panel-nav nav {
   position: absolute;
@@ -3791,7 +3798,7 @@
 }
 .driver-panel-body .driver-panel-nav nav ul .driver-home-link a {
   text-decoration: none;
-  background-color: #00a8ec;
+  background-color: #0a8bc0;
   width: 100%;
   display: flex;
   height: 50px;
@@ -3812,10 +3819,10 @@
   font-size: 16pt;
 }
 .driver-panel-body .driver-panel-nav nav ul .driver-home-link a:hover {
-  background-color: #048ec7;
+  background-color: #07688f;
 }
 .driver-panel-body .driver-panel-nav nav ul .driver-home-link a:active {
-  background-color: #0679a8;
+  background-color: #044e6c;
 }
 .driver-panel-body .driver-panel-nav nav ul li {
   width: 100%;
@@ -3826,7 +3833,7 @@
   border-bottom: 1px solid white;
 }
 .driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-activator-button {
-  background-color: #00a8ec;
+  background-color: #0a8bc0;
   width: 100%;
   display: flex;
   height: 50px;
@@ -3847,10 +3854,10 @@
   font-size: 16pt;
 }
 .driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-activator-button:hover {
-  background-color: #048ec7;
+  background-color: #07688f;
 }
 .driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-activator-button:active {
-  background-color: #0679a8;
+  background-color: #044e6c;
 }
 .driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-content {
   height: fit-content;
@@ -3882,14 +3889,68 @@
   font-size: 12pt;
 }
 .driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-content ul li .link-container a:hover {
-  background-color: #048ec7;
+  background-color: #07688f;
 }
 .driver-panel-body .driver-panel-nav nav ul li .dropdown-container .dropdown-content ul li .link-container a:active {
-  background-color: #0679a8;
+  background-color: #044e6c;
 }
 .driver-panel-body .driver-panel-nav-non-active {
   transform: translateX(-250px);
   transition: transform 0.4s ease-in-out;
+}
+
+.driver-request-create .form-container {
+  margin: 50px auto 0 auto;
+  width: 80%;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+  border-radius: 10px;
+}
+.driver-request-create .form-container .table-header {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  background-color: #0a8bc0;
+}
+.driver-request-create .form-container .table-header h1 {
+  width: calc(100% - 50px);
+  padding: 25px;
+  font-size: 24pt;
+  font-weight: bolder;
+  text-align: center;
+  color: white;
+}
+.driver-request-create .form-container form {
+  width: calc(100% - 50px);
+  padding: 25px 25px 0 25px;
+}
+.driver-request-create .form-container form label {
+  width: 100%;
+  margin-top: 25px;
+  font-size: 16pt;
+  font-weight: bold;
+  color: #0a8bc0;
+}
+.driver-request-create .form-container form input[type=number] {
+  width: calc(100% - 10px);
+  padding: 0 5px;
+  margin-top: 5px;
+  font-size: 16pt;
+  outline: none;
+  border: none;
+  border-bottom: 3px solid #0a8bc0;
+}
+.driver-request-create .form-container form input[type=submit] {
+  background-color: #0a8bc0;
+  padding: 10px 0;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  font-size: 16pt;
+  font-weight: bolder;
+  text-align: center;
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -10,7 +10,7 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Auth\RoleController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Driver\RequestController;
-use App\Http\Controllers\Driver\Requests\DrivernumberController;
+use App\Http\Controllers\Driver\Requests\DrivernumberchangerequestController;
 use App\Http\Controllers\Driver\Requests\TeamtransferController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -226,9 +226,9 @@ Route::get('/admin/log', [LogController::class, 'index'])->name('log');
   //// Driver Routes ////
  ///////////////////////
 // Driver dashboard/home
-Route::get('driver/', function () {
+Route::get('driver-home/', function () {
     return view('driver.home');
-})->name('driver');
+})->name('driver-home');
 
 // Driver sign up form
 Route::get('driver/sign-up', function () {
@@ -238,7 +238,7 @@ Route::get('driver/sign-up', function () {
 // General index for all requests
 Route::get('driver/requests', [RequestController::class, 'index'])->name('driver.requests');
 
-Route::get('driver/requests/drivernumber/create', [DrivernumberController::class, 'create'])->name('driver.requests.drivernumber.create');
-Route::get('driver/requests/drivernumber/store', [DrivernumberController::class, 'store'])->name('driver.requests.drivernumber.store');
+Route::get('driver/requests/drivernumber/create', [DrivernumberchangerequestController::class, 'create'])->name('driver.requests.drivernumber.create');
+Route::get('driver/requests/drivernumber/store', [DrivernumberchangerequestController::class, 'store'])->name('driver.requests.drivernumber.store');
 
 Route::get('driver/requests/teamtransfer/create', [TeamtransferController::class, 'create'])->name('driver.requests.teamtransfer.create');

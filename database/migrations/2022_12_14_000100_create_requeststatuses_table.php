@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRequeststatusTable extends Migration
+class CreateRequeststatusesTable extends Migration
 {
     /*
      *
@@ -16,7 +16,7 @@ class CreateRequeststatusTable extends Migration
 
     public function up()
     {
-        Schema::create('requeststatus', function (Blueprint $table) {
+        Schema::create('requeststatuses', function (Blueprint $table) {
 
             $table->id();
 
@@ -29,6 +29,6 @@ class CreateRequeststatusTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('requeststatus');
+        Schema::dropIfExists('requeststatuses');
     }
 }
