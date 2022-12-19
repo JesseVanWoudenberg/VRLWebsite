@@ -1,5 +1,28 @@
 .driver-request-index {
 
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+        border-radius: 0 0 15px 15px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: white;
+        border-radius: 0 0 15px 15px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #111111;
+        border-radius: 15px;
+    }
+
+    /* Handle on hover */
+    .table-wrapper-container::-webkit-scrollbar-thumb:hover {
+        background: #4b4b4b;
+    }
+
     .drivernumber-requests-container {
         margin-top: 50px !important;
     }
@@ -30,37 +53,118 @@
             }
         }
 
-        table {
+        .table-wrapper {
 
-            width: 100%;
-            padding: 10px 25px;
+            overflow-x: scroll;
+            overflow-y: scroll;
+            max-height: 700px;
 
-            thead {
+            table {
 
-                tr {
+                border-collapse: collapse;
+                width: 100%;
 
-                    th {
+                thead {
 
-                        white-space: pre;
-                        text-align: left;
 
+                    tr {
+
+                        th {
+
+                            padding: 20px;
+                            white-space: pre;
+                            text-align: left;
+
+                        }
                     }
                 }
-            }
 
-            tbody {
+                tbody {
 
-                tr {
+                    padding: 10px;
 
-                    td {
+                    tr {
 
-                        white-space: pre;
-                        text-align: left;
+                        background-color: white;
 
+
+                        td {
+
+                            background-color: rgb(217, 217, 217);
+                            padding: 20px;
+                            white-space: nowrap;
+                            text-align: left;
+
+                        }
+
+                        .opened, .closed, .returned {
+                            font-weight: bold;
+                        }
+
+                        .opened {
+                            color: #1cd20a;
+                        }
+
+                        .closed {
+                            color: #f50505;
+                        }
+
+                        .returned {
+                            color: #f64c05;
+                        }
+
+                        .delete-button, .edit-button {
+
+                            min-width: 125px;
+                            width: 125px;
+                            padding: 5px 20px 5px 0;
+
+                            a {
+
+                                background-color: #c40a0a;
+                                border-radius: 10px;
+                                text-decoration: none;
+                                color: white;
+                                width: 100%;
+                                display: flex;
+                                height: 40px;
+                                border: none;
+
+                                svg {
+
+                                    color: white;
+                                    margin-left: 7.5px;
+                                    margin-top: 7.5px;
+                                    width: 25px;
+                                    height: 25px;
+                                }
+
+                                span {
+
+                                    color: white;
+                                    margin-left: 10px;
+                                    height: 40px;
+                                    line-height: 42.5px;
+                                    font-size: 14pt;
+                                }
+                            }
+                        }
+
+                        .edit-button {
+
+                        }
+
+                        .timestamp {
+                            width: fit-content;
+                        }
                     }
 
-                    .timestamp {
-                        width: fit-content;
+                    tr:nth-child(even) {
+                        background-color: white;
+
+                        td {
+                            background-color: white;
+                        }
                     }
                 }
             }

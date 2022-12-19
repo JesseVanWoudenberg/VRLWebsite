@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Driver\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DriverRequests\StoreTeamTransferRequestRequest;
 use App\Http\Requests\DriverRequests\UpdateTeamTransferRequestRequest;
+use App\Models\Requests\DrivernumberChangeRequest;
 use App\Models\Requests\RequestStatus;
 use App\Models\Requests\TeamTransferRequest;
 use App\Models\Team;
-use Auth;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 ;
@@ -36,11 +38,6 @@ class TeamTransferRequestController extends Controller
         return redirect()->route('driverpanel.requests')->with("Request successfully sent");
     }
 
-    public function show(TeamTransferRequest $teamTransferRequest)
-    {
-        //
-    }
-
     public function edit(TeamTransferRequest $teamTransferRequest)
     {
         //
@@ -49,5 +46,19 @@ class TeamTransferRequestController extends Controller
     public function update(UpdateTeamTransferRequestRequest $request, TeamTransferRequest $teamTransferRequest)
     {
         //
+    }
+
+    public function delete(int $teamtransferRequest): View
+    {
+        $request = Teamtransferrequest::all()->where('id', '=', $teamtransferRequest)->first();
+
+        return view('driver.requests.teamtransfer.delete', compact('teamtransferRequest'));
+    }
+
+    public function destroy(int $teamtransferRequest): RedirectResponse
+    {
+        Teamtransferrequest::all()->where('id', '=', $teamtransferRequest)->first()->delete();
+
+        return redirect()->route('driverpanel.requests')->with("Request cancelled");
     }
 }

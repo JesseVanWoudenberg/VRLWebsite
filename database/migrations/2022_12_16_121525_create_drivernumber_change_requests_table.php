@@ -12,7 +12,6 @@ class CreateDrivernumberChangeRequestsTable extends Migration
 
             $table->id();
 
-            // create a foreign key to the request_statuses table
             $table->foreignId('request_status_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
             $table->foreignId('user_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
             $table->foreignId('driver_id')->constrained()->onUpdate('restrict')->onDelete('restrict');

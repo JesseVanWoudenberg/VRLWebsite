@@ -7,10 +7,9 @@ use App\Http\Requests\DriverRequests\StoreDrivernumberChangeRequestRequest;
 use App\Http\Requests\DriverRequests\UpdateDrivernumberChangeRequestRequest;
 use App\Models\Requests\DrivernumberChangeRequest;
 use App\Models\Requests\RequestStatus;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
-use Request;
 
 class DrivernumberChangeRequestController extends Controller
 {
@@ -32,24 +31,28 @@ class DrivernumberChangeRequestController extends Controller
         return redirect()->route('driverpanel.requests')->with("Request sent");
     }
 
-    public function edit(DrivernumberChangeRequest $drivernumberChangeRequest)
+    public function edit(int $drivernumberChangeRequest)
     {
-        //
+        $drivernumberchangerequest = DrivernumberChangeRequest::all()->where('id', '=', $drivernumberChangeRequest)->first();
+
+        return view('driver.requests.drivernumber.edit', compact('drivernumberchangerequest'));
     }
 
-    public function update(UpdateDrivernumberChangeRequestRequest $request, DrivernumberChangeRequest $drivernumberChangeRequest)
+    public function update(UpdateDrivernumberChangeRequestRequest $request, int $drivernumberChangeRequest)
     {
-        //
+        dd($drivernumberChangeRequest);
     }
 
-    public function delete(DrivernumberChangeRequest $drivernumberChangeRequest): View
+    public function delete(int $drivernumberChangeRequest): View
     {
+        $request = DrivernumberChangeRequest::all()->where('id', '=', $drivernumberChangeRequest)->first();
+
         return view('driver.requests.drivernumber.delete', compact('drivernumberChangeRequest'));
     }
 
-    public function destroy(DrivernumberChangeRequest $drivernumberChangeRequest): RedirectResponse
+    public function destroy(int $drivernumberChangeRequest): RedirectResponse
     {
-        $drivernumberChangeRequest->delete();
+        DrivernumberChangeRequest::all()->where('id', '=', $drivernumberChangeRequest)->first()->delete();
 
         return redirect()->route('driverpanel.requests')->with("Request cancelled");
     }

@@ -1629,7 +1629,7 @@
 
 .user-index {
   min-height: 100vh;
-  background-color: #424141FF;
+  background-color: #424141;
   color: white;
 }
 .user-index main .user-table-container {
@@ -1647,7 +1647,7 @@
   padding: 20px 10px;
 }
 .user-index main .user-table-container table tbody tr td a {
-  color: #424141FF;
+  color: #424141;
   font-weight: bold;
   text-decoration: none;
   padding: 7.5px 15px;
@@ -2826,7 +2826,7 @@
   padding: 0 7.5px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #424141FF;
+  color: #424141;
   border-radius: 20px;
   font-stretch: expanded;
 }
@@ -2885,7 +2885,7 @@
   text-decoration: none;
   padding: 5px;
   border-radius: 25px;
-  color: #424141FF;
+  color: #424141;
   width: 100px;
   text-align: center;
 }
@@ -3671,7 +3671,7 @@
 }
 
 .the-team {
-  background-color: #424141FF;
+  background-color: #424141;
 }
 .the-team main .the-team-container {
   margin: 50px auto 0 auto;
@@ -3757,8 +3757,7 @@
   margin-left: 50px;
   transition: margin-left 0.4s ease-in-out;
 }
-.driver-panel-body .driver-panel-nav {
-  /* header */
+.driver-panel-body .driver-panel-nav { /* header */
   position: fixed;
   background-color: #0a8bc0;
   box-shadow: rgba(0, 0, 0, 0.35) 0 3px 6px;
@@ -3905,6 +3904,27 @@
   transition: transform 0.4s ease-in-out;
 }
 
+.driver-request-index {
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.driver-request-index ::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 0 0 15px 15px;
+}
+.driver-request-index ::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 0 0 15px 15px;
+}
+.driver-request-index ::-webkit-scrollbar-thumb {
+  background: #111111;
+  border-radius: 15px;
+}
+.driver-request-index .table-wrapper-container::-webkit-scrollbar-thumb:hover {
+  background: #4b4b4b;
+}
 .driver-request-index .drivernumber-requests-container {
   margin-top: 50px !important;
 }
@@ -3928,20 +3948,81 @@
   text-align: center;
   color: white;
 }
-.driver-request-index .drivernumber-requests-container table, .driver-request-index .team-transfer-requests-container table {
+.driver-request-index .drivernumber-requests-container .table-wrapper, .driver-request-index .team-transfer-requests-container .table-wrapper {
+  overflow-x: scroll;
+  overflow-y: scroll;
+  max-height: 700px;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table, .driver-request-index .team-transfer-requests-container .table-wrapper table {
+  border-collapse: collapse;
   width: 100%;
-  padding: 10px 25px;
 }
-.driver-request-index .drivernumber-requests-container table thead tr th, .driver-request-index .team-transfer-requests-container table thead tr th {
+.driver-request-index .drivernumber-requests-container .table-wrapper table thead tr th, .driver-request-index .team-transfer-requests-container .table-wrapper table thead tr th {
+  padding: 20px;
   white-space: pre;
   text-align: left;
 }
-.driver-request-index .drivernumber-requests-container table tbody tr td, .driver-request-index .team-transfer-requests-container table tbody tr td {
-  white-space: pre;
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody {
+  padding: 10px;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr {
+  background-color: white;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr td, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr td {
+  background-color: rgb(217, 217, 217);
+  padding: 20px;
+  white-space: nowrap;
   text-align: left;
 }
-.driver-request-index .drivernumber-requests-container table tbody tr .timestamp, .driver-request-index .team-transfer-requests-container table tbody tr .timestamp {
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .opened, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .closed, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .returned, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .opened, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .closed, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .returned {
+  font-weight: bold;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .opened, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .opened {
+  color: #1cd20a;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .closed, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .closed {
+  color: #f50505;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .returned, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .returned {
+  color: #f64c05;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button {
+  min-width: 125px;
+  width: 125px;
+  padding: 5px 20px 5px 0;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a {
+  background-color: #c40a0a;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  width: 100%;
+  display: flex;
+  height: 40px;
+  border: none;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a svg, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a svg, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a svg, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a svg {
+  color: white;
+  margin-left: 7.5px;
+  margin-top: 7.5px;
+  width: 25px;
+  height: 25px;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a span, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a span, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a span, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a span {
+  color: white;
+  margin-left: 10px;
+  height: 40px;
+  line-height: 42.5px;
+  font-size: 14pt;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .timestamp, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .timestamp {
   width: fit-content;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr:nth-child(even), .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr:nth-child(even) {
+  background-color: white;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr:nth-child(even) td, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr:nth-child(even) td {
+  background-color: white;
 }
 
 .driver-request-create .form-container {
@@ -4028,6 +4109,84 @@
 .driver-request-create .form-container form textarea:focus,
 .driver-request-create .form-container form button:focus {
   outline: none;
+}
+
+.request-confirm-body {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vw;
+  background-color: #d9d9d9;
+}
+.request-confirm-body main .request-confirmation-container {
+  margin: 75px auto 0 auto;
+  width: 450px;
+  height: 175px;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+  border-radius: 10px;
+}
+.request-confirm-body main .request-confirmation-container h1 {
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  height: 75px;
+  line-height: 75px;
+  text-align: center;
+  font-weight: bolder;
+  background-color: #00a8ec;
+  color: white;
+}
+.request-confirm-body main .request-confirmation-container ul {
+  position: relative;
+  top: 25px;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+.request-confirm-body main .request-confirmation-container ul li {
+  height: 50px;
+  padding-left: 25px;
+  display: block;
+  width: 175px;
+}
+.request-confirm-body main .request-confirmation-container ul li a {
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #00a8ec;
+  color: white;
+  width: 100%;
+  display: flex;
+  height: 50px;
+  border: none;
+  font-weight: bold;
+}
+.request-confirm-body main .request-confirmation-container ul li a svg {
+  color: white;
+  margin-left: 7.5px;
+  margin-top: 7.5px;
+  width: 35px;
+  height: 35px;
+}
+.request-confirm-body main .request-confirmation-container ul li a span {
+  color: white;
+  margin-left: 10px;
+  height: 50px;
+  line-height: 52.5px;
+  font-size: 16pt;
+}
+.request-confirm-body main .request-confirmation-container ul li a:hover {
+  background-color: #037cad;
+  transition: background-color ease 0.2s;
+}
+.request-confirm-body main .request-confirmation-container ul li:nth-child(2) {
+  padding-left: 0;
+  padding-right: 25px;
+}
+.request-confirm-body main .request-confirmation-container ul li:nth-child(2) a {
+  background-color: #c40a0a;
+}
+.request-confirm-body main .request-confirmation-container ul li:nth-child(2) a:hover {
+  background-color: #790909;
+  transition: background-color ease 0.2s;
 }
 
 .request-confirm-main {

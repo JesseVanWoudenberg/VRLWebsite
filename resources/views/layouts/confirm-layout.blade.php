@@ -12,10 +12,10 @@
         <title>@yield('page-title')</title>
     </head>
 
-    <body class="">
+    <body class="request-confirm-body">
 
 
-    <main class="request-confirm-main">
+    <main>
 
         @yield('content')
 
