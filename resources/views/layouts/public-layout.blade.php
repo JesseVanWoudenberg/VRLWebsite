@@ -89,7 +89,7 @@
 
                             @if(Auth::user()->driver_id != null)
                                 <li>
-                                    <a href="{{ route('driver') }}">Driver Panel</a>
+                                    <a href="{{ route('driverpanel') }}">Driver Panel</a>
                                 </li>
                             @else
                                 <li>

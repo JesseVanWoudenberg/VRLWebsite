@@ -8,14 +8,22 @@
         .lineup-table-container {
 
             margin: 25px auto 0 auto;
-            width: 65%;
+            width: 80%;
+            max-width: 830px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
 
+            fieldset:nth-child(odd) {
+                margin: 0 15px 50px 0;
+            }
+
+            fieldset:nth-child(even) {
+                margin: 0 0 50px 15px;
+            }
+
             fieldset {
 
-                margin: 0 15px 50px 15px;
                 position: relative;
                 display: flex;
                 flex-wrap: wrap;
@@ -24,7 +32,7 @@
                 border-right: 2px solid white;
                 border-bottom: none;
                 border-left: none;
-                width: 400px;
+                width: 398px;
                 height: 300px;
 
                 .team-name-container, .team-icon-container, .team-car-container, .team-drivers-container {

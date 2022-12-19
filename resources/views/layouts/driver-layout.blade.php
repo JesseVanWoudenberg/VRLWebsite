@@ -8,7 +8,7 @@
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <link rel="stylesheet" href="{{ asset('resources/css/style.css') }}">
         <link rel="shortcut icon" href="">
-        <link rel="icon" type="image/x-icon" href="{{ asset('resources/media/adminfavicon.png') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('resources/media/favicon.jpg') }}">
         <title>@yield('page-title')</title>
     </head>
 
@@ -27,7 +27,7 @@
             <nav>
                 <ul>
                     <li class="driver-home-link">
-                        <a href="{{ route('driver-home') }}">
+                        <a href="{{ route('driverpanel') }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
                                 <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
                                 <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
@@ -50,7 +50,19 @@
                                 <ul>
                                     <li>
                                         <div class="link-container">
-                                            <a href="{{ route('driver.requests.drivernumber.create') }}">
+                                            <a href="{{ route('driverpanel.requests') }}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-1-circle-fill" viewBox="0 0 16 16">
+                                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM9.283 4.002H7.971L6.072 5.385v1.271l1.834-1.318h.065V12h1.312V4.002Z"/>
+                                                </svg>
+
+                                                <span>See requests</span>
+                                            </a>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="link-container">
+                                            <a href="{{ route('driverpanel.requests.drivernumber.create') }}">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-1-circle-fill" viewBox="0 0 16 16">
                                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM9.283 4.002H7.971L6.072 5.385v1.271l1.834-1.318h.065V12h1.312V4.002Z"/>
                                                 </svg>
@@ -62,7 +74,7 @@
 
                                     <li>
                                         <div class="link-container">
-                                            <a href="">
+                                            <a href="{{ route('driverpanel.requests.teamtransfer.create') }}">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
                                                     <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
                                                 </svg>

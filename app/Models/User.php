@@ -54,14 +54,14 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Log::class);
     }
 
-    public function drivernumberchangerequest(): HasMany
+    public function drivernumberChangeRequest(): HasMany
     {
-        return $this->hasMany(Drivernumberchangerequest::class);
+        return $this->hasMany(DrivernumberChangeRequest::class);
     }
 
-    public function teamtransferrequest(): HasMany
+    public function teamTransferRequest(): HasMany
     {
-        return $this->hasMany(Teamtransferrequest::class);
+        return $this->hasMany(TeamTransferRequest::class);
     }
 
     public function driver(): BelongsTo

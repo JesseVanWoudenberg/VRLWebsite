@@ -52,8 +52,8 @@ class Team extends Model
         return $this->hasMany(Shortqualifyingdriver::class);
     }
 
-    public function teamtransferrequest(): HasMany
+    public function teamTransferRequest(): HasMany
     {
-        return $this->hasMany(Teamtransferrequest::class);
+        return $this->hasMany(TeamTransferRequest::class);
     }
 }

@@ -105,7 +105,7 @@
 .public-navigation nav .user-links-container ul li {
   margin-right: 10px;
   display: block;
-  width: 80px;
+  width: fit-content;
   height: 37px;
 }
 .public-navigation nav .user-links-container ul li a {
@@ -1981,13 +1981,19 @@
 }
 .lineup main .lineup-table-container {
   margin: 25px auto 0 auto;
-  width: 65%;
+  width: 80%;
+  max-width: 830px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+.lineup main .lineup-table-container fieldset:nth-child(odd) {
+  margin: 0 15px 50px 0;
+}
+.lineup main .lineup-table-container fieldset:nth-child(even) {
+  margin: 0 0 50px 15px;
+}
 .lineup main .lineup-table-container fieldset {
-  margin: 0 15px 50px 15px;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -1996,7 +2002,7 @@
   border-right: 2px solid white;
   border-bottom: none;
   border-left: none;
-  width: 400px;
+  width: 398px;
   height: 300px;
 }
 .lineup main .lineup-table-container fieldset .team-name-container, .lineup main .lineup-table-container fieldset .team-icon-container, .lineup main .lineup-table-container fieldset .team-car-container, .lineup main .lineup-table-container fieldset .team-drivers-container {
@@ -3899,6 +3905,45 @@
   transition: transform 0.4s ease-in-out;
 }
 
+.driver-request-index .drivernumber-requests-container {
+  margin-top: 50px !important;
+}
+.driver-request-index .drivernumber-requests-container, .driver-request-index .team-transfer-requests-container {
+  margin: 25px auto 0 auto;
+  width: 80%;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+  border-radius: 10px;
+}
+.driver-request-index .drivernumber-requests-container .table-header, .driver-request-index .team-transfer-requests-container .table-header {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  background-color: #0a8bc0;
+}
+.driver-request-index .drivernumber-requests-container .table-header h1, .driver-request-index .team-transfer-requests-container .table-header h1 {
+  width: calc(100% - 50px);
+  padding: 15px;
+  font-size: 20pt;
+  font-weight: bolder;
+  text-align: center;
+  color: white;
+}
+.driver-request-index .drivernumber-requests-container table, .driver-request-index .team-transfer-requests-container table {
+  width: 100%;
+  padding: 10px 25px;
+}
+.driver-request-index .drivernumber-requests-container table thead tr th, .driver-request-index .team-transfer-requests-container table thead tr th {
+  white-space: pre;
+  text-align: left;
+}
+.driver-request-index .drivernumber-requests-container table tbody tr td, .driver-request-index .team-transfer-requests-container table tbody tr td {
+  white-space: pre;
+  text-align: left;
+}
+.driver-request-index .drivernumber-requests-container table tbody tr .timestamp, .driver-request-index .team-transfer-requests-container table tbody tr .timestamp {
+  width: fit-content;
+}
+
 .driver-request-create .form-container {
   margin: 50px auto 0 auto;
   width: 80%;
@@ -3921,9 +3966,10 @@
 }
 .driver-request-create .form-container form {
   width: calc(100% - 50px);
-  padding: 25px 25px 0 25px;
+  padding: 0 25px;
 }
 .driver-request-create .form-container form label {
+  display: block;
   width: 100%;
   margin-top: 25px;
   font-size: 16pt;
@@ -3939,6 +3985,31 @@
   border: none;
   border-bottom: 3px solid #0a8bc0;
 }
+.driver-request-create .form-container form .select-container {
+  width: 100%;
+  height: 40px;
+  margin: 10px auto 0 auto;
+}
+.driver-request-create .form-container form .select-container select {
+  width: 100%;
+  border: none;
+  border-top: solid 2px #0a8bc0;
+  padding: 10px;
+  font-size: 16px;
+}
+.driver-request-create .form-container form .select-container select option {
+  padding: 10px;
+  font-size: 16px;
+}
+.driver-request-create .form-container form textarea {
+  margin-top: 10px;
+  width: calc(100% - 14px);
+  padding: 0 5px;
+  min-height: 220px;
+  resize: none;
+  font-size: 16pt;
+  border: 2px solid #0a8bc0;
+}
 .driver-request-create .form-container form input[type=submit] {
   background-color: #0a8bc0;
   padding: 10px 0;
@@ -3951,6 +4022,18 @@
   font-weight: bolder;
   text-align: center;
   color: white;
+}
+.driver-request-create .form-container form input:focus,
+.driver-request-create .form-container form select:focus,
+.driver-request-create .form-container form textarea:focus,
+.driver-request-create .form-container form button:focus {
+  outline: none;
+}
+
+.request-confirm-main {
+  min-width: 300px;
+  width: 300px;
+  max-width: 300px;
 }
 
 /*# sourceMappingURL=style.css.map */

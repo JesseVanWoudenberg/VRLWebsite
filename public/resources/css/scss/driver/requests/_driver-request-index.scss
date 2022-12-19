@@ -1,0 +1,69 @@
+.driver-request-index {
+
+    .drivernumber-requests-container {
+        margin-top: 50px !important;
+    }
+
+    .drivernumber-requests-container, .team-transfer-requests-container {
+
+        margin: 25px auto 0 auto;
+        width: 80%;
+        background-color: white;
+        box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+        border-radius: 10px;
+
+        .table-header {
+
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+            background-color: #0a8bc0;
+
+            h1 {
+
+                width: calc(100% - 50px);
+                padding: 15px;
+                font-size: 20pt;
+                font-weight: bolder;
+                text-align: center;
+                color: white;
+
+            }
+        }
+
+        table {
+
+            width: 100%;
+            padding: 10px 25px;
+
+            thead {
+
+                tr {
+
+                    th {
+
+                        white-space: pre;
+                        text-align: left;
+
+                    }
+                }
+            }
+
+            tbody {
+
+                tr {
+
+                    td {
+
+                        white-space: pre;
+                        text-align: left;
+
+                    }
+
+                    .timestamp {
+                        width: fit-content;
+                    }
+                }
+            }
+        }
+    }
+}

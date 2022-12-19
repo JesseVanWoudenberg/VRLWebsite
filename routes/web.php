@@ -10,8 +10,8 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Auth\RoleController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Driver\RequestController;
-use App\Http\Controllers\Driver\Requests\DrivernumberchangerequestController;
-use App\Http\Controllers\Driver\Requests\TeamtransferController;
+use App\Http\Controllers\Driver\Requests\DrivernumberChangeRequestController;
+use App\Http\Controllers\Driver\Requests\TeamTransferRequestController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ArticleController;
@@ -226,19 +226,22 @@ Route::get('/admin/log', [LogController::class, 'index'])->name('log');
   //// Driver Routes ////
  ///////////////////////
 // Driver dashboard/home
-Route::get('driver-home/', function () {
+Route::get('/driverpanel/', function () {
     return view('driver.home');
-})->name('driver-home');
+})->name('driverpanel');
 
 // Driver sign up form
-Route::get('driver/sign-up', function () {
+Route::get('/driverpanel/sign-up', function () {
     return view('driver.signup');
-})->name('driver.sign-up');
+})->name('driverpanel.sign-up');
 
 // General index for all requests
-Route::get('driver/requests', [RequestController::class, 'index'])->name('driver.requests');
+Route::get('/driverpanel/requests', [RequestController::class, 'index'])->name('driverpanel.requests');
 
-Route::get('driver/requests/drivernumber/create', [DrivernumberchangerequestController::class, 'create'])->name('driver.requests.drivernumber.create');
-Route::get('driver/requests/drivernumber/store', [DrivernumberchangerequestController::class, 'store'])->name('driver.requests.drivernumber.store');
+Route::get('/driverpanel/requests/drivernumber/create', [DrivernumberChangeRequestController::class, 'create'])->name('driverpanel.requests.drivernumber.create');
+Route::get('/driverpanel/requests/drivernumber/store', [DrivernumberChangeRequestController::class, 'store'])->name('driverpanel.requests.drivernumber.store');
+Route::get('/driverpanel/requests/drivernumber/{id}/delete', [DrivernumberChangeRequestController::class, 'delete'])->name('driverpanel.requests.drivernumber.delete');
+Route::get('/driverpanel/requests/drivernumber/{id}/destroy', [DrivernumberChangeRequestController::class, 'delete'])->name('driverpanel.requests.drivernumber.destroy');
 
-Route::get('driver/requests/teamtransfer/create', [TeamtransferController::class, 'create'])->name('driver.requests.teamtransfer.create');
+Route::get('/driverpanel/requests/teamtransfer/create', [TeamTransferRequestController::class, 'create'])->name('driverpanel.requests.teamtransfer.create');
+Route::get('/driverpanel/requests/teamtransfer/store', [TeamTransferRequestController::class, 'store'])->name('driverpanel.requests.teamtransfer.store');

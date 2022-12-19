@@ -19,7 +19,7 @@
             @endif
         </div>
 
-        <form action="{{ route('driver.requests.drivernumber.store') }}" method="GET">
+        <form action="{{ route('driverpanel.requests.drivernumber.store') }}" method="GET">
 
             @csrf
 
