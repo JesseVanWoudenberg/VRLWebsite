@@ -4011,9 +4011,13 @@
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a span, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a span, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a span, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a span {
   color: white;
   margin-left: 10px;
+  width: calc(100% - 32.5px);
   height: 40px;
   line-height: 42.5px;
   font-size: 14pt;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a {
+  background-color: #d9a748;
 }
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .timestamp, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .timestamp {
   width: fit-content;

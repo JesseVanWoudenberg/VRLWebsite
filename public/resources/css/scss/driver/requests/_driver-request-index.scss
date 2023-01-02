@@ -143,6 +143,7 @@
 
                                     color: white;
                                     margin-left: 10px;
+                                    width: calc(100% - 32.5px);
                                     height: 40px;
                                     line-height: 42.5px;
                                     font-size: 14pt;
@@ -151,7 +152,9 @@
                         }
 
                         .edit-button {
-
+                            a {
+                                background-color: #d9a748;
+                            }
                         }
 
                         .timestamp {
