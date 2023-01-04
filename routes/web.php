@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\PenaltypointController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Auth\RoleController;
 use App\Http\Controllers\Auth\UserController;
+use App\Http\Controllers\Driver\AvailabilityController;
 use App\Http\Controllers\Driver\RequestController;
 use App\Http\Controllers\Driver\Requests\DrivernumberChangeRequestController;
 use App\Http\Controllers\Driver\Requests\TeamTransferRequestController;
@@ -249,3 +250,7 @@ Route::get('/driverpanel/requests/teamtransfer/create', [TeamTransferRequestCont
 Route::get('/driverpanel/requests/teamtransfer/store', [TeamTransferRequestController::class, 'store'])->name('driverpanel.requests.teamtransfer.store');
 Route::get('/driverpanel/requests/teamtransfer/{id}/delete', [TeamTransferRequestController::class, 'delete'])->name('driverpanel.requests.teamtransfer.delete');
 Route::get('/driverpanel/requests/teamtransfer/{id}/destroy', [TeamTransferRequestController::class, 'destroy'])->name('driverpanel.requests.teamtransfer.destroy');
+
+Route::get('/driverpanel/availability', [AvailabilityController::class, 'index'])->name('driverpanel.availability');
+Route::get('/driverpanel/availability/{id}', [AvailabilityController::class, 'edit'])->name('driverpanel.availability.edit');
+Route::get('/driverpanel/availability/{id}/update', [AvailabilityController::class, 'update'])->name('driverpanel.availability.update');

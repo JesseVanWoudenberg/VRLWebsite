@@ -1,0 +1,140 @@
+.driver-availability-index {
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+        border-radius: 0 0 15px 15px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: white;
+        border-radius: 0 0 15px 15px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #0a8bc0;
+        border-radius: 15px;
+    }
+
+    /* Handle on hover */
+    .table-wrapper-container::-webkit-scrollbar-thumb:hover {
+        background: #4b4b4b;
+    }
+
+    .availability-list-container {
+
+        margin: 25px auto 0 auto;
+        width: 80%;
+        background-color: white;
+        box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+        border-radius: 10px;
+
+        .table-header {
+
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+            background-color: #0a8bc0;
+
+            h1 {
+
+                width: calc(100% - 50px);
+                padding: 15px;
+                font-size: 20pt;
+                font-weight: bolder;
+                text-align: center;
+                color: white;
+
+            }
+        }
+
+        .availability-races-container {
+
+            border-radius: 10px;
+
+            .table-wrapper {
+
+                padding: 25px;
+                width: calc(100% - 50px);
+                max-height: 700px;
+                overflow-x: scroll;
+                overflow-y: scroll;
+
+                table {
+
+                    border-collapse: collapse;
+                    min-width: 100%;
+
+                    thead {
+
+                        tr {
+
+                            th {
+
+                                padding-left: 10px;
+                                padding-right: 10px;
+                                padding-top: 10px;
+                                text-align: left;
+                                white-space: nowrap;
+
+                            }
+
+                            .number {
+                                width: 100px;
+                                text-align: center;
+                            }
+                        }
+                    }
+
+                    tbody {
+
+                        tr {
+
+                            td {
+
+                                padding: 10px;
+                                background-color: rgb(217, 217, 217);
+                                text-align: left;
+                                white-space: nowrap;
+
+                                a {
+
+                                    border-radius: 5px;
+                                    margin: 0;
+                                    padding: 5px;
+                                    color: white;
+                                    text-decoration: none;
+                                    white-space: pre;
+                                    width: 125px;
+                                    background-color: #14b704;
+                                    height: 30px;
+                                    line-height: 30px;
+                                    display: block;
+                                    text-align: center;
+
+                                }
+                            }
+
+                            .number {
+                                width: 100px;
+                                text-align: center;
+                            }
+
+                            .availability-button {
+                                width: 150px;
+                            }
+                        }
+
+                        tr:nth-child(even) {
+
+                            td {
+                                background-color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

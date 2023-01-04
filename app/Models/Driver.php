@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Availability\DriverAvailability;
 use App\Models\Requests\DrivernumberChangeRequest;
 use App\Models\Requests\TeamTransferRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -66,5 +67,10 @@ class Driver extends Model
     public function teamTransferRequest(): HasMany
     {
         return $this->hasMany(TeamTransferRequest::class);
+    }
+
+    public function driverAvailability(): HasMany
+    {
+        return $this->hasMany(DriverAvailability::class);
     }
 }

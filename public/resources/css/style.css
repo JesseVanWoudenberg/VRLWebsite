@@ -4199,4 +4199,162 @@
   max-width: 300px;
 }
 
+.driver-availability-index {
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.driver-availability-index ::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 0 0 15px 15px;
+}
+.driver-availability-index ::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 0 0 15px 15px;
+}
+.driver-availability-index ::-webkit-scrollbar-thumb {
+  background: #0a8bc0;
+  border-radius: 15px;
+}
+.driver-availability-index .table-wrapper-container::-webkit-scrollbar-thumb:hover {
+  background: #4b4b4b;
+}
+.driver-availability-index .availability-list-container {
+  margin: 25px auto 0 auto;
+  width: 80%;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+  border-radius: 10px;
+}
+.driver-availability-index .availability-list-container .table-header {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  background-color: #0a8bc0;
+}
+.driver-availability-index .availability-list-container .table-header h1 {
+  width: calc(100% - 50px);
+  padding: 15px;
+  font-size: 20pt;
+  font-weight: bolder;
+  text-align: center;
+  color: white;
+}
+.driver-availability-index .availability-list-container .availability-races-container {
+  border-radius: 10px;
+}
+.driver-availability-index .availability-list-container .availability-races-container .table-wrapper {
+  padding: 25px;
+  width: calc(100% - 50px);
+  max-height: 700px;
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+.driver-availability-index .availability-list-container .availability-races-container .table-wrapper table {
+  border-collapse: collapse;
+  min-width: 100%;
+}
+.driver-availability-index .availability-list-container .availability-races-container .table-wrapper table thead tr th {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  text-align: left;
+  white-space: nowrap;
+}
+.driver-availability-index .availability-list-container .availability-races-container .table-wrapper table thead tr .number {
+  width: 100px;
+  text-align: center;
+}
+.driver-availability-index .availability-list-container .availability-races-container .table-wrapper table tbody tr td {
+  padding: 10px;
+  background-color: rgb(217, 217, 217);
+  text-align: left;
+  white-space: nowrap;
+}
+.driver-availability-index .availability-list-container .availability-races-container .table-wrapper table tbody tr td a {
+  border-radius: 5px;
+  margin: 0;
+  padding: 5px;
+  color: white;
+  text-decoration: none;
+  white-space: pre;
+  width: 125px;
+  background-color: #14b704;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  text-align: center;
+}
+.driver-availability-index .availability-list-container .availability-races-container .table-wrapper table tbody tr .number {
+  width: 100px;
+  text-align: center;
+}
+.driver-availability-index .availability-list-container .availability-races-container .table-wrapper table tbody tr .availability-button {
+  width: 150px;
+}
+.driver-availability-index .availability-list-container .availability-races-container .table-wrapper table tbody tr:nth-child(even) td {
+  background-color: white;
+}
+
+.driver-availability-edit .availability-edit-container {
+  margin: 25px auto 0 auto;
+  width: 80%;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+  border-radius: 10px;
+}
+.driver-availability-edit .availability-edit-container .table-header {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  background-color: #0a8bc0;
+}
+.driver-availability-edit .availability-edit-container .table-header h1 {
+  width: calc(100% - 50px);
+  padding: 15px;
+  font-size: 20pt;
+  font-weight: bolder;
+  text-align: center;
+  color: white;
+}
+.driver-availability-edit .availability-edit-container .availability-edit-form-container {
+  margin-top: 50px;
+  padding: 0 25px;
+  width: calc(100% - 50px);
+}
+.driver-availability-edit .availability-edit-container .availability-edit-form-container form .availability-options {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.driver-availability-edit .availability-edit-container .availability-edit-form-container form .availability-options .option-container {
+  display: flex;
+  width: fit-content;
+}
+.driver-availability-edit .availability-edit-container .availability-edit-form-container form .availability-options .option-container label {
+  display: block;
+  width: fit-content;
+  text-align: center;
+  font-size: 16px;
+}
+.driver-availability-edit .availability-edit-container .availability-edit-form-container form .availability-options .option-container input[type=radio] {
+  width: 35px;
+}
+.driver-availability-edit .availability-edit-container .availability-edit-form-container form .availability-options .option-container input[type=radio]:checked + label {
+  background-color: #0a8bc0;
+  color: #111111;
+}
+.driver-availability-edit .availability-edit-container .availability-edit-form-container form input[type=submit] {
+  background-color: #0a8bc0;
+  padding: 10px 0;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  font-size: 16pt;
+  font-weight: bolder;
+  text-align: center;
+  color: white;
+}
+
 /*# sourceMappingURL=style.css.map */

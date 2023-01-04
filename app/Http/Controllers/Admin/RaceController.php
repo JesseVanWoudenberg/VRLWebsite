@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Availability\RaceAvailability;
 use App\Models\Driver;
 use App\Models\Fastestlap;
 use App\Models\Log;
@@ -166,7 +167,7 @@ class RaceController extends Controller
             ->where('seasonnumber', '=', $season)
             ->where('tiernumber', '=', $tier)
             ->orderBy('seasons.seasonnumber', 'asc')
-            ->orderBy('round', 'asc')->paginate(100);
+            ->orderBy('round')->paginate(100);
 
         foreach ($races as $race)
         {
@@ -332,6 +333,14 @@ class RaceController extends Controller
         $race->save();
 
         $this->createDriversRows($request, $race);
+
+        $raceAvailability = new RaceAvailability();
+
+        $raceAvailability->race_id = $race->id;
+        $raceAvailability->season_id = $request->season_id;
+        $raceAvailability->tier_id = $race->season->tier_id;
+
+        $raceAvailability->save();
 
         $log = new Log();
         $log->action = "Stored race [ ID: " . $race->id . "]";

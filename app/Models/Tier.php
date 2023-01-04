@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Availability\RaceAvailability;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -33,5 +34,10 @@ class Tier extends Model
     public function constructorchampionship(): HasMany
     {
         return $this->hasMany(Constructorchampionship::class);
+    }
+
+    public function raceAvailability(): HasMany
+    {
+        return $this->hasMany(RaceAvailability::class);
     }
 }

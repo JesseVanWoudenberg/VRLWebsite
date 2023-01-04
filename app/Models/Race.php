@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Availability\RaceAvailability;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -51,5 +52,10 @@ class Race extends Model
     public function penaltypoint(): HasMany
     {
         return $this->hasMany(Penaltypoint::class);
+    }
+
+    public function raceAvailability(): HasMany
+    {
+        return $this->hasMany(RaceAvailability::class);
     }
 }

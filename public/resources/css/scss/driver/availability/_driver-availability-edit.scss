@@ -1,0 +1,88 @@
+.driver-availability-edit {
+
+    .availability-edit-container {
+
+        margin: 25px auto 0 auto;
+        width: 80%;
+        background-color: white;
+        box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+        border-radius: 10px;
+
+        .table-header {
+
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+            background-color: #0a8bc0;
+
+            h1 {
+
+                width: calc(100% - 50px);
+                padding: 15px;
+                font-size: 20pt;
+                font-weight: bolder;
+                text-align: center;
+                color: white;
+
+            }
+        }
+
+        .availability-edit-form-container {
+
+            margin-top: 50px;
+            padding: 0 25px;
+            width: calc(100% - 50px);
+
+            form {
+
+                .availability-options {
+
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-around;
+
+                    .option-container {
+
+                        display: flex;
+                        width: fit-content;
+
+                        label {
+
+                            display: block;
+                            width: fit-content;
+                            text-align: center;
+                            font-size: 16px;
+
+                        }
+
+                        input[type=radio] {
+
+                            width: 35px;
+                            //display: none;
+
+                        }
+
+                        input[type=radio]:checked + label {
+                            background-color: #0a8bc0;
+                            color: #111111;
+                        }
+                    }
+                }
+
+                input[type=submit] {
+
+                    background-color: #0a8bc0;
+                    padding: 10px 0;
+                    margin-top: 25px;
+                    margin-bottom: 20px;
+                    width: 100%;
+                    border: none;
+                    border-radius: 10px;
+                    font-size: 16pt;
+                    font-weight: bolder;
+                    text-align: center;
+                    color: white;
+                }
+            }
+        }
+    }
+}

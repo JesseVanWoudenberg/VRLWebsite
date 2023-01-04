@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Availability\RaceAvailability;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -27,5 +28,10 @@ class Season extends Model
     public function tier(): BelongsTo
     {
         return $this->belongsTo(Tier::class);
+    }
+
+    public function raceAvailability(): HasMany
+    {
+        return $this->hasMany(RaceAvailability::class);
     }
 }
