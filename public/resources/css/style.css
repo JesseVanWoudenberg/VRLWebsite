@@ -1629,7 +1629,7 @@
 
 .user-index {
   min-height: 100vh;
-  background-color: #424141;
+  background-color: #424141FF;
   color: white;
 }
 .user-index main .user-table-container {
@@ -1647,7 +1647,7 @@
   padding: 20px 10px;
 }
 .user-index main .user-table-container table tbody tr td a {
-  color: #424141;
+  color: #424141FF;
   font-weight: bold;
   text-decoration: none;
   padding: 7.5px 15px;
@@ -2826,7 +2826,7 @@
   padding: 0 7.5px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #424141;
+  color: #424141FF;
   border-radius: 20px;
   font-stretch: expanded;
 }
@@ -2885,7 +2885,7 @@
   text-decoration: none;
   padding: 5px;
   border-radius: 25px;
-  color: #424141;
+  color: #424141FF;
   width: 100px;
   text-align: center;
 }
@@ -3671,7 +3671,7 @@
 }
 
 .the-team {
-  background-color: #424141;
+  background-color: #424141FF;
 }
 .the-team main .the-team-container {
   margin: 50px auto 0 auto;
@@ -3757,7 +3757,8 @@
   margin-left: 50px;
   transition: margin-left 0.4s ease-in-out;
 }
-.driver-panel-body .driver-panel-nav { /* header */
+.driver-panel-body .driver-panel-nav {
+  /* header */
   position: fixed;
   background-color: #0a8bc0;
   box-shadow: rgba(0, 0, 0, 0.35) 0 3px 6px;
@@ -3949,6 +3950,8 @@
   color: white;
 }
 .driver-request-index .drivernumber-requests-container .table-wrapper, .driver-request-index .team-transfer-requests-container .table-wrapper {
+  padding-left: 25px;
+  padding-right: 20px;
   overflow-x: scroll;
   overflow-y: scroll;
   max-height: 700px;
@@ -3969,7 +3972,7 @@
   background-color: white;
 }
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr td, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr td {
-  background-color: rgb(217, 217, 217);
+  background-color: #d9d9d9;
   padding: 20px;
   white-space: nowrap;
   text-align: left;
@@ -3984,40 +3987,64 @@
   color: #f50505;
 }
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .returned, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .returned {
-  color: #f64c05;
+  color: #ff6b2b;
 }
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button {
-  min-width: 125px;
-  width: 125px;
-  padding: 5px 20px 5px 0;
+  padding: 7.5px 20px 7.5px 0;
 }
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a {
-  background-color: #c40a0a;
-  border-radius: 10px;
+  border-radius: 5px;
   text-decoration: none;
   color: white;
   width: 100%;
   display: flex;
-  height: 40px;
+  height: 35px;
   border: none;
 }
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a svg, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a svg, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a svg, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a svg {
   color: white;
   margin-left: 7.5px;
   margin-top: 7.5px;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a span, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a span, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a span, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a span {
+  text-align: left;
   color: white;
   margin-left: 10px;
-  width: calc(100% - 32.5px);
-  height: 40px;
-  line-height: 42.5px;
-  font-size: 14pt;
+  width: calc(100% - 30px);
+  height: 35px;
+  line-height: 37.5px;
+  font-size: 12pt;
+  font-weight: bold;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button {
+  min-width: 110px;
+  width: 110px;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a {
+  background-color: #c40a0a;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a:hover, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a:hover {
+  background-color: #790909;
+  transition: ease 0.2s;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a:hover span, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a:hover span {
+  color: #9d9b9b;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button {
+  min-width: 70px !important;
+  width: 70px !important;
 }
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a {
   background-color: #d9a748;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a:hover, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a:hover {
+  background-color: #b2842b;
+  transition: ease 0.2s;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a:hover span, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a:hover span {
+  color: #9d9b9b;
 }
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .timestamp, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .timestamp {
   width: fit-content;

@@ -55,6 +55,8 @@
 
         .table-wrapper {
 
+            padding-left: 25px;
+            padding-right: 20px;
             overflow-x: scroll;
             overflow-y: scroll;
             max-height: 700px;
@@ -110,24 +112,21 @@
                         }
 
                         .returned {
-                            color: #f64c05;
+                            color: #ff6b2b;
                         }
 
                         .delete-button, .edit-button {
 
-                            min-width: 125px;
-                            width: 125px;
-                            padding: 5px 20px 5px 0;
+                            padding: 7.5px 20px 7.5px 0;
 
                             a {
 
-                                background-color: #c40a0a;
-                                border-radius: 10px;
+                                border-radius: 5px;
                                 text-decoration: none;
                                 color: white;
                                 width: 100%;
                                 display: flex;
-                                height: 40px;
+                                height: 35px;
                                 border: none;
 
                                 svg {
@@ -135,25 +134,58 @@
                                     color: white;
                                     margin-left: 7.5px;
                                     margin-top: 7.5px;
-                                    width: 25px;
-                                    height: 25px;
+                                    width: 20px;
+                                    height: 20px;
                                 }
 
                                 span {
 
+                                    text-align: left;
                                     color: white;
                                     margin-left: 10px;
-                                    width: calc(100% - 32.5px);
-                                    height: 40px;
-                                    line-height: 42.5px;
-                                    font-size: 14pt;
+                                    width: calc(100% - 30px);
+                                    height: 35px;
+                                    line-height: 37.5px;
+                                    font-size: 12pt;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+
+                        .delete-button {
+                            min-width: 110px;
+                            width: 110px;
+
+                            a {
+                                background-color: #c40a0a;
+                            }
+
+                            a:hover {
+                                background-color: #790909;
+                                transition: ease 0.2s;
+
+                                span {
+                                    color: #9d9b9b;
                                 }
                             }
                         }
 
                         .edit-button {
+
+                            min-width: 70px !important;
+                            width: 70px !important;
+
                             a {
                                 background-color: #d9a748;
+                            }
+
+                            a:hover {
+                                background-color: #b2842b;
+                                transition: ease 0.2s;
+                                
+                                span {
+                                    color: #9d9b9b;
+                                }
                             }
                         }
 

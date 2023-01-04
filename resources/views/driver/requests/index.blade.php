@@ -57,7 +57,7 @@
                                     </a>
                                 </td>
 
-                            @else
+                            @elseif(strtolower($drivernumberChangeRequest->requeststatus->status) == "opened")
 
                                 <td class="delete-button">
                                     <a href="{{ route('driverpanel.requests.drivernumber.delete', ['id' => $drivernumberChangeRequest->id]) }}">
@@ -66,10 +66,14 @@
                                         </svg>
 
                                         <span>
-                                            Delete
+                                            Cancel
                                         </span>
                                     </a>
                                 </td>
+                            @else
+
+                                <td></td>
+
                             @endif
                         </tr>
                     @endforeach
@@ -106,7 +110,7 @@
                     @foreach($teamTransferChangeRequests as $teamTransferChangeRequest)
 
                         <tr>
-                            <td>{{ $teamTransferChangeRequest->requeststatus->status }}</td>
+                            <td class="{{ strtolower($drivernumberChangeRequest->requeststatus->status) }}">{{ $teamTransferChangeRequest->requeststatus->status }}</td>
                             <td>{{ $teamTransferChangeRequest->team->name }}</td>
                             <td class="timestamp">{{ $teamTransferChangeRequest->created_at }}</td>
                             <td class="timestamp">{{ $teamTransferChangeRequest->updated_at }}</td>
@@ -118,7 +122,7 @@
                                     </svg>
 
                                     <span>
-                                        Delete
+                                        Cancel
                                     </span>
                                 </a>
                             </td>
