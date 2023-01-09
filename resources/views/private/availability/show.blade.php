@@ -1,4 +1,4 @@
-@php use App\Models\Availability\AvailabilityType; @endphp
+@php use App\Models\Availability\AvailabilityType;use App\Models\Availability\DriverAvailability; @endphp
 @extends('layouts.private-layout')
 
 @section('page-title')
@@ -55,26 +55,54 @@
         <div class="table-wrapper">
             <table>
                 <thead>
-                    <tr>
-                        <th class="number">Driver</th>
-                        <th class="number">Availability Status</th>
-                    </tr>
+                <tr>
+                    <th class="number">Accepted</th>
+                    <th class="number">Declined</th>
+                    <th class="number">Tentative</th>
+                </tr>
                 </thead>
 
                 <tbody>
-                    @foreach($driverAvailabilities as $driverAvailability)
-                        <tr>
-                            <td class="center">{{ $driverAvailability->driver->name }}</td>
-                            <td class="center {{ strtolower(AvailabilityType::all()->where('id', '=', $driverAvailability->availability_type_id)->first()->name) }}">{{ AvailabilityType::all()->where('id', '=', $driverAvailability->availability_type_id)->first()->name }}</td>
-                        </tr>
-                    @endforeach
+                    <tr>
+                        <td class="number">
+                            {{ $acceptedCount = DriverAvailability::query()->select('*')->where('race_availability_id', '=', $raceAvailability->id)->whereIn('driver_availabilities.availability_type_id', function ($query) { $query->select('availability_types.id')->from('availability_types')->where('availability_types.name', '=', 'Accepted'); })->count() }}
+                        </td>
 
-                    @foreach($leftoverDrivers as $leftoverDriver)
-                        <tr>
-                            <td class="center">{{ $leftoverDriver->name }}</td>
-                            <td class="center">No availability</td>
-                        </tr>
-                    @endforeach
+                        <td class="number">
+                            {{ $acceptedCount = DriverAvailability::query()->select('*')->where('race_availability_id', '=', $raceAvailability->id)->whereIn('driver_availabilities.availability_type_id', function ($query) { $query->select('availability_types.id')->from('availability_types')->where('availability_types.name', '=', 'Declined'); })->count() }}
+                        </td>
+
+                        <td class="number">
+                            {{ $acceptedCount = DriverAvailability::query()->select('*')->where('race_availability_id', '=', $raceAvailability->id)->whereIn('driver_availabilities.availability_type_id', function ($query) { $query->select('availability_types.id')->from('availability_types')->where('availability_types.name', '=', 'Tentative'); })->count() }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                <tr>
+                    <th class="number">Driver</th>
+                    <th class="number">Availability Status</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                @foreach($driverAvailabilities as $driverAvailability)
+                    <tr>
+                        <td class="center">{{ $driverAvailability->driver->name }}</td>
+                        <td class="center {{ strtolower(AvailabilityType::all()->where('id', '=', $driverAvailability->availability_type_id)->first()->name) }}">{{ AvailabilityType::all()->where('id', '=', $driverAvailability->availability_type_id)->first()->name }}</td>
+                    </tr>
+                @endforeach
+
+                @foreach($leftoverDrivers as $leftoverDriver)
+                    <tr>
+                        <td class="center">{{ $leftoverDriver->name }}</td>
+                        <td class="center">No availability</td>
+                    </tr>
+                @endforeach
 
                 </tbody>
             </table>

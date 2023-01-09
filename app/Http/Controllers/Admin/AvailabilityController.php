@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Availability\AvailabilityType;
 use App\Models\Availability\DriverAvailability;
 use App\Models\Availability\RaceAvailability;
 use App\Models\Driver;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -13,6 +15,8 @@ class AvailabilityController extends Controller
 {
     public function index(): View
     {
+        User::checkPermissions("availability index");
+
         $raceAvailabilities = RaceAvailability::all();
 
         return view('private.availability.index', compact('raceAvailabilities'));
@@ -20,6 +24,8 @@ class AvailabilityController extends Controller
 
     public function show(int $raceAvailabilityId): View
     {
+        User::checkPermissions("availability show");
+
         $raceAvailability = RaceAvailability::all()->where('id', '=', $raceAvailabilityId)->first();
 
         $driverAvailabilities = DriverAvailability::all()->where('race_availability_id', '=', $raceAvailability->id);

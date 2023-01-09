@@ -45,15 +45,9 @@
                             <td class="number">{{ $drivernumberChangeRequest->driver->drivernumber }}</td>
                             <td class="number">{{ $drivernumberChangeRequest->new_drivernumber }}</td>
                             <td class="timestamp">{{ $drivernumberChangeRequest->created_at }}</td>
-                            @if(strtolower($drivernumberChangeRequest->requeststatus->status) === "opened")
-                                <td class="handle-request-button">
-                                    <a href="{{ route('admin.requests.drivernumber.handle', ['id' => $drivernumberChangeRequest->id]) }}">Handle Request</a>
-                                </td>
-                            @else
-                                <td class="awaiting-response">
-                                    Awaiting Response
-                                </td>
-                            @endif
+                            <td class="handle-request-button">
+                                <a href="{{ route('admin.requests.drivernumber.handle', ['id' => $drivernumberChangeRequest->id]) }}">Handle Request</a>
+                            </td>
                         </tr>
 
                     @endforeach

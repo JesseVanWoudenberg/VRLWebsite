@@ -76,9 +76,7 @@
 
                 <input type="submit" value="Update Availability">
             </form>
-
         </div>
-
     </div>
 
 @endsection

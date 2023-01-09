@@ -79,4 +79,15 @@ class User extends Authenticatable implements MustVerifyEmail
             abort(403);
         }
     }
+
+    public static function checkIfValidDriver()
+    {
+        if (Auth::check()) {
+            if (Auth::user()->driver_id == null) {
+                abort(403);
+            }
+        } else {
+            abort(403);
+        }
+    }
 }

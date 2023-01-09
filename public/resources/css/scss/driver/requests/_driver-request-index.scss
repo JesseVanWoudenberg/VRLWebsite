@@ -14,13 +14,13 @@
 
     /* Handle */
     ::-webkit-scrollbar-thumb {
-        background: #111111;
+        background: #0a8bc0;
         border-radius: 15px;
     }
 
     /* Handle on hover */
     .table-wrapper-container::-webkit-scrollbar-thumb:hover {
-        background: #4b4b4b;
+        background: #0977a2;
     }
 
     .drivernumber-requests-container {
@@ -99,24 +99,31 @@
 
                         }
 
-                        .opened, .closed, .returned {
+                        .opened, .closed, .denied, .accepted {
                             font-weight: bold;
                         }
 
                         .opened {
-                            color: #1cd20a;
-                        }
-
-                        .closed {
-                            color: #f50505;
+                            color: #b50cc9;
                         }
 
                         .returned {
                             color: #ff6b2b;
                         }
 
-                        .delete-button, .edit-button {
+                        .denied {
+                            color: #f50505;
+                        }
 
+                        .accepted {
+                            color: #1cd20a
+                        }
+
+
+                        .delete-button, .edit-button, .info-button {
+
+                            min-width: 110px;
+                            width: 110px;
                             padding: 7.5px 20px 7.5px 0;
 
                             a {
@@ -153,8 +160,6 @@
                         }
 
                         .delete-button {
-                            min-width: 110px;
-                            width: 110px;
 
                             a {
                                 background-color: #c40a0a;
@@ -172,9 +177,6 @@
 
                         .edit-button {
 
-                            min-width: 70px !important;
-                            width: 70px !important;
-
                             a {
                                 background-color: #d9a748;
                             }
@@ -182,7 +184,23 @@
                             a:hover {
                                 background-color: #b2842b;
                                 transition: ease 0.2s;
-                                
+
+                                span {
+                                    color: #9d9b9b;
+                                }
+                            }
+                        }
+
+                        .info-button {
+
+                            a {
+                                background-color: #0e9bd0;
+                            }
+
+                            a:hover {
+                                background-color: #0977a1;
+                                transition: ease 0.2s;
+
                                 span {
                                     color: #9d9b9b;
                                 }

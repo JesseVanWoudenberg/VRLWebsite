@@ -8,6 +8,7 @@ use App\Models\Availability\DriverAvailability;
 use App\Models\Availability\RaceAvailability;
 use App\Models\Log;
 use App\Models\Season;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +18,8 @@ class AvailabilityController extends Controller
 {
     public function index(): View
     {
+        User::checkIfValidDriver();
+
         $raceAvailabilities = RaceAvailability::query()
             ->select("race_availabilities.*", "races.round")
             ->join('races', 'races.id', '=' , 'race_availabilities.race_id')
@@ -36,6 +39,8 @@ class AvailabilityController extends Controller
 
     public function edit(int $raceAvailabilityId): View
     {
+        User::checkIfValidDriver();
+
         $raceAvailability = RaceAvailability::all()->where('id', '=', $raceAvailabilityId)->first();
 
         return view('driver.availability.edit', compact('raceAvailability'));
@@ -43,6 +48,8 @@ class AvailabilityController extends Controller
 
     public function update(Request $request, int $raceAvailabilityId): RedirectResponse
     {
+        User::checkIfValidDriver();
+
         $raceAvailability = RaceAvailability::all()->where('id', '=', $raceAvailabilityId)->first();
 
         foreach (DriverAvailability::all()

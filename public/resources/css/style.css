@@ -1031,6 +1031,56 @@
   font-size: 18pt;
   height: 50px;
 }
+.drivernumber-request-handle main .drivernumber-request-handle-container .table-wrapper {
+  width: calc(100% - 50px);
+  padding: 25px;
+}
+.drivernumber-request-handle main .drivernumber-request-handle-container .table-wrapper table {
+  width: 100%;
+}
+.drivernumber-request-handle main .drivernumber-request-handle-container .table-wrapper table thead tr th {
+  text-align: center;
+}
+.drivernumber-request-handle main .drivernumber-request-handle-container .table-wrapper table tbody tr td {
+  text-align: center;
+}
+.drivernumber-request-handle main .drivernumber-request-handle-container .form-container {
+  width: calc(100% - 50px);
+  padding: 25px;
+  display: flex;
+  justify-content: space-around;
+}
+.drivernumber-request-handle main .drivernumber-request-handle-container .form-container .accept-form, .drivernumber-request-handle main .drivernumber-request-handle-container .form-container .deny-form {
+  width: 40%;
+}
+.drivernumber-request-handle main .drivernumber-request-handle-container .form-container .accept-form input[type=submit], .drivernumber-request-handle main .drivernumber-request-handle-container .form-container .deny-form input[type=submit] {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: #111111;
+  color: white;
+  font-size: 16pt;
+  padding: 10px 0;
+}
+.drivernumber-request-handle main .drivernumber-request-handle-container .form-container .accept-form input[type=submit]:hover, .drivernumber-request-handle main .drivernumber-request-handle-container .form-container .deny-form input[type=submit]:hover {
+  background-color: #333232;
+  color: #a4a3a3;
+}
+.drivernumber-request-handle main .drivernumber-request-handle-container .form-container .deny-form {
+  display: flex;
+}
+.drivernumber-request-handle main .drivernumber-request-handle-container .form-container .deny-form label {
+  display: inline-block;
+  margin-top: 25px;
+  text-align: center;
+  width: 100%;
+}
+.drivernumber-request-handle main .drivernumber-request-handle-container .form-container .deny-form textarea {
+  resize: none;
+  width: 100%;
+  height: 100px;
+}
+
 .availability-show main .availability-container {
   border-radius: 15px;
   margin: 0 auto;
@@ -1884,7 +1934,7 @@
 
 .user-index {
   min-height: 100vh;
-  background-color: #424141FF;
+  background-color: #424141;
   color: white;
 }
 .user-index main .user-table-container {
@@ -1902,7 +1952,7 @@
   padding: 20px 10px;
 }
 .user-index main .user-table-container table tbody tr td a {
-  color: #424141FF;
+  color: #424141;
   font-weight: bold;
   text-decoration: none;
   padding: 7.5px 15px;
@@ -3081,7 +3131,7 @@
   padding: 0 7.5px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #424141FF;
+  color: #424141;
   border-radius: 20px;
   font-stretch: expanded;
 }
@@ -3140,7 +3190,7 @@
   text-decoration: none;
   padding: 5px;
   border-radius: 25px;
-  color: #424141FF;
+  color: #424141;
   width: 100px;
   text-align: center;
 }
@@ -3926,7 +3976,7 @@
 }
 
 .the-team {
-  background-color: #424141FF;
+  background-color: #424141;
 }
 .the-team main .the-team-container {
   margin: 50px auto 0 auto;
@@ -4012,8 +4062,7 @@
   margin-left: 50px;
   transition: margin-left 0.4s ease-in-out;
 }
-.driver-panel-body .driver-panel-nav {
-  /* header */
+.driver-panel-body .driver-panel-nav { /* header */
   position: fixed;
   background-color: #0a8bc0;
   box-shadow: rgba(0, 0, 0, 0.35) 0 3px 6px;
@@ -4175,11 +4224,11 @@
   border-radius: 0 0 15px 15px;
 }
 .driver-request-index ::-webkit-scrollbar-thumb {
-  background: #111111;
+  background: #0a8bc0;
   border-radius: 15px;
 }
 .driver-request-index .table-wrapper-container::-webkit-scrollbar-thumb:hover {
-  background: #4b4b4b;
+  background: #0977a2;
 }
 .driver-request-index .drivernumber-requests-container {
   margin-top: 50px !important;
@@ -4227,27 +4276,32 @@
   background-color: white;
 }
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr td, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr td {
-  background-color: #d9d9d9;
+  background-color: rgb(217, 217, 217);
   padding: 20px;
   white-space: nowrap;
   text-align: left;
 }
-.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .opened, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .closed, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .returned, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .opened, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .closed, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .returned {
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .opened, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .closed, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .denied, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .accepted, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .opened, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .closed, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .denied, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .accepted {
   font-weight: bold;
 }
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .opened, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .opened {
-  color: #1cd20a;
-}
-.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .closed, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .closed {
-  color: #f50505;
+  color: #b50cc9;
 }
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .returned, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .returned {
   color: #ff6b2b;
 }
-.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button {
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .denied, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .denied {
+  color: #f50505;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .accepted, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .accepted {
+  color: #1cd20a;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .info-button, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .info-button {
+  min-width: 110px;
+  width: 110px;
   padding: 7.5px 20px 7.5px 0;
 }
-.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a {
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .info-button a, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .info-button a {
   border-radius: 5px;
   text-decoration: none;
   color: white;
@@ -4256,14 +4310,14 @@
   height: 35px;
   border: none;
 }
-.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a svg, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a svg, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a svg, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a svg {
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a svg, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a svg, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .info-button a svg, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a svg, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a svg, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .info-button a svg {
   color: white;
   margin-left: 7.5px;
   margin-top: 7.5px;
   width: 20px;
   height: 20px;
 }
-.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a span, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a span, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a span, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a span {
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a span, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a span, .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .info-button a span, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a span, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a span, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .info-button a span {
   text-align: left;
   color: white;
   margin-left: 10px;
@@ -4272,10 +4326,6 @@
   line-height: 37.5px;
   font-size: 12pt;
   font-weight: bold;
-}
-.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button {
-  min-width: 110px;
-  width: 110px;
 }
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a {
   background-color: #c40a0a;
@@ -4287,10 +4337,6 @@
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .delete-button a:hover span, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .delete-button a:hover span {
   color: #9d9b9b;
 }
-.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button {
-  min-width: 70px !important;
-  width: 70px !important;
-}
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a {
   background-color: #d9a748;
 }
@@ -4299,6 +4345,16 @@
   transition: ease 0.2s;
 }
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .edit-button a:hover span, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .edit-button a:hover span {
+  color: #9d9b9b;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .info-button a, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .info-button a {
+  background-color: #0e9bd0;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .info-button a:hover, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .info-button a:hover {
+  background-color: #0977a1;
+  transition: ease 0.2s;
+}
+.driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .info-button a:hover span, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .info-button a:hover span {
   color: #9d9b9b;
 }
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr .timestamp, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr .timestamp {
@@ -4475,6 +4531,51 @@
   transition: background-color ease 0.2s;
 }
 
+.driver-request-show {
+  min-height: 100vh;
+  background-color: #d9d9d9;
+}
+.driver-request-show .show-container {
+  border-radius: 15px;
+  margin: 25px auto 0 auto;
+  width: 90%;
+  max-width: 750px;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+}
+.driver-request-show .show-container .table-header {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+  padding: 10px;
+  background-color: #0a8bc0;
+  height: 50px;
+  display: flex;
+}
+.driver-request-show .show-container .table-header h1 {
+  margin-left: 15px;
+  line-height: 50px;
+  color: white;
+  font-size: 18pt;
+  height: 50px;
+}
+.driver-request-show .show-container .show-content {
+  padding: 0 25px 25px 25px;
+  width: calc(100% - 50px);
+}
+.driver-request-show .show-container .show-content h1, .driver-request-show .show-container .show-content p {
+  width: 100%;
+  text-align: center;
+}
+.driver-request-show .show-container .show-content h1 {
+  margin-top: 25px;
+  font-size: 24pt;
+}
+.driver-request-show .show-container .show-content p {
+  font-size: 16pt;
+}
+
 .request-confirm-main {
   min-width: 300px;
   width: 300px;
@@ -4549,7 +4650,7 @@
 }
 .driver-availability-index .availability-list-container .availability-races-container .table-wrapper table tbody tr td {
   padding: 10px;
-  background-color: #d9d9d9;
+  background-color: rgb(217, 217, 217);
   text-align: left;
   white-space: nowrap;
 }

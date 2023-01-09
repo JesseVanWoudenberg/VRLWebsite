@@ -44,18 +44,36 @@
             </table>
         </div>
 
-        <div class="comments">
-
-
-
-        </div>
-
         <div class="form-container">
 
+            <div class="accept-form">
+                <form action="{{ route('admin.requests.drivernumber.handle-decision', ['id' => $drivernumberChangeRequest->id]) }}" method="POST">
 
+                    @method('GET')
+                    @csrf
 
+                    <input type="hidden" name="decision" value="Accept">
+
+                    <input type="submit" value="Accept">
+                </form>
+            </div>
+
+            <div class="deny-form">
+                <form action="{{ route('admin.requests.drivernumber.handle-decision', ['id' => $drivernumberChangeRequest->id]) }}" method="POST">
+
+                    @method('GET')
+                    @csrf
+
+                    <input type="submit" value="Deny">
+
+                    <input type="hidden" name="decision" value="Deny">
+
+                    <label for="reason">Reason to deny</label>
+                    <textarea name="reason" id="reason" maxlength="500"></textarea>
+
+                </form>
+            </div>
         </div>
-
     </div>
 
 @endsection

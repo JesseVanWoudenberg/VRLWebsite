@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class DrivernumberChangeRequest extends Model
 {
@@ -25,5 +26,10 @@ class DrivernumberChangeRequest extends Model
     public function driver(): BelongsTo
     {
         return $this->belongsTo(Driver::class);
+    }
+
+    public function drivernumberChangeRequestDenyReason(): HasMany
+    {
+        return $this->hasMany(DrivernumberChangeRequestDenyReason::class);
     }
 }

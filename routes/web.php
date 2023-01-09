@@ -224,7 +224,10 @@ Route::get('admin/role', [RoleController::class, 'index'])->name('role');
 
 Route::get('admin/requests', [RequestController::class, 'index'])->name('admin.requests');
 Route::get('admin/requests/teamtransfer/handle/{id}', [RequestController::class, 'handleTeamTransferRequest'])->name('admin.requests.teamtransfer.handle');
+Route::get('admin/requests/teamtransfer/handle-decision/{id}', [RequestController::class, 'handleTeamTransferRequestDecision'])->name('admin.requests.teamtransfer.handle-decision');
+
 Route::get('admin/requests/drivernumber/handle/{id}', [RequestController::class, 'handleDrivernumberChangeRequest'])->name('admin.requests.drivernumber.handle');
+Route::get('admin/requests/drivernumber/handle-decision/{id}', [RequestController::class, 'handleDriverNumberChangeRequestDecision'])->name('admin.requests.drivernumber.handle-decision');
 
 Route::get('admin/availability', [AdminAvailabilityController::class, 'index'])->name('admin.availability');
 Route::get('admin/availability/{raceAvailabilityId}/show', [AdminAvailabilityController::class, 'show'])->name('admin.availability.show');
@@ -252,13 +255,13 @@ Route::get('/driverpanel/requests/drivernumber/create', [DrivernumberChangeReque
 Route::get('/driverpanel/requests/drivernumber/store', [DrivernumberChangeRequestController::class, 'store'])->name('driverpanel.requests.drivernumber.store');
 Route::get('/driverpanel/requests/drivernumber/{id}/delete', [DrivernumberChangeRequestController::class, 'delete'])->name('driverpanel.requests.drivernumber.delete');
 Route::get('/driverpanel/requests/drivernumber/{id}/destroy', [DrivernumberChangeRequestController::class, 'destroy'])->name('driverpanel.requests.drivernumber.destroy');
-Route::get('/driverpanel/requests/drivernumber/{id}/edit', [DrivernumberChangeRequestController::class, 'edit'])->name('driverpanel.requests.drivernumber.edit');
-Route::get('/driverpanel/requests/drivernumber/{id}/update', [DrivernumberChangeRequestController::class, 'update'])->name('driverpanel.requests.drivernumber.update');
+Route::get('/driverpanel/requests/drivernumber/{id}/show', [DrivernumberChangeRequestController::class, 'show'])->name('driverpanel.requests.drivernumber.show');
 
 Route::get('/driverpanel/requests/teamtransfer/create', [TeamTransferRequestController::class, 'create'])->name('driverpanel.requests.teamtransfer.create');
 Route::get('/driverpanel/requests/teamtransfer/store', [TeamTransferRequestController::class, 'store'])->name('driverpanel.requests.teamtransfer.store');
 Route::get('/driverpanel/requests/teamtransfer/{id}/delete', [TeamTransferRequestController::class, 'delete'])->name('driverpanel.requests.teamtransfer.delete');
 Route::get('/driverpanel/requests/teamtransfer/{id}/destroy', [TeamTransferRequestController::class, 'destroy'])->name('driverpanel.requests.teamtransfer.destroy');
+Route::get('/driverpanel/requests/teamtransfer/{id}/show', [TeamTransferRequestController::class, 'show'])->name('driverpanel.requests.teamtransfer.show');
 
 Route::get('/driverpanel/availability', [AvailabilityController::class, 'index'])->name('driverpanel.availability');
 Route::get('/driverpanel/availability/{id}', [AvailabilityController::class, 'edit'])->name('driverpanel.availability.edit');
