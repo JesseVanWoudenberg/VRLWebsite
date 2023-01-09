@@ -644,13 +644,13 @@
 .private-index main .index-list-container .table-wrapper-container table tbody tr td:nth-child(1) {
   padding: 15px 0 15px 20px;
 }
-.private-index main .index-list-container .table-wrapper-container table tbody tr .edit-button, .private-index main .index-list-container .table-wrapper-container table tbody tr .delete-button, .private-index main .index-list-container .table-wrapper-container table tbody tr .info-button, .private-index main .index-list-container .table-wrapper-container table tbody tr .permissions-button {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .edit-button, .private-index main .index-list-container .table-wrapper-container table tbody tr .delete-button, .private-index main .index-list-container .table-wrapper-container table tbody tr .info-button, .private-index main .index-list-container .table-wrapper-container table tbody tr .permissions-button, .private-index main .index-list-container .table-wrapper-container table tbody tr .availability-button {
   border-right: 10px solid transparent;
   width: 50px;
   padding: 5px 0;
   text-align: left;
 }
-.private-index main .index-list-container .table-wrapper-container table tbody tr .edit-button a, .private-index main .index-list-container .table-wrapper-container table tbody tr .delete-button a, .private-index main .index-list-container .table-wrapper-container table tbody tr .info-button a, .private-index main .index-list-container .table-wrapper-container table tbody tr .permissions-button a {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .edit-button a, .private-index main .index-list-container .table-wrapper-container table tbody tr .delete-button a, .private-index main .index-list-container .table-wrapper-container table tbody tr .info-button a, .private-index main .index-list-container .table-wrapper-container table tbody tr .permissions-button a, .private-index main .index-list-container .table-wrapper-container table tbody tr .availability-button a {
   font-weight: normal;
   white-space: nowrap;
   text-decoration: none;
@@ -661,7 +661,7 @@
   flex-wrap: nowrap;
   text-align: center;
 }
-.private-index main .index-list-container .table-wrapper-container table tbody tr .edit-button a img, .private-index main .index-list-container .table-wrapper-container table tbody tr .delete-button a img, .private-index main .index-list-container .table-wrapper-container table tbody tr .info-button a img, .private-index main .index-list-container .table-wrapper-container table tbody tr .permissions-button a img {
+.private-index main .index-list-container .table-wrapper-container table tbody tr .edit-button a img, .private-index main .index-list-container .table-wrapper-container table tbody tr .delete-button a img, .private-index main .index-list-container .table-wrapper-container table tbody tr .info-button a img, .private-index main .index-list-container .table-wrapper-container table tbody tr .permissions-button a img, .private-index main .index-list-container .table-wrapper-container table tbody tr .availability-button a img {
   color: white;
   position: relative;
   margin: auto;
@@ -696,6 +696,13 @@
 }
 .private-index main .index-list-container .table-wrapper-container table tbody tr .permissions-button a:hover {
   background-color: #27037a;
+  transition: ease 0.2s;
+}
+.private-index main .index-list-container .table-wrapper-container table tbody tr .availability-button a {
+  background-color: #8d098b;
+}
+.private-index main .index-list-container .table-wrapper-container table tbody tr .availability-button a:hover {
+  background-color: #70066e;
   transition: ease 0.2s;
 }
 .private-index main .index-list-container .table-wrapper-container table tbody tr:nth-child(even) {
@@ -866,6 +873,254 @@
   text-decoration: none;
   font-size: 16pt;
   text-align: center;
+}
+
+.private-requests-index {
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.private-requests-index ::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 0 0 15px 15px;
+}
+.private-requests-index ::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 0 0 15px 15px;
+}
+.private-requests-index ::-webkit-scrollbar-thumb {
+  background: #111111;
+  border-radius: 15px;
+}
+.private-requests-index .table-wrapper-container::-webkit-scrollbar-thumb:hover {
+  background: #4b4b4b;
+}
+.private-requests-index main {
+  min-height: 100vh;
+  background-color: #d9d9d9;
+}
+.private-requests-index main .index-list-container {
+  border-radius: 15px;
+  margin: 0 auto;
+  width: 90%;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+}
+.private-requests-index main .index-list-container .table-header {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+  padding: 10px;
+  background-color: #111111;
+  height: 50px;
+  display: flex;
+}
+.private-requests-index main .index-list-container .table-header h1 {
+  margin-left: 15px;
+  line-height: 50px;
+  color: white;
+  font-size: 18pt;
+  height: 50px;
+}
+.private-requests-index main .index-list-container .table-wrapper {
+  width: calc(100% - 50px);
+  padding: 25px;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  max-height: 700px;
+}
+.private-requests-index main .index-list-container .table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.private-requests-index main .index-list-container .table-wrapper table thead tr th {
+  padding: 10px 20px;
+  white-space: nowrap;
+  text-align: left;
+}
+.private-requests-index main .index-list-container .table-wrapper table thead tr .number {
+  font-weight: bold;
+  text-align: center;
+  width: 175px;
+}
+.private-requests-index main .index-list-container .table-wrapper table thead tr .timestamp {
+  width: 175px;
+  text-align: center;
+}
+.private-requests-index main .index-list-container .table-wrapper table tbody tr td {
+  padding: 15px 20px;
+  white-space: nowrap;
+  text-align: left;
+}
+.private-requests-index main .index-list-container .table-wrapper table tbody tr .awaiting-response {
+  text-align: center;
+}
+.private-requests-index main .index-list-container .table-wrapper table tbody tr .handle-request-button {
+  width: 150px;
+}
+.private-requests-index main .index-list-container .table-wrapper table tbody tr .handle-request-button a {
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: white;
+  background-color: #8d098b;
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 150px;
+}
+.private-requests-index main .index-list-container .table-wrapper table tbody tr .opened, .private-requests-index main .index-list-container .table-wrapper table tbody tr .closed, .private-requests-index main .index-list-container .table-wrapper table tbody tr .returned {
+  font-weight: bold;
+}
+.private-requests-index main .index-list-container .table-wrapper table tbody tr .opened {
+  color: #1cd20a;
+}
+.private-requests-index main .index-list-container .table-wrapper table tbody tr .closed {
+  color: #f50505;
+}
+.private-requests-index main .index-list-container .table-wrapper table tbody tr .returned {
+  color: #ff6b2b;
+}
+.private-requests-index main .index-list-container .table-wrapper table tbody tr .number {
+  font-weight: bold;
+  text-align: center;
+  width: 175px;
+}
+.private-requests-index main .index-list-container .table-wrapper table tbody tr .timestamp {
+  width: 175px;
+  text-align: center;
+}
+.private-requests-index main .index-list-container .table-wrapper table tbody tr:nth-child(even) {
+  background-color: white;
+}
+.private-requests-index main .index-list-container .table-wrapper table tbody tr:nth-child(odd) {
+  background-color: #dedcdc;
+}
+.private-requests-index main .index-list-container:nth-child(3) {
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+
+.drivernumber-request-handle main {
+  min-height: 100vh;
+  background-color: #d9d9d9;
+}
+.drivernumber-request-handle main .drivernumber-request-handle-container {
+  border-radius: 15px;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 600px;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+}
+.drivernumber-request-handle main .drivernumber-request-handle-container .table-header {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+  padding: 10px;
+  background-color: #111111;
+  height: 50px;
+  display: flex;
+}
+.drivernumber-request-handle main .drivernumber-request-handle-container .table-header h1 {
+  margin-left: 15px;
+  line-height: 50px;
+  color: white;
+  font-size: 18pt;
+  height: 50px;
+}
+.availability-show main .availability-container {
+  border-radius: 15px;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 750px;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+}
+.availability-show main .availability-container .table-header {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+  padding: 10px;
+  background-color: #111111;
+  height: 50px;
+  display: flex;
+}
+.availability-show main .availability-container .table-header h1 {
+  margin-left: 15px;
+  line-height: 50px;
+  color: white;
+  font-size: 18pt;
+  height: 50px;
+}
+.availability-show main .availability-container .table-wrapper {
+  width: calc(100% - 50px);
+  padding: 25px;
+}
+.availability-show main .availability-container .table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.availability-show main .availability-container .table-wrapper table thead tr th {
+  padding: 10px 20px;
+  white-space: nowrap;
+  text-align: left;
+}
+.availability-show main .availability-container .table-wrapper table thead tr .number {
+  font-weight: bold;
+  text-align: center;
+  width: 175px;
+}
+.availability-show main .availability-container .table-wrapper table thead tr .timestamp {
+  width: 175px;
+  text-align: center;
+}
+.availability-show main .availability-container .table-wrapper table tbody tr td {
+  padding: 15px 20px;
+  white-space: nowrap;
+  text-align: left;
+}
+.availability-show main .availability-container .table-wrapper table tbody tr .awaiting-response {
+  text-align: center;
+}
+.availability-show main .availability-container .table-wrapper table tbody tr .handle-request-button {
+  width: 150px;
+}
+.availability-show main .availability-container .table-wrapper table tbody tr .handle-request-button a {
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: white;
+  background-color: #8d098b;
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 150px;
+}
+.availability-show main .availability-container .table-wrapper table tbody tr .number {
+  font-weight: bold;
+  text-align: center;
+  width: 175px;
+}
+.availability-show main .availability-container .table-wrapper table tbody tr .center {
+  text-align: center;
+}
+.availability-show main .availability-container .table-wrapper table tbody tr .accepted {
+  color: #1cd20a;
+}
+.availability-show main .availability-container .table-wrapper table tbody tr .declined {
+  color: #f50505;
+}
+.availability-show main .availability-container .table-wrapper table tbody tr .tentative {
+  color: #ff6b2b;
+}
+.availability-show main .availability-container .table-wrapper table tbody tr:nth-child(even) {
+  background-color: white;
+}
+.availability-show main .availability-container .table-wrapper table tbody tr:nth-child(odd) {
+  background-color: #dedcdc;
 }
 
 .login {
@@ -4294,7 +4549,7 @@
 }
 .driver-availability-index .availability-list-container .availability-races-container .table-wrapper table tbody tr td {
   padding: 10px;
-  background-color: rgb(217, 217, 217);
+  background-color: #d9d9d9;
   text-align: left;
   white-space: nowrap;
 }
@@ -4305,7 +4560,7 @@
   color: white;
   text-decoration: none;
   white-space: pre;
-  width: 125px;
+  width: 140px;
   background-color: #14b704;
   height: 30px;
   line-height: 30px;
@@ -4314,6 +4569,9 @@
 }
 .driver-availability-index .availability-list-container .availability-races-container .table-wrapper table tbody tr .number {
   width: 100px;
+  text-align: center;
+}
+.driver-availability-index .availability-list-container .availability-races-container .table-wrapper table tbody tr .center {
   text-align: center;
 }
 .driver-availability-index .availability-list-container .availability-races-container .table-wrapper table tbody tr .availability-button {

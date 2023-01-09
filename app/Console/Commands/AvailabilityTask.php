@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 
 class AvailabilityTask extends Command
 {
-    protected $availabilityController;
+    protected AvailabilityController $availabilityController;
 
     /**
      * The name and signature of the console command.

@@ -32,6 +32,12 @@
 @import 'scss/private/crud/private-create-edit-delete';
 @import 'scss/private/crud/private-show';
 
+// Requests
+@import 'scss/private/request/private-request-index';
+@import 'scss/private/request/drivernumber-handle';
+
+@import 'scss/private/availability/availability-show';
+
 // Login
 @import 'scss/auth/login';
 

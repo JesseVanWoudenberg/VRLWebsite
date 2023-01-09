@@ -10,7 +10,6 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Auth\RoleController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Driver\AvailabilityController;
-use App\Http\Controllers\Driver\RequestController;
 use App\Http\Controllers\Driver\Requests\DrivernumberChangeRequestController;
 use App\Http\Controllers\Driver\Requests\TeamTransferRequestController;
 use Illuminate\Support\Facades\DB;
@@ -25,6 +24,7 @@ use App\Http\Controllers\Admin\RaceController;
 use App\Http\Controllers\Admin\SeasonController;
 use App\Http\Controllers\Admin\TierController;
 use App\Http\Controllers\Admin\TrackController;
+use App\Http\Controllers\Admin\RequestController;
 use App\Http\Controllers\Auth\CustomAuthController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ProfileController;
@@ -32,6 +32,8 @@ use App\Http\Controllers\Open\TieroneController;
 use App\Http\Controllers\Open\RaceController as OpenRaceController;
 use App\Http\Controllers\Open\TrackController as OpenTrackController;
 
+use App\Http\Controllers\Admin\AvailabilityController as AdminAvailabilityController;
+use App\Http\Controllers\Driver\RequestController as DriverRequestController;
 // Open page controllers
 use App\Http\Controllers\Open\TeamController as OpenTeam;
 use App\Http\Controllers\Open\DriverController as OpenDriver;
@@ -220,6 +222,13 @@ Route::get('admin/role/{role}/permissions', [RoleController::class, 'permissions
 Route::get('admin/role/{role}/update-permissions', [RoleController::class, 'updatepermissions'])->name('role.update-permissions');
 Route::get('admin/role', [RoleController::class, 'index'])->name('role');
 
+Route::get('admin/requests', [RequestController::class, 'index'])->name('admin.requests');
+Route::get('admin/requests/teamtransfer/handle/{id}', [RequestController::class, 'handleTeamTransferRequest'])->name('admin.requests.teamtransfer.handle');
+Route::get('admin/requests/drivernumber/handle/{id}', [RequestController::class, 'handleDrivernumberChangeRequest'])->name('admin.requests.drivernumber.handle');
+
+Route::get('admin/availability', [AdminAvailabilityController::class, 'index'])->name('admin.availability');
+Route::get('admin/availability/{raceAvailabilityId}/show', [AdminAvailabilityController::class, 'show'])->name('admin.availability.show');
+
 Route::resource('admin/log', LogController::class);
 Route::get('/admin/log', [LogController::class, 'index'])->name('log');
 
@@ -237,7 +246,7 @@ Route::get('/driverpanel/sign-up', function () {
 })->name('driverpanel.sign-up');
 
 // General index for all requests
-Route::get('/driverpanel/requests', [RequestController::class, 'index'])->name('driverpanel.requests');
+Route::get('/driverpanel/requests', [DriverRequestController::class, 'index'])->name('driverpanel.requests');
 
 Route::get('/driverpanel/requests/drivernumber/create', [DrivernumberChangeRequestController::class, 'create'])->name('driverpanel.requests.drivernumber.create');
 Route::get('/driverpanel/requests/drivernumber/store', [DrivernumberChangeRequestController::class, 'store'])->name('driverpanel.requests.drivernumber.store');

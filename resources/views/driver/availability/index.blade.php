@@ -61,7 +61,19 @@
                                     @endif
                                 </td>
 
-                                <td class="availability-button"><a href="{{ route('driverpanel.availability.edit', ['id' => $raceAvailability->id]) }}">Do Availability</a></td>
+                                @if(Carbon::now()->greaterThanOrEqualTo($raceAvailability->race->date))
+                                    @if(Carbon::now()->greaterThanOrEqualTo(Carbon::parse('20:00:00')))
+                                        <td class="center">Race done</td>
+                                    @else
+                                        <td class="availability-button">
+                                            <a href="{{ route('driverpanel.availability.edit', ['id' => $raceAvailability->id]) }}">Do Availability</a>
+                                        </td>
+                                    @endif
+                                @else
+                                    <td class="availability-button">
+                                        <a href="{{ route('driverpanel.availability.edit', ['id' => $raceAvailability->id]) }}">Do Availability</a>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>

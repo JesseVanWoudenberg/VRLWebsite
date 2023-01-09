@@ -66,9 +66,6 @@ class AvailabilityController extends Controller
 
     public function CheckAvailability()
     {
-        $log = new Log();
-        $log->user_id = 1;
-        $log->action = "Schedule Ran";
-        $log->save();
+        // Check if people that are drivers have done availability and if so, if they accepted
     }
 }

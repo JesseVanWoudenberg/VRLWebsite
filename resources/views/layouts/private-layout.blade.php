@@ -101,6 +101,18 @@
                                         <a href="{{ route('penaltypoint') }}">Penalty Points</a>
                                     </li>
                                 @endcan
+
+                                @can('request index')
+                                    <li>
+                                        <a href="{{ route('admin.requests') }}">Requests</a>
+                                    </li>
+                                @endcan
+
+                                @can('availability index')
+                                    <li>
+                                        <a href="{{ route('admin.availability') }}">Availability</a>
+                                    </li>
+                                @endcan
                             </ul>
                         </div>
                     </li>
