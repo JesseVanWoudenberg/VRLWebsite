@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Driver;
+use App\Models\ExpiredPenaltypoint;
 use App\Models\Log;
 use App\Models\Penaltypoint;
 use App\Models\Race;
@@ -129,6 +130,12 @@ class PenaltypointController extends Controller
         {
             if ($request->has('penaltypoint-' . $penaltypoint->id))
             {
+                $expired_penaltypoint = new ExpiredPenaltypoint();
+                $expired_penaltypoint->driver_id = $penaltypoint->driver_id;
+                $expired_penaltypoint->race_id = $penaltypoint->race_id;
+                $expired_penaltypoint->amount = 1;
+                $expired_penaltypoint->save();
+
                 $penaltypoint->delete();
             }
         }

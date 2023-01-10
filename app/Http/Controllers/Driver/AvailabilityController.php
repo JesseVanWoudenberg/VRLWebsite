@@ -11,6 +11,7 @@ use App\Models\Season;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
@@ -43,6 +44,15 @@ class AvailabilityController extends Controller
 
         $raceAvailability = RaceAvailability::all()->where('id', '=', $raceAvailabilityId)->first();
 
+        if (Carbon::now()->equalTo($raceAvailability->race->date) && Carbon::now()->greaterThanOrEqualTo(Carbon::parse('20:00:00')))
+        {
+            abort(403);
+        }
+        elseif(Carbon::now()->greaterThan($raceAvailability->race->date))
+        {
+            abort(403);
+        }
+
         return view('driver.availability.edit', compact('raceAvailability'));
     }
 
@@ -51,6 +61,15 @@ class AvailabilityController extends Controller
         User::checkIfValidDriver();
 
         $raceAvailability = RaceAvailability::all()->where('id', '=', $raceAvailabilityId)->first();
+
+        if (Carbon::now()->equalTo($raceAvailability->race->date) && Carbon::now()->greaterThanOrEqualTo(Carbon::parse('20:00:00')))
+        {
+            abort(403);
+        }
+        elseif(Carbon::now()->greaterThan($raceAvailability->race->date))
+        {
+            abort(403);
+        }
 
         foreach (DriverAvailability::all()
             ->where('race_availability_id', '=', $raceAvailability->id)
@@ -69,10 +88,5 @@ class AvailabilityController extends Controller
         $driverAvailability->save();
 
         return redirect()->route('driverpanel.availability')->with('Availability Successfully Updated');
-    }
-
-    public function CheckAvailability()
-    {
-        // Check if people that are drivers have done availability and if so, if they accepted
     }
 }

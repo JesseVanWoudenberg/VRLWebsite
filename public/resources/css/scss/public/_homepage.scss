@@ -5,16 +5,161 @@
 
     main {
 
-        div {
+        //div {
+        //
+        //    margin: 25px auto 0 auto;
+        //    min-width: 500px;
+        //    width: 75%;
+        //
+        //    img {
+        //
+        //        width: 100%;
+        //
+        //    }
+        //}
+
+        .races-container {
 
             margin: 25px auto 0 auto;
-            min-width: 500px;
-            width: 75%;
+            width: 90vw;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
 
-            img {
+            .title {
 
                 width: 100%;
 
+                h1 {
+
+                    display: block;
+                    font-size: 24pt;
+                    text-align: center;
+                    width: 100%;
+                    color: white;
+
+                }
+            }
+
+            .next-race-container {
+
+                width: fit-content;
+
+                fieldset {
+
+                    position: relative;
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin: 25px auto 0 auto;
+                    border-top-right-radius: 25px;
+                    border-top: 2px solid white;
+                    border-right: 2px solid white;
+                    border-bottom: none;
+                    border-left: none;
+                    width: 80vw;
+                    max-width: 500px;
+                    height: 350px;
+                    font-size: 16pt;
+
+                    legend {
+
+                        color: #ffffff;
+                        padding: 10px;
+                        display: flex;
+
+                    }
+
+                    .date {
+                        font-size: 24px;
+                        position: absolute;
+                        top: 0;
+                        left: 25px;
+                    }
+
+                    .month {
+                        position: absolute;
+                        top: 35px;
+                        left: 20px;
+
+                        p {
+                            font-weight: bold;
+                            padding: 0 7.5px;
+                            border: 1px solid #ffffff;
+                            background-color: #ffffff;
+                            color: #424141FF;
+                            border-radius: 20px;
+                            font-stretch: expanded;
+                        }
+                    }
+
+                    .date, .month, .country, .format {
+                        height: fit-content;
+                        width: fit-content;
+                        color: #ffffff;
+                    }
+
+                    .country {
+                        position: absolute;
+                        top: 0;
+                        right: 20px;
+
+                        em {
+                            font-style: normal;
+                            font-weight: bold;
+                        }
+                    }
+
+                    .flag {
+
+                        position: absolute;
+                        top: 35px;
+                        right: 20px;
+
+                        img {
+                            border: 1px solid grey;
+                            border-radius: 7.5px;
+                            width: 40px;
+                            height: 25px;
+                        }
+                    }
+
+                    .track-map {
+
+                        margin: 75px auto 0 auto;
+                        height: 225px;
+                        width: 100%;
+
+                        div {
+
+                            margin: 0 auto;
+                            height: 225px;
+                            width: 330px;
+
+                            img {
+                                height: 225px;
+                                width: 330px;
+                            }
+                        }
+                    }
+
+                    .divider-line {
+                        background-color: white;
+                        position: absolute;
+                        right: 20px;
+                        border: none;
+                        width: 260px;
+                        height: 2px;
+                        opacity: 50%;
+                    }
+
+                    .divider-line-1 {
+                        top: 80px;
+                    }
+
+                    .divider-line-2 {
+                        top: 145px;
+                    }
+                }
             }
         }
     }

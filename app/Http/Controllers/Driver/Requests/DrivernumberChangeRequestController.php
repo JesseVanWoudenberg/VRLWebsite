@@ -37,7 +37,7 @@ class DrivernumberChangeRequestController extends Controller
         }
     }
 
-    public function store(StoreDrivernumberChangeRequestRequest $request)
+    public function store(StoreDrivernumberChangeRequestRequest $request): RedirectResponse
     {
         User::checkIfValidDriver();
 
@@ -63,7 +63,7 @@ class DrivernumberChangeRequestController extends Controller
         return redirect()->route('driverpanel.requests')->with("Request sent");
     }
 
-    public function edit(int $drivernumberChangeRequest)
+    public function edit(int $drivernumberChangeRequest): View
     {
         User::checkIfValidDriver();
 

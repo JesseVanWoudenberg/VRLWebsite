@@ -1934,7 +1934,7 @@
 
 .user-index {
   min-height: 100vh;
-  background-color: #424141FF;
+  background-color: #424141;
   color: white;
 }
 .user-index main .user-table-container {
@@ -1952,7 +1952,7 @@
   padding: 20px 10px;
 }
 .user-index main .user-table-container table tbody tr td a {
-  color: #424141FF;
+  color: #424141;
   font-weight: bold;
   text-decoration: none;
   padding: 7.5px 15px;
@@ -2242,13 +2242,119 @@
   min-height: 100vh;
   background-color: #424141;
 }
-.homepage main div {
+.homepage main .races-container {
   margin: 25px auto 0 auto;
-  min-width: 500px;
-  width: 75%;
+  width: 90vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.homepage main div img {
+.homepage main .races-container .title {
   width: 100%;
+}
+.homepage main .races-container .title h1 {
+  display: block;
+  font-size: 24pt;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+.homepage main .races-container .next-race-container {
+  width: fit-content;
+}
+.homepage main .races-container .next-race-container fieldset {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 25px auto 0 auto;
+  border-top-right-radius: 25px;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  border-bottom: none;
+  border-left: none;
+  width: 80vw;
+  max-width: 500px;
+  height: 350px;
+  font-size: 16pt;
+}
+.homepage main .races-container .next-race-container fieldset legend {
+  color: #ffffff;
+  padding: 10px;
+  display: flex;
+}
+.homepage main .races-container .next-race-container fieldset .date {
+  font-size: 24px;
+  position: absolute;
+  top: 0;
+  left: 25px;
+}
+.homepage main .races-container .next-race-container fieldset .month {
+  position: absolute;
+  top: 35px;
+  left: 20px;
+}
+.homepage main .races-container .next-race-container fieldset .month p {
+  font-weight: bold;
+  padding: 0 7.5px;
+  border: 1px solid #ffffff;
+  background-color: #ffffff;
+  color: #424141;
+  border-radius: 20px;
+  font-stretch: expanded;
+}
+.homepage main .races-container .next-race-container fieldset .date, .homepage main .races-container .next-race-container fieldset .month, .homepage main .races-container .next-race-container fieldset .country, .homepage main .races-container .next-race-container fieldset .format {
+  height: fit-content;
+  width: fit-content;
+  color: #ffffff;
+}
+.homepage main .races-container .next-race-container fieldset .country {
+  position: absolute;
+  top: 0;
+  right: 20px;
+}
+.homepage main .races-container .next-race-container fieldset .country em {
+  font-style: normal;
+  font-weight: bold;
+}
+.homepage main .races-container .next-race-container fieldset .flag {
+  position: absolute;
+  top: 35px;
+  right: 20px;
+}
+.homepage main .races-container .next-race-container fieldset .flag img {
+  border: 1px solid grey;
+  border-radius: 7.5px;
+  width: 40px;
+  height: 25px;
+}
+.homepage main .races-container .next-race-container fieldset .track-map {
+  margin: 75px auto 0 auto;
+  height: 225px;
+  width: 100%;
+}
+.homepage main .races-container .next-race-container fieldset .track-map div {
+  margin: 0 auto;
+  height: 225px;
+  width: 330px;
+}
+.homepage main .races-container .next-race-container fieldset .track-map div img {
+  height: 225px;
+  width: 330px;
+}
+.homepage main .races-container .next-race-container fieldset .divider-line {
+  background-color: white;
+  position: absolute;
+  right: 20px;
+  border: none;
+  width: 260px;
+  height: 2px;
+  opacity: 50%;
+}
+.homepage main .races-container .next-race-container fieldset .divider-line-1 {
+  top: 80px;
+}
+.homepage main .races-container .next-race-container fieldset .divider-line-2 {
+  top: 145px;
 }
 
 .roadmap {
@@ -3131,7 +3237,7 @@
   padding: 0 7.5px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #424141FF;
+  color: #424141;
   border-radius: 20px;
   font-stretch: expanded;
 }
@@ -3190,7 +3296,7 @@
   text-decoration: none;
   padding: 5px;
   border-radius: 25px;
-  color: #424141FF;
+  color: #424141;
   width: 100px;
   text-align: center;
 }
@@ -3976,7 +4082,7 @@
 }
 
 .the-team {
-  background-color: #424141FF;
+  background-color: #424141;
 }
 .the-team main .the-team-container {
   margin: 50px auto 0 auto;
@@ -4062,8 +4168,7 @@
   margin-left: 50px;
   transition: margin-left 0.4s ease-in-out;
 }
-.driver-panel-body .driver-panel-nav {
-  /* header */
+.driver-panel-body .driver-panel-nav { /* header */
   position: fixed;
   background-color: #0a8bc0;
   box-shadow: rgba(0, 0, 0, 0.35) 0 3px 6px;
@@ -4277,7 +4382,7 @@
   background-color: white;
 }
 .driver-request-index .drivernumber-requests-container .table-wrapper table tbody tr td, .driver-request-index .team-transfer-requests-container .table-wrapper table tbody tr td {
-  background-color: #d9d9d9;
+  background-color: rgb(217, 217, 217);
   padding: 20px;
   white-space: nowrap;
   text-align: left;
@@ -4651,7 +4756,7 @@
 }
 .driver-availability-index .availability-list-container .availability-races-container .table-wrapper table tbody tr td {
   padding: 10px;
-  background-color: #d9d9d9;
+  background-color: rgb(217, 217, 217);
   text-align: left;
   white-space: nowrap;
 }
