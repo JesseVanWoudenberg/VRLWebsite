@@ -62,7 +62,7 @@
 
             <table>
                 <tbody>
-
+                
                 @if($wins > 0)
                     <tr>
                         <th>Wins</th>

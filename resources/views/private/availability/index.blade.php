@@ -33,18 +33,18 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Round</th>
-                        <th>Season</th>
                         <th>Tier</th>
+                        <th>Season</th>
+                        <th>Round</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     @foreach($raceAvailabilities as $raceAvailability)
                         <tr>
-                            <td>{{ $raceAvailability->race->round }}</td>
-                            <td>{{ $raceAvailability->race->season->seasonnumber }}</td>
                             <td>{{ $raceAvailability->race->tier->tiernumber }}</td>
+                            <td>{{ $raceAvailability->race->season->seasonnumber }}</td>
+                            <td>{{ $raceAvailability->race->round }}</td>
                             <td class="availability-button">
                                 <a href="{{ route('admin.availability.show', ['raceAvailabilityId' => $raceAvailability->id]) }}">
                                     Check Availability

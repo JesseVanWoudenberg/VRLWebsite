@@ -59,6 +59,7 @@
                     <th class="number">Accepted</th>
                     <th class="number">Declined</th>
                     <th class="number">Tentative</th>
+                    <th class="number">No Response</th>
                 </tr>
                 </thead>
 
@@ -74,6 +75,10 @@
 
                         <td class="number">
                             {{ $acceptedCount = DriverAvailability::query()->select('*')->where('race_availability_id', '=', $raceAvailability->id)->whereIn('driver_availabilities.availability_type_id', function ($query) { $query->select('availability_types.id')->from('availability_types')->where('availability_types.name', '=', 'Tentative'); })->count() }}
+                        </td>
+
+                        <td class="number">
+                            {{ $acceptedCount = DriverAvailability::query()->select('*')->where('race_availability_id', '=', $raceAvailability->id)->whereIn('driver_availabilities.availability_type_id', function ($query) { $query->select('availability_types.id')->from('availability_types')->where('availability_types.name', '=', 'No Response'); })->count() }}
                         </td>
                     </tr>
                 </tbody>
@@ -93,7 +98,11 @@
                 @foreach($driverAvailabilities as $driverAvailability)
                     <tr>
                         <td class="center">{{ $driverAvailability->driver->name }}</td>
-                        <td class="center {{ strtolower(AvailabilityType::all()->where('id', '=', $driverAvailability->availability_type_id)->first()->name) }}">{{ AvailabilityType::all()->where('id', '=', $driverAvailability->availability_type_id)->first()->name }}</td>
+                        <td class="center {{ str_replace(' ', '-', strtolower(AvailabilityType::all()->where('id', '=', $driverAvailability->availability_type_id)->first()->name)) }}">{{ AvailabilityType::all()->where('id', '=', $driverAvailability->availability_type_id)->first()->name }}</td>
+
+                        <td class="availability-button">
+                            <a href="{{ route('admin.availability.edit', ['raceAvailabilityId' => $raceAvailability->id, 'driverId' => $driverAvailability->driver_id]) }}">Edit Availability</a>
+                        </td>
                     </tr>
                 @endforeach
 
@@ -101,6 +110,10 @@
                     <tr>
                         <td class="center">{{ $leftoverDriver->name }}</td>
                         <td class="center">No availability</td>
+
+                        <td class="availability-button">
+                            <a href="{{ route('admin.availability.edit', ['raceAvailabilityId' => $raceAvailability->id, 'driverId' => $leftoverDriver->id]) }}">Edit Availability</a>
+                        </td>
                     </tr>
                 @endforeach
 

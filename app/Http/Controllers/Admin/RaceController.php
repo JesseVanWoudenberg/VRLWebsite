@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Availability\AvailabilityType;
+use App\Models\Availability\DriverAvailability;
 use App\Models\Availability\RaceAvailability;
 use App\Models\Driver;
 use App\Models\Fastestlap;
@@ -126,6 +128,29 @@ class RaceController extends Controller
                     $fastestlap->team_id = $request->input("fastest-lap-team");
                     $fastestlap->save();
                 }
+            }
+        }
+
+        $driverAvailabilities = DriverAvailability::query()
+            ->select('*')
+            ->whereIn('driver_availabilities.race_availability_id', function($query) use ($race) {
+                $query->select('id')
+                    ->from('race_availabilities')
+                    ->where('race_id', $race->id);
+            })
+            ->whereIn('driver_availabilities.availability_type_id', function($query) {
+                $query->select('id')
+                    ->from('availability_types')
+                    ->whereIn('name', ['Accepted', 'Tentative']);
+            })
+            ->get();
+
+        foreach ($driverAvailabilities as $driverAvailability)
+        {
+            if (Racedriver::all()->where('race_id', '=', $race->id)->where('driver_id', '=', $driverAvailability->driver_id)->count() == 0)
+            {
+                $driverAvailability->availability_type_id = AvailabilityType::all()->where('name', '=', 'Declined')->first()->id;
+                $driverAvailability->save();
             }
         }
     }

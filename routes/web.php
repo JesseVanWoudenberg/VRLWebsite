@@ -231,6 +231,9 @@ Route::get('admin/requests/drivernumber/handle-decision/{id}', [RequestControlle
 
 Route::get('admin/availability', [AdminAvailabilityController::class, 'index'])->name('admin.availability');
 Route::get('admin/availability/{raceAvailabilityId}/show', [AdminAvailabilityController::class, 'show'])->name('admin.availability.show');
+Route::get('admin/availability/{raceAvailabilityId}/{driverId}/edit', [AdminAvailabilityController::class, 'edit'])->name('admin.availability.edit');
+Route::get('admin/availability/{raceAvailabilityId}/{driverId}/update', [AdminAvailabilityController::class, 'update'])->name('admin.availability.update');
+
 
 Route::resource('admin/log', LogController::class);
 Route::get('/admin/log', [LogController::class, 'index'])->name('log');

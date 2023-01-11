@@ -16,10 +16,17 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-         $schedule->command('availability:task')
+         $schedule->command('availability:task', ['1'])
              ->everyMinute();
 //             ->weekly()
 //             ->saturdays()
+//             ->at('20:00')
+//             ->timezone('Europe/Amsterdam');
+
+         $schedule->command('availability:task', ['2'])
+             ->everyMinute();
+//             ->weekly()
+//             ->sundays()
 //             ->at('20:00')
 //             ->timezone('Europe/Amsterdam');
     }

@@ -82,20 +82,25 @@
                                 text-align: center;
                             }
 
-                            .handle-request-button {
+                            .availability-button {
 
                                 width: 150px;
 
                                 a {
 
-                                    text-align: center;
-                                    display: block;
-                                    text-decoration: none;
-                                    color: white;
-                                    background-color: #8d098b;
                                     border-radius: 5px;
-                                    padding: 5px 10px;
-                                    width: 150px;
+                                    margin: 0;
+                                    padding: 5px;
+                                    color: white;
+                                    text-decoration: none;
+                                    white-space: pre;
+                                    width: 140px;
+                                    background-color: #14b704;
+                                    height: 30px;
+                                    line-height: 30px;
+                                    display: block;
+                                    text-align: center;
+
                                 }
                             }
 
@@ -119,6 +124,10 @@
 
                             .tentative {
                                 color: #ff6b2b;
+                            }
+
+                            .no-response {
+                                color: #d50bca;
                             }
                         }
 

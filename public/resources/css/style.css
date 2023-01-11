@@ -822,7 +822,7 @@
 }
 .private-show main .show-container {
   border-radius: 15px;
-  margin: 0 auto;
+  margin: 0 auto 25px auto;
   width: 90%;
   max-width: 750px;
   background-color: white;
@@ -1136,18 +1136,22 @@
 .availability-show main .availability-container .table-wrapper table tbody tr .awaiting-response {
   text-align: center;
 }
-.availability-show main .availability-container .table-wrapper table tbody tr .handle-request-button {
+.availability-show main .availability-container .table-wrapper table tbody tr .availability-button {
   width: 150px;
 }
-.availability-show main .availability-container .table-wrapper table tbody tr .handle-request-button a {
-  text-align: center;
-  display: block;
-  text-decoration: none;
-  color: white;
-  background-color: #8d098b;
+.availability-show main .availability-container .table-wrapper table tbody tr .availability-button a {
   border-radius: 5px;
-  padding: 5px 10px;
-  width: 150px;
+  margin: 0;
+  padding: 5px;
+  color: white;
+  text-decoration: none;
+  white-space: pre;
+  width: 140px;
+  background-color: #14b704;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  text-align: center;
 }
 .availability-show main .availability-container .table-wrapper table tbody tr .number {
   font-weight: bold;
@@ -1166,11 +1170,75 @@
 .availability-show main .availability-container .table-wrapper table tbody tr .tentative {
   color: #ff6b2b;
 }
+.availability-show main .availability-container .table-wrapper table tbody tr .no-response {
+  color: #d50bca;
+}
 .availability-show main .availability-container .table-wrapper table tbody tr:nth-child(even) {
   background-color: white;
 }
 .availability-show main .availability-container .table-wrapper table tbody tr:nth-child(odd) {
   background-color: #dedcdc;
+}
+
+.availability-edit main .availability-edit-container {
+  margin: 25px auto 0 auto;
+  width: 80%;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.05) 0 8px 32px;
+  border-radius: 10px;
+}
+.availability-edit main .availability-edit-container .table-header {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  background-color: #111111;
+}
+.availability-edit main .availability-edit-container .table-header h1 {
+  width: calc(100% - 50px);
+  padding: 15px;
+  font-size: 20pt;
+  font-weight: bolder;
+  text-align: center;
+  color: white;
+}
+.availability-edit main .availability-edit-container .availability-edit-form-container {
+  margin-top: 50px;
+  padding: 0 25px;
+  width: calc(100% - 50px);
+}
+.availability-edit main .availability-edit-container .availability-edit-form-container form .availability-options {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.availability-edit main .availability-edit-container .availability-edit-form-container form .availability-options .option-container {
+  display: flex;
+  width: fit-content;
+}
+.availability-edit main .availability-edit-container .availability-edit-form-container form .availability-options .option-container label {
+  display: block;
+  width: fit-content;
+  text-align: center;
+  font-size: 16px;
+}
+.availability-edit main .availability-edit-container .availability-edit-form-container form .availability-options .option-container input[type=radio] {
+  width: 35px;
+}
+.availability-edit main .availability-edit-container .availability-edit-form-container form .availability-options .option-container input[type=radio]:checked + label {
+  background-color: #111111;
+  color: white;
+}
+.availability-edit main .availability-edit-container .availability-edit-form-container form input[type=submit] {
+  background-color: #111111;
+  padding: 10px 0;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  font-size: 16pt;
+  font-weight: bolder;
+  text-align: center;
+  color: white;
 }
 
 .login {

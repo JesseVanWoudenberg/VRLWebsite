@@ -16,14 +16,23 @@ class DriverController extends Controller
     {
         $totalpoints = 0;
 
-        $racedrivers = Racedriver::all()->where('driver_id', $driver->id);
+        $racedrivers = Racedriver::query()
+            ->select('driver_id', 'dnf', 'race_id', 'position')
+            ->whereIn('racedrivers.race_id',(function ($query) {
+                $query->from('races')
+                    ->select('races.id')
+                    ->whereIn('races.tier_id',(function ($query) {
+                        $query->from('tiers')
+                            ->select('tiers.id')
+                            ->where('tiernumber', '=', 1);
+                    }));
+            }))
+            ->where('racedrivers.dnf','=',0)
+            ->where('driver_id', '=', $driver->id)
+            ->where('position', '<', '11')
+            ->get();
 
         foreach ($racedrivers as $racedriver) {
-
-            // Ignore result if the driver dnf'd
-            if ($racedriver->dnf == 1) {
-                continue;
-            }
 
             if ($racedriver->race->raceformat->format == "full") {
 
